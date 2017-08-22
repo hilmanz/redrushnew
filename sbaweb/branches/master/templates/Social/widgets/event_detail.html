@@ -1,0 +1,134 @@
+<script type="text/javascript" src="js/thickbox/thickbox.js"></script>
+<link rel="stylesheet" href="js/thickbox/thickbox.css" type="text/css" media="screen" />
+
+<script language="javascript" type="text/javascript">
+var eventid = {$event_id};
+var jumlah_comment = {$num_com};
+{literal}
+function textCounter( field, countfield, maxlimit ) {
+  if ( field.value.length > maxlimit )
+  {
+    field.value = field.value.substring( 0, maxlimit );
+    //alert( 'Textarea value can only be 255 characters in length.' );
+    return false;
+  }
+  else
+  {
+    countfield.value = maxlimit - field.value.length;
+  }
+}
+
+var change_comment = true;
+var new_id = 0;
+$(document).ready(function(){
+	$('#btn-comment').click(function(){
+		addComment();
+	});
+	$('#form-comment').submit(function(){
+		addComment();
+	});
+});
+
+function addComment(){
+	if( change_comment ){
+		change_comment = false;
+		
+		$.post('?events=1&act=comment&sid='+eventid+'&text='+$('#comment').val(), function(data) {
+			if( data == 1 ){
+				/*	
+				var temp = "";
+				temp += '<li id="new-'+new_id+'" style="margin-bottom: 20px;">';
+				temp += '<div>';
+				temp += '<div style="float:left;width:75px;margin-right:20px;">';
+				temp += '<img src="images/thumb/thumb-75x75-1.jpg" width="75" heigth="75" />';
+				temp += '</div>';
+				temp += '<div style="float:right;width:305px">';
+				temp += $('#comment').val();
+				temp += '<p></p>';
+				temp += '</div>';
+				temp += '<div style="clear:both;"></div>';
+				temp += '</div>';
+				temp += '</li>';
+				
+				var ncom = $( temp ).hide().fadeIn(1300);
+				$('#list-comments').append( ncom );
+				new_id = new_id + 1;
+				
+				jumlah_comment = jumlah_comment + 1;
+				$('#numer-com').html( jumlah_comment );
+				$('#comment').val('');
+				$('#counter').val('140');
+				*/
+				change_comment = true;
+				//alert( "Your Comment Has Been Sent For Moderation. Thank You For Your Post" );	
+				window.location.href = "index.php?events=1&id="+eventid;
+			}else{
+				alert( "Processing comment failed, please try again" );
+			}
+		});
+		
+	}else{
+		return false;
+	}
+}
+
+function hideComment(id){
+		$.post('?events=1&act=hide&sid='+id, function(data) {
+			if( data == 1 ){
+				$('#licom-'+id).fadeOut(1300);	
+			}else{
+				alert( "Processing hide comment failed, please try again" );
+			}
+		});
+}
+</script>
+{/literal} 
+				<div style="margin-bottom: 20px;">
+					<p>
+					{if $ext == ''}
+					<img src="contents/events/nothumb.jpg" width="110" height="120" />
+					{else}
+					<a href="contents/events/big_{$id}{$ext}" title="" class="thickbox"><img src="contents/events/{$id}{$ext}" width="110" height="120" /></a>
+					{/if}
+					</p>
+					<div style="margin-bottom:10px;">{$tanggal}</div>
+					<h1 style="color:#f00;clear:both;float:none;margin-bottom:10px;">{$judul|stripslashes|strip_tags}</h1>
+                    <div style="text-align:justify;">{$isi}</div>
+                </div>
+				<p style="color:#f00;">Comments (<span id="numer-com">{$num_com}</span>)</p>
+				<div>
+				<ul id="list-comments" style="padding:0px;margin:0px;list-style-type:none;width:400px">
+					{section name=i loop=$com}
+					<li style="margin-bottom: 20px;" id="licom-{$com[i].id}">
+						<div>
+							<div style="float:left;width:75px;margin-right:20px;">
+								<img src="{$com[i].small_img}" width="75" heigth="75" />
+							</div>
+							<div style="float:right;width:305px">
+							<a href="index.php?profile=1&profile_id={$com[i].user_id}">{$com[i].name|stripslashes|strip_tags}</a><br/>
+								{$com[i].comments|strip_tags|stripslashes}
+								{if $userid == $event_userid }
+									{if $com[i].user_id != $userid }
+									<p><a href="javascript:void(0);" onclick="javascript:hideComment({$com[i].id});">hide this comment</a></p>
+									{/if}
+								{/if}
+							</div>
+							<div style="clear:both;"></div>
+						</div>
+					</li>
+					{/section}
+					
+				</ul>
+				</div>
+				<div style="width:400px;">
+					<p style="color:#f00"><b>Comment</b></p>
+					{literal}
+					<form id="form-comment">
+					<textarea id="comment" style="width:400px;height:80px" onkeypress="textCounter(this,this.form.counter,140);"></textarea>
+					<div style="width:400px;">
+						<div style="float:left;"><input type="button" id="btn-comment" value="comment"  /></div>
+						<div style="float:right;"><input type="text" id="counter" style="width:30px" name="counter" maxlength="3" value="140" onblur="textCounter(this.form.counter,this,140);" ></div>
+					</div>
+					</form>
+					{/literal}
+			</div>

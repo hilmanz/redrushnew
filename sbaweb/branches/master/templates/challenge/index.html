@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Challenge</title>
+<link rel="stylesheet" href="css/min/reset.css" />
+<link rel="stylesheet" href="css/min/text.css" />
+<link rel="stylesheet" href="css/min/960.css" />
+<link rel="stylesheet" href="css/connection.css" />
+<script src="js/jquery-1.6.2.min.js" type="text/javascript" language="javascript"></script>
+<script type="text/javascript" src="js/fullscreen.js"></script>
+<script type="text/javascript">
+
+var bb1show = {if $bonus.bonus1 eq 0}0{else}1{/if};
+var bb2show = {if $bonus.bonus2 eq 0}0{else}1{/if};
+var finish = {if $check.finish eq '1'}1{else}0{/if};
+
+{literal}
+$(document).ready(function() {	
+	$("#go").click( function() {
+			var no = $('#go').attr('no');
+			//alert(no);
+			$(".step-"+no).fadeOut(1000);
+            $(".detail-"+no).delay(1000).slideDown(1000);
+       
+    }); 
+	$(".bb1").click(function() {
+		  $("#popup1").fadeToggle("slow", "linear");
+		});
+	$(".bb2").click(function() {
+		  $("#popup2").fadeToggle("slow", "linear");
+		});
+	$(".bb3").click(function() {
+		  $("#popup3").fadeToggle("slow", "linear");
+		});
+		
+		
+	if(bb1show == 0){
+		//alert('lksahdlkahskldhas');
+		$("#popup1").fadeToggle("slow", "linear");
+	}
+	if(bb2show == 0){
+		//alert('lksahdlkahskldhas kedua' );
+		$("#popup2").fadeToggle("slow", "linear");
+	}
+	if(finish == 1){
+		$("#popup3").fadeToggle("slow", "linear");
+	}
+	    
+});
+function upperCase()
+{
+var x=document.getElementById("code").value;
+document.getElementById("code").value=x.toUpperCase();
+}
+
+bb1Show=function() {
+	$("#popup1").fadeToggle("slow", "linear");
+}
+bb2Show=function() {
+	$("#popup2").fadeToggle("slow", "linear");
+}
+bb3Show=function() {
+	$("#popup3").fadeToggle("slow", "linear");
+}
+{/literal}
+
+</script> 
+</head>
+<body>
+<img src="images/challenge/bg.jpg" id="bg" alt="">
+<div class="container_12 wrapper">
+	<div class="grid_12 header"></div>
+	<div class="clearfix"></div>
+	<div class="grid_12 desc">
+    	<div class="content">
+    	<span>The Amazing Marlboro Race</span>
+    	<p></p>
+        <p>Go around town. Go places. Places that matter. Find out why they matter. Go around town. Go meet the people. People behind the scene. People that matter. Experience the places. Experience the people. Experience the Amazing Marlboro Journey.</p>
+        </div>
+    </div>
+	<div class="clearfix"></div>
+
+	<div class="grid_12 content">
+	<div class="content_bg"></div>
+	
+	<div class="bonus_badge">
+		<img alt="bonus badge" src="images/challenge/bonus.png" width="120" height="21">
+		<div class="bb_box">				
+			<div class="bb_label">
+			{if $check.lamp eq '0'}
+			<img alt="party animal" src="images/challenge/bonus_unbadge.png" width="97" height="96">
+			{elseif $check.lamp eq '1'}
+			<img class="bb1" alt="party animal" src="images/challenge/bb_party.png" width="83" height="90" style="margin-left:10px">
+			<img alt="party animal" src="images/challenge/party.png" width="100" height="18">
+			{/if}
+			</div>
+			<div class="bb_label">
+			{if $check.trade eq '0'}
+			<img alt="checkout" src="images/challenge/bonus_unbadge.png" width="97" height="96">
+			{elseif $check.trade eq '1'}
+			<img class="bb2" alt="checkout" src="images/challenge/bb_checkout.png" width="83" height="90" style="margin-left:10px;">
+			<img alt="checkout" src="images/challenge/checkout.png" width="78" height="19" style="margin-left:10px">
+			{/if}
+			</div>
+			<div class="bb_label">
+			{if $check.finish eq '0'}
+			<img alt="mission complete" src="images/challenge/bonus_unbadge.png" width="97" height="96" style="margin-left:10px">
+			{elseif $check.finish eq '1'}
+			<img class="bb3" alt="mission complete" src="images/challenge/bb_mission.png" width="83" height="90" style="margin-left:25px">
+			<img alt="mission complete" src="images/challenge/mission.png" width="133" height="19">
+			{/if}
+			</div>
+		</div>
+	</div>
+	
+    	<div class="headtitle">
+        	<div class="headtitle_left"></div>
+            <div class="headtitle_mid">
+            	<span>TAKE THE CHALLENGE!</span>
+            </div>
+            <div class="headtitle_right"></div>
+        </div>
+     
+        {$mainContent}
+      <div id="popup1" class="bonus_popup box_round box_shadow" style="display:none">
+      	<div class="border_popup box_round">
+      		<div class="inner_popup box_round">
+      			<a class="bb1 close_popup"></a>
+      			<img alt="party animal" src="images/challenge/bb_party-big.png" width="265" height="288">
+      			<div class="popup_content">
+      			<p class="popup_title">Party Animal</p>
+      			<p class="popup_desc">Congratulations, you've collected all "Clubhopper" badges!<br>
+									You've visited the places where the hip hangout and the cool converge.<br>
+									Here's a toast to your success, now let's get down to the floor and dance. 
+				</p>
+				<p class="popup_desc" style="color:#999">
+									Cheers!
+				</p>
+				</div>
+      		</div>
+      	</div>
+      </div>
+      <div id="popup2" class="bonus_popup box_round box_shadow" style="display:none">
+      	<div class="border_popup box_round">
+      		<div class="inner_popup box_round">
+      			<a class="bb2 close_popup"></a>
+      			<img alt="party animal" src="images/challenge/bb_checkout-big.png" width="265" height="288">
+      			<div class="popup_content">
+      			<p class="popup_title">Checkout</p>
+      			<p class="popup_desc">Congratulations, you've collected all "Five and Dime" badges!<br>
+									From the store front to the backdoor, make sure it's a fair trade. 
+				</p>
+				</div>
+      		</div>
+      	</div>
+      </div>
+      <div id="popup3" class="bonus_popup box_round box_shadow" style="display:none">
+      	<div class="border_popup box_round">
+      		<div class="inner_popup box_round">
+      			<a class="bb3 close_popup"></a>
+      			<img alt="party animal" src="images/challenge/bb_mission-big.png" width="265" height="288">
+      			<div class="popup_content">
+      			<p class="popup_title">Mission Complete</p>
+      			<p class="popup_desc">Congratulations, you've finished  ALL the checkpoints!<br>
+      								 	Hope you've enjoyed the journey! Now go back to Base Camp for a well deserved rest. 
+				</p>
+				<p style="color:#ccc;font-size:18px;">
+									Good job!
+				</p>
+				</div>
+      		</div>
+      	</div>
+      </div>   
+    </div>
+    <div class="clearfix"></div>
+    <div class="grid_12 end_content"></div>
+</div>
+<!-- end .container_12 -->
+<div id="footpanel">
+	<div id="hw">
+  	</div>
+</div>
+
+
+    <script type="text/javascript" language="javascript">
+    {literal}
+      //stick the footer at the bottom of the page if we're on an iPad/iPhone due to viewport/page bugs in mobile webkit
+	  if(navigator.platform == 'iPad' || navigator.platform == 'iPhone' || navigator.platform == 'iPod')
+	  {
+		  $("#footpanel").css("position", "static");
+		};
+		{/literal}
+	</script>
+	
+	
+
+</body>
+</html>

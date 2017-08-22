@@ -1,0 +1,40 @@
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+	<td>
+    	<h1>MERCHANDISE LIST</h1>
+    </td>
+    <td align="right">
+    	<form>Search: <input name="q" type="text" {if $q}value="{$q}"{/if}><input name="s" type="hidden" value="merchandise"><input name="go" type="submit" value="Go"></form>
+    </td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="addlist zebra">
+  <tr>
+    <td width="10" align=" "><strong>ID</strong></td>
+	<td align=" "><strong>Level</strong></td>
+    <td align=" "><strong>Merchandise</strong></td>
+    <td align=" "><strong>Amount</strong></td>
+    <td align=" "><strong>Prizes</strong></td>
+    <td align=" "><strong>Input Date</strong></td>
+    <td align=" "><strong>Status</strong></td>
+    <td align=" "><strong>Action</strong></td>
+  </tr>
+  {section name=n loop=$list}
+  <tr>
+  	
+    <td>{$list[n].id}</td>
+	 <td>{$list[n].level}</td>
+    <td>{$list[n].item_name} {if $list[n].img!=null}<br><img src="../public_html/img/merchandise/thumb_{$list[n].img}" width="64px">{/if}</td>
+    <td align=" ">{$list[n].amount}</td>
+    <td align=" ">{$list[n].prize}</td>
+    <td align=" ">{$list[n].created_date}</td>
+    <td align=" ">{if $list[n].n_status eq 1}Publish{else}Unpublish{/if}</td>
+    <td align=" ">
+    <a href="index.php?s=merchandise&act=edit&id={$list[n].id}"><strong>Edit</strong></a> | 
+    <a href="index.php?s=merchandise&act=change-status&id={$list[n].id}&status={if $list[n].n_status eq 0}1{else}0{/if}"><strong>Change Status</strong></a><strong> | 
+    <a href="index.php?s=merchandise&act=delete&id={$list[n].id}" onclick="return confirm('Are you sure you want to delete?')">Delete</a></strong></td>
+  </tr>
+  {/section}
+</table>
+<div class="paging">{$paging}</div>

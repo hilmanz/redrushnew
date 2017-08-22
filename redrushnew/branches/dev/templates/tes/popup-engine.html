@@ -1,0 +1,50 @@
+
+
+	<div id="popup-engine" class="partbar">
+		<a class="popup-close" href="#popup-engine">[x] Close</a>
+        <div class="content-popup">
+          <ul class="jcarousel-skin-tango list-sparepart-carousel">
+                 {section name=i loop=$parts.engines}
+					<li >
+						  <div class="sparepart-list">
+							<div class="thumb-sparepart"><img src="contents/delivery/parts/{$parts.engines[i]->img}" alt="" />
+                            {if $parts.engines[i]->level > $level}<img src="img/part_lock.png" class="partlock" />{/if}
+                           
+                           {section name=c loop=$cek_winning_ultimate_car}
+                           {*}<h1>{$cek_winning_ultimate_car[c]->level}</h1>{/*}
+                           {if $parts.engines[i]->level == $cek_winning_ultimate_car[c]->level+1}
+                                {if $cek_winning_ultimate_car[c]->total==0}
+                                <img src="img/part_lock.png" class="partlock" />
+                                {/if} 
+                            {/if}
+                           {/section}
+                            
+                            </div>
+							<div class="sparepart-detail">
+								<span class="sparepart-name">LEVEL {$parts.engines[i]->level}</span><br>
+								<span class="sparepart-name" >{$parts.engines[i]->name} </span><br>
+								<span class="sparepart-point  {$parts.engines[i]->id}_class">{if $parts.engines[i]->ownPart eq 0} {$parts.engines[i]->price} PTS. {else} PURCHASED {/if}</span>
+							<a href="javascript:void(0)" type-part="engine" part_point="{$parts.engines[i]->price}" part_id="{$parts.engines[i]->id}" img_path="contents/delivery/parts/{$parts.engines[i]->img}"  class="purchasePartFirst {if $parts.engines[i]->level > $level}{elseif $parts.engines[i]->ownPart eq 0} buy-item {/if} {$parts.engines[i]->id}_purchase"  ></a>   
+							</div>
+						   </div>          
+				  </li>
+						  {/section}
+              
+          </ul>
+       </div>
+       
+    
+    <div class="confirm-buy engine" style="display:none;">
+            <h2>Confirm</h2>
+			<div class="thumb-sparepart" ><img class="purchase_img" src="contents/delivery/parts/{$parts.engines[0]->img}" alt="" /></div>
+            <h3 class="">Purchase This Part ?</h3>
+            <span class="sparepart-point  purchase_point" >{if $parts.engines[0]->ownPart eq 0} {$parts.engines[0]->price} PTS. {else} PURCHASED {/if}</span>
+            <div class="confirm-btn">
+              <a href="javascript:void(0)" part_id="{$parts.engines[0]->id}" class="purchasePart purchase"  >Yes</a>
+                <a href="#" class="cancel-purchase">Exit</a>
+            </div>
+        </div>    
+	</div>
+	<div class="backgroundPopup"></div>
+    
+    

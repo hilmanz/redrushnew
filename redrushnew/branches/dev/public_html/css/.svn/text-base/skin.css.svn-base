@@ -1,0 +1,529 @@
+.jcarousel-skin-tango .jcarousel-container {
+}
+
+.jcarousel-skin-tango .jcarousel-direction-rtl {
+	direction: rtl;
+}
+
+.jcarousel-skin-tango .jcarousel-container-horizontal {
+    width:720px;
+    padding: 0 40px;
+}
+.jcarousel-skin-tango .jcarousel-clip {
+    overflow: hidden;
+}
+.list-sparepart-carousel{
+    width:  720px;
+}
+.jcarousel-skin-tango .jcarousel-clip-horizontal {
+    width:  695px;
+    height: 110px;
+}
+.merchandise .jcarousel-skin-tango .jcarousel-clip-horizontal {
+    width:  340px;
+    height: 260px;
+}
+
+.merchandise .jcarousel-skin-tango .jcarousel-container-horizontal {
+    width:250px;
+    padding: 0 40px;
+}
+.jcarousel-skin-tango .jcarousel-item-horizontal {
+    width: 340px;
+	background:#000;
+	text-align:center;
+    height: 95px;
+}
+.merchandise .jcarousel-skin-tango .jcarousel-item-horizontal {
+    width: 250px;
+	background:none;
+	text-align:center;
+    height: 260px;
+}
+.jcarousel-skin-tango .jcarousel-item img{
+	margin:0 auto;
+	height:85px;
+	position:absolute;
+	left:10px;
+	top:10px;
+}
+
+.jcarousel-skin-tango .jcarousel-item-horizontal {
+	margin-left: 0;
+    margin-right: 10px;
+}
+
+.jcarousel-skin-tango .jcarousel-direction-rtl .jcarousel-item-horizontal {
+	margin-left: 10px;
+    margin-right: 0;
+}
+.jcarousel-skin-tango .jcarousel-item-placeholder {
+    background: #000;
+    color: #FFF;
+}
+
+/**
+ *  Horizontal Buttons
+ */
+.jcarousel-skin-tango .jcarousel-next-horizontal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    width: 32px;
+    height: 67px;
+    cursor: pointer;
+    background: transparent url(../img/arrow_right.png) no-repeat 0 0;
+}
+.merchandise .jcarousel-skin-tango .jcarousel-next-horizontal {
+    position: absolute;
+    top: 100px;
+    right: 5px;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    background: transparent url(../img/arrow_grey_right.png) no-repeat 0 0;
+}
+.jcarousel-skin-tango .jcarousel-next-disabled,.jcarousel-skin-tango .jcarousel-next-horizontal:hover{
+    background: transparent url(../img/arrow_right_hover.png) no-repeat 0 0;
+}
+.merchandise .jcarousel-skin-tango .jcarousel-next-disabled,.merchandise .jcarousel-skin-tango .jcarousel-next-horizontal:hover{
+    background: transparent url(../img/arrow_grey_right.png) no-repeat 0 0;
+}
+
+.jcarousel-skin-tango .jcarousel-direction-rtl .jcarousel-next-horizontal {
+    left: 5px;
+    right: auto;
+    background: transparent url(../img/arrow_right.png) no-repeat 0 0;
+}
+.jcarousel-skin-tango .jcarousel-prev-horizontal{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 32px;
+    height: 67px;
+    cursor: pointer;
+    background: transparent url(../img/arrow_left.png) no-repeat 0 0;
+}
+.jcarousel-skin-tango .jcarousel-prev-disabled,.jcarousel-skin-tango .jcarousel-prev-horizontal:hover{
+    background: transparent url(../img/arrow_left_hover.png) no-repeat 0 0;
+}
+.merchandise .jcarousel-skin-tango .jcarousel-prev-horizontal{
+    position: absolute;
+    top: 100px;
+    left: 5px;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    background: transparent url(../img/arrow_grey_left.png) no-repeat 0 0;
+}
+.merchandise  .jcarousel-skin-tango .jcarousel-prev-disabled,.merchandise .jcarousel-skin-tango .jcarousel-prev-horizontal:hover{
+    background: transparent url(../img/arrow_grey_left.png) no-repeat 0 0;
+}
+.jcarousel-skin-tango .jcarousel-item-vertical {
+    width: 320px;
+	background:url(../img/trans_black.png) repeat;
+	text-align:center;
+    height: 100px;
+	padding:10px 0;
+	-moz-box-shadow:0 0 10px #FFF,0 0 10px #FFF;
+	-webkit-box-shadow:0 0 10px #FFF,0 0 10px #FFF;
+	box-shadow:0 0 10px #FFF,0 0 10px #FFF;
+}
+.jcarousel-skin-tango .jcarousel-container-vertical {
+    width: 320px;
+    height: 385px;
+    padding: 15px 0;
+}
+.jcarousel-skin-tango .jcarousel-clip-vertical {
+    width:  320px;
+    height: 365px;
+	overflow:hidden;
+	padding:0;
+	-moz-box-shadow:0 0 10px #FFF,0 0 10px #FFF;
+	-webkit-box-shadow:0 0 10px #FFF,0 0 10px #FFF;
+	box-shadow:0 0 10px #FFF,0 0 10px #FFF;
+}
+.jcarousel-skin-tango .jcarousel-item-vertical {
+    margin-bottom: 3px;
+}
+/**
+ *  Vertical Buttons
+ */
+.jcarousel-skin-tango .jcarousel-next-vertical {
+    position: absolute;
+    bottom: 5px;
+    left: 125px;
+    width: 67px;
+    height: 18px;
+    cursor: pointer;
+	z-index:80;
+    background: transparent url(../img/arrow_bottom.png) no-repeat 0 0;
+}
+.jcarousel-list-vertical{
+	z-index:80;
+	height:400px;
+}
+
+.jcarousel-skin-tango .jcarousel-prev-vertical {
+    position: absolute;
+    top: -10px;
+    left: 125px;
+    width: 67px;
+    height: 18px;
+    cursor: pointer;
+	z-index:80;
+    background: transparent url(../img/arrow_top.png) no-repeat 0 0;
+}
+
+.jcarousel-container-vertical .jcarousel-prev-disabled,.jcarousel-container-vertical .jcarousel-prev-vertical:hover{
+    background: transparent url(../img/arrow_top_hover.png) no-repeat 0 0;
+}
+.jcarousel-container-vertical .jcarousel-next-disabled,.jcarousel-container-vertical .jcarousel-next-vertical:hover{
+    background: transparent url(../img/arrow_bottom_hover.png) no-repeat 0 0;
+}
+.garage-bg .backgroundPopup {
+	display:none;
+	position:fixed;
+	_position:absolute; /* hack for internet explorer 6*/
+	height:100%;
+	width:100%;
+	top:0;
+	background:none;
+	left:0;
+	z-index:50;
+}
+.backgroundPopup,#bgPopup {
+	display:none;
+	position:fixed;
+	_position:absolute; /* hack for internet explorer 6*/
+	height:100%;
+	width:100%;
+	top:0;
+	left:0;
+	background:#000;
+	z-index:50;
+}
+#bgPopup{
+	background:url(../img/trans_black.png) repeat;
+	position:fixed;
+}
+.partbar{
+	position:absolute;
+	top:-100px;
+	z-index:60;
+	left:195px;
+}
+.garage-bg .popup {
+	display:none;
+	position:absolute; /* hack for internet explorer 6*/
+	height:380px;
+	width:720px;
+	z-index:360;
+	padding:12px;
+	font-size:13px;
+	left:50%;
+	top:50%;
+	margin:-318px 0 0 -10px;
+	background:none;
+}
+.popup {
+	background:url(../img/bg_popup.jpg) no-repeat;
+	display:none;
+	position:absolute; /* hack for internet explorer 6*/
+	height:290px;
+	width:485px;
+	z-index:60;
+	font-size:13px;
+	left:50%;
+	top:140px;
+	margin:0px 0 0 -240px;
+}
+.popmessage{
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+    min-height: 120px;
+    left: 50%;
+    margin: 0 0 0 -192px;
+    padding: 20px 40px;
+    text-align: center;
+    top: 100px;
+    width: 300px;
+	height:auto;
+	z-index:100;
+}
+.popupClose{
+	background:url(../img/trans_black.png) repeat;
+	padding:5px 15px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	width:80px;
+	display:block;
+	margin:20px auto 0 auto;
+	font-family: 'BebasNeueRegular';
+	font-size:24px;
+}
+a.popupClose:hover{
+	background:#330000;
+	color:#fff;
+	text-decoration:none;
+}
+.popmessage h1{
+	margin:0;
+	font-size:20px;
+}
+.popupmerchandise{
+	background:none;
+	top:0;
+	margin:17px 0 0 -176px;
+}
+.inner-popup{
+	padding:15px;
+	overflow:hidden;
+}
+.popup-close {
+	background:url(../img/close.png) no-repeat;
+	text-indent:-5000px;
+	display:block;
+	width:24px; height:24px;
+	font-size:14px;
+	line-height:14px;
+	right:-10px;
+	top:-10px;
+	position:absolute;
+	color:#fff;
+	font-weight:700;
+	font-family: 'BebasNeueRegular';
+	font-weight:normal;
+	display:block;
+	z-index:100;
+}
+.garage-bg .popup-close {
+	background:url(../img/arrow_closetop.png) no-repeat;
+	text-indent:-5000px;
+	display:block;
+	width:30px; height:24px;
+	font-size:14px;
+	line-height:14px;
+	right:-10px;
+	top:0;
+	position:absolute;
+	color:#fff;
+	font-weight:700;
+	font-family: 'BebasNeueRegular';
+	font-weight:normal;
+	display:block;
+	z-index:100;
+}
+.partbar .popup-close{
+	left:auto;
+   	right: -50px;
+    top: -10px;
+}
+.garage-bg .popup-close {
+	color:#F00;
+}
+.sparepart-list{
+	height:100px;
+	overflow:hidden;
+	text-align:left;
+	font-family: 'BebasNeueRegular';
+	font-size:20px;
+	line-height:20px;
+}
+.thumb-sparepart{
+	width:160px;
+	float:left;
+	height:100px;
+	overflow:hidden;
+	margin:0 10px 0 0;
+	text-align:center;
+	position:relative;
+}
+.sparepart-desc span{
+	display:block;
+}
+.sparepart-point{
+	color:#fff200;
+}
+a.buy-item{
+	background:url(../img/btn_buy.png) no-repeat;
+	width:57px; height:25px; display:block;
+	margin:-2px -3px 0 0;
+	text-decoration:none;
+	float:right;
+}
+.sparepart-detail{
+	float:left;
+	padding:15px 0;
+	width:165px;
+}
+a.buy-item:hover{
+	background:url(../img/btn_buy_hover.png) no-repeat;
+}
+a.use-item{
+	background:url(../img/btn_use.png) no-repeat;
+	width:57px; height:25px; display:block;
+	margin:-3px 0 0 74px;
+	text-decoration:none;
+	float:right;
+}
+a.use-item:hover{
+	background:url(../img/btn_use_hover.png) no-repeat;
+}
+.sparepart-desc{
+	float:left;
+}
+.savecar,.carView{
+    background: none repeat scroll 0 0 #FFF000;
+    border: 1px solid #990000;
+    color: #333333;
+    cursor: pointer;
+    float: left;
+    font-family: 'BebasNeueRegular';
+    font-size: 15px;
+    line-height: 20px;
+    padding: 0 2px;
+	width:135px;
+}
+.colorList{
+	float:left;
+}
+.savecar:hover,.carView:hover{
+	background:#C00;
+	color:#fff;
+}
+.sparepart-name{
+	font-size:13px;
+}
+.content-popup{
+	width:680px;
+	position:relative;
+	height:100px;
+}
+.rotate-car{
+	position:absolute;
+	top:260px;
+	z-index:50;
+	left:250px;
+}
+.rotateLeft:hover{
+	background:url(../img/rotate_hover.png) no-repeat;
+}
+.rotateLeft{
+	display:block;
+	width:100px; height:100px;
+	background:url(../img/rotate.png) no-repeat;
+	border:none;
+	text-indent:-3000px;
+}
+#merchandise-list .jcarousel-skin-tango .jcarousel-item{
+	position:relative;
+}
+#merchandise-list .jcarousel-skin-tango .jcarousel-item img{
+	width:250px; height:260px;
+	position:absolute;
+    left: 235px;
+}
+#merchandise-list .jcarousel-skin-tango .jcarousel-clip-horizontal{
+    width:500px;
+	height:260px;
+}
+#merchandise-list .jcarousel-skin-tango .jcarousel-container-horizontal {
+    width:500px;
+    padding: 0 30px;
+}
+.merchandise .jcarousel-skin-tango .jcarousel-item-horizontal{
+	width:500px;
+}
+#merchandise-list .description{
+    padding: 0 0 0 30px;
+    position: absolute;
+    text-align: left;
+    top: 50px;
+    width: 200px;
+}
+.merchandise .btn-backs{
+    left: 30px;
+    position: absolute;
+    top: 140px;
+}
+#merchandise-list .btn-redeem2{
+    float: none;
+    left: 120px;
+    top: 140px;
+    position: absolute;
+}
+.merchandise-list{
+    left: 21px;
+    top: 105px;
+    width: 500px;
+}
+.description .orange {
+    color: #FFBA00;
+    font-size: 20px;
+}
+.gradients{
+	background: #ff0000; /* Old browsers */
+	background: -moz-radial-gradient(center, ellipse cover, #ff0000 0%, #d10000 56%, #660000 100%); /* FF3.6+ */
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#ff0000), color-stop(56%,#d10000), color-stop(100%,#660000)); /* Chrome,Safari4+ */
+	background: -webkit-radial-gradient(center, ellipse cover, #ff0000 0%,#d10000 56%,#660000 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-radial-gradient(center, ellipse cover, #ff0000 0%,#d10000 56%,#660000 100%); /* Opera 12+ */
+	background: -ms-radial-gradient(center, ellipse cover, #ff0000 0%,#d10000 56%,#660000 100%); /* IE10+ */
+	background: radial-gradient(center, ellipse cover, #ff0000 0%,#d10000 56%,#660000 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff0000', endColorstr='#660000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+.carbons{
+	background:url(../img/bg-carbon.png) no-repeat;
+}
+#popup-ultimate-car,#popup-locked-part{
+	width:626px;
+	height:384px;
+	padding:20px;
+	margin:40px 0 0 -350px;
+	-moz-border-radius:20px;
+	-webkit-border-radius:20px;
+	border-radius:20px;
+	text-align:center;
+	color:#fff;
+    font-family: 'BebasNeueRegular';
+	text-shadow:0 1px 2px #000;
+}
+#popup-ultimate-car h1{
+	color:#FF0;
+	font-size:22px;
+	margin:0;
+}
+#popup-locked-part h1{
+	color:#FF0;
+	font-size:20px;
+}
+#popup-locked-part p{
+	margin:0;
+}
+#popup-ultimate-car p{
+	margin:20px 0;
+}
+#popup-ultimate-car p a{
+	font-size:18px;
+	color:#fff;
+	padding:5px 10px;
+	margin:0 10px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	-moz-box-shadow:0 1px 1px #F00;
+}
+#popup-ultimate-car p a:hover{
+	background:#900;
+	text-decoration:none;
+}
+#popup-ultimate-car .popup-close,#popup-locked-part .popup-close{
+	right:30px;
+	top:20px;
+}
+#popup-ultimate-car .inner-popup,#popup-locked-part .inner-popup{
+	width:600px;
+	margin:0 auto;
+}

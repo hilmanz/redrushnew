@@ -1,0 +1,91 @@
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+	<td>
+    	<h1>NEWS MANAGEMENT</h1>
+    </td>
+</tr>
+</table>
+{if $msg}<div style="color:#cc0000;">{$msg}</div>{/if}
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="addlist zebra">
+  <tr>
+	<td colspan="10">
+		<span style="display:inline-block;">
+		<form method="GET" action="index.php">
+		Category&nbsp;&nbsp;
+		<input type="hidden" name="s" value="news" />
+		<select name="group">
+			<option value="">All</option>
+			{section name=i loop=$cat}
+			{if $cat[i].category_id eq $cat_id}
+			<option value="{$cat[i].category_id}" selected="selected">{$cat[i].category_name}</option>
+			{else}
+			<option value="{$cat[i].category_id}">{$cat[i].category_name}</option>
+			{/if}
+			{/section}
+		</select>
+		<input type="submit" value=" GO " />
+		</form>
+		</span>
+		<span style="display:inline-block;margin-left:50px;">
+		<form>
+			<input type="text" name="kw" />
+			<input type="hidden" name="s" value="news" />
+			<input type="submit" value="Search" />
+		</form>
+		</span>
+	</td>
+  </tr>
+  <tr class="head">
+    <td><strong>ID</strong></td>
+    <td><strong>Title</strong></td>
+    <td><strong>Brief</strong></td>
+    <td><strong>Category</strong></td>
+    <td><strong>Date</strong></td>
+    {*}<td><strong>What's HOT'</strong></td>{\*}
+    {*}<td><strong>Comments</strong></td>{\*}
+    <td><strong>Status</strong></td>
+    <td><strong>Featured</strong></td>
+    <td  width="160"><strong>Action</strong></td>
+  </tr>
+  {section name=i loop=$list}
+  <tr>
+    <td valign="top">{$list[i].id}</td>
+    <td valign="top">{$list[i].title|stripslashes|strip_tags}</td>
+    <td valign="top">{$list[i].brief|stripslashes|strip_tags}</td>
+    <td valign="top">{$list[i].category|stripslashes|strip_tags}</td>
+    <td valign="top">{$list[i].posted_date|stripslashes|strip_tags}</td>
+     {*}
+	 <td valign="top">
+        <a href="index.php?s=hotbanner&new=1&article_id={$list[i].id}"><font color="green">Add to Banner</font></a>
+	</td>
+	{\*}
+    <td align="center" valign="top">{if $list[i].comment > 0}<a href="index.php?s=news&act=comment&id={$list[i].id}">{$list[i].comment}</a>{else}0{/if}</td>
+    <td valign="top">
+    	{if $list[i].status eq 0}
+    	Tidak aktif
+    	{else}
+    	Aktif
+    	{/if}
+    </td>
+    <td valign="top">{if $list[i].featured eq 0}
+    	No
+    	{else}
+    	Yes
+    	{/if}</td>
+    <td valign="top">
+    	{if $list[i].featured eq 0}
+    	<a href="index.php?s=news&act=featured&id={$list[i].id}&f=1">Add Featured</a> | 
+        {else}
+        <a href="index.php?s=news&act=featured&id={$list[i].id}&f=0">Remove Featured</a> | 
+    	{/if}
+		{if $list[i].category_id==4}
+		<a href="index.php?s=news&act=editcalendar&id={$list[i].id}">Edit</a>&nbsp;|&nbsp;
+		{else}
+		<a href="index.php?s=news&act=edit&id={$list[i].id}">Edit</a>&nbsp;|&nbsp;
+		{/if}
+		<a href="index.php?s=news&act=delete&id={$list[i].id}">Delete</a></td>
+  </tr>
+  {/section}
+</table>
+<p>{$paging}</p>

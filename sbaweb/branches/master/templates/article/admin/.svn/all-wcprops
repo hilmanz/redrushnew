@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/sba/!svn/ver/2/branches/master/templates/article/admin
+END
+edit.html
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/sba/!svn/ver/2/branches/master/templates/article/admin/edit.html
+END
+manage.html
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/sba/!svn/ver/2/branches/master/templates/article/admin/manage.html
+END
+new.html
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/sba/!svn/ver/2/branches/master/templates/article/admin/new.html
+END

@@ -1,0 +1,45 @@
+{section name=i loop=$feeds}
+<div class="list wall">
+	<a class="small-thumb" href="index.php?profile=1&profile_id={$feeds[i].user_id}">
+	{if $feeds[i].small_img}<img src="contents/images/tiny_{$feeds[i].user_id}.jpg"/>{else}<img src="images/no_photo_small.gif"/>{/if}</a>
+    <div class="text">
+        <span class="post-comment"><a href="index.php?profile=1&profile_id={$feeds[i].user_id}" class="username">{$feeds[i].name|strip_tags}</a>
+        {$feeds[i].post|stripslashes|strip_tags}
+         </span>
+        <p class="comment-act">
+        <span class="time inline">{$feeds[i].post_time}</span> - <a class="likethiscomment" href="javascript:;" id="like{$feeds[i].post_id}" onclick="likeit({$feeds[i].post_id})">Like {if $feeds[i].like>0}({$feeds[i].like}){/if}</a> - <a class="comment-link" href="javascript:;" onclick="comment_box({$feeds[i].post_id});return false;">Comment</a> - <span id="replies{$feeds[i].post_id}" class="span-11 prepend-1 last box" style="display:none;"><a href="javascript:;" onclick="view_comment({$feeds[i].post_id});return false;">View Comments ({$feeds[i].reply})</a></span>
+        
+        </p>
+       
+    </div>
+	<div id="comment{$feeds[i].post_id}" style="display:none;"><input type="text" name="txtcomment{$feeds[i].post_id}" id="txtcomment{$feeds[i].post_id}" size="40" value=""/></div>
+	<span id="rs{$feeds[i].post_id}" class="info" style="display:none;">saving comment ...</span>
+	
+	<script>
+	$('#txtcomment{$feeds[i].post_id}').click(function(){literal}{
+		{/literal}
+			var el = 'txtcomment{$feeds[i].post_id}';
+			{literal}
+			$('#'+el).val("");
+			
+	});{/literal}
+	$('#txtcomment{$feeds[i].post_id}').keypress(function(event){literal}{
+		{/literal}
+			var el = 'txtcomment{$feeds[i].post_id}';
+			var el1 = 'comment{$feeds[i].post_id}';
+			var el2 = 'rs{$feeds[i].post_id}';
+			var pid = {$feeds[i].post_id};
+			{literal}
+		if(event.which==13){
+			//enter
+			$('#'+el1).hide();
+			$('#'+el2).show();
+			reply(pid,$('#'+el).val());
+		}
+	});{/literal}
+	</script>
+	<script>
+	has_comment({$feeds[i].post_id});
+	</script>
+</div>
+{/section}

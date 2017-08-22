@@ -1,0 +1,277 @@
+body{
+	background:none no-repeat top #45b1f7;
+	}
+#bg { position: absolute; top: 0; left: 0; }
+.bgwidth { width: 100%; height:1000px; }
+.bgheight { height: 100%; }
+.wrapper{
+	margin-bottom:103px;
+	}
+.header{
+	background:url(../images/challenge/header.png) no-repeat center transparent;
+	height:205px;
+	}
+.desc{
+	background:url(../images/challenge/desc.png) repeat center transparent;
+	height:190px;
+	color:#333333;
+	}
+.desc .content{
+	background: none repeat scroll 0 0 transparent;
+    margin-left: 0;
+    min-height: 0;
+    padding: 30px 85px;
+	}
+.desc span{
+	font-size:24px;
+	}
+.desc p{
+	font-size:15px;
+	}
+.bonus_badge{
+	position: absolute;
+    right: 95px;
+    top: 20px;
+	}
+.bonus_badge img{
+	margin-left: 0px;
+	}
+.bb_box{
+	margin-top: 10px;
+	}
+.bb_box img{
+	margin-left: 20px;
+    margin-right: 20px;
+	}
+.bb_label{
+	display: inline;
+	float: left;
+    width: 130px;
+	}
+.bb_label img{
+	margin-left: 0px;
+    margin-right: 0px;
+	}
+.content{
+	background:url(../images/challenge/body_bg.png) repeat-y center transparent;
+	min-height:300px;
+	position:relative;
+	}
+.content .content_bg{
+	background: url("../images/challenge/content_bg.jpg") no-repeat scroll center center transparent;
+    display: block;
+    height: 1059px;
+    left: 21px;
+    position: absolute;
+    width: 969px;
+	}
+.end_content{
+	background:url(../images/challenge/body_end.png) no-repeat center transparent;
+	height:23px;
+	margin-left:10px;
+	}
+	
+body > div#footpanel {
+    position: fixed;
+}
+
+div#footpanel {
+    bottom: 0;
+    font-size: 11px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+}
+#hw {
+    background: url(../images/challenge/hw.jpg) no-repeat scroll center center #FFFFFF;
+    border-top: 1px solid #FFFFFF;
+    float: left;
+    height: 80px;
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.headtitle{
+	position:absolute;
+	display:inline;
+	left:2px;
+	top: 95px;
+	}
+.headtitle_left{
+	background:url(../images/challenge/headtitle_left.png) no-repeat transparent;
+	height:57px;
+	width:19px;
+	float:left;
+	}
+.headtitle_mid{
+	background:url(../images/challenge/headtitle_mid.png) repeat-x transparent;
+	height:41px;
+	float:left;
+	padding: 10px 40px 0 70px;
+	}
+.headtitle_mid span{
+	font-size:22px;
+	color:#FFF;
+	}
+.headtitle_right{
+	background:url(../images/challenge/headtitle_right.png) no-repeat transparent;
+	width:7px;
+	height:51px;
+	float:left;
+	}
+.content_row{
+	border-top: 1px dotted #fff;
+    min-height: 300px;
+    margin: 180px 95px 95px;
+    position:relative;
+	}
+.row{
+	border-bottom: 1px dotted #fff;
+	min-height:150px;
+	padding-top: 35px;
+	display:inline-block;
+	}
+.badge{
+	float:left;
+	}
+.step, .step_detail{
+	float:right;
+	margin-left: 30px;
+    margin-top: 10px;
+	margin-bottom: 20px;
+	width: 600px;
+	}
+.step span, .step_detail span{
+	color:#333;
+	}
+.step p, .step_detail p{
+	font-size:12px;
+	}
+.button{
+	display:inline;
+	cursor:pointer;
+	}
+.button_left{
+	background:url(../images/challenge/button_left.png) no-repeat transparent;
+	height:41px;
+	width:19px;
+	float:left;
+	}
+.button_mid{
+	background:url(../images/challenge/button_mid.png) repeat-x transparent;
+	height:41px;
+	float:left;
+	color:#FFF;
+	padding: 10px;
+	}
+.button_right{
+	background:url(../images/challenge/button_right.png) no-repeat transparent;
+	height:41px;
+	width:23px;
+	float:left;
+	}
+.close_step{
+	background:url(../images/challenge/blur.png) no-repeat transparent;
+	height: 185px;
+    margin-bottom: 20px;
+    width: 805px;
+	}
+.map{
+	width:623px;
+	margin-bottom:20px;
+	}
+.code input[type="text"]{
+	 background: url("../images/challenge/code.jpg") no-repeat scroll 0 0 transparent;
+    border: medium none;
+    color: #999999;
+    font-size: 18px;
+    height: 45px;
+    margin-bottom: 20px;
+    padding: 0 15px;
+    width: 301px;
+	}
+.captcha{
+	margin-bottom:20px;
+	}
+input[type="submit"].submitButton{
+	background: url("../images/challenge/submitButton.png") no-repeat scroll 0 0 transparent;
+	border: medium none;
+    color: #FFFFFF;
+    height: 41px;
+    width: 118px;
+    font-size:100%;
+	}
+.bonus_popup{
+	background: none repeat scroll 0 0 #FFFFFF;  
+    left: 80px;
+    position: absolute;
+    top: 50px;
+    padding: 10px;
+	z-index: 99;
+}
+.border_popup{
+	background: none repeat scroll 0 0 #333;
+	padding: 5px;
+}
+.inner_popup{
+	background: url(../images/challenge/motif.jpg) repeat scroll 0 0 #000;
+	min-height: 150px;
+    padding: 25px 45px;
+    position: relative;
+    width: 730px;
+}
+.popup_content{
+	position: absolute;
+    right: 35px;
+    top: 60px;
+}
+.popup_title{
+	color:#999;
+	font-size:24px;
+	width:400px;
+}
+.popup_desc{
+	color:#ccc;
+	font-size:14px;
+	width:400px;
+}
+.bb1, .bb2, .bb3{
+	cursor: pointer;
+}
+.close_popup{
+	background: url(../images/challenge/close.png) no-repeat scroll 0 0 transparent;
+	height: 47px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 88px;
+    cursor: pointer;
+}
+.box_round{
+  -webkit-border-radius: 10px; 
+     -moz-border-radius: 10px; 
+          border-radius: 10px;       
+  -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box; 
+}
+.box_shadow{
+  -webkit-box-shadow: 0px 0px 10px #000; 
+     -moz-box-shadow: 0px 0px 10px #000; 
+          box-shadow: 0px 0px 10px #000; 
+}
+.popupShowMsg{
+	position: relative;
+    z-index: 1;
+    height: 865px;
+}
+.popupShowMsg .popupDetails{
+    width: 304px;
+    background: url(../images/challenge/motif.jpg) repeat scroll 0 0 #fff;
+	color:#fff;
+	padding: 50px 150px;
+}
+.popupShowMsg .popupDetails a{
+	color:white;
+}

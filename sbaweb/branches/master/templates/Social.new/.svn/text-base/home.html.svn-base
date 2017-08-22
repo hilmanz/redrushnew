@@ -1,0 +1,30 @@
+<div id="title-bar">
+            	<h1>Home</h1>
+                <div class="info">
+               		<span class="welcome">Selamat datang,</span><a href="#" class="username">Adrian</a>
+                </div>
+            </div><!-- end div Title Bar -->
+        	<div id="col-left">
+            	{$top_performers}
+            	{$top_city}
+            	{$top_event}
+            </div><!-- end div col left -->
+            <div id="col-center">
+            	{$berita_terbaru}
+            	{$network_updates}
+            </div><!-- end div col center -->
+        	<div id="col-right">
+            	{$acara_terkini}
+                {$banner}
+            </div><!-- end div col right -->
+            <div id="footer-content">
+            	{$gallery_updates}
+            </div><!-- end div Footer Content -->
+<!-- Jquery Scroll Gallery ni -->
+<script type="text/javascript"> 
+{literal}
+	$(document).ready(function(){
+	  $("#infinite").scrollable().circular();	
+	});
+{/literal}
+</script>

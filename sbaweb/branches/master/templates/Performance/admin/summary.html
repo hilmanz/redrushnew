@@ -1,0 +1,13 @@
+<h2>Summary</h2>
+<p>
+</p>
+<table width="100%" class="addlist zebra">
+<tr class="head">
+<td>No.</td><td>User</td><td>Progress</td><td>Total Registrants</td><td>Events</td><td>Last Update</td>
+</tr>
+{section name=i loop=$list}
+<tr>
+<td>{$list[i].no}</td><td>{$list[i].name|strip_tags|stripslashes} ({$list[i].email|strip_tags|stripslashes})</td><td>{$list[i].progress|number_format}</td><td>{$list[i].registrants|number_format}</td><td>{$list[i].events|number_format}</td><td>{$list[i].last_update}</td>
+</tr>
+{/section}
+</table>

@@ -1,0 +1,23 @@
+				<div class="title">
+                    <h1>News Update</h1>
+                    <a href="?news=1" class="view-all">Semua Berita</a>
+                </div>
+                <div class="content">
+					{section name=i loop=$list}
+						{if $list[i].img == '' }
+						<a href="index.php?news=1&id={$list[i].id}" class="list download" style="height:auto;">
+							<span class="date">{$list[i].title|stripslashes}</span>
+							<span class="info">{$list[i].brief|stripslashes}</span>
+						</a>
+						<br style="clear:both" />
+						{else}
+						<img class="img-left" src="contents/news/{$list[i].img}" />
+						<div class="text">
+							<span class="date">{$list[i].title|stripslashes}</span>
+							<p>{$list[i].brief|stripslashes}</p>
+							<a href="index.php?news=1&id={$list[i].id}">Lebih Lanjut &raquo;</a>
+						</div>
+						<br style="clear:both" />
+						{/if}
+                    {/section}
+                </div>

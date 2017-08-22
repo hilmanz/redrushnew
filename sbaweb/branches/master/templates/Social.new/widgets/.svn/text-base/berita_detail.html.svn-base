@@ -1,0 +1,40 @@
+				<div class="title">
+                    <h1>Lorem Ipsum</h1>
+                </div>
+                <div class="content">
+                	<img class="img-left" src="images/thumb/thumb-110x75-1.jpg" />
+                    <div class="text">
+                        <p>
+						Serunya gathering di Surabaya yang dihadiri oleh
+                        Presiden Phillip Morris. Acara diawali oleh 
+                        serangkaian sambutan dan upacara... Serunya gathering di Surabaya yang dihadiri oleh
+                        Presiden Phillip Morris. Acara diawali oleh 
+                        serangkaian sambutan dan upacara... Serunya gathering di Surabaya yang dihadiri oleh
+                        Presiden Phillip Morris. Acara diawali oleh 
+                        serangkaian sambutan dan upacara... Serunya gathering di Surabaya yang dihadiri oleh
+                        Presiden Phillip Morris. Acara diawali oleh 
+                        serangkaian sambutan dan upacara...
+						</p>
+                    </div>
+					<div>
+						<a href="#">comment (2)</a>
+					</div>
+					<div class="list network-update">
+                    	<a class="small-thumb" href="#"><img src="images/thumb/thumb-45x45-1.jpg" /></a>
+                        <div class="text">
+                            <span class="time">5 menit lalu</span>
+                            <span><a href="#" class="username">Tiwi</a>
+                            telah mengupdate foto galeri “Marlboro Light”
+                            Style Your Party Bandung.</span>
+                        </div>
+                    </div>
+                	<div class="list network-update">
+                    	<a class="small-thumb" href="#"><img src="images/thumb/thumb-45x45-2.jpg" /></a>
+                        <div class="text">
+                            <span class="time">5 menit lalu</span>
+                            <span><a href="#" class="username">Andrian</a>
+                            telah mengupdate foto galeri “Marlboro Light”
+                            Style Your Party Bandung.</span>
+                        </div>
+                    </div>
+                </div>

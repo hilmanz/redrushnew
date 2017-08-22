@@ -1,0 +1,14 @@
+<h2>Manage Category Download</h2>
+<br/>
+<table width="100%" class="list">
+<tr class="head">
+<td>No</td><td>Category</td><td>action</td>
+</tr>
+{section name=i loop=$list_category_download}
+<tr>
+<td>{$list_category_download[i].id}</td><td><a href="?s=download&view=item&id_category={$list_category_download[i].id}">{$list_category_download[i].name}</a></td><td><a href="?s=download&getform=1&id={$list_category_download[i].id}">Edit Category</a> | <a href="?s=download&delete=1&id={$list_category_download[i].id}">Delete Category</a></td>
+</tr> 
+{/section}
+</table>
+<p align="center">{$paging}</p>
+[ <a href="?s=download&new_category=1">Insert Category</a> ]

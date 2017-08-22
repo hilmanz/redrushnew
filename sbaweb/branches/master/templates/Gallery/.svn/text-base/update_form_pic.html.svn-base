@@ -1,0 +1,30 @@
+<div>
+<form  method="post" action="" enctype="multipart/form-data">
+<table>
+<input type="hidden" name=updatePic value="1">
+<input type="hidden" name="id" value="{$show_id.id}">
+<input type="hidden" name="album_id" value="{$album_id}">
+	<tr>
+		<td>Caption</td>
+		<td><input type="text" value="{$show_id.caption}" name="txtcaption"></td>
+	</tr>
+	<tr>
+		<td>Image Src</td>
+		<td><img src="contents/gallery/{$show_pic.owner_id|md5}/{$show_pic.img}" style="width: 200px; height: 200px;"></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td><input type="file" value="{$show_pic.img}" name="txtimg"></td>
+		<td><input type="hidden" value="{$show_id.img}" name="hiddentxtimg"></td>
+	</tr>
+	<tr>
+		<td colspan="2"><input type="submit" value="Submit">
+		<input type="reset" value="Reset"></td>
+	</tr>
+</table>
+</form>
+</div>
+</div>
+
+
+	

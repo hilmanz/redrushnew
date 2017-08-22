@@ -1,0 +1,14 @@
+	<div id="peoplepicker" title="Choose Recipient(s)">
+ 	<form method="post">
+ 	<input type="hidden" name="tag_friend" value="1">
+ 	<input type="hidden" name="id_pic" value="{$pic_id}">
+	<div  style="overflow:auto;height:330px">
+		{section name=i loop=$ba}
+		<span id="txt_recipient">
+			<input name="ba[]" type="checkbox" value="{$ba[i].name}"/>{$ba[i].name|stripslashes|strip_tags}<br/>
+		</span>
+		{/section}
+	</div>
+	<input type="submit" value="Simpan">	
+	</form>
+	</div>

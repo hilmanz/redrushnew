@@ -1,0 +1,605 @@
+<script type="text/javascript">
+	var mainmenu = "activities";
+	var ad = {$AD};
+	var atoad = {$ATOAD};
+	var toel = {$TOEL};
+	var pbg = {$PBG};
+	var mr = {$MR};
+	var pvd = {$pvd};
+	var pvdtgl = {$tgl};
+{literal}
+	var chart;
+	var _color = ['#F2F5A9','#55b615','#f26522','#ffd904','#029bc5','#d79194','#f26522','#b7b7b7','#ba7ef7','#55b615','#f26522','#ffd904','#029bc5','#d79194','#f26522','#b7b7b7'];
+	$(document).ready(function() {
+		
+		//Page View Distribution
+	//	var _color = ['#ba7ef7','#55b615','#f26522','#ffd904','#029bc5','#d79194','#f26522','#b7b7b7'];
+		var _category=[];
+		var _series=[];
+		var myBoolean=new Boolean();
+		
+		//alert (pvd.length);
+		for(var i=0;i<pvd.length;i++){
+			var _data=[];
+			var pvdData = pvd[i].data;
+			for (var x in pvdData)
+			{
+				_data.push(parseInt(pvdData[x].num));
+			}
+			if (pvd[i].page == "garage" || pvd[i].page == "getpoints" || pvd[i].page == "race"){
+				myBoolean = true;
+			}else{
+				myBoolean = false;
+			}
+			var item = {
+					name : pvd[i].pageName,
+					data : _data,
+					color: _color[i],
+					visible: myBoolean
+			}		
+			_series.push(item);
+			
+
+			
+		}
+		for(var i=0;i<pvdtgl.length;i++){
+			var year = (pvdtgl[i].date_d).substr(0,4);
+			var month = (pvdtgl[i].date_d).substr(5,2);
+			var tgl = (pvdtgl[i].date_d).substr(8,2);
+			_category.push(tgl+"/"+month+"/"+year);
+		}
+		chart = new Highcharts.Chart({
+			chart: {
+				renderTo: 'PVD',
+				type: 'line',
+				backgroundColor: false,
+				zoomType: 'xy'
+
+			},
+			title: false,
+			subtitle: false,
+			xAxis: {
+				categories: _category
+			},
+			yAxis: {
+				title:false,
+				plotLines: [{
+					value: 0,
+					width: 1,
+					color: '#808080'
+				}]
+			},
+			tooltip: {
+				formatter: function() {
+						return '<b>'+ this.series.name +'</b><br/>'+
+						this.x +': '+ this.y;
+				}
+			},
+			legend: {
+				labelFormatter: function() {
+		            return '<span style="color: '+this.color+';">'+ this.name + '</span>';
+				}
+				
+			},
+			credits: false,
+			series: _series
+		});
+		
+		//Activity Distribution
+		var _series = [];
+		var _data = [];
+		var _name = [];
+		//var _color = ['#be22cb','#90ed1c','#3968b5','#b7b7b7','#FF00FF','#01DF74','#FE642E','#088A85','#FF4000','#AC58FA','#FE2EF7','#2ECCFA','#01DFA5','#A4A4A4','#FF0000','#F5DA81','#58FAF4','#FF00BF'];
+		if (ad == null){
+				var item = {
+						name 	: "No Data",
+						y		: 0,
+						color 	: "#cccccc"
+				}
+				_series.push(item);
+			}else{
+				for(adkey in ad) {
+					var item={
+					name 	: ad[adkey].activity_name,
+					data	: [parseInt(ad[adkey].num)],
+					color 	: _color[adkey]						
+					}
+														
+					_series.push(item);
+				}
+			}
+		chart = new Highcharts.Chart({
+				chart: {
+					renderTo: 'AD',
+					type: 'column',
+					backgroundColor: false,
+					zoomType: 'y'
+				},
+				title: false,
+				subtitle: false,
+				xAxis: {
+					categories: [""],
+					labels: {
+						enabled: false
+					}
+				},
+				yAxis: {
+					title:false,
+					plotLines: [{
+						value: 0,
+						width: 1,
+						color: '#808080'
+					}]
+				},
+					tooltip: {
+						formatter: function() {
+								return '<b>'+ this.series.name +'</b>'+': '+ this.y;
+						}
+					},
+				plotOptions: {
+					column: {
+						pointPadding: 0.2,
+						borderWidth: 0,
+						dataLabels: {
+							enabled: true,
+							color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+						}
+					},
+					series:{
+						groupPadding: 0
+					}
+				},
+				legend: {
+					labelFormatter: function() {
+			            return '<span style="color: '+this.color+';">'+ this.name + '</span>';
+					}
+				},
+				credits: false,
+				series: _series
+			});
+			
+		
+		//Average Time On Activity Distribution
+		var _series = [];
+		var _data = [];
+		var _name = [];
+		//var _color = ['#be22cb','#90ed1c','#3968b5','#b7b7b7','#FF00FF','#01DF74','#FE642E','#088A85','#FF4000','#AC58FA','#FE2EF7','#2ECCFA','#01DFA5','#A4A4A4','#FF0000','#F5DA81','#58FAF4','#FF00BF'];
+		if (atoad == null){
+			var item = {
+					name 	: "No Data",
+					y		: 0,
+					color 	: "#cccccc"
+			}
+			_series.push(item);
+		}else{
+			for(var x in atoad) {
+					var item={
+					name 	: atoad[x].activity_name,
+					data	: [parseInt(atoad[x].time_total)],
+					color 	: _color[x]						
+					}
+														
+					_series.push(item);
+				}
+		}
+		chart = new Highcharts.Chart({
+			chart: {
+				renderTo: 'ATOAD',
+				type: 'column',
+				backgroundColor: false,
+				zoomType: 'y'
+			},
+			title: false,
+				subtitle: false,
+				xAxis: {
+					categories: [""],
+					labels: {
+						enabled: false
+					}
+				},
+				yAxis: {
+					title: false,
+					plotLines: [{
+						value: 0,
+						width: 1,
+						color: '#808080'
+					}],
+					labels: {
+						enabled: false
+					}
+				},
+					tooltip: {
+						formatter: function() {
+								return '<b>'+ this.series.name +'</b>'+': '+ time(this.y);
+						}
+					},
+				plotOptions: {
+					column: {
+						pointPadding: 0.2,
+						borderWidth: 0,
+						dataLabels: {
+							enabled: true,
+							formatter: function() {
+								return time(this.y);
+							},
+							color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+						}
+					},
+					series:{
+						groupPadding: 0
+					}
+				},
+				legend: {
+					labelFormatter: function() {
+			            return '<span style="color: '+this.color+';">'+ this.name + '</span>';
+					}
+					
+				},
+				credits: false,
+			series: _series
+		});
+		//Time on each level
+		
+		var _data = [];
+		var _categories = [];
+		if (toel != null){
+			for(var i=0;i<toel.length;i++){
+				_data.push(parseInt(toel[i].total_days));
+				//var times = time(parseInt(toel[i].total_time));
+				_categories.push("<b>Level "+toel[i].LEVEL+"</b><br>"+parseInt(toel[i].total_days)+" days");
+			}	
+		}
+		
+		chart = new Highcharts.Chart({
+			chart: {
+				renderTo: 'TOEL',
+				type: 'column',
+				backgroundColor: false,
+				marginTop: 25,
+				marginBottom: 30
+			},
+			title: false,
+			subtitle: false,
+			xAxis: {
+				categories: _categories
+			},
+			yAxis: {
+				min: 0,
+				title: false
+			},
+			credits: false,
+			
+			tooltip: {
+				formatter: function() {
+					return ''+
+						this.x;
+				}
+			},
+			legend: false,
+			plotOptions: {
+				column: {
+					pointPadding: 0.2,
+					borderWidth: 0
+				},
+				series:{
+					groupPadding: 0
+				}
+			},
+			series: [
+				{data: _data,
+				color: '#d79194'}
+			]
+		});
+		//Play by Game
+		var _series = [];
+		var _data = [];
+		//var _color = ['#b7b7b7','#be22cb','#3968b5','#90ed1c','#029bc5','#d79194','#f26522', '#ba7ef7'];
+		if (pbg == null){
+			var item = {
+					name 	: "No Data",
+					y		: 0,
+					color 	: "#cccccc"
+			}
+			_series.push(item);
+		}else{
+			for(var i=0;i<pbg.length;i++){
+				_data.push(pbg[i].num);
+				
+				if (i == 0 && pbg[i].num != 0){
+					var item = {
+							name 	: pbg[i].mini_game_name,
+							y		: parseInt(_data[i]),
+							sliced: true,
+							selected: true,
+							color 	: _color[i]
+							}
+				}else{
+					var item = {
+							name 	: pbg[i].mini_game_name,
+							y		: parseInt(_data[i]),
+							color 	: _color[i]
+							}
+				}
+				_series.push(item);
+			}
+		}
+		chart = new Highcharts.Chart({
+			chart: {
+				renderTo: 'PBG',
+				plotBackgroundColor: null,
+				plotBorderWidth: null,
+				backgroundColor: false,
+				plotShadow: false
+			},
+			title: false,
+			tooltip: {
+				formatter: function() {
+					return '<b>'+ this.point.name +'</b>: '+ this.y + ' times';
+				}
+			},
+			credits: false,
+			plotOptions: {
+				pie: {
+					allowPointSelect: true,
+					cursor: 'pointer',
+					dataLabels: {
+						enabled: true,
+						color: '#ffffff',
+						connectorColor: '#ffffff',
+						formatter: function() {
+							var labelName = this.point.name.replace(' ',' <br />');
+							return '<span>'+labelName +'<br><b>'+ Math.round(this.percentage) +' %</b></span>';
+						}
+					}
+				},
+				series: {
+					shadow: true
+				}
+			},
+			series: [{
+				type: 'pie',
+				name: 'Activity',
+				data: _series
+			}]
+		});
+		//ATOG
+		var _series = [];
+		var _data = [];
+		var _jms = [];
+		var _name = [];
+		//var _color = ['#b7b7b7','#be22cb','#3968b5','#90ed1c','#029bc5','#d79194','#f26522', '#ba7ef7'];
+		if (pbg == null){
+			var item = {
+					name 	: "No Data",
+					y		: 0,
+					color 	: "#cccccc"
+			}
+			_series.push(item);
+		}else{
+			for(var i=0;i<pbg.length;i++){
+				_data.push(pbg[i].avg_time);
+				
+				
+				if (i == 0 && pbg[i].num != 0){
+					var item = {
+							name 	: pbg[i].mini_game_name+"<br>"+timeSecond(pbg[i].avg_time),
+							y		: parseInt(_data[i]),
+							sliced: true,
+							selected: true,
+							color 	: _color[i]
+							}
+				}else{
+					var item = {
+							name	: pbg[i].mini_game_name+"<br>"+timeSecond(pbg[i].avg_time),
+							y		: parseInt(_data[i]),
+							color 	: _color[i]
+							}
+				}
+				_series.push(item);
+			}
+		}
+		chart = new Highcharts.Chart({
+			chart: {
+				renderTo: 'ATOG',
+				plotBackgroundColor: null,
+				plotBorderWidth: null,
+				backgroundColor: false,
+				plotShadow: false
+			},
+			title: false,
+			tooltip: {
+				formatter: function() {
+					return '<b>'+ this.point.name +'</b>';
+				}
+			},
+			credits: false,
+			plotOptions: {
+				pie: {
+					allowPointSelect: true,
+					cursor: 'pointer',
+					dataLabels: {
+						enabled: true,
+						color: '#ffffff',
+						connectorColor: '#ffffff',
+						formatter: function() {
+							var labelName = this.point.name.replace(' ',' <br />');
+							return labelName;
+						}
+					}
+				},
+				series: {
+					shadow: true
+				}
+			},
+			series: [{
+				type: 'pie',
+				name: 'Activity',
+				data: _series
+			}]
+		});
+		//Merchandise Redeemed
+		var _series = [];
+		var _category = [];
+		var namae;
+		//var _color = ['#be22cb','#90ed1c','#3968b5','#b7b7b7','#FF00FF','#01DF74','#FE642E','#088A85','#FF4000','#AC58FA','#FE2EF7','#2ECCFA','#01DFA5','#A4A4A4','#FF0000','#F5DA81','#58FAF4','#FF00BF','#90ed1c','#3968b5','#b7b7b7','#FF00FF','#01DF74','#FE642E','#088A85',,'#90ed1c','#3968b5','#b7b7b7','#FF00FF','#01DF74','#FE642E','#088A85'];
+		if (mr == null){
+			
+		}else{
+			for(var i in mr){
+			//for (var i=0;i<mr.length;i++){
+				if( mr[i].rvariant !='') namae = mr[i].item_name + '('+mr[i].rvariant+')' ;
+				else namae = mr[i].item_name ;
+				var item = {
+							name 	: namae,
+							data	: [parseInt(mr[i].redeem_count)],
+							color 	: _color[i]
+							}
+				//var item={
+			//			data	: [parseInt(mr[i].redeem_count)],
+			//			color	: _color[i],
+				//		name	: mr[i].item_name
+			//	}
+				_series.push(item);
+				_category.push("");
+			//}
+			}
+		}
+		
+		chart = new Highcharts.Chart({
+				chart: {
+					renderTo: 'MR',
+					type: 'column',
+					backgroundColor: false,
+					zoomType: 'y'
+				},
+				title: false,
+				subtitle: false,
+				xAxis: {
+					categories: _category
+				},
+				yAxis: {
+					title:false,
+					plotLines: [{
+						value: 0,
+						width: 1,
+						color: '#808080'
+					}]
+				},
+					tooltip: {
+						formatter: function() {
+								return '<b>'+ this.series.name +'</b>'+': '+ this.y;
+						}
+					},
+				plotOptions: {
+					column: {
+						pointPadding: 0.2,
+						borderWidth: 0,
+						dataLabels: {
+							enabled: true,
+							color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+						}
+					},
+					series:{
+						groupPadding: 0
+					}
+				},
+				legend: {
+					labelFormatter: function() {
+			            return '<span style="color: '+this.color+';">'+ this.name + '</span>';
+					}
+					
+				},
+				credits: false,
+				series: _series
+			});
+	});
+</script>
+{/literal}
+
+<div class="chart-row h-border">
+	<h3>PAGE VIEW DISTRIBUTION</h3>
+	<div class="big-chart">
+		<div id="PVD" style="width:945px;height:330px;"></div>
+	</div>
+</div>
+<div class="chart-row h-border">
+	<h3>ACTIVITY DISTRIBUTION</h3>
+	<div class="big-chart">
+		<div id="AD" style="width:945px;height:330px;"></div>
+	</div>
+</div>
+<div class="chart-row h-border">
+	<h3>AVERAGE TIME ON ACTIVITY DISTRIBUTION </h3>
+	<div class="big-chart">
+		<div id="ATOAD" style="width:945px;height:330px;"></div>
+		
+	</div>
+	
+</div>
+
+<div class="chart-row h-border">
+	<h3>RACING</h3>
+	<div class="big-chart">
+		<div class="fl-left h-border relative" style="height: 128px;margin: 0;padding: 30px 0 0 5px;width: 435px;">
+			<h3>AVERAGE RACES PLAYED</h3>
+			<div class="small-box" style="margin-top:15px">
+				<div class="sb-font text-center">{$racing|number_format:0:',':'.'}</div>
+			</div>
+			{*}
+			<div class="circle-arrow absolute" style="left: 265px;top: 60px;"></div>
+			<div class="{if $raceArrow < 0}arrow-down{else}arrow-up{/if} absolute"  style="left: 279px;top: 77px;"></div>
+			<div class="font20 absolute {if $raceArrow < 0}red{else}green{/if}" style="left: 345px;top: 75px;">{$racePercent}%</div>
+			{/*}
+		</div>
+		<div class="fl-right">
+			<h3>AVERAGE TIME ON EACH LEVEL</h3>
+			<div class="chart2-box">
+				<div id="TOEL" style=" height: 272px;width: 440px;"></div>
+			</div>
+		</div>
+		<div class="fl-left relative" style="height: 128px;margin: 10px 0 0 0;padding: 30px 0 0 5px;width: 435px;">
+			<h3>AVERAGE CAR MODIFICATIONS</h3>
+			<div class="small-box" style="margin-top:15px">
+				<div class="sb-font text-center">{$carmodif|number_format:0:',':'.'}</div>
+			</div>
+			{*}
+			<div class="circle-arrow absolute" style="left: 265px;top: 60px;"></div>	
+			<div class="{if $carArrow < 0}arrow-down{else}arrow-up{/if} absolute"  style="left: 279px;top: 75px;"></div>
+			<div class="font20 absolute {if $raceArrow < 0}red{else}green{/if}" style="left: 345px;top: 75px;">{$carPercent}%</div>
+			{/*}
+		</div>
+	</div>
+</div>
+<div class="chart-row h-border">
+	<h3>MINI GAMES</h3>
+	<div class="mg-box relative">
+		<h3 class="absolute" style="top:60px;left:26px;">TOTAL MINI GAME PLAYED</h3>
+		<div class="sb-font text-center absolute" style="width: 295px;left: 345px;top: 53px;">{$mini|number_format:0:',':'.'}</div>
+		{*}
+		<div class="{if $miniArrow < 0}arrow-down{else}arrow-up{/if} absolute" style="left: 843px;top: 58px;"></div>
+		<div class="font20 absolute {if $miniArrow < 0}red{else}green{/if}" style="left: 910px;top: 55px;">{$miniPercent}%</div>
+		{/*}
+		<div class="absolute" style="padding-left: 26px;padding-right: 14px;left: 0;top: 150px;">
+			<div class="big-column fl-left">
+				<h3>PLAYS BY GAME</h3>
+				<div class="big-box">
+					<div id="PBG" style="height: 335px;width: 435px;"></div>
+				</div>
+			</div>
+			<div class="big-column fl-right">
+				<h3>AVERAGE TIME ON GAME</h3>
+				<div class="big-box">
+					<div id="ATOG" style="height: 335px;width: 435px;"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="chart-row h-border">
+	<h3>MERCHANDISE REDEEMED </h3>
+	<div class="big-chart">
+		<div id="MR" style="width:945px;height:330px;"></div>
+		<h3 style=" text-align: right;">Total Redeem All Items : {$total_merchandise}</h3>
+	</div>
+	
+</div>

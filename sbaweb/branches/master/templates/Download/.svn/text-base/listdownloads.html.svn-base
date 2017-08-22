@@ -1,0 +1,26 @@
+<html>
+<head>
+	<title>Ini adalah List Download</title>
+</head>
+
+<body>
+<div>
+	<h1>List Downloads</h1>
+</div>
+
+	{section name=i  loop=$selectbycategory}
+		<div id="wrapper_content" align="left" style="float:left; padding-left:15px; ;">
+			<div id="wrap_content_album" align="left" style="float:left; margin-right:10px;  width:200px; height:200px;  ">
+				<div id="kiri_content" align="left" style="float:left; width:140px;">
+					<div id="image_thumb" align="left" style="float:left;width:100px;height:100px;">
+						<img src="contents/download/{$selectbycategory[i].thumb}" style="width:100px; height:100px; padding-top:25px;">
+						<a href="?view=download">{$selectbycategory[i].name}</a>						
+					</div>
+				</div>
+			</div>
+		</div>
+	{/section}
+
+
+
+	<div id="txtisi"><b>Pilih Category filter.</b></div>

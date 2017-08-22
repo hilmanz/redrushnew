@@ -1,0 +1,83 @@
+				<div class="title">
+                    <h1>News update</h1>
+                </div>
+                
+
+{literal}
+<script type="text/javascript">
+$(document).ready(function(){
+	$('.suka').click(function(){
+		var pro = $(this).attr('pro');
+		var ids = $(this).attr('id');
+		var id = ids.split('-');
+		id = id[1];
+		
+		if( pro == 'like' ){		
+			$.post('?news=1&act=like&sid='+id, function(data) {
+				if( data == 1 ){
+					$('#'+ids).attr( "value", " Unlike " );
+					$('#'+ids).attr( "pro", "unlike" );
+				}else{
+					alert( "Processing like failed, please try again" );
+				}
+			});
+		}else{
+			$.post('?news=1&act=unlike&sid='+id, function(data) {
+				if( data == 1 ){
+					$('#'+ids).attr( "value", " Like " );
+					$('#'+ids).attr( "pro", "like" );
+				}else{
+					alert( "Processing unlike failed, please try again" );
+				}
+			});
+		}
+	});
+});
+</script>
+{/literal}
+
+				
+{section name=i loop=$list}
+<div style="clear:both;margin-bottom:20px;width:400px;">
+	<a href="index.php?news=1&id={$list[i].id}"><h3>{$list[i].title|stripslashes|strip_tags}</h3></a>
+    <div>
+		{if $list[i].img != ''}
+        <div style="float:left;width:110px;">
+			<img src="contents/news/{$list[i].img}" />
+		</div>
+		<div style="float:right;width:280px;text-align:justify;">
+			<div>{$list[i].brief|stripslashes|strip_tags}</div>
+			<div style="margin-top:10px;width:280px;">
+				<a href="index.php?news=1&id={$list[i].id}">comment ({$list[i].comments})</a>&nbsp;
+				<a href="javascript:void(0);" id="like-{$list[i].id}" class="suka" pro="like">{if $list[i].suka}like ({$list[i].suka}){else}like{/if}</a>
+				<!--
+				{if $list[i].suka == 0}
+				<input type="button" style="display:inline;" value=" Like " id="like-{$list[i].id}" class="like" pro="like" />
+				{else}
+				<input type="button" style="display:inline;" value=" Unlike " id="like-{$list[i].id}" class="like" pro="unlike" />
+				{/if}
+				-->
+			</div>
+		</div>
+		{else}
+		<div style="float:right;width:400px;text-align:justify;">
+			<div>{$list[i].brief|stripslashes|strip_tags}</div>
+			<div style="margin-top:10px;width:400px;">
+				<a href="index.php?news=1&id={$list[i].id}">comment ({$list[i].comments})</a>&nbsp;
+				<a href="javascript:void(0);" id="like-{$list[i].id}" class="suka" pro="like">{if $list[i].suka}like ({$list[i].suka}){else}like{/if}</a>
+				<!--
+				{if $list[i].suka == 0}
+				<input type="button" style="display:inline;" value=" Like " id="like-{$list[i].id}" class="like" pro="like" />
+				{else}
+				<input type="button" style="display:inline;" value=" Unlike " id="like-{$list[i].id}" class="like" pro="unlike" />
+				{/if}
+				-->
+			</div>
+		</div>
+		{/if}
+		<div style="clear:both;"></div>
+    </div>
+	<div style="clear:both;"></div>
+</div>
+{/section}
+<p>{$paging}</p>

@@ -1,0 +1,61 @@
+
+<div id="main-container" class="bg-night inbox">
+	<div class="wrapper">
+    	<div id="containers">
+            <div class="logo">
+            	<a href="">&nbsp;</a>
+            </div><!-- .logo -->
+            <div class="panel3">
+            	<div class="entry" style="padding:0 30px 0 50px;">
+                    <div class="title" style="padding:10px 0 20px 0;">
+                        <h1>Inbox</h1>
+                    </div><!-- .title -->
+                        <div class="scrollbar" style="height:230px;">
+                            <div class="box" style="width:330px">
+                            {section name=i loop=$message}
+                       				<div class="row">
+                                    	<p> {if $message[i]->message_status=='0'} <span style="color:red;float:left">[ NEW ]&nbsp;</span> {/if} {$message[i]->message_subject}  <a href="?page=user&act=detail_message&report={$message[i]->message_id}"> ( READ MESSAGE ) </a> </p>
+										<span class="tip" style="display:none;"><img src="{if $notification[i]->small_img!=''}contents/avatar/small/{$notification[i]->small_img}{/if}" /></span>
+                                   {$message[i]->message_date}
+                                </div><!-- .row -->
+                                {/section} 
+							 {section name=i loop=$notification}
+                       				<div class="row">
+                                    <p>{if $notification[i]->has_read==0} <span style="color:red;float:left">[ NEW ]&nbsp;</span> {/if} {$notification[i]->message}<a href="?page=user&act=detail_notification&report={$notification[i]->report_id}&type={$notification[i]->type}">{if $notification[i]->type=='merch'} ( DETAIL ) {else} ( RACE REPORT ) {/if}</a></p><span class="tip" style="display:none;"><img src="{if $notification[i]->small_img!=''}contents/avatar/small/{$notification[i]->small_img}{/if}" /></span>
+                                    {$notification[i]->date_time}
+                                </div><!-- .row -->
+                                {/section} 
+                            </div><!-- .box -->
+                        </div><!-- .scrollbar -->
+                </div><!-- .entry -->
+            </div><!-- .panel -->
+            <div id="sidebar">
+            	<div class="entry">
+					<div class="title-box">
+                            <h1>Featured NEWS</h1>
+                        </div><!-- .title -->  
+                	<div class="box-red" id="feartured-news">
+                        	<div class="content">
+                                    {if $featured}
+                                    {section name=i loop=$featured}
+                                    <div class="list">
+                                    <p>
+                                    <h1 class="title-news"><a href="index.php?page=news&act=view&nid={$featured[i].id}">{$featured[i].title|stripslashes|strip_tags}</a></h1>
+                                    <span class="brief-news">
+                                    {$featured[i].brief|stripslashes|strip_tags}
+                                    </span>
+                                    <br />
+                                    <a href="index.php?page=news&act=view&nid={$featured[i].id}">Details here &raquo;</a>
+                                    </p>
+                                    </div><!-- .list -->
+                                    {/section}
+                                    {else}
+                                    No featured news available.
+                                    {/if}
+                            </div><!-- .content -->   
+                        </div><!-- .box-red -->   
+                </div><!-- .entry -->
+            </div><!-- #sidebar -->
+        </div><!-- #containers -->
+    </div><!-- .wrapper -->
+</div><!-- #main-container -->

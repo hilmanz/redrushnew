@@ -1,0 +1,70 @@
+<div class="f_title">
+            	<h1>Forum</h1>
+</div><!-- end div Title Bar -->
+<div class="w970">
+	<div class="f_header f_padding">
+		<div class="f_topic">
+			<a href="?forum=1&act=add"><img src="images/f_new-top.jpg"></a>
+		</div>
+		<div class="f_paging">
+			{$paging}
+			<!--
+			<strong>1</strong>&nbsp;
+			<a href="#">2</a>
+			<a href="#">3</a>
+			<a href="#">4</a>
+			<a href="#">&gt;&gt;</a>
+			-->		
+		</div>
+	</div>
+	<div class="f_header f_padding">
+		<div class="f_topic">
+			<span style="font-size:18px;">TOPICS</span>
+		</div>
+		<div class="f_action">
+			<a href="#">
+			<img src="images/f_last-post.jpg"><span style="display: block;font-size: 14px;font-weight: bold;margin-top: 4px;padding-left: 35px;width: 70px;">Last Post</span>
+			</a>
+			<a href="#">
+			<img src="images/f_replies.jpg"><span style="display: block;font-size: 14px;font-weight: bold;margin-top: 4px;padding-left: 35px;width: 50px;">Replies</span>
+			</a>
+		</div>
+	</div>
+</div>
+	
+<!-- section di mulai dari sini, klo ganjil pake class "bg_e2e2", genap pake class "bg_white" -->
+{assign var=css value=0}
+{section name=i loop=$list}
+{if $css > 0}{assign var=css value=0}{else}{assign var=css value=1}{/if}
+<div class="w970 {if $css > 0}bg_e2e2{else}bg_white{/if}">
+	<div class="f_thread f_padding">
+	<table>
+	<tr>
+		<td><div style="padding-right:20px;width:77px;"><a href="index.php?profile=1&profile_id={$list[i].user_id}"><img src="{$list[i].small_img}" width="77px" height="77px" ></a></div></td>
+		<td><div style="padding-right:20px"><a href="index.php?forum=1&act=thread&tid={$list[i].id}"><img src="images/f_thread.png" width="27px" height="33px" ></a></div></td>
+		<td><span style="color: #666666;font-size: 18px;width: 530px;display:block;padding-right:20px"><a href="index.php?forum=1&act=thread&tid={$list[i].id}">{$list[i].title|stripslashes|strip_tags|stripslashes|stripslashes|stripslashes}</a></span></td>
+		<td><span style="width:120px;display:block;font-size:12px;color:#666666;">{$list[i].posted_date|date_format}<br />by {$list[i].name|stripslashes|strip_tags|stripslashes|stripslashes|stripslashes}</span></td>
+		<td><span style="width:20px;display:block;color: #666666;font-size: 18px;float:right;">{$list[i].reply|intval}</span></td>
+		</tr>
+	</table>
+	</div>
+</div>
+{/section}
+
+<div class="w970 bg_white noBorder">
+	<div class="f_header f_padding">
+		<div class="f_topic">
+			
+		</div>
+		<div class="f_paging">
+			{$paging}
+			<!--
+			<strong>1</strong>&nbsp;
+			<a href="#">2</a>
+			<a href="#">3</a>
+			<a href="#">4</a>
+			<a href="#">&gt;&gt;</a>
+			-->
+		</div>
+	</div>
+</div>

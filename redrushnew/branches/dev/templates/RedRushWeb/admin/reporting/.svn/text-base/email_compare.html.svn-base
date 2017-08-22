@@ -1,0 +1,57 @@
+
+<form method="post" enctype="multipart/form-data">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="list">
+	<tr>
+	<td colspan="2"><h3>Form Upload CSV</h3></td>
+	</tr>
+  <tr>
+	<td width="12%" class="head"><strong>Week</strong></td>
+	<td>
+	<select  name="week" id="week">
+			<option value="1" > Week 1 ( April 02 - April 08 )</option>
+			<option value="2" >Week 2 ( April 09 - April 15 )</option>
+			<option value="3" >Week 3 ( April 16 - April 22 )</option>
+			<option value="4" >Week 4 ( April 23 - April 29 )</option>
+			<option value="5" >Week 5 ( April 30 - May 06 )</option>
+			<option value="6" >Week 6 ( May 07 - May 13 )</option>
+			<option value="7" >Week 7 ( May 14 - May 20 )</option>
+			<option value="8" >Week 8 ( May 21 - May 27 )</option>
+			<option value="9" >Week 9 ( May 28 - June 03 )</option>
+			<option value="10" >Week 10 ( June 04 - June 10 )</option>
+			<option value="11" >Week 11 ( June 11 - June 17 )</option>
+			<option value="12" >Week 12 ( June 18 - June 24 )</option>
+			<option value="13" >Week 13 ( June 25 - July 01 )</option>
+	</select>
+ 
+    </td>
+  </tr>
+  <tr>
+  	<td width="12%" class="head"><strong>CSV</strong></td>
+    <td>
+    <input type="file" name="csv" id="csv" />
+    </td>
+ </tr>
+ <tr>
+ 	<td colspan="2">
+    <input type="submit" name="submit" value="Submit" />
+    <input type="hidden" name="save" value="1"/>
+    </td>
+ </tr>
+<br>
+<span>{$err}</span>
+</form>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="list">
+  <tr>
+	<td colspan="2"><h3>List Report</h3></td>
+  </tr>
+  <tr class="head">
+	<td width="75%">Week</td><td>Action</td>
+  </tr>
+  {section name=i loop=$list}
+  <tr>
+	<td><img src="images/week.gif"> <b>Week {$list[i].week}</b></td>
+	<td><a href="index.php?s=reporting&act=gen-email-compare&id={$list[i].week}" target="_blank"><img src="images/csv.jpg" border=0></a></td>
+  </tr>
+  {/section}
+</table>

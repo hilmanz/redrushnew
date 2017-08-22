@@ -1,0 +1,42 @@
+
+<<<<<<< .mine
+<div id="popupInfo">
+    <div id="popupInfo-content">
+    	<div class="popupborder">
+        	<div class="scrollbar" style="width:800px; height:400px;">	
+=======
+<div id="popupInfo" style="left: 0">
+    <div id="popupInfo-content" >
+    	<div class="popupborder " style="overflow:hidden">
+        	<div  class="scrollbar" style="height:400px;width:850px;">	
+			<div  style="height:2000px;width:850px;" >	
+>>>>>>> .r868
+                <p><img width="800" src="img/popup/1.png" /></p>
+                <p><img width="800" src="img/popup/2.png" /></p>
+                <p><img width="800" src="img/popup/3.png" /></p>
+                <p><img width="800" src="img/popup/4.png" /></p>
+                <p><img width="800" src="img/popup/5.png" /></p>
+                <p><img width="800" src="img/popup/6.png" /></p>
+                <p><img width="800" src="img/popup/7.png" /></p>
+                <a href="index.php?page=garage&act=loading" id="close-popupInfo">&nbsp;</a>
+				</div>
+        	</div>
+        </div>
+    </div>
+<<<<<<< .mine
+</div> 
+{literal}   
+<style>
+#popupInfo-content .jScrollPaneTrack{
+	display:none;
+}
+</style>
+{/literal}=======
+</div>    
+{literal}   
+<style>
+#popupInfo-content .jScrollPaneTrack{
+left: 890px;
+}
+</style>
+{/literal}>>>>>>> .r868

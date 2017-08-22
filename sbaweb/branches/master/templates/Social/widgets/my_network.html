@@ -1,0 +1,19 @@
+<div class="title">
+            		<h1>{$name} Network</h1>
+                </div>
+                <div class="my-network">
+                	<div class="tab">	
+                   	 <a class="tab-button active" href="index.php?friends=1&user={$sid}">Friends</a>
+                   	 <!--<a class="tab-button" href="#">Ontourage</a> -->
+                    </div>
+                </div>
+                <div class="content">
+                {section name="i" loop=$friends}
+                	<div class="list">
+                    	<a href="?profile=1&profile_id={$friends[i].id}"><img src="{$friends[i].small_img}"/></a>
+                        <div class="text">
+                        	<a href="?profile=1&profile_id={$friends[i].id}" class="username">{$friends[i].name}</a>
+                        </div>
+                    </div>
+                {/section}
+                </div>

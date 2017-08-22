@@ -1,0 +1,11 @@
+<div>
+<h1>Welcome</h1>
+</div>
+{section name=i loop=$new_entry}
+<div>
+<h2>{$new_entry[i].judul}</h2>
+<div>{$new_entry[i].isi}</div>
+<div><a href="index.php?read=1&id={$new_entry[i].id}">Read More</a></div>
+</div>
+<hr size="1"/>
+{/section}

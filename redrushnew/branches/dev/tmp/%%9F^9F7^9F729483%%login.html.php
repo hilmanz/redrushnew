@@ -1,0 +1,92 @@
+<?php /* Smarty version 2.6.13, created on 2012-06-29 20:42:22
+         compiled from RedRushWeb/login.html */ ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link href="css/redrush_login.css" rel="stylesheet" type="text/css" />
+</head>
+<?php if ($this->_tpl_vars['error']):  echo '<script>alert(\'Sorry, Username or Password Incorrect!\');</script>';  endif; ?>
+<body class="landingPage">
+<?php if ($this->_tpl_vars['login_error']): ?>
+				<script>
+					alert("Maaf, username dan/atau password salah !");
+				</script>
+				<?php endif; ?>
+<form name="Form2" method="post" action="" id="Form2" enctype="application/x-www-form-urlencoded" autocomplete="off">
+<input name="login" id="login" type="hidden" value="1" />
+  <div class="mainPage">
+    <div class="headerLandingPage"></div>
+    <!-- close header -->
+    <input name="hdnErrorMsgs" type="hidden" id="hdnErrorMsgs" value="Bagian-bagian dengan tanda bintang ('*') wajib diisi. " />
+    <div class="content">
+      <div id="mainPanel">
+        <P><FONT color=#f5f5dc></FONT> </P>
+        <!-- Placeholder in CMS to add any content required -->
+      </div>
+      <div class="formLanding">
+        <div id="divLoginBox" class="loginBox">
+          <div class="loginBoxTitle">
+            <P> </P>
+          </div>
+          <div class="row">
+            <label for="username"> User ID </label>
+            <input name="username" type="text" maxlength="60" id="username" class="lpInput" autocomplete="off" />
+          </div>
+          <div class="row">
+            <label for="password"> Password </label>
+            <input name="password" type="password" maxlength="12" id="password" class="lpInput" autocomplete="off" />
+          </div>
+          <div class="smSubmit"><!--<a onclick="return validateCheck();" id="lnkBtnSubmit" href="index.php">Login</a>--><input type="submit" value="&nbsp;Login " class="btn-login" /></div>
+          <p class="error"><span id="lblError"></span></p>
+          <div class="forgottenpassword"><a id="lnkBtnForgotPwd" href="javascript:__doPostBack('lnkBtnForgotPwd','')">Forgot Password?</a></div>
+          <div class="loginBoxClose"></div>
+        </div>
+        <div id="divRegisterBox" class="registerBox">
+          <div class="registerBoxTitle">
+            <P> </P>
+          </div>
+          <div class="smSubmit"><a onclick="pageTracker._trackEvent('Register', 'Click');" id="lnkBtnRegister" href="javascript:__doPostBack('lnkBtnRegister','')">Register</a></div>
+          <div class="registerBoxClose"></div>
+        </div>
+        <div class="formLandingClose"></div>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class=footer>
+      <div class="text style1">Informasi dalam website ini di tujukan untuk perokok berusia 18 tahun atau lebih dan tinggal di wilayah Indonesia</div>
+      <div class=navigation>
+        <ul>
+          <li ><A href="/Templates/LandingPage.aspx">Halaman Utama</A>
+          <li ><A href="/Templates/Termsandconditions.aspx" target=_Blank>Syarat dan ketentuan</A>
+          <li ><A href="/Templates/RemoveMe.aspx">Hapus Saya</A>
+          <li style="display:none"><A href="/demoPages/PMISite.htm" target=_Blank>PMI Corporate</A>
+          <li ><A href="/Templates/FAQ.aspx" target=_Blank>Daftar Pertanyaan</A>
+          <li ><A href="/Templates/Contactus.aspx" target=_Blank>Kontak Kami</A>
+          <li class=last id=health ><A href="http://www.pmi.com/id/smokingandhealth" target=_Blank>Perihal Merokok</A></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</form>
+    <?php echo '
+	<script type="text/javascript">
+      var _gaq = _gaq || [];
+    
+      _gaq.push([\'_setAccount\', \'UA-867847-35\']);
+    
+      _gaq.push([\'_trackPageview\']);
+    
+      (function() {
+    
+        var ga = document.createElement(\'script\'); ga.type = \'text/javascript\'; ga.async = true;
+    
+        ga.src = (\'https:\' == document.location.protocol ? \'https://ssl\' : \'http://www\') + \'.google-analytics.com/ga.js\';
+    
+        var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(ga, s);
+    
+      })();
+    </script>
+    '; ?>
+
+</body>
+</html>

@@ -1,0 +1,640 @@
+<script type="text/javascript">
+	var mainmenu = "main";
+	var vNp = {$vNp};
+	var pvd = {$pvd};
+	var ad = {$ad};
+	var gd = {$gd};
+	var sevenDvisit = {$sevenDvisit};
+	{literal}
+		//var _category = ['20/02/2012', '21/02/2012', '22/02/2012', '23/02/2012', '24/02/2012', '25/02/2012'];
+		var chart;
+				var _color = ['#F2F5A9','#55b615','#f26522','#ffd904','#029bc5','#d79194','#f26522','#b7b7b7','#ba7ef7','#55b615','#f26522','#ffd904','#029bc5','#d79194','#f26522','#b7b7b7'];
+		function vup(){
+			//$("#VUP").html("");
+			//Visit,Users,Participant
+			var _category = [];
+			var _visits = [];
+			var _tos = [];
+			var _users = [];
+			var _participants = [];
+			var _series = [];
+			var checkList = [null,null,null,null];
+			$('a.checkbox').each(function(){
+				if($(this).hasClass("check")){
+					if($(this).html() == "Users"){
+						checkList[2] = "_users";
+					}else if($(this).html() == "Participants"){
+						checkList[3] = "_participants";
+					}else if($(this).html() == "Visits"){
+						checkList[0] = "_visits";
+					}else if($(this).html() == "Time on site"){
+						checkList[1] = "_tos";
+					}
+				}else{
+					if($(this).html() == "Users"){
+						checkList[2] = null;
+					}else if($(this).html() == "Participants"){
+						checkList[3] = null;
+					}else if($(this).html() == "Visits"){
+						checkList[0] = null;
+					}else if($(this).html() == "Time on site"){
+						checkList[1] = null;
+					}
+				}
+			});
+			if (checkList[0] != null){
+				for(var i=0;i<sevenDvisit.length;i++){
+					 _visits.push(parseInt(sevenDvisit[i].visits));				
+				}
+				var item= {
+						name : "Visits",
+						data : _visits,
+						color: '#ffd904'
+				}
+				_series.push(item);
+			}
+			if (checkList[1] != null){
+				for(var i=0;i<sevenDvisit.length;i++){
+					 _tos.push(parseInt(sevenDvisit[i].timeOnSite));				
+				}
+				var item= {
+						name : "Time on site",
+						data : _tos,
+						color: '#029bc5'
+				}
+				_series.push(item);
+			}
+			if (checkList[2] != null){
+				for(var i=0;i<vNp.length;i++){
+					 _users.push(parseInt(vNp[i].user_count));				
+				}
+				var item= {
+						name : "Users",
+						data : _users,
+						color: '#f26522'
+				}
+				_series.push(item);
+			}
+			if (checkList[3] != null){
+				for(var i=0;i<vNp.length;i++){
+					 _participants.push(parseInt(vNp[i].participant_count));				
+				}
+				var item= {
+						name : "Participants",
+						data : _participants,
+						color: '#75f222'
+				}
+				_series.push(item);
+			}
+			//alert(_series);
+			for(var i=0;i<sevenDvisit.length;i++){
+				var year = (sevenDvisit[i].datee).substr(0,4);
+				var month = (sevenDvisit[i].datee).substr(4,2);
+				var tgl = (sevenDvisit[i].datee).substr(6,2);
+				_category.push(tgl+"/"+month+"/"+year);
+			}
+				chart = new Highcharts.Chart({
+					chart: {
+						renderTo: 'VUP',
+						type: 'line',
+						backgroundColor: false,
+						zoomType: 'xy'
+					},
+					title: false,
+					subtitle: false,
+					xAxis: {
+						categories: _category
+					},
+					yAxis: {
+						title:false,
+						plotLines: [{
+							value: 0,
+							width: 1,
+							color: '#808080'
+						}]
+					},
+					tooltip: {
+						formatter: function() {
+								return '<b>'+ this.series.name +'</b><br/>'+
+								this.x +': '+ this.y;
+						}
+					},
+					legend: {
+					labelFormatter: function() {
+			            return '<span style="color: '+this.color+';">'+ this.name + '</span>';
+					}
+					
+				},
+					credits: false,
+					series: _series
+				});
+		}
+		$(document).ready(function() {
+			//initiate VUP
+			vup();
+			//CheckBox JS
+			$('a.checkbox').click(function(e){
+				e.preventDefault();
+				if ($(this).hasClass("check")){
+					$(this).removeClass("check");
+				}else if($(this).not("check")){
+					$(this).addClass("check");
+				}
+			});
+			//End CheckBox JS
+			$('a#c_users').click(function(){
+				if($(this).not("check")){
+					vup();
+				}
+			});
+			$('a#c_parti').click(function(){
+				if($(this).not("check")){
+					vup();
+				}
+			});
+			$('a#c_visits').click(function(){
+				if($(this).not("check")){
+					vup();
+				}
+			});
+			$('a#c_tos').click(function(){
+				if($(this).not("check")){
+					vup();
+				}
+			});
+			
+			//Page View Distribution
+			var _category = [];
+			var _pvd = [];
+			var _name = [];
+			var _series = [];
+	
+			if (pvd != null){ 
+				for(var i=0;i<pvd.length;i++){
+					_category.push("");
+					var item={
+							name : pvd[i].title,
+							data : [parseInt(pvd[i].pageview_count)],
+							color: _color[i]
+					}
+					_series.push(item);
+				}
+			}
+			chart = new Highcharts.Chart({
+				chart: {
+					renderTo: 'PVD',
+					type: 'column',
+					backgroundColor: false,
+					zoomType: 'y'
+				},
+				title: false,
+				subtitle: false,
+				xAxis: {
+					categories: _category
+				},
+				yAxis: {
+					title:false,
+					plotLines: [{
+						value: 0,
+						width: 1,
+						color: '#808080'
+					}]
+				},
+				tooltip: {
+						formatter: function() {
+								return '<b>'+ this.series.name +'</b>'+': '+ this.y;
+						}
+					},
+				plotOptions: {
+					column: {
+						pointPadding: 0.2,
+						borderWidth: 0,
+						dataLabels: {
+							enabled: true,
+							color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+						}
+					},
+					series:{
+						groupPadding: 0
+					}
+				},
+				legend: {
+					labelFormatter: function() {
+			            return '<span style="color: '+this.color+';">'+ this.name + '</span>';
+					}
+					
+				},
+				credits: false,
+				series: _series
+			});
+			
+			//Avtivity Distribution
+			var _series = [];
+			var _data = [];
+			var _name = [];
+			//var _color = ['#be22cb','#90ed1c','#3968b5','#b7b7b7','#FF00FF','#01DF74','#FE642E','#088A85','#FF4000','#AC58FA','#FE2EF7','#2ECCFA','#01DFA5','#A4A4A4','#FF0000','#F5DA81','#58FAF4','#FF00BF'];
+			
+			if (ad == null){
+				var item = {
+						name 	: "No Data",
+						y		: 0,
+						color 	: "#cccccc"
+				}
+				_series.push(item);
+			}else{
+				for(adkey in ad) {
+					var item={
+					name 	: ad[adkey].activity_name,
+					data	: [parseInt(ad[adkey].num)],
+					color 	: _color[adkey]						
+					}
+														
+					_series.push(item);
+				}
+			}
+			chart = new Highcharts.Chart({
+				chart: {
+					renderTo: 'AD',
+					type: 'column',
+					backgroundColor: false,
+					zoomType: 'y'
+				},
+				title: false,
+				subtitle: false,
+				xAxis: {
+					categories: _category
+				},
+				yAxis: {
+					title:false,
+					plotLines: [{
+						value: 0,
+						width: 1,
+						color: '#808080'
+					}]
+				},
+					tooltip: {
+						formatter: function() {
+								return '<b>'+ this.series.name +'</b>'+': '+ this.y;
+						}
+					},
+				plotOptions: {
+					column: {
+						pointPadding: 0.2,
+						borderWidth: 0,
+						dataLabels: {
+							enabled: true,
+							color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+						}
+					},
+					series:{
+						groupPadding: 0
+					}
+				},
+				legend: {
+					labelFormatter: function() {
+			            return '<span style="color: '+this.color+';">'+ this.name + '</span>';
+					}
+					
+				},
+				credits: false,
+				series: _series
+			});
+			
+			//Geographical Distribution
+			var _series = [];
+			var _data = [];
+			var _name = [];
+			//var _color = ['#be22cb','#90ed1c','#3968b5','#b7b7b7','#FF00FF','#01DF74','#FE642E','#088A85','#FF4000','#AC58FA','#FE2EF7','#2ECCFA','#01DFA5','#A4A4A4','#FF0000','#F5DA81','#58FAF4','#FF00BF'];
+			if (gd == null){
+				var item = {
+						name 	: "No Data",
+						y		: 0,
+						color 	: "#cccccc"
+				}
+				_series.push(item);
+			}else{
+				for(var x in gd) {
+					var item={
+						name 	: gd[x].location,
+						data	: [parseInt(gd[x].num)],
+						color 	: _color[x]						
+					}
+														
+					_series.push(item);
+				}	
+			}
+			chart = new Highcharts.Chart({
+				chart: {
+					renderTo: 'GD',
+					type: 'column',
+				backgroundColor: false,
+				zoomType: 'y'
+			},
+			title: false,
+				subtitle: false,
+				xAxis: {
+					categories: [""],
+					labels: {
+						enabled: false
+					}
+				},
+				yAxis: {
+					title:false,
+					plotLines: [{
+						value: 0,
+						width: 1,
+						color: '#808080'
+					}]
+				},
+					tooltip: {
+						formatter: function() {
+								return '<b>'+ this.series.name +'</b>'+': '+ this.y;
+						}
+					},
+				plotOptions: {
+					column: {
+						pointPadding: 0.2,
+						borderWidth: 0,
+						dataLabels: {
+							enabled: true,
+							formatter: function() {
+								return this.y;
+							},
+							color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+						}
+					},
+					series:{
+						groupPadding: 0
+					}
+				},
+				legend: {
+					labelFormatter: function() {
+			            return '<span style="color: '+this.color+';">'+ this.name + '</span>';
+					}
+					
+				},
+				credits: false,
+			series: _series
+			});
+		});
+	{/literal}
+</script>
+{*}
+<script type="text/javascript">	
+{literal}
+    $(function(){
+          $('.date').daterangepicker({arrows: true}); 
+     });
+{/literal}
+</script>
+{/*}
+<div class="sb-row">
+	<div class="sb-column1 fl-left sb-vborder">
+		<div class="sb-title">
+			<h3 class="fl-left">VISITS</h3>
+			{*}
+			<a href="#"><img src="images/excel.png" style="border:none;" class="fl-right" /></a>
+			{/*}
+		</div>
+		<div class="small-box">
+			<div class="sb-font orange fl-left">{if $visitor}{$visitor|number_format:0}{else}0{/if}</div>
+			{*}<div class="sb-font2 {if $visitorArrow < 0}red{else}green{/if} fl-right">{if $visitorPercentage}{$visitorPercentage}{else}0{/if}%</div>
+			<div class="sb-arrow {if $visitorArrow < 0}arrow-down{else}arrow-up{/if} fl-right"></div>{/*}
+		</div>
+	</div>
+	<div class="sb-column2 fl-left sb-vborder">
+		<div class="sb-title">
+			<h3 class="fl-left">AVERAGE TIME ON SITE</h3>
+		</div>
+		<div class="small-box">
+			<div class="sb-font orange2 fl-left">{if $tos}{$tos}{else}0{/if}</div>
+			{*}<div class="sb-font2 {if $tosArrow < 0}red{else}green{/if} fl-right">{if $tosPercentage}{$tosPercentage}{else}0{/if}%</div>
+			<div class="sb-arrow {if $tosArrow < 0}arrow-down{else}arrow-up{/if} fl-right"></div>{/*}
+		</div>
+	</div>
+	<div class="sb-column3 fl-left">
+		<div class="sb-title">
+			<h3 class="fl-left">AVERAGE PAGE VIEWS</h3>
+		</div>
+		<div class="small-box">
+			<div class="sb-font yellow fl-left">{$apv|number_format:2}</div>
+			{*}<div class="sb-font2 {if $apvArrow < 0}red{else}green{/if} fl-right">{$apvPercentage}%</div>
+			<div class="sb-arrow {if $apvArrow < 0}arrow-down{else}arrow-up{/if} fl-right"></div>{/*}
+		</div>
+	</div>
+</div>
+<div class="med-row h-border" style="height:145px;">
+	<div class="med-column fl-left">
+		<div class="med-box relative">
+			<div class="med-title">LOGIN</div>
+			<span class="trebuc grey" style="font-size:10px;">Unique User Login</span>
+			<div class="med-font">{if $users}{$users|number_format}{else}0{/if}</div>
+			{*}
+			<a href="#" class="absolute" style="bottom:8px;right:7px;"><img src="images/excel.png" style="border:none;" /></a>
+			{/*}
+			{*}<div class="{if $userArrow < 0}arrow-down{else}arrow-up{/if} absolute" style="top:137px;left:75px;"></div>
+			<div class="{if $userArrow < 0}red{else}green{/if} absolute font25" style="top:135px;left:120px;">{$userPercentage}%</div>{/*}
+		</div>
+	</div>
+	<div class="med-column fl-left">
+		<div class="med-box relative">
+			<div class="med-title">ACTIVE PARTICIPANT</div>
+			<span class="trebuc grey" style="font-size:10px;">Users participating in the program</span>
+			<div class="med-font">{if $participants}{$participants|number_format:0}{else}0{/if}</div>
+			{*}
+			<div class="{if $parArrow < 0}arrow-down{else}arrow-up{/if} absolute" style="top:140px;left:75px;"></div>
+			<div class="{if $parArrow < 0}red{else}green{/if} absolute font25" style="top:135px;left:120px;">{if $parPercentage}{$parPercentage}{else}0{/if}%</div>
+			{/*}
+		</div>
+	</div>
+	<div class="med-column fl-left">
+		<div class="med-box relative">
+			<div class="med-title">ACTIVE PARTICIPANT/LOGIN</div>
+			<span class="trebuc grey" style="font-size:10px;">Users over unique visits percentage</span>
+			<div class="med-font">{if $conversation}{$conversation|number_format:2}%{else}0{/if}</div>
+			{*}
+			<div class="{if $crArrow < 0}arrow-down{else}arrow-up{/if} absolute" style="top:137px;left:75px;"></div>
+			<div class="{if $crArrow < 0}red{else}green{/if} absolute font25" style="top:135px;left:120px;">{if $crPercentage}{$crPercentage}%{else}0{/if}</div>
+			{/*}
+		</div>
+	</div>
+	<div class="med-column fl-left">
+		<div class="med-box noMarginRight relative">
+			<div class="med-title">LOYALTY</div>
+			<span class="trebuc grey" style="font-size:10px;">Returning users to the site</span>
+			<div class="med-font">{if $loyalty}{$loyalty|number_format:2}%{else}0{/if}</div>
+			{*}
+			<div class="{if $loyArrow < 0}arrow-down{else}arrow-up{/if} absolute" style="top:140px;left:75px;"></div>
+			<div class="{if $loyArrow < 0}red{else}green{/if} absolute font25" style="top:135px;left:120px;">{if $loyPercentage}{$loyPercentage}{else}0{/if}%</div>
+			{/*}
+		</div>
+	</div>
+</div>
+<div class="chart-row h-border">
+	<h3>VISIT, TIME ON SITE, USERS, PARTICIPANT</h3>
+	{*}
+	<div class="selectdate fl-right" style="margin-top:-20px;">
+        <form>
+            <label class="fl-left">RANGE</label>
+            <input type="text" value="3/28/2012 - 4/3/2012" class="date fl-left" />	
+        </form>
+    </div><!-- end.selectdate -->
+	{/*}
+	<div class="big-chart relative">
+		<div class="absolute" style="top:30px;right:30px;">
+			<a id="c_visits" href="#" class="checkbox check">Visits</a>	
+			<a id="c_tos" href="#" class="checkbox check">Time on site</a>
+			<a id="c_users" href="#" class="checkbox check">Users</a>
+			<a id="c_parti" href="#" class="checkbox check">Participants</a>
+		</div>
+		<div id="VUP" class="absolute" style="width:945px;height:295px; bottom: 28px; left:25px;"></div>
+	</div>
+</div>
+<div class="chart-row h-border">
+	<h3 style="width:400px;">PAGE VIEW DISTRIBUTION</h3>
+	{*}
+	<a href="#"><img src="images/excel.png" style="border:none;margin-top: -18px;" class="fl-right" /></a>
+	{/*}
+	<div class="big-chart relative">
+		<div id="PVD" class="absolute" style="width:945px;height:340px; bottom: 28px; left:25px;"></div>
+	</div>
+</div>
+<div class="chart-row h-border" style="height:425px">
+	<div class="big-column fl-left">
+		<h3>ACTIVITY DISTRIBUTION</h3>
+		<div class="big-chart relative">
+			<div id="AD" style="width:945px;height:340px; bottom: 28px; left:25px;"></div>
+		</div>
+	</div>
+	<div class="big-column fl-right" style="margin-right:-9px">
+		<h3>GEOGRAPHICAL DISTRIBUTION</h3>
+		<div class="big-chart relative">
+			<div id="GD" style="width:945px;height:340px; bottom: 28px; left:25px;"></div>
+		</div>
+	</div>
+</div>
+<div class="chart-row h-border ">
+	<div class="big-column" style="text-align:right" >
+		
+		<h3 > Select Week&nbsp;
+		
+		<select name="weekID" id="weekID" onChange="location.href='index.php?weekID='+this.value">
+			<option value="1" {if $weekID==1}selected{/if}> Week 1 ( April 02 - April 08 )</option>
+			<option value="2" {if $weekID==2}selected{/if}>Week 2 ( April 09 - April 15 )</option>
+			<option value="3" {if $weekID==3}selected{/if}>Week 3 ( April 16 - April 22 )</option>
+			<option value="4" {if $weekID==4}selected{/if}>Week 4 ( April 23 - April 29 )</option>
+			<option value="5" {if $weekID==5}selected{/if}>Week 5 ( April 30 - May 06 )</option>
+			<option value="6" {if $weekID==6}selected{/if}>Week 6 ( May 07 - May 13 )</option>
+			<option value="7" {if $weekID==7}selected{/if}>Week 7 ( May 14 - May 20 )</option>
+			<option value="8" {if $weekID==8}selected{/if}>Week 8 ( May 21 - May 27 )</option>
+			<option value="9" {if $weekID==9}selected{/if}>Week 9 ( May 28 - June 03 )</option>
+			<option value="10" {if $weekID==10}selected{/if}>Week 10 ( June 04 - June 10 )</option>
+			<option value="11" {if $weekID==11}selected{/if}>Week 11 ( June 11 - June 17 )</option>
+			<option value="12" {if $weekID==12}selected{/if}>Week 12 ( June 18 - June 24 )</option>
+			<option value="13" {if $weekID==13}selected{/if}>Week 13 ( June 25 - July 01 )</option>
+		</select>
+		</h3>
+	</div>
+</div>
+
+<div class="chart-row h-border theRow">
+	<div class="big-column" >
+		<h3 class="openSesame" chart_id="registration"><button>REGISTRATION FUNNEL</button></h3>
+		<div class="big-chart relative registration" show='' style="display:none">
+			<div class="bgBlack"><img src="https://www.marlboro.co.id/report/chart/{$chart.registration}" style="height:335px" /></div>
+		</div>
+	</div>
+</div>
+
+<div class="chart-row h-border theRow">
+	<div class="big-column" >
+		<h3 class="openSesame" chart_id="registrationProgress"><button>TOTAL REGISTRATION PROGRESS</button></h3>
+		<div class="big-chart relative registrationProgress" show=''  style="display:none">
+			<div class="bgBlack"><img src="https://www.marlboro.co.id/report/chart/{$chart.registrationProgress}" style="height:335px" /></div>
+		</div>
+	</div>
+</div>
+
+<div class="chart-row h-border theRow">
+	<div class="big-column" >
+		<h3 class="openSesame" chart_id="RegistrationProgressSBA"><button>REGISTRATION PROGRESS BY SBA</button></h3>
+		<div class="big-chart relative RegistrationProgressSBA" show=''  style="display:none">
+			<div class="bgBlack"><img src="https://www.marlboro.co.id/report/chart/{$chart.RegistrationProgressSBA}" style="height:335px" /></div>
+		</div>
+	</div>
+</div>
+
+<div class="chart-row h-border theRow">
+	<div class="big-column" >
+		<h3 class="openSesame" chart_id="RegistrationProgressDST"><button>REGISTRATION PROGRESS BY DST</button></h3>
+		<div class="big-chart relative RegistrationProgressDST" show=''  style="display:none">
+			<div class="bgBlack"><img src="https://www.marlboro.co.id/report/chart/{$chart.RegistrationProgressDST}" style="height:335px" /></div>
+		</div>
+	</div>
+</div>
+
+<div class="chart-row h-border theRow">
+	<div class="big-column" >
+		<h3 class="openSesame" chart_id="ProgramWeekProgress"><button>PROGRAM WEEKLY PROGRESSION</button></h3>
+		<div class="big-chart relative ProgramWeekProgress" show=''  style="display:none">
+			<div class="bgBlack"><img src="https://www.marlboro.co.id/report/chart/{$chart.ProgramWeekProgress}" style="height:335px" /></div>
+		</div>
+	</div>
+</div>
+<div class="chart-row h-border theRow">
+	<div class="big-column" >
+		<h3 class="openSesame" chart_id="DSTPerformance"><button>DST PERFORMANCE</button></h3>
+		<div class="big-chart relative DSTPerformance" show=''  style="display:none">
+			<div class="bgBlack"><img src="https://www.marlboro.co.id/report/chart/{$chart.DSTPerformance}" style="height:335px" /></div>
+		</div>
+	</div>
+</div>
+
+<div class="chart-row h-border theRow">
+	<div class="big-column" >
+		<h3 class="openSesame" chart_id="RedrushTruckPerformance"><button>REDRUSH TRUCK PERFORMANCE</button></h3>
+		<div class="big-chart relative RedrushTruckPerformance" show=''  style="display:none">
+			<div class="bgBlack"><img src="https://www.marlboro.co.id/report/chart/{$chart.RedrushTruckPerformance}" style="height:335px" /></div>
+		</div>
+	</div>
+</div>
+<div class="chart-row h-border theRow">
+	<div class="big-column" >
+		<h3 class="openSesame" chart_id="RedrushFlashMOPPerformance"><button>REDRUSH FLASH MOB PERFORMANCE</button></h3>
+		<div class="big-chart relative RedrushFlashMOPPerformance" show=''  style="display:none">
+			<div class="bgBlack"><img src="https://www.marlboro.co.id/report/chart/{$chart.RedrushFlashMOPPerformance}" style="height:335px" /></div>
+		</div>
+	</div>
+</div>
+
+<div class="chart-row h-border theRow">
+	<div class="big-column" >
+		<h3 class="openSesame" chart_id="RedrushNightPerformance"><button>REDRUSH NIGHT PERFORMANCE</button></h3>
+		<div class="big-chart relative RedrushNightPerformance" show=''  style="display:none">
+			<div ><img src="https://www.marlboro.co.id/report/chart/{$chart.RedrushNightPerformance}" style="height:335px" /></div>
+		</div>
+	</div>
+</div>
+
+{literal}
+	<script>
+		$(".openSesame").click(function(){
+				var chartID = $(this).attr('chart_id');
+				if($("."+chartID).attr('show')==''){
+				$("."+chartID).fadeIn();
+				$(this).addClass("show");
+				$("."+chartID).attr('show','yes');
+				}else{
+				$("."+chartID).fadeOut();
+				$(this).removeClass("show");
+				$("."+chartID).attr('show','');
+				}
+			
+				
+		});
+		
+			
+			
+				
+	</script>
+{/literal}

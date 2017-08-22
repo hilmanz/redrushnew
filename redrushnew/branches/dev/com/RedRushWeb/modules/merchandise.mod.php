@@ -1,0 +1,168 @@
+<?php
+class merchandise extends App{
+	
+	var $Request;
+	
+	var $View;
+			
+	var $API;
+	
+	function __construct($req){
+		$this->Request = $req;
+		$this->View = new BasicView();
+		$this->setVar();
+		require_once APP_PATH.APPLICATION."/helper/apiHelper.php";
+		$this->API = new apiHelper();
+		
+	}
+	
+	function home(){
+
+			$act = $this->Request->getParam('act');
+			if($act) return $this->$act;
+			else return $this->merchandiseList();
+		
+	}
+	
+	function merchandiseList(){
+	
+	$player = $this->user;
+	$playerdata = json_decode($this->API->getPlayerData($player->id));
+	$getMerchandise = json_decode($this->API->getMerchandise($player->id));
+		
+	foreach($getMerchandise as $n=>$v){
+			$getMerchandise[$n]->ownMerchandise = json_decode($this->API->getOwnMerchandise($player->id,$getMerchandise[$n]->group_merchandise));
+		}
+	// print_r('<pre>'); print_r($getMerchandise);exit;
+	foreach($playerdata as $key => $value){
+		$this->assign($key,$value);		
+		}
+		
+	$this->assign('merchandise',$getMerchandise);
+	$this->log('page','merchandiseList');
+	// print_r('<pre>'); print_r($getMerchandise);exit;
+				if($this->user->verified!='1') return $this->contentString("/not_verified_merchandise.html",true);
+	return $this->contentString("/merchandise.html",true);
+	
+	}
+	
+	function merchandiseDetail(){
+		
+		$player = $this->user;
+		$merchandiseID = $this->Request->getParam('merchandiseID');
+		$playerdata = json_decode($this->API->getPlayerData($player->id));
+		$getMerchandise = json_decode($this->API->getMerchandiseByID($merchandiseID));
+		// $ownMerchandise = json_decode($this->API->getOwnMerchandise($player->id,$merchandiseID));
+	
+		include_once APP_PATH.APPLICATION."/models/merchandiseModel.php";
+		// if(file_exists( APP_PATH.APPLICATION."/models/merchandiseModel.php"))echo 'ada';else  APP_PATH.APPLICATION."/models/merchandiseModel.php";
+		$modelMerch = new merchandiseModel;
+		$getMerchandiseItemGroup = $modelMerch->getMerchandiseByGroup($getMerchandise->group_merchandise);
+		
+		foreach($getMerchandiseItemGroup as $n=>$v){
+			$ownMerchandises[] = json_decode($this->API->getOwnMerchandise($player->id,$getMerchandiseItemGroup[$n]['id']));
+		}
+		if(in_array(1,$ownMerchandises)) $ownMerchandise = 1;
+		else $ownMerchandise = 0;
+		// print_r('<pre>');print_r($ownMerchandise);exit;
+		
+		foreach($playerdata as $key => $value){
+		$this->assign($key,$value);		
+		}
+		$this->assign('ownPart',$ownMerchandise);
+		// print_r($getMerchandiseItemGroup);exit;
+		$this->assign('merchandise',$getMerchandise);
+		$this->assign('merchandiseItemGroup',$getMerchandiseItemGroup);			
+		$this->log('page','merchandiseDetail');
+		return $this->contentString("/merchandiseDetail.html",true);
+		
+	}
+	function redeem_form(){
+	
+	if($this->Request->getParam('merchandise_id')){
+		$player = $this->user;
+		$merchandise_id = $this->Request->getParam('merchandise_id');
+		$variant = $this->Request->getParam('variant');
+		$playerdata = json_decode($this->API->getPlayerData($player->id));
+		$getMerchandise = json_decode($this->API->getMerchandiseByID($merchandise_id));
+		$ownMerchandise = json_decode($this->API->getOwnMerchandise($player->id,$merchandise_id));
+		foreach($playerdata as $key => $value){
+		$this->assign($key,$value);		
+		}
+		foreach($player as $key => $value){
+		$this->assign('user_'.$key,$value);	
+		}
+		  // [id] => 15448
+    // [register_id] => 52488
+    // [name] => aruka
+    // [nickname] => aruka
+    // [email] => impstrg@yahoo.com
+    // [register_date] => 2012-04-23 11:13:32
+    // [img] => images/avatar-man.jpg
+    // [small_img] => 
+    // [username] => impstrg@yahoo.com
+    // [type] => 0
+    // [last_login] => 2012-04-27 18:16:07
+    // [city] => 2228
+    // [sex] => M
+    // [birthday] => 1985-09-16 00:00:00
+    // [description] => 
+    // [last_name] => terra
+    // [StreetName] => 
+    // [MobilePhone] => 083891122801
+    // [n_status] => 1
+    // [verified] => 1
+    // [login_count] => 22
+    // [mobile_type] => 1
+    // [Brand1_ID] => 00AM
+    // [Brand2_ID] => Array
+    // [Brand3_ID] => 
+    // [salt] => 111
+    // [password] => 6a9624e5cb6b1bb6fba1c4bf68ef930437df663c
+		// print_r('<pre>');print_r($player);exit;
+		$this->assign('ownPart',$ownMerchandise);
+		$this->assign('merchandise',$getMerchandise);
+		if($variant!='') $this->assign('variant',strtoupper($variant));			
+		$this->log('page','redeem');
+				
+		$this->log('redeem_merchandise',$merchandise_id);
+		
+		}		
+		// echo $purchaseMerchandise->message ;exit();
+		return $this->contentString("/redeem.html",true);
+	}
+	
+	function purchaseMerchandise(){
+		
+	
+		if($this->Request->getPost('checkTOS')=='on'){
+		
+		$player = $this->user;
+		$playerdata = json_decode($this->API->getPlayerData($player->id));
+		$merchandise_id = $this->Request->getPost('merchandise_id');
+		//form merchandise
+		$data_personal['address']= $this->Request->getPost('address');
+		$data_personal['phone']= $this->Request->getPost('phone');
+		$data_personal['mobile']= $this->Request->getPost('mobile');
+		$data_personal['city_name']= $this->Request->getPost('city_name');
+		$data_personal['zip_code']= $this->Request->getPost('zip_code');
+		$data_personal['variant']= $this->Request->getPost('variant');
+		// print_r($data_personal);exit;
+		$purchaseMerchandise = json_decode($this->API->purchaseMerchandise($playerdata->id,$merchandise_id,$data_personal));
+		$message = $purchaseMerchandise->message;
+		// print_r($purchaseMerchandise->message); exit;
+		
+		if($purchaseMerchandise->result==1) $this->log('redeem_merchandise',$merchandise_id);
+		//sendRedirect("index.php?page=merchandise");
+		}		
+		
+		$this->assign('message',$message);
+		$this->assign('go_url','merchandise');
+		sendRedirect("?page=merchandise");
+		return $this->contentString("/message_redrush.html",true);
+		
+		
+	}
+	
+	
+}

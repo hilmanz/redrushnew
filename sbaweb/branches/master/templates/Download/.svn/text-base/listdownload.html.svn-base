@@ -1,0 +1,86 @@
+<html>
+<head>
+	<title>Ini adalah List Download</title>
+</head>
+
+<body>
+{literal}
+ <script language="javascript" src="js/jquery.js"></script>
+  <script language="javascript">
+  var obj = new Object();
+   function loadData(id){
+      $.get('download.php',
+		{q:id},
+		function(data){
+		  if(data.error == undefined){ 
+			  var num = data.don.length;
+			  $('#content').hide().html(' ');
+			  var htm = '';
+			  for(var i=0; i<num; i++){
+				htm += '<div id="wrapper_content" align="left" style="float:left; padding-left:15px; ;">';
+				htm +=	'<div id="wrap_content_album" align="left" style="float:left; margin-right:10px;  width:200px; height:200px;  ">';
+				htm +=		'<div id="kiri_content" align="left" style="float:left; width:140px;">';
+				htm +=			'<div id="image_thumb" align="left" style="float:left;width:100px;height:100px;">';
+				htm +=				'<img src="contents/download/'+data.don[i].thumb+'" style="width:100px; height:100px; padding-top:25px;">';
+				htm +=				'<a href="?view=download&id='+data.don[i].id+'">'+data.don[i].name+'</a>';						
+				htm +=			'</div>';
+				htm +=		'</div>';
+				htm +=	'</div>';
+				htm += '</div>';
+			  }
+			  $('#content').html(htm);
+			  $('#content').fadeIn();
+		}else{
+			 alert(data.error);
+		  }
+		},'json'
+      );      
+   }
+   $(function(){
+	   $('#category').change(
+			function(){
+				if( $('#category:selected').val() != '' )
+					//loadData($(this).val());
+					$("#frm1").submit();
+				}
+	   );
+   });
+  </script>
+{/literal}
+
+<div class="title">
+	
+	<h1>List Downloads</h1>
+	<div align="right" >
+		<form id="frm1" method="get">
+		<input type="hidden" name="download" value="1"/>
+			<select name="c" id="category">	
+			<option value="0">Category</option>
+			{section name=i  loop=$select_filter}
+				<option value="{$select_filter[i].id}">{$select_filter[i].name}</option>
+			{/section}
+			</select>
+		</form>
+	</div>
+</div>
+
+	<div id="content">
+	{section name=i  loop=$content_download}
+			<div id="wrap_content_album" align="left" style="float:left; margin-right:10px;  width:125px; height:200px;  ">
+					<div id="image_thumb" align="left" style="float:left;width:100px;height:100px;">
+						<img src="contents/download/{$content_download[i].thumb}" style="width:100px; height:100px; padding-top:25px;">
+						<div>
+							{$content_download[i].name}
+							<br>
+							{$content_download[i].size}
+							<br>
+						</div>
+					<div>
+						<a href="download.php?f={$content_download[i].file}&uid={$uid}&name={$content_download[i].name}" class="download" style="margin-bottom: 500px;">Download</a>
+					</div>
+				</div>					
+			</div>
+		{/section}
+	<p>{$paging}</p>
+	
+	</div>

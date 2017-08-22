@@ -1,0 +1,18 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Widget</title>
+</head>
+<body style="width: 250px;">
+	{section name=i  loop=$show_widget}
+		<div id="wrapper_content" align="left" style="float:left; padding-left:1px; width: 50px; margin-right: 5px;">
+					<div id="image_thumb" align="left" style="float:left;width:80px;height:70px; margin-right: 2px;">
+						<img src="contents/gallery/mini_{$show_widget[i].img}" style="width:50px; height:50px; margin-right:5px;">						
+					</div>
+				</div>
+			</div>
+		</div>
+	{/section}
+</body>
+</html>

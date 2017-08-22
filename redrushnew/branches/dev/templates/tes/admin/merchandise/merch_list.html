@@ -1,0 +1,40 @@
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+	<td>
+    	<h1>MERCHANDISE LIST</h1>
+    </td>
+    <td align="right">
+    	<form>Search: <input name="q" type="text" {if $q}value="{$q}"{/if}><input name="s" type="hidden" value="merchandise"><input name="go" type="submit" value="Go"></form>
+    </td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="addlist zebra">
+  <tr>
+ 	<td width="3%" ><strong>Level</strong></td>
+	<td width="3%" align=" "><strong>Merch. ID</strong></td>
+    <td align=" "><strong>Merchandise</strong></td>
+    <td align=" "><strong>Stock / Amount</strong></td>
+    <td align=" "><strong>Prizes</strong></td>
+    <td align=" "><strong>Item Type</strong></td>
+    <td align=" " width="25%"><strong>Action</strong></td>
+  </tr>
+	{foreach from=$list key=k item=v}
+	{foreach from=$v key=id item=val}
+		<tr>
+	 {if $val.n_status==1}<td>{$val.level}</td>{else}<td></td>{/if}
+    <td>{$id}</td>
+    <td>{$val.item_name} {if $val.img!=null}<br><img src="{$base_url}/img/merchandise/thumb_{$val.img}" width="64px">{/if}</td>
+    <td align=" ">{$val.amount}</td>
+    <td align=" ">{$val.prize}</td>
+    <td align=" ">{if $val.n_status eq 0}Group Display Item{elseif $val.n_status eq 1}Display Item{else}Unpublish{/if}</td>
+    <td align=" ">
+	{if $val.display_item==false}<a href="index.php?s=merchandise&act=liststock&id={$id}">List Stock</a> | {/if}
+	<a href="index.php?s=merchandise&act=edit&id={$id}">Edit</a> | 
+    <a href="index.php?s=merchandise&act=delete&id={$id}" onclick="return confirm('Are you sure you want to delete?')">Delete</a></td>
+	</tr>
+	{/foreach}
+	{/foreach}
+ 
+</table>
+<div class="paging">{$paging}</div>

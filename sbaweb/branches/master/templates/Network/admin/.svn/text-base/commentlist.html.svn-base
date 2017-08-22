@@ -1,0 +1,29 @@
+<p><strong>Network Updates Management</strong></p><br>
+<br/>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="addlist zebra">
+	<tr class="head">
+		<td><strong>User</strong></td>
+		<td><strong>Article</strong></td>
+		<td><strong>Posted Date</strong></td>
+		<td><strong>Comment</strong></td>
+		<td><strong>Publish</strong></td>
+	</tr>
+	{section name=i loop=$list}
+	<tr>
+		<td>{$list[i].name|stripslashes|strip_tags}</td>
+		<td>{$list[i].title|stripslashes|strip_tags}</td>
+		<td>{$list[i].posted_date|date_format}</td>
+		<td>{$list[i].comments|stripslashes|strip_tags}</td>
+		<td>
+			{if $list[i].n_status == 0}
+			<a href="index.php?s=network&cmd=newsset&v=1&id={$list[i].id}">No</a>
+			{else}
+			<a href="index.php?s=network&cmd=newsset&v=0&id={$list[i].id}">Yes</a>
+			{/if}
+			&nbsp;|&nbsp;
+			<a href="index.php?s=network&cmd=newsdelete&id={$list[i].id}">Delete</a>
+		</td>
+	</tr>
+	{/section}
+</table>
+<p>{$paging}</p>

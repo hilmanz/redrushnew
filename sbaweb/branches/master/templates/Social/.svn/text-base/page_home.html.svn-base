@@ -1,0 +1,43 @@
+<div class="span-24 last">
+		<!--  left -->
+		<div class="span-6 border">
+			
+			<div>
+			<p>
+			<img src="{if $page_info.img}{$page_info.img}{else}images/no_photo_small.gif{/if}"/>
+			</p>
+			<p><a href="#">View Profile</a></p>
+			<p><a href="#">be a fan</a></p>
+			<p><a href="index.php?invite=1">Invite Your Friends</a></p>
+			</div>
+			<hr class="border"/>
+			<div>
+			<h3>Information</h3>
+			{section name=i loop=$info}
+			<p>
+			<label>{$info[i].name}</label><br/>
+				{$info[i].value}
+			</p>
+			{/section}
+			</div>
+			<hr class="border"/>
+			<div>
+			 <p>134 People <a href="#">like</a> this.</p>
+			</div>
+		</div>
+		<!-- middle -->
+		<div class="span-12 border">
+		<h2>{$page_info.page_name}</h2>
+		<hr class="border"/>
+			{$CONTENT}
+		</div>
+		<!-- right -->
+		<div class="span-6 last">
+			<h3>News Feeds</h3>
+			<hr class="border"/>
+			<div id="newsfeeds" class="span-4"></div>
+			<script>
+			getNews({$user.id});
+			</script>
+		</div>
+</div>

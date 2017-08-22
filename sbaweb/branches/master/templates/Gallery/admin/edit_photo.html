@@ -1,0 +1,17 @@
+<h2>Edit photo gallery</h2>
+<br />
+<div>
+<form  method="get">
+<table>
+<input type="hidden" name="pic_edit_admin" value="1">
+<input type="hidden" name="id" value="{$list.id}">
+<input type="hidden" name="s" value="gallery">
+<input type="hidden" name="edit" value="1">
+	<tr>
+		<td>Photo name</td>
+		<td><input type="text" value="{$list.caption}" name="caption"></td>
+	</tr>
+</table>
+<input type="submit" name="edit" value=" Save " />
+</form>
+</div>

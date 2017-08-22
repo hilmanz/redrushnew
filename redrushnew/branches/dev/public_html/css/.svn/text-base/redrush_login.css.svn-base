@@ -1,0 +1,347 @@
+/*
+Theme Name: MARLBORO REDRUSH MOP
+Version: 1.0
+Author: ACIT JAZZ - 2012
+*/
+@import url(http://fonts.googleapis.com/css?family=Oswald);
+
+
+body {
+	background:url(https://marlboro.co.id/mop/images/bg_lights.jpg) center top no-repeat #000;
+	font-size:16px;
+	color:#fff;
+	margin:0;
+	padding:0 0 40px 0;
+	text-align:center;
+	font-family: 'Oswald', sans-serif;
+}
+body.landingPage {
+	background:url(https://marlboro.co.id/mop/images/bg_login.jpg) center top no-repeat #bc1b13;
+}
+body.landingPage .mainPage {
+	text-align:center;
+	text-shadow:0 1px 1px #000;
+}
+body.landingPage .formLanding {
+	background:url(https://marlboro.co.id/mop/images/landing_text.png) no-repeat;
+	text-shadow:0 1px 1px #000;
+	position:relative;
+	width:960px;
+	height:550px;
+}
+a {
+	color:#C00;
+	outline:none;
+}
+a:hover {
+	color:#F00;
+}
+h1, h2, h3 {
+	margin:8px 0;
+	font-weight:normal;
+	color:#fff;
+	text-transform:capitalize;
+}
+h1 {
+	font-size:18px;
+}
+h2 {
+	font-size:16px;
+}
+h3 {
+	font-size:14px;
+}
+form {
+	margin:0;
+	padding:0;
+}
+.intro h1 {
+	font-size:35px;
+}
+.intro{
+	padding:20px 0;
+}
+.mainPage {
+	background:url(https://marlboro.co.id/mop/images/are_you_fast.png) no-repeat right;
+	width:960px;
+	margin:auto auto;
+	text-align:left;
+	padding:0 0 50px 0;
+}
+.footer {
+	text-align:center;
+	font-size:18px;
+	text-shadow:none;
+}
+.footer ul {
+	margin:0;
+	padding:0;
+}
+.footer ul li {
+	display:inline;
+}
+.footer ul li a {
+	color:#fff;
+}
+.footer ul li a:hover {
+	color:#333;
+}
+fieldset, .r3UploadSection, .r3FaxSection {
+	margin:0;
+	padding:0;
+	background:url(https://marlboro.co.id/mop/images/transparent-white.png) repeat;
+	border:none;
+}
+p.r3UploadSection {
+	-moz-border-radius:0;
+	-webkit-border-radius:0;
+	border-radius:0;
+	border:none;
+}
+fieldset h2, .r3UploadSection h2, .r3FaxSection h2 {
+	padding:8px 20px;
+	margin:0;
+	color:#fff;
+	background:#820600;
+	font-size:30px;
+}
+fieldset h2 p, .r3UploadSection h2 p, .r3FaxSection h2 p {
+	margin:0;
+}
+.header {
+	padding:0 0 20px 0;
+}
+.header p{
+	margin:3px 0;
+}
+.header h1{
+	text-transform:uppercase;
+}
+.r3UploadSection {
+	-moz-box-shadow:none;
+}
+.r3FaxSection ol {
+	display:block;
+	clear:both;
+	padding:15px 25px;
+	border-bottom:dashed 1px #666;
+	margin:0;
+}
+.r3FaxSection ol li {
+	margin-left:40px;
+	padding:20px 0;
+}
+#Form1 .row, p.r3UploadSection, .r3FaxSection p {
+	display:block;
+	clear:both;
+	padding:15px 25px;
+	border-bottom:dashed 1px #666;
+	margin:0;
+}
+.row label, .col_left, .fullWidthLabel {
+	display:inline-block;
+	width:200px;
+	margin:0;
+}
+.row label.radio {
+	width:60px;
+}
+.row table td {
+	text-align:center;
+}
+.row table td input[type=radio] {
+	margin:0;
+}
+.row table {
+	display:inline-block;
+}
+input[type=radio] {
+	margin:0 20px 0 0;
+}
+input[type=text] {
+	background:#fff;
+	width:212px;
+	height:24px;
+	border:solid 1px #999;
+	padding:3px 4px;
+}
+input.dob {
+	width:50px;
+}
+input[type=text]:focus, input[type=password]:focus, input.text:focus, input.title:focus, textarea:focus, select:focus {
+}
+input[type=submit]:focus {
+}
+.navigation ul {
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+.navigation ul li {
+	display:inline;
+}
+.navigation ul li a {
+	padding:0 10px 0 0;
+}
+.error {
+	margin:0;
+	color:#F00;
+	font-size:10px;
+}
+.submit {
+	display:inline-block;
+	margin:0 0 20px 0;
+}
+#lnkSubmitBtn, #lnkEditBtn, #lnkBtnSaveForm, #lnkBtnPrintForm, #lnkBtnContinue {
+	border:none;
+	color:#fff;
+	text-decoration:none;
+	text-transform:uppercase;
+	padding:5px 15px;
+	display:block;
+	background:#666;
+	font-size:30px;
+}
+#lnkSubmitBtn:hover, #lnkEditBtn:hover, #lnkBtnSaveForm:hover, #lnkBtnPrintForm:hover, #lnkBtnContinue:hover {
+	background:#820600;
+}
+.phoneGroup, .example {
+	display: inline-block;
+}
+.example {
+	padding:0 10px;
+}
+.row label.checkboxLabel, row label.checkbox {
+	width:600px;
+	display:inline-block;
+}
+#phPDFTitle br {
+	display:none;
+	margin:0;
+}
+#phRadBtn {
+	display:none;
+	visibility:hidden;
+}
+.loginBox {
+	width:254px;
+	height:220px;
+	margin:0 auto;
+	text-align:left;
+	padding:10px 0 0 0;
+	position:absolute;
+	top:240px;
+	left:743px;
+}
+.loginBox .row {
+	background:none;
+	padding:5px 0 1px 0;
+}
+.loginBox .row label {
+	color:#fff;
+	font-size:22px;
+	text-transform:uppercase;
+}
+.loginBox h1 {
+	color:#000;
+	font-size:16px;
+	text-transform:uppercase;
+	font-weight:bold;
+	padding:20px 15px 0 15px;
+	margin:0;
+}
+.loginBox input[type=text], .loginBox input[type=password] {
+	background:#fff;
+	width:212px;
+	height:22px;
+	border:none;
+	padding:3px 4px;
+	-moz-border-radius:0;
+	-webkit-border-radius:0;
+	border-radius:0;
+}
+.loginBox .smSubmit a {
+}
+.smSubmit {
+	padding:0 15px;
+	display:block;
+	text-align:center;
+}
+.smSubmit a {
+	color:#000;
+	text-decoration:none;
+	text-transform:uppercase;
+	padding:5px 0;
+	display:block;
+	text-shadow:0 1px 0 #fff;
+}
+.loginBox .smSubmit {
+	position:absolute;
+	margin:-28px 0 0 213px;
+}
+.loginBox .smSubmit a, #lnkBtnRegister {
+	background:none;
+	border: none;
+	color:#000;
+	text-decoration:none;
+	text-transform:uppercase;
+	padding:5px 0;
+	display:block;
+	font-weight:normal;
+	text-align:left;
+	width:50px;
+	color:#fff;
+	text-shadow:0 1px 1px #000;
+	font-size:16px;
+}
+#lnkBtnRegister{
+	background:url(https://marlboro.co.id/mop/images/btn_login.png) no-repeat;
+	width:145px; height:30px;
+	display:block;
+	text-indent:-5000px;
+	margin:25px 0 0 0;
+}
+#lnkBtnRegister:hover{
+	background:url(https://marlboro.co.id/mop/images/btn_login_hover.png) no-repeat;
+}
+.btn-login{
+	background:url(https://marlboro.co.id/mop/images/btn_submit.png) no-repeat;
+	width:38px; height:38px;
+	text-indent:-5000px;
+	border:none;
+	cursor:pointer;
+}
+#lnkBtnSubmit:hover{
+	background:url(https://marlboro.co.id/mop/images/btn_submit_hover.png) no-repeat;
+}
+.loginBox .smSubmit a:hover, #lnkBtnRegister:hover, .forgottenpassword a:hover {
+	color:#000;
+}
+.forgottenpassword {
+	padding:8px 0;
+	font-size:12px;
+}
+.forgottenpassword a {
+	display:inline-table;
+	text-decoration:none;
+	font-size:14px;
+	color:#fff;
+	text-transform:uppercase;
+}
+.registerBoxTitle {
+	display:none;
+}
+#divRegisterBox {
+	position:absolute;
+	right:60px;
+	top:415px;
+}
+#lnkButton{
+    background: none repeat scroll 0 0 #CC0000;
+    color: #FFFFFF;
+    display: table;
+    margin: 10px 0;
+    padding: 5px 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+}

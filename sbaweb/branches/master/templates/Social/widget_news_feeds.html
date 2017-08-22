@@ -1,0 +1,13 @@
+<div>
+{section name=i loop=$list}
+	<div class="list network-update">
+	<a class="small-thumb" href="#"><img src="{$list[i].small_img}" width="45" height="45"/></a>
+	   <div class="text">
+	       <span class="time">{$list[i].posted_date}</span>
+	       <span>{$list[i].message}</span>
+	   </div>
+	</div>
+{sectionelse}
+Belum ada update.
+{/section}
+</div>

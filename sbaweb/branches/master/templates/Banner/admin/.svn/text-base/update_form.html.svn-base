@@ -1,0 +1,83 @@
+<h2>Update Banner</h2>
+<br/>
+
+<div>
+<form  method="post" action="" enctype="multipart/form-data">
+<table>
+<input type="hidden" name="s" value="banner">
+<input type="hidden" name="updateform" value="1">
+<input type="hidden" name="id" value="{$show_banner.id}">
+
+	<tr>
+		<td>Judul</td>
+		<td><input type="text" value="{$show_banner.name}" name="txtnama"></td>
+	</tr>
+	{if $show_banner.n_status==0}
+	<tr>
+		<td>Status Picture</td>		
+		<td colspan="2"><input type="radio" name="rdostatus" value="0" checked="checked">Hidden
+		<input type="radio" name="rdostatus" value="1">Show</td>
+	</tr>
+	{elseif $show_banner.n_status==1}
+		<tr>
+		<td>Status Picture</td>		
+		<td colspan="2"><input type="radio" name="rdostatus" value="0">Hidden
+		<input type="radio" name="rdostatus" value="1" checked="checked">Show</td>
+	</tr>
+	{/if}
+	<tr>
+		<td>URL Banner</td>
+		<td><input type="text" name="txturl" value="{$show_banner.url}"></td>
+	</tr>
+	<tr>
+		<td>Banner</td>
+		<td>
+			{if $show_banner.type eq 'image'}
+			<img src="../contents/banner/{$show_banner.file}" />
+			{else}
+			<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="{if $show_banner.position==0}970{else}240{/if}" height="{if $show_banner.position==0}170{else}200{/if}" align="middle">
+			<param name="allowFullScreen" value="false" />
+			<param name="movie" value="../contents/banner/{$show_banner.file}" />
+			<param name="quality" value="high" />
+			<param name="scale" value="noscale" />
+			<param name="salign" value="lt" />
+			<param name="wmode" value="opaque" />
+			<param name="allowScriptAccess" value="always" />
+			<embed src="../contents/banner/{$show_banner.file}" quality="high" width="{if $show_banner.position==0}970{else}240{/if}" height="{if $show_banner.position==0}170{else}200{/if}" wmode="opaque" align="middle" scale="noscale" salign="LT" allowFullScreen="false" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
+			</object>
+			{/if}
+		</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td><input type="file" value="{$show_banner.file}" name="txtimg"></td>
+		<td><input type="hidden" value="{$show_banner.file}" name="hiddentxtimg"></td>
+	{if $show_banner.position==0}
+	<tr>
+		<td>Position Banner</td>
+		<td colspan="2"><input type="radio" name="rdoposition" value="0" checked="checked">Header
+		<input type="radio" name="rdoposition" value="1">Right Side</td>
+	</tr>
+	{else}
+	<tr>
+		<td>Position Banner</td>
+		<td colspan="2"><input type="radio" name="rdoposition" value="0">Header
+		<input type="radio" name="rdoposition" value="1" checked="checked">Right Side</td>
+	</tr>
+	{/if}
+	<tr>
+		<td>Type Banner</td>
+		<td colspan="2"><input type="radio" name="rtype" value="image" {if $show_banner.type eq 'image'}checked="checked"{/if}>Image
+		<input type="radio" name="rtype" value="flash" {if $show_banner.type eq 'flash'}checked="checked"{/if}>Flash</td>
+	</tr>
+	</tr>
+		<tr>
+		<td colspan="2"><h6>Notes : Perubahan Posisi Banner hanya dapat dilakukan apabila user melakukan update Image</h6></td>
+	</tr>
+	<tr>
+		<td colspan="2"><input type="submit" value="Submit">
+		<input type="reset" value="Reset"></td>
+	</tr>
+</table>
+</form>
+</div>

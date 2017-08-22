@@ -1,0 +1,40 @@
+<div id="title-bar">
+            	<h1>{$head_title}</h1>
+            </div><!-- end div Title Bar -->
+<div style="clear:both"></div>
+<table width="900" border="0" cellspacing="0" cellpadding="5">
+
+  <tr>
+  {if $left_column}
+    <td width="234" valign="top"><table width="234" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="234">{$ba_charts}</td>
+      </tr>
+    </table></td>
+    {/if}
+    <td width="419" valign="top"><table width="437" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="437" valign="top">{$content}</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+      </tr>
+    </table></td>
+     {if $right_column}
+    <td width="247" valign="top"><table width="437" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="437">{$acara_terkini}</td>
+      </tr>
+      <tr>
+        <td>{$photo_gallery}</td>
+      </tr>
+      <tr>
+        <td>{$banner}</td>
+      </tr>
+    </table></td>
+    {/if}
+  </tr>
+  <tr>
+    <td colspan="3">&nbsp;</td>
+  </tr>
+  </table>

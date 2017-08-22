@@ -1,0 +1,6 @@
+<h2>Detail Picture</h2>
+<h2><img src="../contents/gallery/{$view.owner_id|md5}/{$view.img}"></h2>
+<div>
+<br>
+<a href="?s=gallery&deleteadmin=1&id={$view.idpic}">delete Image</a>
+</div>

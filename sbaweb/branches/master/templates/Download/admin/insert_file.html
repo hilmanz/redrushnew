@@ -1,0 +1,28 @@
+<h2>Insert File</h2>
+<br/>
+
+<div>
+<form  method="post" action="" enctype="multipart/form-data">
+<table>
+<input type="hidden" name="s" value="download">
+<input type="hidden" name="insertfile" value="1">
+<input type="hidden" name="category_id" value="{$id_category}">
+	<tr>
+		<td>Nama File</td>
+		<td><input type="text"  name="txtnamefile"></td>
+	</tr>
+	<tr>
+		<td>File Thumbnail</td>
+		<td><input type="file" name="txtfilethumb"></td>
+	</tr>
+	<tr>
+		<td>File</td>
+		<td><input type="file" name="txtfile"></td>
+	</tr>
+	<tr>
+		<td><input type="submit" value="Submit"></td>
+		<td><input type="reset" value="Reset"></td>
+	</tr>
+</table>
+</form>
+</div>

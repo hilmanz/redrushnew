@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="js/jquery.js"></script>
+<script src="js/jquery.timers.js"></script>
+<script src="js/social.js"></script>  
+<script>
+api_url = 'http://192.168.77.60/sba/api/';
+</script>
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen, projection">
+<link rel="stylesheet" href="css/print.css" type="text/css" media="print">	
+<!--[if lt IE 8]><link rel="stylesheet" href="css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+<title>FriendFace</title>
+</head>
+<body>
+<div class="container">
+	<div class="span-24 last box">
+		<h1>BRAND AMBASSADOR</h1>
+		<div class="span-23 last boxe5">
+			<span class="prepend-17">Konfirmasi BA</span>
+			
+			<span class="prepend-1 last">Logout</span>
+		</div>
+		<!-- Dynamic Navigation -->
+	<div class="span-23 last" style="font-size:18px;">
+		<a href="index.php"><span class="span-2 border">Home</span></a>
+        <a href="?profile=1"><span class="span-2 border">My Profile</span></a>
+        <a href="?news=1"><span class="span-2 border">Berita Terbaru</span></a>
+        <a href="?events=1"><span class="span-2 border">Events</span></a>
+        <a href="?gallery=1"><span class="span-2 border">Gallery</span></a>
+         <a href="?download=1"><span class="span-2 border">Download</span></a>
+		<!--<a href="index.php?invite=1"><span class="span-2 border">Invite</span></a>
+		<a href="index.php?members=1"><span class="span-2 border">Members</span></a>-->
+	</div>
+	<!--  -->
+	</div>
+	<!--  The content -->
+	{$mainContent}
+		<!-- the content -->
+	</div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+
+<div id="main-container" class="city_top">
+	<div class="wrapper">
+    	<div id="containers">
+            {include file="RedRushWeb/newsfeedSubmenu.html"}
+            <div class="logo">
+            	<a href="index.php">&nbsp;</a>
+            </div><!-- .logo -->
+            <div class="panel2">
+            	<div class="entry recents">
+                    <div class="title">
+                        <h1>Recent Activity</h1>
+                    </div><!-- .title -->
+				           <div class="scrollbar" style="height:220px;">
+                            <ul class="newsfeed" style="padding:15px 0;">
+                               {section name=i loop=$notification}
+								<li>
+								 <span class="feeds">{$notification[i]->message}</span>
+                                 <span class="date-feeds">{$notification[i]->date_time}</span>
+								</li>
+                                {/section}   
+                                <!--  <li>
+                                    <span class="feeds"><a href="#">Baskara</a> gained 250 points at RedRush Night event @ Dragonfly</span>
+                                    <span class="date-feeds">34 MInutes Ago</span>
+                                </li> -->
+                            </ul>
+                        </div><!-- .scrollbar -->
+                </div><!-- .entry -->
+            </div><!-- .panel -->
+            <div id="sidebar">
+            	<div class="entry">
+                	<div class="box">
+                        <div class="title-box">
+                            <h1>Featured NEWS</h1>
+                        </div><!-- .title -->  
+                        <div class="box-red">
+                        	<div class="content">
+                                    {if $featured}
+                                    {section name=i loop=$featured}
+                                    <div class="list">
+                                    <p>
+                                    <h1 class="title-news"><a href="index.php?page=news&act=view&nid={$featured[i].id}">{$featured[i].title|stripslashes|strip_tags}</a></h1>
+                                    <span class="brief-news">
+                                    {$featured[i].brief|stripslashes|strip_tags}
+                                    </span>
+                                    <br />
+                                    <a href="index.php?page=news&act=view&nid={$featured[i].id}">Details here &raquo;</a>
+                                    </p>
+                                    </div><!-- .list -->
+                                    {/section}
+                                    {else}
+                                    No featured news available.
+                                    {/if}
+                            </div><!-- .content -->   
+                        </div><!-- .box-red -->   
+                    </div><!-- .box -->   
+                </div><!-- .entry -->
+            </div><!-- #sidebar -->
+            <div class="car-extreme-img"></div>
+        </div><!-- #containers -->
+    </div><!-- .wrapper -->
+</div><!-- #main-container -->

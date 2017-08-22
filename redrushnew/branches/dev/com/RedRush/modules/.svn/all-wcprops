@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/redrush/!svn/ver/870/branches/dev/com/RedRush/modules
+END
+game_service.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/redrush/!svn/ver/286/branches/dev/com/RedRush/modules/game_service.php
+END
+parts_service.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/redrush/!svn/ver/676/branches/dev/com/RedRush/modules/parts_service.php
+END
+user_rank_service.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/redrush/!svn/ver/151/branches/dev/com/RedRush/modules/user_rank_service.php
+END
+qrcode_service.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/redrush/!svn/ver/105/branches/dev/com/RedRush/modules/qrcode_service.php
+END
+user_service.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/redrush/!svn/ver/852/branches/dev/com/RedRush/modules/user_service.php
+END
+merchandise_service.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/redrush/!svn/ver/755/branches/dev/com/RedRush/modules/merchandise_service.php
+END
+racing_service.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/redrush/!svn/ver/816/branches/dev/com/RedRush/modules/racing_service.php
+END
+mobile_service.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/redrush/!svn/ver/870/branches/dev/com/RedRush/modules/mobile_service.php
+END
+ultimate_racing_service.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/redrush/!svn/ver/493/branches/dev/com/RedRush/modules/ultimate_racing_service.php
+END

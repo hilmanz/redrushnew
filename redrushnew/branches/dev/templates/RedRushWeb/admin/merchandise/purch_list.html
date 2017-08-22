@@ -1,0 +1,103 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+	<td>
+    	<h1>MERCHANDISE PURCHASE ORDER LIST</h1>
+    </td>
+    <td align="right">
+    	<form>Search: <input name="q" type="text" {if $q}value="{$q}"{/if}>
+<input name="s" type="hidden" value="merchandise">
+<input name="act" type="hidden" value="purchase-list">
+<input name="go" type="submit" value="Go"></form>
+    </td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="addlist zebra">
+  <tr>
+  	 <td width="10%" align="center"><strong>Purchase Date</strong></td>
+    <td align="center"><strong>Name</strong></td>
+	<td align="center"><strong>Address</strong></td>
+	<td align="center"><strong>Mobile / Phone number</strong></td>
+    <td align="center"><strong>Merchandise</strong></td>
+    <td align="center"><strong>Status</strong></td>
+    <td align="center" width="16%"><strong>Action</strong></td>
+  </tr>
+  {section name=n loop=$list}
+  <tr>
+  	<td align="center">{$list[n].purchase_date}</td>
+    <td align="center">{$list[n].name}</td>
+	<td align="center">{if $list[n].StreetName==''}{$list[n].address }{else}{$list[n].StreetName }{/if}, {if $list[n].qrCityName==''}{ $list[n].city_name}{else}{ $list[n].qrCityName|lower}{/if}, {$list[n].zip_code}</td>
+	<td align="center">{$list[n].MobilePhone} / {$list[n].mobile} / {$list[n].phone}</td>
+    <td align="center">{$list[n].item_name} {if $list[n].variant|upper!='' }({ $list[n].variant|upper}){/if}</td>
+    <td align="center"><div id="status{$list[n].id}">
+    	{if $list[n].n_status == 1}
+			<font color="green">Approved</font>
+		{elseif $list[n].n_status == 0}
+			<font color="gray">Pending</font>
+        {else}
+        	<font color="red">Rejected</font>
+		{/if}</div></div></td>
+    <td align="center">
+	{*}<a href="index.php?s=merchandise&act=getPO&id={$list[n].id}" target="_blank">Download PO</a></strong> | {/*}
+    <a href="index.php?s=merchandise&act=del-purchase&id={$list[n].id}" onclick="return confirm('Are you sure you want to delete?')">Delete</a></strong> | 
+    <a href="#" id="changeStatus{$list[n].id}" onclick="return showChanger({$list[n].id});">Change Status</a>
+        <div id="changer{$list[n].id}" style="display:none;">
+        <div id="loader{$list[n].id}" style="display:none;"><img src="images/loading.gif" /></div>
+        <p id="msg{$list[n].id}"></p>
+        <form id="formChanger" class="formChanger">
+        <input id="pid" class="pid" type="hidden" value="{$list[n].id}" />
+        <select id="stat" class="stat">
+          {if $list[n].n_status == 1}
+          <option value="0">Pending</option>
+          <option value="1" selected="selected">Approve</option>
+          <option value="2">Reject</option>
+          {elseif $list[n].n_status == 2}
+          <option value="0">Pending</option>
+          <option value="1">Approve</option>
+          <option value="2" selected="selected">Reject</option>
+          {else}
+          <option value="0" selected="selected">Pending</option>
+          <option value="1">Approve</option>
+          <option value="2">Reject</option>
+          {/if}
+        </select><input id="save" type="submit" value="Go" />
+        </form>
+        </div> 
+    </td>
+  </tr>
+  {/section}
+</table>
+<div class="paging">{$paging}</div>
+
+<script type="text/javascript">
+   {literal}
+    jQuery(document).ready(function($) {
+	  
+	  $('.formChanger').submit(function(){
+		  var id = $(this).find(".pid").val();
+		  var stat = $(this).find(".stat").val();
+		  $('#loader'+id).show();
+		  //alert(id);
+		  var p = {'id':id,'status':stat};
+		  $.post('index.php?s=merchandise&act=change-purchase',p, function(data) {
+			  $('#msg'+id).html(data);
+			  if(stat==0){
+			  $('#status'+id).html('<font color=gray>Pending</font>');
+			  }
+			  else if(stat==1){
+			  $('#status'+id).html('<font color=green>Approved</font>');  
+			  }
+			  else{
+			  $('#status'+id).html('<font color=red>Rejected</font>');	  
+			  }
+			   $('#loader'+id).hide();
+		  });
+		  return false;
+	  });
+    });
+	function showChanger(id){
+		$("#changer"+id).slideToggle();
+		$('#msg'+id).html('');
+		return false;
+	}
+	{/literal}
+  </script>

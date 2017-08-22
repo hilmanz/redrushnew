@@ -1,0 +1,30 @@
+<p><strong>News Management</strong></p><br>
+<br/>
+{if $msg}<div style="color:#cc0000;">{$msg}</div>{/if}
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="addlist zebra">
+  <tr class="head">
+    <td><strong>ID</strong></td>
+    <td><strong>Title</strong></td>
+    <td><strong>Brief</strong></td>
+    <td><strong>Date</strong></td>
+    <td><strong>Comment</strong></td>
+    <td  width="150"><strong>Action</strong></td>
+  </tr>
+  {section name=i loop=$list}
+  <tr>
+    <td>{$list[i].id}</td>
+    <td>{$list[i].title|stripslashes|strip_tags}</td>
+    <td>{$list[i].brief|stripslashes|strip_tags}</td>
+    <td>{$list[i].posted_date|stripslashes|strip_tags}</td>
+    <td>
+	{if $list[i].komen > 0}
+	<a href="index.php?s=news&act=comment&id={$list[i].id}">{$list[i].komen}</a>
+	{else}
+	0
+	{/if}
+    </td>
+    <td><a href="index.php?s=news&act=edit&id={$list[i].id}">Edit</a>&nbsp;|&nbsp;<a href="index.php?s=news&act=delete&id={$list[i].id}">Delete</a></td>
+  </tr>
+  {/section}
+</table>
+<p>{$paging}</p>

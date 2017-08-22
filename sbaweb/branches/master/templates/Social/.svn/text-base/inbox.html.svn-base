@@ -1,0 +1,10 @@
+{section name=i loop=$list}
+<div class="span-20">
+{$list[i].tgl}&nbsp;<a href="?read_message=1&id={$list[i].id}">{$list[i].sender_name|strip_tags} - {$list[i].subject|strip_tags}</a>
+</div>
+<hr style="border"/>
+{/section}
+<div class="paging">
+	{$paging}
+</div>
+<a href="?message=1">Create Message</a>

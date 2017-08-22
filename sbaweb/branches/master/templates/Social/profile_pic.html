@@ -1,0 +1,21 @@
+<div class="span-4 last">
+<h3>Profile Picture</h3>
+{if $msg}<div class="notice">{$msg}</div>{/if}
+<div>
+<h4>Current Photo</h4>
+<p>
+<img src="{if $user.img}{$user.img}{else}images/no_photo_small.gif{/if}"/>
+</p>
+<p>
+<img src="{if $user.small_img}{$user.small_img}{else}images/no_photo_small.gif{/if}"/>
+</p>
+</div>
+<div>
+Choose New Photo <br/>
+<form method="post" enctype="multipart/form-data">
+	<input type="file" name="file" id="file"/>
+	<input type="hidden" name="upload" id="upload" value="1"/>
+	<input type="submit" value="Save Photo"/>
+</form>
+</div>
+</div>

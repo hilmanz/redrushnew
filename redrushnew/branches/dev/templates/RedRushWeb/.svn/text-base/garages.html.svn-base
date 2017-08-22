@@ -1,0 +1,89 @@
+
+<div id="main-container">
+	<div class="wrapper">
+    	<div id="containers">
+        	<div id="garage">
+            	<div id="profile">
+                	<div class="thumb"><img src="{if $player.small_img eq ''} img/thumb.jpg {else} contents/avatar/small/{$player.small_img} {/if}" /></div>
+                    <div class="box-user">
+                    	<span class="username">{$player.name}</span>
+                    	<span class="reputation">{section name=i loop=$player.level}<img src="img/star.png" alt="" />{/section}</span>
+                    	{if !$ultimate}
+						<span class="total-race">{$player.races} Race</span>
+                    	<span class="total-win">{$player.wins} Wins</span>
+						{/if}
+                    </div>
+                </div><!-- #profile -->
+            	<div id="score">
+                	
+                </div><!-- #score -->
+            	<div id="car">
+ 					<img id="wings" class="wingscarLeft" src="" />
+                	<img  id="body" src="{if $ultimate}contents/carLeft/porche/body/ultimate.png{else}contents/car/body/default.png{/if}" />
+					<img id="tire" class="tirecarLeft" src="contents/car/tire/default.png" />
+					<img id="decals" class="decalscarLeft" src="" />
+					<img id="tints" class="tintscarLeft" src="contents/car/tints/default.png" />
+					<img id="hoods" class="hoodscarLeft" src="" />
+                </div><!-- #car -->
+				{if !$ultimate}
+                <div id="statistik">
+                	<div id="topspeed" class="gradient">
+                    	<span>TOP SPEED</span>
+                        <div class="progress"><img src="img/progress-bar.gif" width="{$player.attributes.speed}%" height="10" /></div>
+                  </div>
+                	<div id="handling" class="gradient">
+                    	<span>HANDLING</span>
+                        <div class="progress"><img src="img/progress-bar.gif" width="{$player.attributes.handling}%" height="10" /></div>
+                    </div>
+                	<div id="accleration" class="gradient">
+                    	<span>ACCELERATION</span>
+                        <div class="progress"><img src="img/progress-bar.gif" width="{$player.attributes.acceleration}%" height="10" /></div>
+                    </div>
+                </div><!-- #statistik -->
+				{/if}
+                <div id="button-race">
+                	<a href="index.php?page=race&act=challenge&rtoken={$rtoken}" class="race-now">&nbsp;</a>
+                	<a href="{if $ultimate}index.php?page=race{else}javascript:void(0){/if}" onclick="history.back();" class="back-now">&nbsp;</a>
+                </div><!-- #button-race -->
+                <!-- 
+                <div id="button-vote">
+                	<a href="#" class="vote-now">&nbsp;</a>
+                </div>
+                 -->
+            </div><!-- #garage -->
+        </div><!-- #containers -->
+    </div><!-- .wrapper -->
+</div><!-- #main-container -->
+
+{literal}
+<script>
+$(document).ready(function() {
+	$(document).keydown(function(event) {
+		  if ( event.ctrlKey==true || event.keyCode == 123) {
+			 return false;
+		   }
+		});
+var carLayer = 'carLeft';
+{/literal}
+var carBody = "{if $body.type eq ''}porche{else}{$body.type}{/if}";
+var bodyColor = "{if $body.color eq ''}default{else}{$body.color}{/if}";
+var tireColor = "{if $tire.color eq ''}default{else}{$tire.color}{/if}";
+var decalsColor = "{if $decals.color eq 'default'}{else}{$decals.color}{/if}";
+var tintsColor = "{if $tints.color eq 'default'}{else}{$tints.color}{/if}";
+var wingsColor = "{if $wings.color eq 'default'}{else}{$wings.color}{/if}";
+var hoodsColor = "{if $hoods.color eq 'default'}{else}{$hoods.color}{/if}";
+{literal}
+
+$('#car img#body').attr('src','contents/'+carLayer+'/'+carBody+'/body/'+bodyColor+'.png');
+$('#car img#tire').attr('src','contents/'+carLayer+'/'+carBody+'/tire/'+tireColor+'.png');
+$('#car img#decals').attr('src','contents/'+carLayer+'/'+carBody+'/decals/'+decalsColor+'.png');
+$('#car img#tints').attr('src','contents/'+carLayer+'/'+carBody+'/tints/'+tintsColor+'.png');
+$('#car img#wings').attr('src','contents/'+carLayer+'/'+carBody+'/wings/'+wingsColor+'.png');	
+$('#car img#hoods').attr('src','contents/'+carLayer+'/'+carBody+'/hoods/'+hoodsColor+'.png');	
+
+
+
+});
+
+</script>
+{/literal}

@@ -1,0 +1,53 @@
+{*}
+<div id="main-container" class="unverified-merchandise">
+	<div class="comingsoon-icon"> </div>
+</div><!-- #main-container -->
+{/*}
+<div id="main-container" class="bg-blue">
+	<div class="wrapper">
+    	<div id="containers">
+            <div class="logo">
+            	<a href="index.php">&nbsp;</a>
+            </div><!-- .logo -->
+            <div class="panel4">
+                <div class="titles">
+                    <h1>Your Current Points : <span class="yellow"> {$points} Pts.</span> </h1>
+                    <a class="add-points" href="?page=race">&nbsp;</a>
+                </div>
+            	<div class="entry merchandiseList">
+                    <div class="scrollbar">
+                    	<div class="merchandise">
+						{section name=i loop=$merchandise}
+                        	<div class="item">
+                            	<div class="thumb-frame">
+                                
+								
+									{if $merchandise[i]->ownMerchandise eq 0}	<a class="thumb-item" href="index.php?page=merchandise&act=merchandiseDetail&merchandiseID={$merchandise[i]->id}"><img src="img/merchandise/{$merchandise[i]->img}" alt="" />  </a>{else}<img class="img-purchase thumb-item" src="img/merchandise/{$merchandise[i]->img}" alt="" />{/if}
+                                 <!-- .thumb-item -->
+										{if $merchandise[i]->level > $level}
+                                            <div class="merchlocked">
+                                                <img src="img/merch_lock.png" alt="" />
+                                            </div>
+                                    	{/if} 
+										{if $merchandise[i]->amount == false}
+                                            <div class="merchlocked">
+                                                <img src="img/out_off_stock.png" alt="" />
+                                            </div>
+										{/if}	
+                                </div><!-- .thumb-frame -->
+								{if $merchandise[i]->level <= $level}
+                                <div class="caption">
+                                	
+                             {if $merchandise[i]->amount == true} {if $merchandise[i]->ownMerchandise eq 0} {if $merchandise[i]->prize !=0}<span class="price">{$merchandise[i]->prize} Pts.</span>{/if}<a class="btn-redeem"  href="index.php?page=merchandise&act=merchandiseDetail&merchandiseID={$merchandise[i]->id}" >&nbsp;</a> {else} <span class="purchased-item">PURCHASED</span> {/if}    {/if} 
+                                </div><!-- .caption -->
+								{/if}
+                            </div><!-- .item -->
+                        {/section}
+                        	
+                        </div><!-- .merchandise -->
+                    </div><!-- .scrollbar -->
+                </div><!-- .entry -->
+            </div><!-- .panel -->
+        </div><!-- #containers -->
+    </div><!-- .wrapper -->
+</div><!-- #main-container -->

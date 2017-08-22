@@ -1,0 +1,13 @@
+<h2>MANAGE NEWS</h2>
+<br/>
+<table width="100%" class="list">
+<tr class="head">
+<td>id</td><td>judul</td><td>isi</td><td>aksi</td>
+</tr>
+{section name=i loop=$news}
+<tr>
+<td>{$news[i].id}</td><td>{$news[i].judul}</td><td>{$news[i].isi}</td><td>Edit | Delete</td>
+</tr>
+{/section}
+</table>
+[ <a href="#">Buat Berita</a> ]

@@ -1,0 +1,72 @@
+{literal}
+<link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+<style>
+	#progress-content {position: relative;   top: 110px;}
+	.ui-progressbar-value { background-image: url(img/pbar-ani.gif); }
+	</style>
+{/literal}
+{if $loadIt=='home'}
+{section name=i loop=$img }<img  src="{$img[i]}" style="display:none" />{/section}
+{section name=i loop=$topview }<img  src="{$topview[i]}" style="display:none" />{/section}
+
+{/if}
+{if $loadIt=='garage'}
+{section name=i loop=$sparepart }<img  src="{$sparepart[i]}" style="display:none" />{/section}
+{section name=i loop=$parts }<img  src="{$parts[i]}" style="display:none" />{/section}
+
+
+{section name=i loop=$body }<img  src="{$body[i]}" style="display:none" />{/section}
+{section name=i loop=$carRightbody }<img  src="{$carRightbody[i]}" style="display:none" />{/section}
+{/if}
+{if $loadIt=='freeze'}
+{section name=i loop=$decals }<img  src="{$decals[i]}" style="display:none" />{/section}
+{section name=i loop=$hoods }<img  src="{$hoods[i]}" style="display:none" />{/section}
+{section name=i loop=$tints }<img  src="{$tints[i]}" style="display:none" />{/section}
+{section name=i loop=$tire }<img  src="{$tire[i]}" style="display:none" />{/section}
+{section name=i loop=$wings }<img  src="{$wings[i]}" style="display:none" />{/section}
+
+
+
+{section name=i loop=$carRightdecals }<img  src="{$carRightdecals[i]}" style="display:none" />{/section}
+{section name=i loop=$carRighthoods }<img  src="{$carRighthoods[i]}" style="display:none" />{/section}
+{section name=i loop=$carRighttints }<img  src="{$carRighttints[i]}" style="display:none" />{/section}
+{section name=i loop=$carRighttire }<img  src="{$carRighttire[i]}" style="display:none" />{/section}
+{section name=i loop=$carRightwings }<img  src="{$carRightwings[i]}" style="display:none" />{/section}
+{/if}
+		<div id="main-container" class="bg-challenge" style="position:fixed;">
+		<div class="wrapper">
+			<div id="progress-content">
+					<div id="progressbar" class="ui-progressbar ui-widget ui-widget-content ui-corner-all" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="1"></div>
+			<div><h1>Please Wait While Loading Images...</h1></div>
+			</div>
+		</div>
+		</div>
+		
+{literal}
+ <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+<script>
+{/literal}
+var target = '{$targetIt}';
+{literal}
+  var millisecondsLoading =0;
+  var startTime = (new Date()).getTime();
+  var time=0;
+  $(window).load(function () {
+       var endTime = (new Date()).getTime();
+		millisecondsLoading = endTime - startTime;
+       // Put millisecondsLoading in a hidden form field
+       // or Ajax it back to the server or whatever.
+	     $( "#progressbar" ).progressbar({value:1});
+		  var progress =  setInterval(function(){ 
+		   time++;
+		   $("#progressbar .ui-progressbar-value").animate({ width: time+"%"}, {queue: false});
+			if(time==100) {
+			clearInterval(progress);
+			window.location= target;
+		  }
+		  }, millisecondsLoading/1000); 
+	});
+
+
+</script>
+{/literal}

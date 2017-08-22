@@ -1,0 +1,44 @@
+{section name=i loop=$post}
+<div class="span-2">{if $post[i].small_img}<img src="{$post[i].small_img}"/>{else}<img src="images/no_photo_small.gif"/>{/if}</div>
+<div>
+	<div class="span-10 last">
+	<p>
+	<span style="padding:1px;font-weight:bold;">
+	<a href="index.php?profile_id={$post[i].id}">{$post[i].name|stripslashes|strip_tags}</a> : </span>
+	<span style="padding:1px;">{$post[i].post|stripslashes|strip_tags}</span>
+	</p>
+	<p>{$post[i].post_time|stripslashes|strip_tags} &nbsp; - <a href="javascript:;" id="like{$post[i].post_id}" onclick="likeit({$post[i].post_id})">Like {if $post[i].like>0}({$post[i].like}){/if}</a> - <a href="javascript:;" onclick="comment_box({$post[i].post_id});return false;">Comment</a></p>
+	</div>
+	<span id="replies{$post[i].post_id}" class="span-11 prepend-1 last box" style="display:none;"><a href="javascript:;" onclick="view_comment({$post[i].post_id});return false;">View Comments</a></span>
+	<div id="comment{$post[i].post_id}" style="display:none;"><input type="text" name="txtcomment{$post[i].post_id}" id="txtcomment{$post[i].post_id}" size="40" value=""/></div>
+	<span id="rs{$post[i].post_id}" class="info" style="display:none;">saving comment ...</span>
+	
+	<script>
+	$('#txtcomment{$post[i].post_id}').click(function(){literal}{
+		{/literal}
+			var el = 'txtcomment{$post[i].post_id}';
+			{literal}
+			$('#'+el).val("");
+			
+	});{/literal}
+	$('#txtcomment{$post[i].post_id}').keypress(function(event){literal}{
+		{/literal}
+			var el = 'txtcomment{$post[i].post_id}';
+			var el1 = 'comment{$post[i].post_id}';
+			var el2 = 'rs{$post[i].post_id}';
+			var pid = {$post[i].post_id};
+			{literal}
+		if(event.which==13){
+			//enter
+			$('#'+el1).hide();
+			$('#'+el2).show();
+			reply(pid,$('#'+el).val());
+		}
+	});{/literal}
+	</script>
+	<script>
+	has_comment({$post[i].post_id});
+	</script>
+</div>
+<hr class="border"/>
+{/section}

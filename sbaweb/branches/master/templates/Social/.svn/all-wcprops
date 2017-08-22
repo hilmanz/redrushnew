@@ -1,0 +1,221 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/sba/!svn/ver/274/branches/master/templates/Social
+END
+read_message.html
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/sba/!svn/ver/98/branches/master/templates/Social/read_message.html
+END
+inbox.html
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/sba/!svn/ver/98/branches/master/templates/Social/inbox.html
+END
+remove_friend_result.html
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/sba/!svn/ver/2/branches/master/templates/Social/remove_friend_result.html
+END
+my-profile.html
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/sba/!svn/ver/2/branches/master/templates/Social/my-profile.html
+END
+single_post.html
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/sba/!svn/ver/2/branches/master/templates/Social/single_post.html
+END
+feeds.html
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/sba/!svn/ver/2/branches/master/templates/Social/feeds.html
+END
+profile_pic.html
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/sba/!svn/ver/2/branches/master/templates/Social/profile_pic.html
+END
+home_10mar2011.html
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/sba/!svn/ver/2/branches/master/templates/Social/home_10mar2011.html
+END
+single_reply.html
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/sba/!svn/ver/2/branches/master/templates/Social/single_reply.html
+END
+send_message.html
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/sba/!svn/ver/95/branches/master/templates/Social/send_message.html
+END
+reply_message.html
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/sba/!svn/ver/99/branches/master/templates/Social/reply_message.html
+END
+wall.html
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/sba/!svn/ver/2/branches/master/templates/Social/wall.html
+END
+single_post.old.html
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/sba/!svn/ver/2/branches/master/templates/Social/single_post.old.html
+END
+konfirmasi_ba.html
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/sba/!svn/ver/86/branches/master/templates/Social/konfirmasi_ba.html
+END
+notifications.html
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/sba/!svn/ver/33/branches/master/templates/Social/notifications.html
+END
+index_10mar2011.html
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/sba/!svn/ver/2/branches/master/templates/Social/index_10mar2011.html
+END
+add_friend_result.html
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/sba/!svn/ver/64/branches/master/templates/Social/add_friend_result.html
+END
+message.html
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/sba/!svn/ver/95/branches/master/templates/Social/message.html
+END
+page_home.html
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/sba/!svn/ver/2/branches/master/templates/Social/page_home.html
+END
+widget_news_feeds.html
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/sba/!svn/ver/3/branches/master/templates/Social/widget_news_feeds.html
+END
+home.html
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/sba/!svn/ver/219/branches/master/templates/Social/home.html
+END
+content_gallery.html
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/sba/!svn/ver/25/branches/master/templates/Social/content_gallery.html
+END
+friends.html
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/sba/!svn/ver/80/branches/master/templates/Social/friends.html
+END
+page_create.html
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/sba/!svn/ver/2/branches/master/templates/Social/page_create.html
+END
+member_list_old.html
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/sba/!svn/ver/2/branches/master/templates/Social/member_list_old.html
+END
+download_list.html
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/sba/!svn/ver/2/branches/master/templates/Social/download_list.html
+END
+member_list.html
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/sba/!svn/ver/2/branches/master/templates/Social/member_list.html
+END
+my_profile_old.html
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/sba/!svn/ver/2/branches/master/templates/Social/my_profile_old.html
+END
+page_index.html
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/sba/!svn/ver/182/branches/master/templates/Social/page_index.html
+END
+daftar_top_performer.html
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/sba/!svn/ver/156/branches/master/templates/Social/daftar_top_performer.html
+END
+home.old.html
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/sba/!svn/ver/2/branches/master/templates/Social/home.old.html
+END
+my_profile.html
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/sba/!svn/ver/169/branches/master/templates/Social/my_profile.html
+END
+index.html
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/sba/!svn/ver/312/branches/master/templates/Social/index.html
+END
+berita-terbaru.html
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/sba/!svn/ver/2/branches/master/templates/Social/berita-terbaru.html
+END
+login.html
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/sba/!svn/ver/182/branches/master/templates/Social/login.html
+END
+content.html
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/sba/!svn/ver/2/branches/master/templates/Social/content.html
+END

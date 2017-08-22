@@ -1,0 +1,20 @@
+	<div id="popup-ultimate-car" class="popup carbons" style="display:none;">
+		<a class="popup-close" href="#">[x] Close</a>
+        <div class="inner-popup">
+        	<span style="font-size:30px;">{$popupInfo_main_message }</span><br />
+			<span style="font-size:20px;">{$popupInfo_sub_message}</span><br /> </h1></div>
+	</div>
+	<div class="backgroundPopup" style="display:block;"></div>
+    {literal}
+    <script type="text/javascript">
+      $(document).ready(function() {
+	          $(".backgroundPopup").fadeIn("slow");
+              $("#popup-ultimate-car").fadeIn("slow");
+            $("a.popup-close").click(function() {
+                $(".backgroundPopup").fadeOut("slow");
+                $("#popup-ultimate-car").fadeOut("slow");
+            });
+						
+        });
+    </script>
+    {/literal}

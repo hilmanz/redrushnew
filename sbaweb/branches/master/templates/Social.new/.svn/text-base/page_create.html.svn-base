@@ -1,0 +1,44 @@
+<h3>Create Page</h3>
+<form method="post" enctype="application/x-www-form-urlencoded">
+<table width="100%">
+<tr>
+	<td valign="top">Nama</td><td><input type="text" name="name" id="name" value=""/></td>
+</tr>
+<tr>
+	<td>About</td><td><input type="text" name="about" id="about" value=""/></td>
+</tr>
+<tr>
+	<td>Page Username</td><td><input type="text" name="alias" id="alias" value=""/> untuk mengakses melalui http://{$url}/[PAGE_USERNAME]</td>
+</tr>
+<tr>
+	<td  valign="top">Deskripsi Lengkap</td><td valign="top"><textarea id="descriptions" name="descriptions" cols="50" rows="10"></textarea></td>
+</tr>
+<tr>
+	<td>Posisi Kamu</td><td><input type="text" name="role" id="role" value=""/> Contoh : Gitaris</td>
+</tr>
+<tr>
+	<td>Admins</td><td><a href="#">Pilih Teman</a></td>
+</tr>
+<!-- additional info -->
+<tr>
+	<td colspan="2"><h4>Info Tambahan</h4></td>
+</tr>
+{section name=i loop=$additional}
+<tr>
+	<td>
+		<select id="add_name{$smarty.section.i.index}" name="add_name{$smarty.section.i.index}">
+		<option value="">--Info Tambahan--</option>
+		{section name=j loop=$additional}
+			<option value="{$additional[j]}">{$additional[j]}</option>
+		{/section}
+		</select>
+	</td>
+	<td><input type="text" name="add_val{$smarty.section.i.index}" id="add_val{$smarty.section.i.index}" value="" maxlength="140" size="50"/></td>
+</tr>
+{/section}
+<tr>
+	<td colspan="2"><input type="submit" value="Buat"/></td>
+</tr>
+</table>
+<input type="hidden" name="create_page" value="1"/>
+</form>

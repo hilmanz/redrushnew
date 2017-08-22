@@ -1,0 +1,49 @@
+
+<div id="main-container" class="bg-night inbox">
+	<div class="wrapper">
+    	<div id="containers">
+            <div class="logo">
+            	<a href="index.php">&nbsp;</a>
+            </div><!-- .logo -->
+            <div class="panel3">
+            	<div class="entry" style="padding:0 30px 0 50px;">
+                    <div class="title" style="padding:10px 0 20px 0; display:table; width:100%;">
+                        <h1 style="float:left; width:150px;">{$subject} </h1><a style="float:right;padding-right:10px; display:block; line-height:50px; width:100px; text-align:right;" href="?page=user&act=notification">&lt;&lt; BACK</a>
+                    </div><!-- .title -->
+                        <div class="scrollbar" style="height:230px;">
+                            <div class="box" style="width:330px">
+							 {$message}
+                            </div><!-- .box -->
+                        </div><!-- .scrollbar -->
+                </div><!-- .entry -->
+            </div><!-- .panel -->
+            <div id="sidebar">
+            	<div class="entry">
+					<div class="title-box">
+                            <h1>Featured NEWS</h1>
+                        </div><!-- .title -->  
+                	<div class="box-red">
+                        	<div class="content">
+                                    {if $featured}
+                                    {section name=i loop=$featured}
+                                    <div class="list">
+                                    <p>
+                                    <h1 class="title-news"><a href="index.php?page=news&act=view&nid={$featured[i].id}">{$featured[i].title|stripslashes|strip_tags}</a></h1>
+                                    <span class="brief-news">
+                                    {$featured[i].brief|stripslashes|strip_tags}
+                                    </span>
+                                    <br />
+                                    <a href="index.php?page=news&act=view&nid={$featured[i].id}">Details here &raquo;</a>
+                                    </p>
+                                    </div><!-- .list -->
+                                    {/section}
+                                    {else}
+                                    No featured news available.
+                                    {/if}
+                            </div><!-- .content -->   
+                        </div><!-- .box-red -->   
+                </div><!-- .entry -->
+            </div><!-- #sidebar -->
+        </div><!-- #containers -->
+    </div><!-- .wrapper -->
+</div><!-- #main-container -->

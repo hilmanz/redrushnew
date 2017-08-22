@@ -1,0 +1,114 @@
+<script language="javascript" type="text/javascript">
+var eventid = {$news_id};
+var jumlah_comment = {$num_com};
+{literal}
+function textCounter( field, countfield, maxlimit ) {
+  if ( field.value.length > maxlimit )
+  {
+    field.value = field.value.substring( 0, maxlimit );
+    //alert( 'Textarea value can only be 255 characters in length.' );
+    return false;
+  }
+  else
+  {
+    countfield.value = maxlimit - field.value.length;
+  }
+}
+
+var change_comment = true;
+var new_id = 0;
+$(document).ready(function(){
+	$('#btn-comment').click(function(){
+		addComment();
+	});
+	$('#form-comment').submit(function(){
+		addComment();
+	});
+	$('#ocoms').click(function(){
+		$('#coms').toggle();
+	});
+});
+
+function addComment(){
+	if( change_comment ){
+		change_comment = false;
+		
+		$.post('?news=1&act=comment&sid='+eventid+'&text='+$('#comment').val(), function(data) {
+			if( data == 1 ){
+				
+				
+				change_comment = true;
+				//alert('Your Comment Has Been Sent For Moderation. Thank You For Your Post');
+				window.location.href = "index.php?news=1&id="+eventid;
+			}else{
+				alert( "Processing comment failed, please try again" );
+			}
+		});
+		
+	}else{
+		return false;
+	}
+}
+
+function hideComment(id){
+		$.post('?events=1&act=hide&sid='+id, function(data) {
+			if( data == 1 ){
+				$('#licom-'+id).fadeOut(1300);	
+			}else{
+				alert( "Processing hide comment failed, please try again" );
+			}
+		});
+}
+</script>
+{/literal} 
+				<div style="margin-bottom: 20px;">
+					<h1 style="color:#f00;clear:both;">{$judul|stripslashes|strip_tags}</h1>
+					<br style="clear:both;"/>
+					
+                    <div style="text-align:justify;">
+                    	{if $takeOut}
+						{if $img != ''}
+						<img src="contents/news/{$img}" style="float:left;margin-right:10px;margin-bottom:5px;" />
+						{/if}{/if}
+						{$isi|html_entity_decode|stripslashes}
+						<div style="clear:both;"></div>
+					</div>
+                </div>
+				<p style="color:#f00;cursor:pointer;" id="ocoms">Comments (<span id="numer-com">{$num_com}</span>)</p>
+				<div id="coms" style="display:none;">
+				<ul id="list-comments" style="padding:0px;margin:0px;list-style-type:none;width:400px">
+					{section name=i loop=$com}
+					<li style="margin-bottom: 20px;" id="licom-{$com[i].id}">
+						<div>
+							<div style="float:left;width:75px;margin-right:20px;">
+							
+							{if $com[i].small_img}<img src="{$com[i].small_img}" width="75" heigth="75" />{else}<img src="images/no_photo_small.gif" width="75" heigth="75" />{/if}
+							
+							</div>
+							<div style="float:right;width:305px">
+							<a href="index.php?profile=1&profile_id={$com[i].user_id}">{$com[i].name|stripslashes|strip_tags}</a><br/>
+								{$com[i].comments|strip_tags|stripslashes}
+								{if $userid == $event_userid }
+									{if $com[i].user_id != $userid }
+									<p><a href="javascript:void(0);" onclick="javascript:hideComment({$com[i].id});">hide this comment</a></p>
+									{/if}
+								{/if}
+							</div>
+							<div style="clear:both;"></div>
+						</div>
+					</li>
+					{/section}
+				</ul>
+				</div>
+				<div style="width:400px;">
+					<p style="color:#f00"><b>Comment</b></p>
+					{literal}
+					<form id="form-comment">
+					<textarea id="comment" style="width:400px;height:80px" onkeypress="textCounter(this,this.form.counter,140);"></textarea>
+					<div style="width:400px;">
+						<div style="float:left;"><input type="button" id="btn-comment" value="comment"  /></div>
+						<div style="float:right;"><input type="text" id="counter" style="width:30px" name="counter" maxlength="3" value="140" onblur="textCounter(this.form.counter,this,140);" ></div>
+					</div>
+					</form>
+					{/literal}
+				</div>

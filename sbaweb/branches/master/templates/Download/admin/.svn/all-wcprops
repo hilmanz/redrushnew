@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/sba/!svn/ver/38/branches/master/templates/Download/admin
+END
+manage_category_download.html
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/sba/!svn/ver/25/branches/master/templates/Download/admin/manage_category_download.html
+END
+manage_file_download.html
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/sba/!svn/ver/25/branches/master/templates/Download/admin/manage_file_download.html
+END
+detail_file.html
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/sba/!svn/ver/19/branches/master/templates/Download/admin/detail_file.html
+END
+insert_category.html
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/sba/!svn/ver/38/branches/master/templates/Download/admin/insert_category.html
+END
+update_form_category.html
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/sba/!svn/ver/38/branches/master/templates/Download/admin/update_form_category.html
+END
+insert_file.html
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/sba/!svn/ver/38/branches/master/templates/Download/admin/insert_file.html
+END
+update_form_file.html
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/sba/!svn/ver/38/branches/master/templates/Download/admin/update_form_file.html
+END

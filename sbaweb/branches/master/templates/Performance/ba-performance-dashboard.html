@@ -1,0 +1,562 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>SBA</title>
+<link href="css/sba.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="css/ui.all.css" type="text/css" media="screen" />
+ <script type="text/javascript" src="js/jquery.tools.min.js"></script>
+
+{literal}
+<!-- Jquery Scroll Gallery ni -->
+<script type="text/javascript"> 
+$(document).ready(function(){
+  $("#infinite").scrollable().circular();	
+});
+</script>	
+{/literal}
+<!-- 1. Add these JavaScript inclusions in the head of your page -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript" src="js/highcharts.js"></script>
+		
+		<!-- 1a) Optional: add a theme file -->
+		<!--
+			<script type="text/javascript" src="../js/themes/gray.js"></script>
+		-->
+		
+		<!-- 1b) Optional: the exporting module -->
+<script type="text/javascript" src="../js/modules/exporting.js"></script>
+		
+		
+		<!-- 2. Add the JavaScript to initialize the chart on document ready -->
+	
+
+{literal}
+<script type="text/javascript">
+		
+		var chart;
+		$(document).ready(function() {
+			chart = new Highcharts.Chart({
+				chart: {
+					renderTo: 'container_dashboard_line1',
+					defaultSeriesType: 'line',
+					marginRight: 130,
+					marginBottom: 25
+				},
+				title: {
+					text: '',
+					x: -20 //center
+				},
+				subtitle: {
+					text: '',
+					x: -20
+				},
+				xAxis: {
+{/literal}
+					categories: 
+					[
+					{section name=i  loop=$show_filter_gathering}
+						{$show_filter_gathering[i].id},
+					{/section}
+					]
+{literal}
+				},
+				yAxis: {
+					title: {
+						text: 'Rating'
+					},
+					plotLines: [{
+						value: 0,
+						width: 1,
+						color: '#808080'
+					}]
+				},
+				tooltip: {
+					formatter: function() {
+			                return '<b>'+ this.series.name +'</b><br/>'+
+							this.x +': '+ this.y;
+					}
+				},
+				legend: {
+					layout: 'vertical',
+					align: 'right',
+					verticalAlign: 'top',
+					x: -10,
+					y: 100,
+					borderWidth: 0
+				},
+				
+				series: [{
+					{/literal}
+					{section name=i  loop=$show_filter_gathering}
+					name: '{$show_filter_gathering[i].nama_event}',
+					data: [-0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5]				
+					}, {literal}{{/literal}
+					{/section}
+					}]
+			{literal}
+			});
+		
+		});			
+</script>
+{/literal}
+
+{literal}
+<script type="text/javascript">
+		
+		var chart;
+		$(document).ready(function() {
+			chart = new Highcharts.Chart({
+				chart: {
+					renderTo: 'container_dashboard_line2',
+					defaultSeriesType: 'line',
+					marginRight: 130,
+					marginBottom: 25
+				},
+				title: {
+					text: '',
+					x: -20 //center
+				},
+				subtitle: {
+					text: '',
+					x: -20
+				},
+				xAxis: {
+					categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 
+						'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+				},
+				yAxis: {
+					title: {
+						text: 'Temperature (°C)'
+					},
+					plotLines: [{
+						value: 0,
+						width: 1,
+						color: '#808080'
+					}]
+				},
+				tooltip: {
+					formatter: function() {
+			                return '<b>'+ this.series.name +'</b><br/>'+
+							this.x +': '+ this.y +'°C';
+					}
+				},
+				legend: {
+					layout: 'vertical',
+					align: 'right',
+					verticalAlign: 'top',
+					x: -10,
+					y: 100,
+					borderWidth: 0
+				},
+				series: [{
+					name: 'Tokyo',
+					data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
+				}, {
+					name: 'New York',
+					data: [-0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5]
+				}, {
+					name: 'Berlin',
+					data: [-0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6, 17.9, 14.3, 9.0, 3.9, 1.0]
+				}, {
+					name: 'London',
+					data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
+				}]
+			});
+		
+		});			
+		</script>
+{/literal}
+{literal}
+		<script type="text/javascript">
+		
+			var chart;
+			$(document).ready(function() {
+				chart = new Highcharts.Chart({
+					chart: {
+						renderTo: 'container_dashboard_line3',
+						defaultSeriesType: 'column',
+						margin: [ 50, 50, 100, 80]
+					},
+					title: {
+						text: ''
+					},
+					xAxis: {
+						categories: [
+							'Tokyo', 
+							'Jakarta', 
+							'New York', 
+							'Seoul', 
+							'Manila',
+							'Mumbai',
+							'Sao Paulo',
+							'Mexico City',
+							'Dehli',
+							'Osaka',
+							'Cairo',
+							'Kolkata',
+							'Los Angeles',
+							'Shanghai',
+							'Moscow',
+							'Beijing',
+							'Buenos Aires',
+							'Guangzhou',
+							'Shenzhen',
+							'Istanbul'
+						],
+						labels: {
+							rotation: -45,
+							align: 'right',
+							style: {
+								 font: 'normal 13px Verdana, sans-serif'
+							}
+						}
+					},
+					yAxis: {
+						min: 0,
+						title: {
+							text: 'Population (millions)'
+						}
+					},
+					legend: {
+						enabled: false
+					},
+					tooltip: {
+						formatter: function() {
+							return '<b>'+ this.x +'</b><br/>'+
+								 'Population in 2008: '+ Highcharts.numberFormat(this.y, 1) +
+								 ' millions';
+						}
+					},
+				        series: [{
+						name: 'Population',
+						data: [34.4, 21.8, 20.1, 20, 19.6, 19.5, 19.1, 18.4, 18, 
+							17.3, 16.8, 15, 14.7, 14.5, 13.3, 12.8, 12.4, 11.8, 
+							11.7, 11.2],
+						dataLabels: {
+							enabled: true,
+							rotation: -90,
+							color: '#FFFFFF',
+							align: 'right',
+							x: -3,
+							y: 10,
+							formatter: function() {
+								return this.y;
+							},
+							style: {
+								font: 'normal 13px Verdana, sans-serif'
+							}
+						}			
+					}]
+				});
+				
+				
+			});
+		</script>
+{/literal}
+{literal}
+		<script type="text/javascript">
+		
+			var chart;
+			$(document).ready(function() {
+				chart = new Highcharts.Chart({
+					chart: {
+						renderTo: 'container_dashboard_line4',
+						defaultSeriesType: 'column',
+						margin: [ 50, 50, 100, 80]
+					},
+					title: {
+						text: ''
+					},
+					xAxis: {
+						categories: [
+							'Tokyo', 
+							'Jakarta', 
+							'New York', 
+							'Seoul', 
+							'Manila',
+							'Mumbai',
+							'Sao Paulo',
+							'Mexico City',
+							'Dehli',
+							'Osaka',
+							'Cairo',
+							'Kolkata',
+							'Los Angeles',
+							'Shanghai',
+							'Moscow',
+							'Beijing',
+							'Buenos Aires',
+							'Guangzhou',
+							'Shenzhen',
+							'Istanbul'
+						],
+						labels: {
+							rotation: -45,
+							align: 'right',
+							style: {
+								 font: 'normal 13px Verdana, sans-serif'
+							}
+						}
+					},
+					yAxis: {
+						min: 0,
+						title: {
+							text: 'Population (millions)'
+						}
+					},
+					legend: {
+						enabled: false
+					},
+					tooltip: {
+						formatter: function() {
+							return '<b>'+ this.x +'</b><br/>'+
+								 'Population in 2008: '+ Highcharts.numberFormat(this.y, 1) +
+								 ' millions';
+						}
+					},
+				        series: [{
+						name: 'Population',
+						data: [34.4, 21.8, 20.1, 20, 19.6, 19.5, 19.1, 18.4, 18, 
+							17.3, 16.8, 15, 14.7, 14.5, 13.3, 12.8, 12.4, 11.8, 
+							11.7, 11.2],
+						dataLabels: {
+							enabled: true,
+							rotation: -90,
+							color: '#FFFFFF',
+							align: 'right',
+							x: -3,
+							y: 10,
+							formatter: function() {
+								return this.y;
+							},
+							style: {
+								font: 'normal 13px Verdana, sans-serif'
+							}
+						}			
+					}]
+				});
+				
+				
+			});
+		</script>
+{/literal}
+
+</head>
+
+<body>
+<div id="wrapper">
+	<div id="header">
+    </div>
+    <div id="container">
+    	<div id="nav">
+        	<ul class="nav-left">
+            	<li><a href="index.html">Home</a>|</li>
+                <li><a href="my-profile.html">My Profile</a>|</li>
+                <li><a href="berita-terbaru.html">Berita Terbaru</a>|</li>
+                <li><a href="events.html">Events</a>|</li>
+                <li><a href="galeri.html">Galeri</a>|</li>
+                <li><a href="download.html">Download</a></li>
+            </ul>
+            <ul class="nav-right">
+                <li><a href="#">Logout</a>
+            	<li><a href="konfirmasi-ba.html">Konfirmasi BA</a>|</li>
+            </ul>
+        </div>
+        <div id="banner">
+        	<img src="images/banner/banner-970x170.jpg" />
+        </div>
+        <div id="main-content">
+        	<div id="title-bar">
+            	<h1>BA Performance Dashboard</h1>
+                	<form>
+                	<select class="select-user">
+                    	<option>Select User</option>
+                    	<option>1</option>
+                    	<option>2</option>
+                    	<option>3</option>
+                    	<option>4</option>
+                    </select>
+                    </form>
+            </div><!-- end div Title Bar -->
+        	<div id="w200">
+            	<div class="profile-pic">
+                	<img src="images/thumb/thumb-w-160.jpg" />
+                </div>
+                <div class="info-profile">
+                	<span class="title">Registrations KPI</span>
+                    <span class="total-reg">3,454 / 46%</span>
+                    <span class="username">Nama : Maman Suparman</span>
+                    <span class="kota">Kota : Jakarta</span>
+                </div>
+                <div class="nav-user">
+                    <a href="#">Message User</a>
+                    <a href="#">Ban User</a>
+                    <a href="#">Entourage List</a>
+                </div>
+            	
+            </div><!-- end div w 200 -->
+            <div id="w700">
+            	<div class="info-bar">
+                	<div class="info-list">
+                    	<h1>Overall Rank</h1>
+                        <p class="point">40</p>
+                    </div>
+                	<div class="info-list">
+                    	<h1>City Rank</h1>
+                        <p class="point">40</p>
+                    </div>
+                	<div class="info-list">
+                    	<h1>Interactivity Rank</h1>
+                        <p class="point">40</p>
+                    </div>
+                	<div class="info-list">
+                    	<h1>Event Rank</h1>
+                        <p class="point">40</p>
+                    </div>
+                	<div class="info-login">
+                    	<h1>Last Login</h1>
+                        <p class="date">Mon, 28 feb 2011, 14:20</p>
+                    </div>
+                </div>
+                <div class="content">
+                	<div id="grafik-list">
+                        <div class="red-bar">
+                            <h1>Overall Registration Performance By date</h1>
+							{literal}
+                            <div align="right">
+                            	<form method="get" action="" enctype="multipart/form-data">
+									<input id="dateperform1" type="textbox" name="fromoverall" value="Start Date"/>
+									<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script> 
+									<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+									<script type="text/javascript">
+										$(document).ready(function(){
+    									$("#dateperform1").datepicker({ showOn: 'button', buttonImageOnly: true, buttonImage: 'images/ffd40f_11x11_icon_folder_closed.gif' });
+					  					});
+									</script>
+									<input id="dateperform2" type="textbox" name="untiloverall" value="End Date"/>
+									<script type="text/javascript">
+											$(document).ready(function(){
+    										$("#dateperform2").datepicker({ showOn: 'button', buttonImageOnly: true, buttonImage: 'images/ffd40f_11x11_icon_folder_closed.gif' });
+					  						});
+									</script>
+									<input type="submit" value="Go">
+								</form>
+							{/literal}
+							</div>
+                        </div>
+                        <div id="" class="grafik">
+	                        <div id="container_dashboard_line1" style="width: 650px; height: 191px; margin :0 auto;"></div>
+                        </div>
+                  	</div><!-- end grafik List -->
+                	<div id="grafik-list">
+                        <div class="red-bar">
+                            <h1>Entourage Gathering By date</h1>
+                            <div align="right">
+                            
+                            {literal}
+                         
+                            	<form method="get" action="" enctype="multipart/form-data">
+                            		<input type="hidden" name="filter_entourage" value="1"></input>
+                            {/literal}
+									<input id="dateperform3" type="textbox" name="fromentourage" value="Start Date"/>
+							{literal}
+									<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script> 
+									<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+									<script type="text/javascript">
+										$(document).ready(function(){
+    									$("#dateperform3").datepicker({ showOn: 'button', buttonImageOnly: true, buttonImage: 'images/ffd40f_11x11_icon_folder_closed.gif' });
+					  					});
+									</script>
+									<input id="dateperform4" type="textbox" name="untilentourage" value="End Date"/>
+									<script type="text/javascript">
+											$(document).ready(function(){
+    										$("#dateperform4").datepicker({ showOn: 'button', buttonImageOnly: true, buttonImage: 'images/ffd40f_11x11_icon_folder_closed.gif' });
+					  						});
+									</script>
+									<input type="submit" value="Go">
+								</form>
+							{/literal}
+							</div>
+                        </div>
+                        <div id="" class="grafik">
+                           <div id="container_dashboard_line2" style="width: 650px; height: 191px; margin :0 auto;"></div>
+                        </div>
+                  	</div><!-- end grafik List -->
+                	<div id="grafik-list">
+                        <div class="red-bar">
+                            <h1>Event Performance</h1>
+                           <div align="right">
+                           {literal}
+                            	<form>
+									<input id="dateperform5" type="textbox" name="fromevent" value="Start Date"/>
+									<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script> 
+									<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+									<script type="text/javascript">
+										$(document).ready(function(){
+    									$("#dateperform5").datepicker({ showOn: 'button', buttonImageOnly: true, buttonImage: 'images/ffd40f_11x11_icon_folder_closed.gif' });
+					  					});
+									</script>
+									<input id="dateperform6" type="textbox" name="untilevent" value="End Date"/>
+									<script type="text/javascript">
+											$(document).ready(function(){
+    										$("#dateperform6").datepicker({ showOn: 'button', buttonImageOnly: true, buttonImage: 'images/ffd40f_11x11_icon_folder_closed.gif' });
+					  						});
+									</script>
+									<input type="submit" value="Go">
+								</form>
+							{/literal}
+							</div>
+                        </div>
+                        <div id="" class="grafik">
+                           <div id="container_dashboard_line3" style="width: 650px; height: 191px; margin :0 auto;"></div>
+                        </div>
+                  	</div><!-- end grafik List -->
+                	<div id="grafik-list">
+                        <div class="red-bar">
+                            <h1>Website Interactivity</h1>
+                           <div align="right">
+                           {literal}
+                            	<form>
+									<input id="dateperform7" type="textbox" name="fromweb" value="Start Date"/>
+									<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script> 
+									<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+									<script type="text/javascript">
+										$(document).ready(function(){
+    									$("#dateperform7").datepicker({ showOn: 'button', buttonImageOnly: true, buttonImage: 'images/ffd40f_11x11_icon_folder_closed.gif' });
+					  					});
+									</script>
+									<input id="dateperform8" type="textbox" name="untilweb" value="End Date"/>
+									<script type="text/javascript">
+											$(document).ready(function(){
+    										$("#dateperform8").datepicker({ showOn: 'button', buttonImageOnly: true, buttonImage: 'images/ffd40f_11x11_icon_folder_closed.gif' });
+					  						});
+									</script>
+									<input type="submit" value="Go">
+								</form>
+							{/literal}
+							</div>
+                        </div>
+                        <div id="" class="grafik">
+                           <div id="container_dashboard_line4" style="width: 650px; height: 191px; margin :0 auto;"></div>
+                        </div>
+                  	</div><!-- end grafik List -->
+                </div>
+            </div><!-- end div W 700 -->
+        	
+        </div><!-- end div main Content -->
+    </div>
+    <div id="footer">
+         <p>Informasi dalam website ini ditujukan untuk perokok berusia 18 tahun atau lebih dan tinggal di wilayah Indonesia<br />
+        Jika kamu tidak ingin dihubungi oleh PT HM Sampoerna Tbk melalui email, kamu bisa hapus kontak kamu dengan mengklik link hapus saya dibawah ini.</p>
+
+        <a href="index.html">Halaman Utama </a>|
+        <a href="#" target="_blank">Syarat dan Ketentuan</a>|
+        <a href="index.php?do=hapusSaya" target="_blank">Hapus saya</a>|
+        <a href="kontak_kami.html" target="_blank">Kontak Kami</a>|
+        <!-- <a href="#">PMI Corporate</a>|-->
+        <a href="http://www.pmi.com/id/smokingandhealth" target="_blank">Perihal Merokok</a>
+    </div>
+</div>
+</body>
+</html>

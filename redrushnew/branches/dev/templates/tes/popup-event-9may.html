@@ -1,0 +1,29 @@
+	<div id="popup-ultimate-car" class="popup carbons" style="display:none;">
+		<a class="popup-close" href="#" style="right:18px;">[x] Close</a>
+        <div class="inner-popup">
+            <h1 style="font-size:40px; color:#fff; margin:0 0 0 0">Don't Just Stay Infront of your computer<br />
+			 Move to the Beat</h1>
+            <h2 style="font-size:30px; margin:25px 0 25px 0;"><span class="red">RedRush Night</span> Come to <span class="red">Surabaya & Medan!</span> <br />
+Remember the date <span class="red">12 May!</span></h2>
+            <h2 style="font-size:24px; width:500px; margin:0 auto;">See it with your own eyes.<br />
+<span class="yellow">The F1 Car is in Medan & Surabaya.</span> Have You spot it?</h2>
+        </div>
+	</div>
+	<div class="backgroundPopup" style="display:block;"></div>
+    {literal}
+    <script type="text/javascript">
+      $(document).ready(function() {
+	          $(".backgroundPopup").fadeIn("slow");
+              $("#popup-ultimate-car").fadeIn("slow");
+            $("a.popup-close").click(function() {
+                $(".backgroundPopup").fadeOut("slow");
+                $("#popup-ultimate-car").fadeOut("slow");
+            });
+			
+			 $(".gradients").click(function() {
+                $(".backgroundPopup").fadeOut("slow");
+                $("#popup-ultimate-car").fadeOut("slow");
+            });
+        });
+    </script>
+    {/literal}

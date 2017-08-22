@@ -1,0 +1,15 @@
+<html>
+<head>
+	<title>
+		Halaman Project Banner
+	</title>
+</head>
+<body>
+<h2>Halaman Project Banner</h2>
+{$mainContent}
+{$message}
+<br>
+</body>
+</html>
+	
+	

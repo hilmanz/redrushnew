@@ -1,0 +1,92 @@
+   	{literal}
+	<script type="text/javascript">
+	function isNumberKey(evt)
+    {
+        var charCode = (evt.which) ? evt.which : event.keyCode
+        if (charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+		return true;
+    }
+	var jml = new Array();
+	$(document).ready(function(){
+		$('#ba').change(function(){
+			var id = $(this).val();
+			$.get(
+				"index.php?konfirmasi_ba=1", 
+				{ act: 'ajax', id: id }, 
+				function(data){
+					if( data.jumlah ){
+						$('#jumlah').val( data.jumlah );
+						var num = data.events.length;
+						var htm = '';
+						for(var i=0; i<num; i++){
+							htm += '<option value="'+data.events[i].id+'">'+data.events[i].nama_event+'</option>';
+							jml[i] = data.events[i].attendants;
+						}
+						$('#event').html('');
+						$('#event').html(htm);
+					}else{
+						$('#jumlah').val('0');
+						$('#event').html( '<option value="0">tidak ada event</option>' );
+					}
+				},
+				"json"
+			);
+			return false;
+		});
+		
+		$('#fconfirm').submit(function(){
+			var f = $('#konfirmasi').val();
+			if( f == '' || f == null ){
+				alert("Anda belum mengisi konfirmasi angka!");
+				return false;
+			}
+		});
+		
+		$('#event').change(function(){
+			//alert( $(this).key() );
+			//alert( $("#event option:selected").index() );
+			var idx = $("#event option:selected").index();
+			$('#jumlah').val( jml[idx] );
+		});
+		
+	});
+	</script>
+	{/literal}
+	<div id="title-bar">
+            	<h1>Konfirmasi Event BA</h1>
+            </div><!-- end div Title Bar -->
+        	<div id="full-width">
+            	<p>(Khusus untuk team leader)</p>
+                <form id="fconfirm" class="konfirmasi-ba" method="get" action="index.php">
+                	<div class="row">
+                    	<label>Nama Ba</label>
+                        <select name="ba" id="ba">
+							{section name=i loop=$ba}
+                        	<option value='{$ba[i].id}'>{$ba[i].name}</option>
+							{/section}
+						</select>
+                    </div>
+                    <div class="row">
+                    	<label>Event</label>
+                        <select name="event" id="event">
+                        	{section name=i loop=$events}
+							<option value='{$events[i].id}'>{$events[i].nama_event}</option>
+							{/section}
+                        </select>
+                    </div>
+                    <div class="row">
+                    	<label>Jumlah</label>
+                        <input name="jumlah" id="jumlah" type="text" value="{$jumlah}" readonly />
+                    </div>
+                    <div class="row">
+                    	<label>Konfirmasi Angka</label>
+                        <input id="konfirmasi" name="konfirmasi" type="text" onkeypress="return isNumberKey(event)" maxlength="15" />
+                    </div>
+                    <div class="row">
+                    	<input type="hidden" value="save" name="act" />
+						<input type="hidden" value="1" name="konfirmasi_ba" />
+						<input type="submit" value="Simpan" />
+                    </div>
+                </form>
+            </div><!-- end div Full Width -->

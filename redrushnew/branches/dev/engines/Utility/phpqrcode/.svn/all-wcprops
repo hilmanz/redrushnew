@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/redrush/!svn/ver/105/branches/dev/engines/Utility/phpqrcode
+END
+qrconst.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/redrush/!svn/ver/105/branches/dev/engines/Utility/phpqrcode/qrconst.php
+END
+LICENSE
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/redrush/!svn/ver/105/branches/dev/engines/Utility/phpqrcode/LICENSE
+END
+qrbitstream.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/redrush/!svn/ver/105/branches/dev/engines/Utility/phpqrcode/qrbitstream.php
+END
+qrspec.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/redrush/!svn/ver/105/branches/dev/engines/Utility/phpqrcode/qrspec.php
+END
+qrmask.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/redrush/!svn/ver/105/branches/dev/engines/Utility/phpqrcode/qrmask.php
+END
+qrsplit.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/redrush/!svn/ver/105/branches/dev/engines/Utility/phpqrcode/qrsplit.php
+END
+VERSION
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/redrush/!svn/ver/105/branches/dev/engines/Utility/phpqrcode/VERSION
+END
+qrencode.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/redrush/!svn/ver/105/branches/dev/engines/Utility/phpqrcode/qrencode.php
+END
+CHANGELOG
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/redrush/!svn/ver/105/branches/dev/engines/Utility/phpqrcode/CHANGELOG
+END
+qrinput.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/redrush/!svn/ver/105/branches/dev/engines/Utility/phpqrcode/qrinput.php
+END
+qrtools.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/redrush/!svn/ver/105/branches/dev/engines/Utility/phpqrcode/qrtools.php
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/redrush/!svn/ver/105/branches/dev/engines/Utility/phpqrcode/README
+END
+qrconfig.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/redrush/!svn/ver/105/branches/dev/engines/Utility/phpqrcode/qrconfig.php
+END
+qrlib.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/redrush/!svn/ver/105/branches/dev/engines/Utility/phpqrcode/qrlib.php
+END
+INSTALL
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/redrush/!svn/ver/105/branches/dev/engines/Utility/phpqrcode/INSTALL
+END
+qrrscode.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/redrush/!svn/ver/105/branches/dev/engines/Utility/phpqrcode/qrrscode.php
+END
+qrimage.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/redrush/!svn/ver/105/branches/dev/engines/Utility/phpqrcode/qrimage.php
+END
+phpqrcode.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/redrush/!svn/ver/105/branches/dev/engines/Utility/phpqrcode/phpqrcode.php
+END

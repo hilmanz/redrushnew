@@ -1,0 +1,27 @@
+<div id="title-bar">
+            	<h1>Friends</h1>
+            </div><!-- end div Title Bar -->
+        	<div id="w650">
+            	<div class="galery-ba">
+            	{section name=i loop=$ba_list}
+                    <div class="ba-list">
+                        <a href="index.php?profile=1&profile_id={$ba_list[i].id}"><img src="{if $ba_list[i].img}{$ba_list[i].img}{else}images/no_photo_small.gif{/if}" /></a>
+                        <span class="username">{$ba_list[i].name}</span>
+						{if $ba_list[i].id == $onUser}
+						{else}
+						{if $ba_list[i].friend_id == null}
+						<span class="add-friend">
+							<a href="index.php?add=1&u={$ba_list[i].id}">Add as a Friend</a>
+						</span>
+						{/if}{/if}
+                    
+					</div>
+                 {/section}
+                </div>
+                <div>{$paging}</div>
+            </div><!-- end div w650 -->
+        	<div id="col-right">
+            	{$acara_terkini}
+            	{$photo_gallery}
+            	{$banner}
+            </div><!-- end div col right -->

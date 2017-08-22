@@ -1,0 +1,597 @@
+<script type="text/javascript">
+	var mainmenu = "user";
+	var gd = {$GD};
+	var gender = {$GENDER};
+	var devicesUsed = {$DU};
+	var brandPref = {$BP};
+{literal}
+var chart;
+$(document).ready(function() {
+	var _color = ['#F2F5A9','#55b615','#f26522','#ffd904','#029bc5','#d79194','#f26522','#b7b7b7','#ba7ef7','#55b615','#f26522','#ffd904','#029bc5','#d79194','#f26522','#b7b7b7'];
+	
+	/*
+	var _categories = [];
+	var _series = [];
+	if (gd != null){
+		for (var i=0;i<gd.length;i++){
+			_categories.push("");
+			var item = {
+					data : [parseInt(gd[i].num)],
+					name : gd[i].location,
+					color: _color[i]
+			}
+			_series.push(item);
+		}
+	}
+	chart = new Highcharts.Chart({
+		chart: {
+			renderTo: 'LOCATION',
+			type: 'column',
+			backgroundColor: false,
+			marginTop: 25,
+			marginBottom: 15
+		},
+		title: false,
+		subtitle: false,
+		xAxis: {
+			categories: _categories
+		},
+		yAxis: {
+			min: 0,
+			title: false
+		},
+		credits: false,
+		
+		tooltip: false,
+		legend: {
+			layout: 'horizontal',
+			align: 'right',
+			verticalAlign: 'top',
+			x: 0,
+			y: -17,
+			floating: true,
+			borderWidth: 0,
+			shadow: true,
+			labelFormatter: function() {
+	            return '<span style="color: '+this.color+';">'+ this.name + '</span>';
+			}
+			
+		},
+		plotOptions: {
+			column: {
+				pointPadding: 0.2,
+				borderWidth: 0,
+				dataLabels: {
+					enabled: true,
+					color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+				}
+			},
+			series:{
+				groupPadding: 0
+			}
+		},
+		series: _series
+	});
+	*/
+	//DEVICE USED
+	var _series = [];
+	var _data = [];
+	var _name = [];
+	//var _color = ['#be22cb','#90ed1c','#3968b5','#b7b7b7','#FF00FF','#01DF74','#FE642E','#088A85','#FF4000'];
+	if (devicesUsed == null){
+		var item = {
+				name 	: "No Data",
+				y		: 0,
+				color 	: "#cccccc"
+		}
+		_series.push(item);
+	}else if (devicesUsed != null){
+		for(var i=0;i<devicesUsed.length;i++){
+			_data.push(devicesUsed[i].num);
+			
+			if (i == 0 && devicesUsed[i].num != 0){
+				var item = {
+						name 	: devicesUsed[i].device_name,
+						y		: parseInt(_data[i]),
+						sliced: true,
+						selected: true,
+						color 	: _color[i]
+						}
+			}else{
+				var item = {
+						name 	: devicesUsed[i].device_name,
+						y		: parseInt(_data[i]),
+						color 	: _color[i]
+						}
+			}
+			_series.push(item);
+		}
+	}
+	chart = new Highcharts.Chart({
+			chart: {
+				renderTo: 'DU',
+				plotBackgroundColor: null,
+				plotBorderWidth: null,
+				backgroundColor: false,
+				plotShadow: false
+			},
+			title: false,
+			tooltip: {
+				formatter: function() {
+					return '<b>'+ this.point.name +'</b>: '+ this.y + ' times';
+				}
+			},
+			credits: false,
+			plotOptions: {
+				pie: {
+					allowPointSelect: true,
+					cursor: 'pointer',
+					dataLabels: {
+						enabled: true,
+						color: '#ffffff',
+						connectorColor: '#ffffff',
+						formatter: function() {
+							return this.point.name +'<br><b>'+ Math.round(this.percentage) +' %</b>';
+						}
+					}
+				},
+				series: {
+					shadow: true
+				}
+			},
+			series: [{
+				type: 'pie',
+				name: 'Devices Used',
+				data: _series
+			}]
+		});
+
+	
+	
+	//GENDER MALE
+	var _series = [];
+	var _male = [];
+	var _categories = [];
+
+	if (gender.male != null || gender.female != null){
+	//alert(gender.male.length);
+	var males ;
+		for (males in gender.male) {
+//		alert(gender.male[males].age_range);
+			if(males > 0){
+			var itemmales = {
+						name 	: gender.male[males].age_range,
+						y		: parseInt(gender.male[males].people_count),
+					
+						}
+			
+			_male.push(itemmales);
+			}
+		
+		}
+	
+		
+	}
+	//alert(_categories);
+	
+	chart = new Highcharts.Chart({
+		chart: {
+			renderTo: 'GENDERMALE',
+			plotBackgroundColor: null,
+				plotBorderWidth: null,
+				backgroundColor: false,
+				plotShadow: false
+			},
+			title: false,
+			tooltip: {
+				formatter: function() {
+					return '<b>'+ this.point.name +'</b>: '+ this.y + ' times';
+				}
+			},
+			credits: false,
+			plotOptions: {
+				pie: {
+					allowPointSelect: true,
+					cursor: 'pointer',
+					dataLabels: {
+						enabled: true,
+						color: '#ffffff',
+						connectorColor: '#ffffff',
+						formatter: function() {
+							return this.point.name +'<br><b>'+ Math.round(this.percentage) +' %</b>';
+						}
+					}
+				},
+				series: {
+					shadow: true
+				}
+			},
+			series: [ {
+			type: 'pie',
+			name: 'Male',
+			data: _male
+			//data: [					
+			//		['Amild',   parseInt(brandPref.Brand1_ID)],
+			//		['Marlboro',       parseInt(brandPref.Brand2_ID)],
+			//		['Sampoerna',    parseInt(brandPref.Brand3_ID)]
+            //		]
+		}]
+	});
+	
+	
+	//GENDER FEMALE
+	var _series = [];
+	var _female = [];
+	var _categories = [];
+
+	if (gender.female != null){
+	//alert(gender.male.length);
+	var females ;
+	
+		for (females in gender.female) {
+//		alert(gender.male[males].age_range);
+			if(females > 0){
+			var itemfemales = {
+						name 	: gender.female[females].age_range,
+						y		: parseInt(gender.female[females].people_count),
+					
+						}
+			
+			_female.push(itemfemales);
+			}
+		
+		}
+	
+		
+	}
+	//alert(_categories);
+	
+	chart = new Highcharts.Chart({
+		chart: {
+			renderTo: 'GENDERFEMALE',
+			plotBackgroundColor: null,
+				plotBorderWidth: null,
+				backgroundColor: false,
+				plotShadow: false
+			},
+			title: false,
+			tooltip: {
+				formatter: function() {
+					return '<b>'+ this.point.name +'</b>: '+ this.y + ' times';
+				}
+			},
+			credits: false,
+			plotOptions: {
+				pie: {
+					allowPointSelect: true,
+					cursor: 'pointer',
+					dataLabels: {
+						enabled: true,
+						color: '#ffffff',
+						connectorColor: '#ffffff',
+						formatter: function() {
+							return this.point.name +'<br><b>'+ Math.round(this.percentage) +' %</b>';
+						}
+					}
+				},
+				series: {
+					shadow: true
+				}
+			},
+			series: [ {
+			type: 'pie',
+			name: 'Woman',
+			data: _female
+			//data: [					
+			//		['Amild',   parseInt(brandPref.Brand1_ID)],
+			//		['Marlboro',       parseInt(brandPref.Brand2_ID)],
+			//		['Sampoerna',    parseInt(brandPref.Brand3_ID)]
+            //		]
+		}]
+	});
+	
+	//GENDERALL
+	var _series = [];
+	var _genderall = [];
+	var _categories = [];
+
+	if (gender.female != null){
+	//alert(gender.male.length);
+	var females ;
+	
+		for (females in gender.female) {
+//		alert(gender.male[males].age_range);
+			if(females > 0){
+			var itemfemales = {
+						name 	: gender.female[females].age_range,
+						y		: parseInt(gender.female[females].people_count)+parseInt(gender.male[females].people_count),
+					
+						}
+			
+			_genderall.push(itemfemales);
+			}
+		
+		}
+	
+		
+	}
+	//alert(_categories);
+	
+	chart = new Highcharts.Chart({
+		chart: {
+			renderTo: 'GENDERALL',
+			plotBackgroundColor: null,
+				plotBorderWidth: null,
+				backgroundColor: false,
+				plotShadow: false
+			},
+			title: false,
+			tooltip: {
+				formatter: function() {
+					return '<b>'+ this.point.name +'</b>: '+ this.y + ' times';
+				}
+			},
+			credits: false,
+			plotOptions: {
+				pie: {
+					allowPointSelect: true,
+					cursor: 'pointer',
+					dataLabels: {
+						enabled: true,
+						color: '#ffffff',
+						connectorColor: '#ffffff',
+						formatter: function() {
+							return this.point.name +'<br><b>'+ Math.round(this.percentage) +' %</b>';
+						}
+					}
+				},
+				series: {
+					shadow: true
+				}
+			},
+			series: [ {
+			type: 'pie',
+			name: 'ALL',
+			data: _genderall
+			//data: [					
+			//		['Amild',   parseInt(brandPref.Brand1_ID)],
+			//		['Marlboro',       parseInt(brandPref.Brand2_ID)],
+			//		['Sampoerna',    parseInt(brandPref.Brand3_ID)]
+            //		]
+		}]
+	});
+	
+	
+	//BRANDS
+	var _series = [];
+	var _data = [];
+	var _name = [];
+	//var _color = ['#be22cb','#90ed1c','#3968b5','#b7b7b7','#FF00FF','#01DF74','#FE642E','#088A85','#FF4000'];
+	
+//alert(brandPref.Brand1_ID);
+
+	chart = new Highcharts.Chart({
+			chart: {
+				renderTo: 'BRAND',
+				plotBackgroundColor: null,
+				plotBorderWidth: null,
+				backgroundColor: false,
+				plotShadow: false
+			},
+			title: false,
+			tooltip: {
+				formatter: function() {
+					return '<b>'+ this.point.name +'</b>: '+ this.y + ' times';
+				}
+			},
+			credits: false,
+			plotOptions: {
+				pie: {
+					allowPointSelect: true,
+					cursor: 'pointer',
+					dataLabels: {
+						enabled: true,
+						color: '#ffffff',
+						connectorColor: '#ffffff',
+						formatter: function() {
+							return this.point.name +'<br><b>'+ Math.round(this.percentage) +' %</b>';
+						}
+					}
+				},
+				series: {
+					shadow: true
+				}
+			},
+			series: [{
+
+                type: 'pie',
+
+                name: 'Devices Used',
+
+                data: [
+					
+					['Amild',   parseInt(brandPref.Brand1_ID)],
+					['Marlboro',       parseInt(brandPref.Brand2_ID)],
+					['Sampoerna',    parseInt(brandPref.Brand3_ID)]
+
+                ]
+
+            }]
+
+			/*series: [{
+				type: 'pie',
+				name: 'Devices Used',
+				data:  [{
+                type: 'pie',
+                name: 'Brand Preferences',
+                data: [
+                   
+                 
+                ]}]
+			}] */
+		});
+});
+</script>
+{/literal}
+<div class="med-row h-border" style="height: 155px;">
+	<div class="med-column fl-left" style="margin-left:125px;">
+		<div class="med-box2 relative">
+			<div class="med-title">AVG TIME ON SITE</div>
+			<div class="med-font2">
+				{if $avg}
+					<script type="text/javascript">
+						var atos = {$avg};
+						var timeAtos = timeSecond(parseInt(atos));
+						document.write(timeAtos);
+					</script>
+				{else}0{/if}
+			</div>
+			{*}
+			<div class="{if $avgArrow < 0}arrow-down{else}arrow-up{/if} absolute" style="top:137px;left:75px;"></div>
+			<div class="{if $avgArrow < 0}red{else}green{/if} absolute font25" style="top:135px;left:120px;">{if $avgPercentage}{$avgPercentage}{else}0{/if}%</div>
+			{/*}
+		</div>
+	</div>
+	<div class="med-column fl-left">
+		<div class="med-box2 relative">
+			<div class="med-title">LOYALTY</div>
+			<div class="med-font2">{if $loyalty}{$loyalty|number_format:2}{else}0{/if}%</div>
+				{*}
+			<div class="{if $loyArrow < 0}arrow-down{else}arrow-up{/if} absolute" style="top:140px;left:75px;"></div>
+			<div class="{if $loyArrow < 0}red{else}green{/if} absolute font25" style="top:135px;left:120px;">{if $loyPercentage}{$loyPercentage}{else}0{/if}%</div>
+				{/*}
+		</div>
+	</div>
+	<div class="med-column fl-left">
+		<div class="med-box2 relative">
+			<div class="med-title">BOUNCE RATE</div>
+			<div class="med-font2">{if $bounce}{$bounce|number_format:2}{else}0{/if}%</div>
+			{*}
+			<div class="{if $bArrow < 0}arrow-down{else}arrow-up{/if} absolute" style="top:137px;left:75px;"></div>
+			<div class="{if $bArrow < 0}red{else}green{/if} absolute font25" style="top:135px;left:120px;">{if $bPercentage}{$bPercentage}{else}0{/if}%</div>
+			{/*}
+		</div>
+	</div>
+	{*}
+	<div class="med-column fl-left">
+		<div class="med-box2 noMarginRight relative">
+			<div class="med-title">ACTIVITY DISTRIBUTION</div>
+			<div class="med-font2">{if $actDis}{$actDis|number_format:2}{else}0{/if}</div>
+			<div class="{if $adArrow < 0}arrow-down{else}arrow-up{/if} absolute" style="top:140px;left:75px;"></div>
+			<div class="{if $adArrow < 0}red{else}green{/if} absolute font25" style="top:135px;left:120px;">{if $adPercentage}{$adPercentage}%{else}0{/if}</div>
+		</div>
+	</div>
+	{/*}
+</div>
+<div class="chart-row h-border" style="height:425px">
+	<div class="big-column fl-left">
+		<h3>DEVICES USED</h3>
+		<div class="big-box">
+			<div id="DU" style="height: 335px;width: 435px;"></div>
+		</div>
+	</div>
+
+	<div class="big-column fl-right"  style="margin-right:-9px">
+		<h3>BRAND PREFERENCE</h3>
+		<div class="big-box">
+			<div id="BRAND" style="height: 335px;width: 435px;"></div>
+		</div>
+	</div>
+	
+	{*}
+	<div class="big-column fl-right">
+		<h3>GEOGRAPHICAL DISTRIBUTION</h3>
+		<div class="big-box">
+			<div id="GD" style="height: 335px;width: 435px;"></div>
+		</div>
+	</div>
+	{/*}
+</div>	
+		
+<div class="chart-row h-border" style="height:425px">
+	<div class="big-column fl-left">
+		<h3>GENDER/AGE MALE</h3>
+		<div class="big-box">
+			<div id="GENDERMALE" style="height: 335px;width: 435px;"></div>
+		</div>
+	</div>
+	<div class="big-column fl-right" style="margin-right:-9px">
+		<h3>GENDER/AGE FEMALE</h3>
+		<div class="big-box">
+			<div id="GENDERFEMALE" style="height: 335px;width: 435px;"></div>
+		</div>
+	</div>
+</div>	
+
+<div class="chart-row h-border" style="height:425px">
+	<div class="big-column fl-left">
+		<h3>REGISTRANT GENDER/AGE</h3>
+		<div class="big-box">
+			<div id="GENDERALL" style="height: 335px;width: 435px;"></div>
+		</div>
+	</div>
+
+</div>	
+{*}<div class="chart-row h-border">
+	<h3>LOCATION</h3>
+	<div class="big-chart relative">
+		<div id="LOCATION" class="absolute" style="width:945px;height:340px; bottom: 28px; left:25px;"></div>
+	</div>
+</div>
+{/*}
+<div class="chart-row h-border ">
+	<div class="big-column" style="text-align:right" >
+		
+		<h3 > Select Week&nbsp;
+		
+		<select name="weekID" id="weekID" onChange="location.href='index.php?s=overview&weekID='+this.value">
+			<option value="1" {if $weekID==1}selected{/if}> Week 1 ( April 02 - April 08 )</option>
+			<option value="2" {if $weekID==2}selected{/if}>Week 2 ( April 09 - April 15 )</option>
+			<option value="3" {if $weekID==3}selected{/if}>Week 3 ( April 16 - April 22 )</option>
+			<option value="4" {if $weekID==4}selected{/if}>Week 4 ( April 23 - April 29 )</option>
+			<option value="5" {if $weekID==5}selected{/if}>Week 5 ( April 30 - May 06 )</option>
+			<option value="6" {if $weekID==6}selected{/if}>Week 6 ( May 07 - May 13 )</option>
+			<option value="7" {if $weekID==7}selected{/if}>Week 7 ( May 14 - May 20 )</option>
+			<option value="8" {if $weekID==8}selected{/if}>Week 8 ( May 21 - May 27 )</option>
+			<option value="9" {if $weekID==9}selected{/if}>Week 9 ( May 28 - June 03 )</option>
+			<option value="10" {if $weekID==10}selected{/if}>Week 10 ( June 04 - June 10 )</option>
+			<option value="11" {if $weekID==11}selected{/if}>Week 11 ( June 11 - June 17 )</option>
+			<option value="12" {if $weekID==12}selected{/if}>Week 12 ( June 18 - June 24 )</option>
+			<option value="13" {if $weekID==13}selected{/if}>Week 13 ( June 25 - July 01 )</option>
+		</select>
+		</h3>
+	</div>
+</div>
+
+<div class="chart-row h-border theRow">
+	<div class="big-column" >
+		<h3 class="openSesame" chart_id="AgeDistribution"><button>AGE DISTRIBUTION</button></h3>
+		<div class="big-chart relative AgeDistribution" show=''  style="display:none">
+			<div ><img src="https://www.marlboro.co.id/report/chart/{$chart.AgeDistribution}" style="height:335px" /></div>
+		</div>
+	</div>
+</div>
+
+
+{literal}
+	<script>
+		$(".openSesame").click(function(){
+				var chartID = $(this).attr('chart_id');
+				if($("."+chartID).attr('show')==''){
+				$("."+chartID).fadeIn();
+				$(this).addClass("show");
+				$("."+chartID).attr('show','yes');
+				}else{
+				$("."+chartID).fadeOut();
+				$(this).removeClass("show");
+				$("."+chartID).attr('show','');
+				}
+			
+				
+		});
+		
+			
+			
+				
+	</script>
+{/literal}

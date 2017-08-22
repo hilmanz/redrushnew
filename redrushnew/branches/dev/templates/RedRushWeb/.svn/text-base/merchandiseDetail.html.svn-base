@@ -1,0 +1,122 @@
+
+<div id="main-container" class="bg-blue">
+	<div class="wrapper">
+    	<div id="containers">
+        <div class="merchandise-text">
+        	{*}<h1>Are you sure you'd like to redeem {$merchandise->prize} points for {$merchandise->item_name}?</h1>
+<p>Remember. Once redeemed, points deducted cannot be restored.
+The merchandise will be delivered within one month to your address. Please confirm.</p>{/*}
+        </div><!-- .merchandise-text -->
+            <div class="logo">
+            	<a href="">&nbsp;</a>
+            </div><!-- .logo -->
+            <div class="panel4">
+                <div class="titles">
+                    <h1>Your Current Points : <span class="yellow"> {$points} Pts.</span> </h1>
+                    <a class="add-points" href="?page=race">&nbsp;</a>
+                </div>
+            	<div class="entry">
+                    	<div class="merchandise">
+                            <div class="merchandise-list" id="merchandise-list">
+							 {if $merchandiseItemGroup|@count > 1}
+                                 <ul class="jcarousel-skin-tango list-merchandise-carousel">
+                                    {section name=gm loop=$merchandiseItemGroup}
+                                        {if $merchandiseItemGroup[gm].id != $merchandise->id}
+                                        <li>
+										<form action="" method="GET" id="form_{$merchandiseItemGroup[gm].id}">
+                                            <div class="description">
+                                            <h1>{$merchandiseItemGroup[gm].item_name}</h1>
+                                            <span class="orange" style="display:block;">{if $ownPart eq 0} {$merchandiseItemGroup[gm].prize} PTS. {else} <span class="purchased-item-detail">PURCHASED</span> {/if}</span>
+                                            {if $merchandiseItemGroup[gm].variant != '0'}
+                                            <div class="size-tshirt">
+                                                <input type="radio" value="m" name="variant" checked /><label>M</label>
+                                                <input type="radio" value="l" name="variant" /><label>L</label>
+                                            </div>
+                                            {/if}
+                                          {if $ownPart eq 0}
+											<input type="hidden" name="merchandise_id" value="{$merchandiseItemGroup[gm].id}" >
+											<input type="hidden" name="page" value="merchandise" >										
+											<input type="hidden" name="act" value="redeem_form" >
+                                          	<a class="btn-redeem2" href="javascript:void(0)" onClick="document.getElementById('form_{$merchandiseItemGroup[gm].id}').submit()" merchandise_id="{$merchandiseItemGroup[gm].id}" >&nbsp;</a>{else} &nbsp; {/if}
+                           					  <a class="btn-backs" href="?page=merchandise">&nbsp;</a>
+                                            </div>
+                                            <img class="img-purchase-detail" src="img/merchandise/{$merchandiseItemGroup[gm].img}" alt="" />
+										 </form>
+									   </li>{/if}
+                                    {/section}
+                                  </ul>
+                                    {else}
+                                    <form action="" method="GET" id="form_{$merchandise->id}">
+                                    <div class="description">
+                                    <h1>{$merchandise->item_name}</h1>
+                                    <span class="orange" style="display:block;">{if $ownPart eq 0} {$merchandise->prize} PTS. {else} <span class="purchased-item-detail">PURCHASED</span> {/if}</span>
+                                    {if $merchandise->variant != '0'}
+                                    <div class="size-tshirt">
+                                        <input type="radio" value="m" name="variant" checked  /><label>M</label>
+                                        <input type="radio" value="l" name="variant" /><label>L</label>
+                                    </div>
+                                    {/if}
+                                  {if $ownPart eq 0}
+											<input type="hidden" name="merchandise_id" value="{$merchandise->id}" >
+											<input type="hidden" name="page" value="merchandise" >										
+											<input type="hidden" name="act" value="redeem_form" >								  
+                                  	<a class="btn-redeem2" href="javascript:void(0)" onClick="document.getElementById('form_{$merchandise->id}').submit()" merchandise_id="{$merchandise->id}" >&nbsp;</a>{else} &nbsp; {/if}
+                         		    <a class="btn-backs" href="?page=merchandise">&nbsp;</a>
+                                    </div>
+                                    <img class="img-purchase-detail" src="img/merchandise/{$merchandise->img}" alt="" /> 
+									</form>
+                               {/if}
+							  
+                            </div>
+                        </div><!-- .merchandise -->
+                </div><!-- .entry -->
+            </div><!-- .panel -->
+        </div><!-- #containers -->
+    </div><!-- .wrapper -->
+</div><!-- #main-container -->
+					   <div id="popup-merchandise" class="popup popupmerchandise ">
+						
+							<div class="confirm-buy">
+                                   <h2>Confirm Reedem</h2>
+                                    <div class="thumb-merchandise" >{if $ownPart eq 0}<img src="img/merchandise/{$merchandise->img}" alt="" />{else}<img class="img-purchase-detail" src="img/merchandise/{$merchandise->img}" alt="" />{/if}</div>
+                                    <h3>Reedem This Merchandise ?</h3>
+                                    <span class="sparepart-point purchase_point" >{if $ownPart eq 0} {$merchandise->prize} PTS. {else} PURCHASED {/if}</span>
+                                    <div class="confirm-btn">
+                                     {if $ownPart eq 0}  <a href="javascript:void(0)"  merchandise_id="{$merchandise->id}" class="purchaseMerchandise purchase"  >Yes</a>{else}  <span class="purchased-item-detail">PURCHASED</span> {/if}
+                                        <a href="#" class="cancel-purchase">Exit</a>
+                                    </div>
+                       
+							</div>  								
+                            </div>
+                            <div class="backgroundPopup"></div>
+
+{literal}
+<script>
+$(document).ready(function() {
+
+$('.purchaseMerchandise').click(function(){
+$('a.btn-redeem2').css({'display' : 'none'});
+$('#merchandise_id').val($(this).attr('merchandise_id'));
+//$('#purchaseMerchandise').submit();
+
+var merchandise_id = $(this).attr('merchandise_id');
+$.post('?page=merchandise&act=purchaseMerchandise', { merchandise_id: merchandise_id },
+				function(data) {
+			$('.purchase_point').html(data);
+	});
+
+
+
+});
+//$('.size-tshirt').change(function(){
+//var href = $('.btn-redeem2').attr('href').replace();
+//$('.btn-redeem2').attr('href',href+'&variant='+$(this).val());
+//});
+$('.cancel-purchase').click(function(){
+	$(".backgroundPopup").fadeOut("slow");
+	$(".popup").fadeOut("slow");
+	popupStatus = 0;
+});
+});
+</script>
+{/literal}

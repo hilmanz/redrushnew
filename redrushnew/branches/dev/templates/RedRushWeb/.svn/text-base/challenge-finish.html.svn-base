@@ -1,0 +1,112 @@
+
+
+<div id="main-container" class="bg-challenge">
+	<div class="wrapper">
+    	<div id="containers">
+        	<div id="challenge-box">
+            	<div class="player-box">
+                    <div class="thumb">
+                        <a href="garages.php"><img src="img/thumb.jpg" /></a>
+                    </div><!-- .thumb -->
+                    <div class="caption">
+                        <span class="username">Player A</span>
+                    </div><!-- .caption -->
+                </div>
+                <div class="vs"></div>
+            	<div class="player-box">
+                    <div class="thumb">
+                        <a href="garages.php"><img src="img/thumb.jpg" /></a>
+                    </div><!-- .thumb -->
+                    <div class="caption">
+                        <span class="username">PlayerB</span>
+                    </div><!-- .caption -->
+                </div>
+            </div>
+            <div class="box sircuit-name" id="circuit"> 
+                <div class="titles">
+                    <h1>circuit</h1>
+                </div><!-- .title -->  
+                <div class="entry">
+                    <div class="row">
+                        <h2>{$report.circuit_name}</h2>
+                        <h3>{$report.circuit_desc}</h3>
+                    </div><!-- .row -->
+                </div><!-- .red-box -->
+            </div><!-- .sircuit-name -->  
+            <div class="logo">
+            	<a href="index.php">&nbsp;</a>
+            </div><!-- .logo -->
+            <div class="panel3" id="challenge-report">
+            	<div class="entry">
+                    <div class="title">
+                        <h1>Race Report</h1>
+                    </div><!-- .title -->
+                    {if $result.is_winner==1}
+                    <div class="wins">
+                        <div class="cup">
+                            <img src="img/trophy.png" />
+                        </div>
+                        <div class="message">
+                            <h1>You Win  !</h1>
+                          <h2>Your Point<br />
+                                + {$result.point} Pts</h2>
+                            <a href="index.php?page=race&act=challenge&rtoken={$rtoken}">Race Again</a>
+                            <a href="index.php?page=race">Find Another User</a>
+                        </div>
+                    </div><!-- .wins -->
+                    {else}
+                    <div class="loser">
+                        <div class="cup">
+                            <img src="img/lose.png" />
+                        </div>
+                        <div class="message">
+                            <h1>You LOSE  !</h1>
+                            <a href="index.php?page=race&act=challenge&rtoken={$rtoken}">Race Again</a>
+                            <a href="index.php?page=race">Find Another User</a>
+                        </div>
+                    </div>
+                    {/if}
+                </div><!-- .entry -->
+            </div><!-- .panel -->
+            <div id="sidebar">
+            	<div class="entry">
+              		  {*}	
+                	<div class="box distance">
+                        <div class="titles">
+                            <h1>Distance</h1>
+                        </div><!-- .title -->  
+                        <div class="red-box">
+                        	<div class="row">
+                            	<p>{$report.circuit_distance}</p>
+                            </div><!-- .row -->
+                        </div><!-- .red-box -->
+                    </div><!-- .distance -->  
+                    {/*}
+                    <div id="circuit-progress">
+                    	<div class="titles">
+                        	<h1>RACE Indicator</h1>
+                        </div>
+                    	<div class="players">
+                        	<div class="username">Player 1</div>
+                        	<div class="bar">
+                         	   <img class="progress" src="img/progress-bar.gif" width="10px" height="50%" />
+                               <div class="small-car" style="position:absolute; bottom:50%">
+                               	<img src="img/car-red.png" />
+                               </div>
+                            </div>
+                        </div>
+                    	<div class="players">
+                        	<div class="username">Player 2</div>
+                        	<div class="bar">
+                         	   <img class="progress" src="img/progress-bar.gif" width="10px" height="30%" />
+                               <div class="small-car" style="bottom:30%">
+                               	<img src="img/car-grey.png" />
+                               </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- .entry -->
+            </div><!-- #sidebar -->
+        </div><!-- #containers -->
+    </div><!-- .wrapper -->
+</div><!-- #main-container -->

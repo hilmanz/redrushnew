@@ -1,0 +1,61 @@
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+	<td>
+    	<h1>ADD MERCHANDISE STOCK</h1>
+		<strong><a href="index.php?s=merchandise&act=liststock&id={$id}">Back to List</a></strong>
+    </td>
+</tr>
+</table>
+{if $err}<span style="color:#F00;">{$err}</span>{/if}
+<form enctype="multipart/form-data" name="insertmerch" id="insert" method="post">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="addlist zebra">
+  <tr>
+    <td width="11%" valign="top"><strong>Item Name</strong></td>
+    <td width="89%">{$merch}</td>
+  </tr>
+  <tr>
+    <td valign="top"><strong>Amount</strong></td>
+    <td><input type="text" name="amount" id="amount" {if $form}value="{$form.amount}"{/if}> <span id="erramount" style="color:#F00;"></span>
+	</td>
+  </tr>
+  
+  <tr>
+    <td valign="top"><strong>Prizes</strong></td>
+    <td><label for="prizes"></label>
+      <input type="text" name="prizes" id="prizes" {if $form}value="{$form.prizes}"{/if}>pts. <span id="errprizes" style="color:#F00;"></span></td>
+  </tr>
+  <tr>
+    <td valign="top"><strong>Date</strong></td>
+    <td><input type="text" name="datee" id="datee" AUTOCOMPLETE="OFF" /><span id="errdate" style="color:#F00;"></span></td>
+  </tr>
+   <tr>
+    <td valign="top"><strong>Status</strong></td>
+    <td><label for="status"></label>
+      <select name="status" id="status">
+        <option value="1" selected>Publish</option>
+        <option value="0">Unpublish</option>
+      </select></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td><input name="save" type="hidden" value="1"><input type="submit" name="Save" id="Save" value="Save"></td>
+  </tr>
+</table>
+</form>
+<script type="text/javascript">
+	{literal}
+	$(document).ready(function(){
+		$( "#datee" ).datepicker();
+		$('#insert').submit(function(){
+			var amount = $('#amount').val();
+			var prizes = $('#prizes').val();
+			var date = $('#datee').val();
+			if(amount==''){$('#erramount').html('Please enter item amount!');$('#amount').focus(); return false;}else{$('#erramount').html('');}
+			if(prizes==''){$('#errprizes').html('Please enter item prizes!');$('#prizes').focus(); return false;}else{$('#errprizes').html('');}
+			if(date==''){$('#errdate').html('Please enter item date!');$('#desc').focus(); return false;}else{$('#errdesc').html('');}
+		});
+	});
+	
+{/literal}
+</script>

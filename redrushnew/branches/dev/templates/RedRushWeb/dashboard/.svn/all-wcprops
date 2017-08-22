@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/redrush/!svn/ver/922/branches/dev/templates/RedRushWeb/dashboard
+END
+mainDashboard.html
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/redrush/!svn/ver/914/branches/dev/templates/RedRushWeb/dashboard/mainDashboard.html
+END
+weeklyReport.html
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/redrush/!svn/ver/883/branches/dev/templates/RedRushWeb/dashboard/weeklyReport.html
+END
+glossary.html
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/redrush/!svn/ver/918/branches/dev/templates/RedRushWeb/dashboard/glossary.html
+END
+activities.html
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/redrush/!svn/ver/901/branches/dev/templates/RedRushWeb/dashboard/activities.html
+END
+default.html
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/redrush/!svn/ver/918/branches/dev/templates/RedRushWeb/dashboard/default.html
+END
+useroverview.html
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/redrush/!svn/ver/922/branches/dev/templates/RedRushWeb/dashboard/useroverview.html
+END
+admin.html
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/redrush/!svn/ver/921/branches/dev/templates/RedRushWeb/dashboard/admin.html
+END
+login.html
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/redrush/!svn/ver/874/branches/dev/templates/RedRushWeb/dashboard/login.html
+END

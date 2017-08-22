@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/sba/!svn/ver/274/branches/master/templates/Performance/admin
+END
+summary.html
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/sba/!svn/ver/112/branches/master/templates/Performance/admin/summary.html
+END
+overall_stats.html
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/sba/!svn/ver/274/branches/master/templates/Performance/admin/overall_stats.html
+END
+ba_detail.html
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/sba/!svn/ver/176/branches/master/templates/Performance/admin/ba_detail.html
+END

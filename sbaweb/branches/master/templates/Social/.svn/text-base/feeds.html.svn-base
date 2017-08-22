@@ -1,0 +1,32 @@
+<!-- feed bar -->
+
+			<div>
+			<h2>What's New ?</h2>
+			<hr style="border"/>
+			<form method="post" enctype="application/x-www-form-urlencoded" onsubmit="post_me({$user_id},'{$signed_request}');return false;">
+			<input type="text" name="post" id="post" value="What's in your mind now ?" class="span-12" style="height:40px;" onclick="clear_post();return false;"/>
+			</form>
+			</div>
+			<div id="timeline">
+			
+			</div>
+			<!-- Button More -->
+			<input type="button" value="MORE" class="span-12 box"></input>
+			<script>
+			var uid = {$user_id};
+			var sig = '{$signed_request}';
+			getFeeds({$user_id});
+			{literal}
+			$(document).everyTime(5000,function(){
+				
+				getFeeds(uid);
+				
+			});
+			function likeit(p){
+				post_like(uid,p,sig);
+			}
+			function reply(p,t){
+				post_comment(uid,p,t,sig);
+			}
+			{/literal}
+			</script>

@@ -1,0 +1,3 @@
+remote_url=https://staging.marlboro.co.id/remote/gateway.php;
+game_id=3;
+api_key=59d6087140f29592b2f9cf95440de718c985e8be;

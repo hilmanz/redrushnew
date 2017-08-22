@@ -1,0 +1,30 @@
+<h1>MERCHANDISE PURCHASE ORDER</h1>
+<hr noshade>
+<div align="right">
+	<strong>ID ORDER:</strong> {$data.purchase_merchandise_id}
+	<br>
+	<strong>Purchase Date:</strong> {$data.purchase_date}
+</div>
+<table width="100%" border="0">
+	<tr>
+		<td width="25%"><strong>Nama</strong></td><td>: {$data.name|stripslashes}</td>
+	</tr>
+	<tr>
+		<td><strong>Merchandise</strong></td><td>: {$data.item_name|stripslashes} ({$data.variant})</td>
+	</tr>
+	<tr>
+		<td><strong>Alamat</strong></td><td>: {$data.address|stripslashes}</td>
+	</tr>
+	<tr>
+		<td><strong>Kota</strong></td><td>: {$data.city_name|stripslashes}</td>
+	</tr>
+	<tr>
+		<td><strong>Kodepos</strong></td><td>: {$data.zip_code}</td>
+	</tr>
+	<tr>
+		<td><strong>Phone</strong></td><td>: {$data.phone}</td>
+	</tr>
+	<tr>
+		<td><strong>Mobile</strong></td><td>: {$data.mobile}</td>
+	</tr>
+</table>

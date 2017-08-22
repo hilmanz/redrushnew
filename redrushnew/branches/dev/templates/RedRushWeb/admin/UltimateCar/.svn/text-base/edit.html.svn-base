@@ -1,0 +1,65 @@
+<h3>Edit Ultimate Car</h3>
+{if $err}<span style="color:#F00;">{$err}</span>{/if}
+<form enctype="multipart/form-data" name="insertmerch" id="insert" method="post">
+<table width="100%" border="0" cellspacing="4" cellpadding="4">
+  <tr>
+    <td width="11%" valign="top"><strong>Ultimate Car Name</strong></td>
+    <td width="89%"><label for="name"></label>
+      <input name="name" type="text" id="name" size="50" {if $form}value="{$form.name}"{/if}> <span id="errname" style="color:#F00;"></span></td>
+  </tr>
+  <tr>
+    <td valign="top"><strong>Level</strong></td>
+    <td><label for="level"></label>
+      <input name="level" type="text" id="level" size="2" maxlength="2" {if $form}value="{$form.level}"{/if}> <span id="errlevel" style="color:#F00;"></span></td>
+  </tr>
+   <tr>
+    <td valign="top"><strong>Persentase Lose</strong></td>
+    <td><label for="persentase"></label>
+      <input name="persentase" type="text" id="persentase" size="4" maxlength="4" {if $form}value="{$form.persentase}"{/if}/>% <span id="errpersen" style="color:#F00;"></span></td>
+  </tr>
+  <tr>
+    <td valign="top"><strong>Images</strong></td>
+    <td>
+    {if $form.img}
+    <img src="../contents/avatar/original/{$form.img}" style="max-width:400px;" />
+    <br />
+    {/if}
+    <label for="images"></label>
+      <input type="file" name="images" id="images"> *)Leave blank if don't want to  change <span id="errimg" style="color:#F00;"></span></td>
+  </tr>
+  <tr>
+    <td valign="top"><strong>Status</strong></td>
+    <td><label for="status"></label>
+      <select name="status" id="status">
+        <option value="1" {if $form.status==1}selected{/if}>Publish</option>
+        <option value="0" {if $form.status==0}selected{/if}>Unpublish</option>
+      </select></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td><input name="save" type="hidden" value="1"><input type="submit" name="Save" id="Save" value="Save"></td>
+  </tr>
+</table>
+</form>
+<script type="text/javascript">
+	{literal}
+	$(document).ready(function(){
+		var pola = "^";
+			pola+= "[0-9]*";
+			pola+= "$";
+			rx = new RegExp(pola);
+		
+		$('#insert').submit(function(){
+			var name = $('#name').val();
+			var level = $('#level').val();
+			if(name==''){$('#errname').html('Please enter name!');$('#name').focus(); return false;}else{$('#errname').html('');}
+			if(level==''){$('#errlevel').html('Please enter level!');$('#level').focus(); return false;}else{$('#errlevel').html('');}
+			if(!level.match(rx)){$('#errlevel').html('Level must be numeric!');$('#level').focus(); return false;}else{$('#errlevel').html('');}
+			if(persen==''){$('#errpersen').html('Please enter persen!');$('#persentase').focus(); return false;}else{$('#errpersen').html('');}
+			if(!persen.match(rx)){$('#errpersen').html('Persentase must be numeric!');$('#persentase').focus(); return false;}else{$('#errpersen').html('');}
+		});
+		
+	});
+	
+{/literal}
+</script>

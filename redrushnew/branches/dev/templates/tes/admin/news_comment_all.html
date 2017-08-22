@@ -1,0 +1,59 @@
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+	<td>
+    	<h1>COMMENTS</h1>
+    </td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="addlist zebra">
+	<tr>
+		<td colspan="6">
+			<label>Status</label>&nbsp;
+			<select id="status">
+				<option value="" {if $status eq ''}selected{/if}>all</option>
+				<option value="0" {if $status eq '0'}selected{/if}>pending</option>
+				<option value="1" {if $status eq '1'}selected{/if}>approve</option>
+			</select>
+		</td>
+	</tr>
+	<tr class="head">
+		<td>Created date</td>
+		<td>Username</td>
+		<td>Comment</td>
+		<td>Article title</td>
+		<td>Article category</td>
+		<td>Approval</td>
+	</tr>
+	{section name=i loop=$list}
+	<tr>
+		<td>{$list[i].posted_date}</td>
+		<td>{$list[i].name}</td>
+		<td>{$list[i].comments}</td>
+		<td>{$list[i].title}</td>
+		<td>{$list[i].category_name}</td>
+		<td>
+		{if $list[i].n_status == 0 }
+			<a href="index.php?s=news&act=setcom&id={$list[i].id}&set=1&nid={$nid}" class="editPage"><font color="red">No</font></a>
+		{else}
+			<a href="index.php?s=news&act=setcom&id={$list[i].id}&set=0&nid={$nid}" class="editPage"><font color="green">Yes</font></a>
+		{/if}
+		<a onclick="return confirm('Apakah anda yakin akan menghapus komentar ini ?');" href="index.php?s=news&act=delcom&id={$list[i].id}&nid={$nid}" class="deletePage">Delete</a>
+		</td>
+	</tr>
+	{/section}
+</table>
+<p>{$paging}</p>
+
+{literal}
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+$('document').ready(function(){
+	$('#status').change(function(){
+		var status = $(this).val();
+		document.location.href = 'index.php?s=news&act=comment&status='+status;
+	});
+});
+</script>
+{/literal}

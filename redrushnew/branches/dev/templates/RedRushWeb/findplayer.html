@@ -1,0 +1,56 @@
+
+<div id="main-container" class="lights">
+	<div class="wrapper">
+    	<div id="containers">
+            {include file="RedRushWeb/topuserSubmenu.html"}
+            <div class="logo">
+            	<a href="index.php">&nbsp;</a>
+            </div><!-- .logo -->
+            <div class="panel2">
+            	<div class="entry" style="padding:0 30px 0 50px;">
+                    <div class="title">
+                        <h1>We Found {$player|@count} Player</h1>
+                    </div><!-- .title -->
+                        <div class="scrollbar" style="height:250px;">
+                            <div class="box racer">
+							{section name=i loop=$player}
+                                <div class="row">
+                                    <div class="thumb">
+                                        <a href="index.php?page=garage&rtoken={$player[i]->racing_token|strip_tags}"><img src="{if $player[i]->small_img eq ''} img/thumb.jpg {else} contents/avatar/small/{$player[i]->small_img } {/if}" /></a>
+                                    </div><!-- .thumb -->
+                                    <div class="caption">
+                                        <span class="username">{$player[i]->name}</span>
+                                        <span class="reputation">{section name=j loop=$player[i]->level }<img src="img/star.png" alt="" />{/section}</span>
+                                        <span class="level">Level {$player[i]->level}</span>
+                                    </div><!-- .caption -->
+                                    <div class="action-challenge">
+                                        {*}<a class="view" href="index.php?page=garage&rtoken={$player[i]->racing_token|strip_tags}">View</a>{/*}
+                                         {if $player[i]->racing_token!='' }
+										<a class="challenge icon_race2" href="index.php?page=race&act=challenge&rtoken={$player[i]->racing_token|strip_tags}">Challenge</a>
+										 {/if}
+                                    </div><!-- .action -->
+                                </div><!-- .row -->
+                                {/section}
+                            </div><!-- .box -->
+                        </div><!-- .scrollbar -->
+                </div><!-- .entry -->
+            </div><!-- .panel -->
+            <div id="sidebar">
+            	<div class="entry">
+                    <div id="profile2">
+                        <div class="thumb"><a href="index.php?page=garage"><img src="{if $small_img eq ''} img/thumb.jpg {else} contents/avatar/small/{$small_img } {/if}" /></a></div>
+                        <div class="box-user">
+                            <span class="username">{$name}</span>
+                            <span class="reputation">{section name=i loop=$level}<img src="img/star.png" alt="" />{/section}</span>
+                            <span class="total-race">{$races} Race</span>
+                            <span class="total-win">{$wins} Wins</span>
+                            <span class="rank">Rank {$rank}</span>
+                            <span class="total-point">{$points} PTS</span>
+                        </div>
+                    </div><!-- #profile --> 
+                </div><!-- .entry -->
+            </div><!-- #sidebar -->
+            <div class="lights-img"></div>
+        </div><!-- #containers -->
+    </div><!-- .wrapper -->
+</div><!-- #main-container -->

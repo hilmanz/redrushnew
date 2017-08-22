@@ -1,0 +1,24 @@
+<div id="jqb2_object">	
+	<div class="jqb2_slides">
+		{section name=i loop=$show_banner}
+		<div class="jqb2_slide">
+		{if $show_banner[i].type eq 'image'}
+		<a href="{$show_banner[i].redirect_url}"><img src="contents/banner/{$show_banner[i].file}"></a>
+		{else}
+		<a href="{$show_banner[i].redirect_url}">
+		<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="{if $show_banner[i].position==0}970{else}240{/if}" height="{if $show_banner[i].position==0}170{else}200{/if}" align="middle">
+					<param name="allowFullScreen" value="false" />
+					<param name="movie" value="contents/banner/{$show_banner[i].file}" />
+					<param name="quality" value="high" />
+					<param name="scale" value="noscale" />
+					<param name="salign" value="lt" />
+					<param name="wmode" value="opaque" />
+					<param name="allowScriptAccess" value="always" />
+					<embed src="contents/banner/{$show_banner[i].file}" quality="high" width="{if $show_banner[i].position==0}970{else}240{/if}" height="{if $show_banner[i].position==0}170{else}200{/if}" wmode="opaque" align="middle" scale="noscale" salign="LT" allowFullScreen="false" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
+					</object>
+		</a>
+		{/if}
+		</div>
+		{/section}
+	</div>
+</div>

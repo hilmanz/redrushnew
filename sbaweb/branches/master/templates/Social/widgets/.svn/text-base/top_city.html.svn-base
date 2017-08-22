@@ -1,0 +1,15 @@
+<div class="title">
+            	<h1>Top City</h1>
+                <!--<a href="#" class="view-all">Lihat Semua</a>-->
+                </div>
+                <div class="content">
+                	{section name=i loop=$list}
+                	<div class="list">
+                    	<a href="#" style='float:left;'><img src="images/{$list[i].nama_kota}.jpg" /></a>
+                        <div class="text" style='float:right;width:135px;'>
+                        	<a href="javascript:;" class="title" style="cursor:default;">{$list[i].nama_kota}</a>
+                        	<br/>{$list[i].percent|number_format} / {$list[i].total|number_format} ({$list[i].percent_txt}%)
+                        </div>
+                    </div>
+                    {/section}
+                </div>

@@ -1,0 +1,521 @@
+<div class="content_row">
+			
+        	<div class="row">
+            	{if $ch1.approval eq 0}
+            	<img alt="PRESSPLAY" src="images/challenge/badge_1.png" width="175" height="175" class="badge" />
+            	{/if}
+            	{if $ch1.approval eq 1}
+            	<img alt="PRESSPLAY" src="images/challenge/badge_1-done.png" width="175" height="175" class="badge" />
+                {/if}
+                <div class="step step-1">
+                	<span>PRESS PLAY</span>
+				{if $ch1.approval eq 1}
+               		<p><strong>Life is a journey - you gotta start somewhere.<br>
+Just like music - you won't hear it until you play it</strong></p>
+               {/if}
+               {if $ch1.approval eq 0}
+                    <p><strong>Life is a journey - you gotta start somewhere.<br>
+Just like music - you won't hear it until you play it</strong></p>                
+				<div id="go" class="button" no="1">
+                    <div class="button_left"></div>
+                	<div class="button_mid">DETAILS</div>
+                	<div class="button_right"></div>
+                </div>
+				{/if}
+                </div>
+				
+
+				{if $ch1.approval eq 0}
+
+                <div class="step_detail detail-1" style="display:none;">
+                	<span>PRESS PLAY</span>
+                	<p><strong>Life is a journey - you gotta start somewhere.<br>
+Just like music - you won't hear it until you play it</strong></p>
+                    <p>Any great song begins with a single note.<br>
+Any great journey begins with a single step.<br>
+Your journey starts here.<br>
+Where will you go first?<br>
+Enter your first code, and find out!</p>
+				<form>
+				<p>
+				Enter code for next location.
+				</p>
+				<div class="code">
+					<input type="hidden" name="challenge" value="1" />
+					<input type="hidden" name="st" value="1" />
+					<input type="hidden" name="submit" value="1" />
+					<input type="text" name="code" value="YOUR CODE" id="code" onBlur="upperCase()" autocomplete="off" onFocus="this.value=''" >
+                </div>
+                
+                <input type="submit" value="SUBMIT" class="submitButton">
+				</form>
+				</div>
+				{/if}
+            </div>
+			
+			
+			{if $ch2.approval == '0' or $ch2.approval == '1'}
+			<a name="2">
+			<div class="row">
+				{if $ch2.approval eq 0}
+				<img src="images/challenge/badge_2.png" width="175" height="175" class="badge" />
+				{/if}
+				{if $ch2.approval eq 1}
+            	<img src="images/challenge/badge_2-done.png" width="175" height="175" class="badge" />
+            	{/if}
+                <div class="step step-2">
+                	<span>CLUBHOPPER</span>
+                {if $ch2.approval eq 1}
+                    <p><strong>After work, after hours, or just to hangout<br>
+Have a drink, get down, and bounce to the music<br>
+Hip and happening, see and be seen</strong></p>
+                {/if}
+				{if $ch2.approval eq 0}
+				<p><strong>After work, after hours, or just to hangout<br>
+Have a drink, get down, and bounce to the music<br>
+Hip and happening, see and be seen</strong></p>
+				<div id="go" class="button" no="2">
+                    <div class="button_left"></div>
+                	<div class="button_mid">DETAILS</div>
+                	<div class="button_right"></div>
+                </div>
+				{/if}
+                </div>
+				
+				{if $ch2.approval eq 0}
+
+                <div class="step_detail detail-2" style="display:none;">
+                	<span>CLUBHOPPER</span>
+                	<p><strong>After work, after hours, or just to hangout<br>
+Have a drink, get down, and bounce to the music<br>
+Hip and happening, see and be seen</strong></p>
+                    <p>Your next checkpoint in one word: Luxurious<br>
+A lounge for the hot and chic<br>
+An avant-garde design to stimulate your senses<br>
+It's the blowing <strong>Blowfish Kitchen</strong> and Bar</p>
+					<p>
+					<strong>Blowfish Kitchen & Bar</strong><br>
+					City Plaza at WISMA MULIA<br>
+					Jl. Jend Gatot Subroto kav 42<br>
+					Jakarta 12710
+					</p>
+					<div class="map"><img src="images/challenge/map/2.jpg" width="95%"/></div>
+				<form>
+				
+				<div class="code">
+					<input type="hidden" name="challenge" value="1" />
+					<input type="hidden" name="st" value="2" />
+					<input type="hidden" name="submit" value="1" />
+					<input type="text" name="code" value="YOUR CODE" id="code" onBlur="upperCase()" autocomplete="off" onFocus="this.value=''" >
+                </div>
+                 
+                <input type="submit" value="SUBMIT" class="submitButton">
+				</form>
+				</div>
+				{/if}
+            </div>
+			</a>
+			{else}
+			<div class="row">
+            	<div class="close_step"></div>
+            </div>
+			{/if}
+			
+			
+
+			{if $ch3.approval == '0' or $ch3.approval == '1'}
+			<a name="3">
+			<div class="row">
+				{if $ch3.approval eq 0}
+            	<img alt="FIVE AND DIME" src="images/challenge/badge_3.png" width="175" height="175" class="badge" />
+            	{/if}
+            	{if $ch3.approval eq 1}
+            	<img alt="FIVE AND DIME" src="images/challenge/badge_3-done.png" width="175" height="175" class="badge" />
+            	{/if}
+                <div class="step step-3">
+                	<span>FIVE AND DIME</span>
+                {if $ch3.approval eq 1}
+                	<p><strong>Packed with just the essentials - just right<br>
+Nothing fancy, just the bare necessities<br>
+Enough to get you through the day</strong></p>
+                {/if}   
+				{if $ch3.approval eq 0}
+				<p><strong>Packed with just the essentials - just right<br>
+Nothing fancy, just the bare necessities<br>
+Enough to get you through the day</strong></p>
+				<div id="go" class="button" no="3">
+                    <div class="button_left"></div>
+                	<div class="button_mid">DETAILS</div>
+                	<div class="button_right"></div>
+                </div>
+				{/if}
+                </div>
+				
+				{if $ch3.approval eq 0}
+                <div class="step_detail detail-3" style="display:none;">
+                	<span>FIVE AND DIME</span>
+                	<p><strong>Packed with just the essentials - just right<br>
+Nothing fancy, just the bare necessities<br>
+Enough to get you through the day</strong></p>
+                    <p>The final gate between products and consumers<br>
+Where goods and money change hands, and profits are made<br>
+Who knows, there might be a trade secret or two.<br>
+Why don't you visit <strong>Circle K Ciniru</strong> and learn a few?</p>
+					<p>
+						<strong>Circle K Ciniru</strong><br>
+						Jl. Ciniru 1 no 1<br>
+						Kebayoran Baru, Jakarta Selatan
+						
+					</p>
+					<div class="map"><img src="images/challenge/map/36a.jpg" width="95%"/></div>
+					
+                    
+				<form>
+				<div class="code">
+					<input type="hidden" name="challenge" value="1" />
+					<input type="hidden" name="st" value="3" />
+					<input type="hidden" name="submit" value="1" />
+					<input type="text" name="code" value="YOUR CODE" id="code" onBlur="upperCase()" autocomplete="off" onFocus="this.value=''" >
+                </div>
+                 
+                <input type="submit" value="SUBMIT" class="submitButton">
+				</form>
+				</div>
+				{/if}
+            </div>
+			</a>
+			{else}
+			<div class="row">
+            	<div class="close_step"></div>
+            </div>
+			{/if}
+			
+			
+
+			{if $ch4.approval == '0' or $ch4.approval == '1'}
+			<a name="4">
+			<div class="row">
+			{if $ch4.approval eq 0}
+				<img src="images/challenge/badge_4.png" width="175" height="175" class="badge" />
+			{/if}
+			{if $ch4.approval eq 1}
+            	<img src="images/challenge/badge_4-done.png" width="175" height="175" class="badge" />
+            {/if}
+                <div class="step step-4">
+                	<span>SHOUTOUT</span>
+            {if $ch4.approval eq 1}
+                    <p><strong>In any relationship, communication is key<br>
+It's about the message, and getting it out<br>
+Meet the expert and have a chat over coffee - or tea?</strong></p>
+            {/if}    
+				{if $ch4.approval eq 0}
+				<p><strong>In any relationship, communication is key<br>
+It's about the message, and getting it out<br>
+Meet the expert and have a chat over coffee - or tea?</strong></p>
+				<div id="go" class="button" no="4">
+                    <div class="button_left"></div>
+                	<div class="button_mid">DETAILS</div>
+                	<div class="button_right"></div>
+                </div>
+				{/if}
+                </div>
+				
+				{if $ch4.approval eq 0}
+                <div class="step_detail detail-4" style="display:none;">
+                	<span>SHOUTOUT</span>
+                	<p><strong>In any relationship, communication is key<br>
+It's about the message, and getting it out<br>
+Meet the expert and have a chat over coffee - or tea?</strong></p>
+                    <p>Where addiction is good, an oasis for the lounge hunter<br>
+A rendezvous for ice cream, mint and tea,<br>
+Conversations over fine snacks<br>
+Head over to <strong>Tea Addict Gunawarman</strong> and have a chat!</p>
+
+					<p>
+						<strong>Tea Addict Lounge</strong><br>
+						Gunawarman No. 9<br>
+						Jakarta Selatan <br>
+						DKI Jakarta - Indonesia<br>
+						PH 1: (021) 725-4371
+					</p>
+					<div class="map"><img src="images/challenge/map/4.jpg" width="95%"/></div>
+                    
+				<form>
+				<div class="code">
+					<input type="hidden" name="challenge" value="1" />
+					<input type="hidden" name="st" value="4" />
+					<input type="hidden" name="submit" value="1" />
+					<input type="text" name="code" value="YOUR CODE" id="code" onBlur="upperCase()" autocomplete="off" onFocus="this.value=''" >
+                </div>
+                
+                <input type="submit" value="SUBMIT" class="submitButton">
+				</form>
+				</div>
+				{/if}
+            </div>
+			</a>
+			{else}
+			<div class="row">
+            	<div class="close_step"></div>
+            </div>
+			{/if}
+			
+			{if $ch5.approval == '0' or $ch5.approval == '1'}
+			<a name="5">
+			<div class="row">
+			{if $ch5.approval eq 0}
+				<img src="images/challenge/badge_5.png" width="175" height="175" class="badge" />
+            {/if}
+            {if $ch5.approval eq 1}
+            	<img src="images/challenge/badge_5-done.png" width="175" height="175" class="badge" />
+            {/if}
+                <div class="step step-5">
+                	<span>CLUBHOPPER</span>
+                    {if $ch5.approval eq 1}
+                    <p><strong>Start from the bottom and work your way up<br>
+Come to the top, the view is great</strong></p>
+                	{/if}
+				{if $ch5.approval eq 0}
+				<p><strong>Start from the bottom and work your way up<br>
+Come to the top, the view is great</strong></p>
+				<div id="go" class="button" no="5">
+                    <div class="button_left"></div>
+                	<div class="button_mid">DETAILS</div>
+                	<div class="button_right"></div>
+                </div>
+				{/if}
+                </div>
+				
+				{if $ch5.approval eq 0}
+                <div class="step_detail detail-5" style="display:none;">
+                	<span>CLUBHOPPER</span>
+                	<p><strong>Start from the bottom and work your way up<br>
+Come to the top, the view is great</strong></p>
+                    <p>Sleek, glass-sheathed building, most appealing<br>
+Chats and wine for the young professionals<br>
+If you like to be on top, this is the place for you<br>
+Go to <strong>SHY Rooftop Kemang</strong> and find your host there!</p>
+					<p>
+						<strong>SHY Rooftop</strong><br> 
+						Jl. Kemang Raya no 45AA<br>
+						Jakarta Selatan<br>
+						(021) 7190789	
+					</p>
+					<div class="map"><img src="images/challenge/map/5.jpg" width="95%"/></div>
+                    
+				<form>
+				<div class="code">
+					<input type="hidden" name="challenge" value="1" />
+					<input type="hidden" name="st" value="5" />
+					<input type="hidden" name="submit" value="1" />
+					<input type="text" name="code" value="YOUR CODE" id="code" onBlur="upperCase()" autocomplete="off" onFocus="this.value=''" >
+                </div>
+                
+                <input type="submit" value="SUBMIT" class="submitButton">
+				</form>
+				</div>
+				{/if}
+            </div>
+			</a>
+			{else}
+			<div class="row">
+            	<div class="close_step"></div>
+            </div>
+			{/if}
+			
+			{if $ch6.approval == '0' or $ch6.approval == '1'}
+			<a name="6">
+			<div class="row">
+			{if $ch6.approval eq 0}
+            	<img src="images/challenge/badge_6.png" width="175" height="175" class="badge" />
+            {/if}
+            {if $ch6.approval eq 1}
+            	<img src="images/challenge/badge_6-done.png" width="175" height="175" class="badge" />
+            {/if}
+                <div class="step step-6">
+                	<span>FIVE AND DIME</span>
+                	{if $ch6.approval eq 1}
+                    <p><strong>Chocolate? Candies? Chips?<br>
+Softdrinks? Juice? Yoghurt?<br>
+Stop by and check it out - might have just what you need</strong></p>
+                	{/if}
+				{if $ch6.approval eq 0}
+				<p><strong>Chocolate? Candies? Chips?<br>
+Softdrinks? Juice? Yoghurt?<br>
+Stop by and check it out - might have just what you need</strong></p>
+				<div id="go" class="button" no="6">
+                    <div class="button_left"></div>
+                	<div class="button_mid">DETAILS</div>
+                	<div class="button_right"></div>
+                </div>
+				{/if}
+                </div>
+				
+				{if $ch6.approval eq 0}
+                <div class="step_detail detail-6" style="display:none;">
+                	<span>FIVE AND DIME</span>
+                	<p><strong>Chocolate? Candies? Chips?<br>
+Softdrinks? Juice? Yoghurt?<br>
+Stop by and check it out - might have just what you need</strong></p>
+                    <p>To buy or not to buy?
+Purchase decisions are made at the point of sale
+But how do you influence that decision?
+Go to <strong>Circle K Pejaten</strong> and find out!</p>
+					
+					<p>
+						<strong>Circle K Pejaten</strong><br>
+						Jl. Pejaten Raya no. 20<br>
+						Pasar Minggu, Jakarta Selatan
+						
+					</p>
+					<div class="map"><img src="images/challenge/map/36b.jpg" width="95%"/></div>
+                    
+				<form>
+				<div class="code">
+					<input type="hidden" name="challenge" value="1" />
+					<input type="hidden" name="st" value="6" />
+					<input type="hidden" name="submit" value="1" />
+					<input type="text" name="code" value="YOUR CODE" id="code" onBlur="upperCase()" autocomplete="off" onFocus="this.value=''" >
+                </div>
+                 
+                <input type="submit" value="SUBMIT" class="submitButton">
+				</form>
+				</div>
+				{/if}
+            </div>
+			</a>
+			{else}
+			<div class="row">
+            	<div class="close_step"></div>
+            </div>
+			{/if}
+			
+			{if $ch7.approval == '0' or $ch7.approval == '1'}
+			<a name="7">
+			<div class="row">
+			{if $ch7.approval eq 0}
+            	<img src="images/challenge/badge_7.png" width="175" height="175" class="badge" />
+            {/if}
+            {if $ch7.approval eq 1}
+            	<img src="images/challenge/badge_7-done.png" width="175" height="175" class="badge" />
+            {/if}
+                <div class="step step-7">
+                	<span>HEADQUARTERS</span>
+                	{if $ch7.approval eq 1}
+                    <p><strong>The base of operations, the command center<br>
+A corporate high-rise tower, elegant and dignified</strong></p>
+                	{/if}
+				{if $ch7.approval eq 0}
+				<p><strong>The base of operations, the command center<br>
+A corporate high-rise tower, elegant and dignified</strong></p>
+				<div id="go" class="button" no="7">
+                    <div class="button_left"></div>
+                	<div class="button_mid">DETAILS</div>
+                	<div class="button_right"></div>
+                </div>
+				{/if}
+                </div>
+				
+				{if $ch7.approval eq 0}
+                <div class="step_detail detail-7" style="display:none;">
+                	<span>HEADQUARTERS</span>
+                	<p><strong>The base of operations, the command center<br>
+A corporate high-rise tower, elegant and dignified</strong></p>
+                    <p>Like bees at the hive, buzzing with activities<br>
+Where strategies are mapped, and decisions are made<br>
+Where the magic happens behind the scenes<br>
+You have unlocked the key to the <strong>Head Office</strong><br>
+Permission granted - you may enter.</p>
+					<p>
+						<strong>PT HM Sampoerna Tbk</strong><br>
+						One Pacific Place lt. 18<br>
+						Sudirman Central Business District<br>
+						Jl. Jend Sudirman Kav  52-53<br>
+						Jakarta Selatan
+						
+					</p>
+					<div class="map"><img src="images/challenge/map/7.jpg" width="95%"/></div>
+                    
+				<form>
+				<div class="code">
+					<input type="hidden" name="challenge" value="1" />
+					<input type="hidden" name="st" value="7" />
+					<input type="hidden" name="submit" value="1" />
+					<input type="text" name="code" value="YOUR CODE" id="code" onBlur="upperCase()" autocomplete="off" onFocus="this.value=''" >
+                </div>
+               
+                <input type="submit" value="SUBMIT" class="submitButton">
+				</form>
+				</div>
+				{/if}
+            </div>
+			</a>
+			{else}
+			<div class="row">
+            	<div class="close_step"></div>
+            </div>
+			{/if}
+			
+			{if $ch8.approval == '0' or $ch8.approval == '1'}
+			<a name="8">
+			<div class="row">
+			{if $ch8.approval eq 0}
+            	<img src="images/challenge/badge_8.png" width="175" height="175" class="badge" />
+            {/if}
+            {if $ch8.approval eq 1}
+            	<img src="images/challenge/badge_8-done.png" width="175" height="175" class="badge" />
+            {/if}
+                <div class="step step-8">
+                	<span>BASE CAMP</span>
+                	{if $ch8.approval eq 1}
+                    <p><strong>All good things must come to an end.<br>
+After a hard day's work, you deserve to rest</strong></p>
+                	{/if}
+				{if $ch8.approval eq 0}
+				<p><strong>All good things must come to an end.<br>
+After a hard day's work, you deserve to rest</strong></p>
+				<div id="go" class="button" no="8">
+                    <div class="button_left"></div>
+                	<div class="button_mid">DETAILS</div>
+                	<div class="button_right"></div>
+                </div>
+				{/if}
+                </div>
+				
+				{if $ch8.approval eq 0}
+                <div class="step_detail detail-8" style="display:none;">
+                	<span>BASE CAMP</span>
+                	<p><strong>All good things must come to an end.<br>
+After a hard day's work, you deserve to rest</strong></p>
+                    <p>Finish what you start, finish where you start<br>
+Come on back to the Base Camp<br>
+Kick back, have a few laughs and relax<br>
+Hope you had a great time!</p>
+					<p>
+						<strong>Mediatrac Fractal Collective Intelligence</strong><br>
+						Grha Tirtadi lt.3<br>
+						Jl. Senopati no 71-73<br>
+						Jakarta Selatan					
+					</p>
+					<div class="map"><img src="images/challenge/map/8.jpg" width="95%"/></div>
+                    
+				<form>
+				<div class="code">
+					<input type="hidden" name="challenge" value="1" />
+					<input type="hidden" name="st" value="8" />
+					<input type="hidden" name="submit" value="1" />
+					<input type="text" name="code" value="YOUR CODE" id="code" onBlur="upperCase()" autocomplete="off" onFocus="this.value=''" >
+                </div>
+                 
+                <input type="submit" value="SUBMIT" class="submitButton">
+				</form>
+				</div>
+				{/if}
+            </div>
+			</a>
+			{else}
+			<div class="row">
+            	<div class="close_step"></div>
+            </div>
+			{/if}
+</div>

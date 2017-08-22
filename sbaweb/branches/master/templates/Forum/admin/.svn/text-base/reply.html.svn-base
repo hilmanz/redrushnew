@@ -1,0 +1,57 @@
+<p><strong>Forum: Topic</strong></p><br>
+<br/>
+{if $msg}<div style="color:#cc0000;">{$msg}</div>{/if}
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="addlist zebra">
+  <tr class="head">
+    <td><strong>ID</strong></td>
+    <td><strong>Title</strong></td>
+    <td width='500'><strong>content</strong></td>
+    <td><strong>Date</strong></td>
+    <td><strong>status</strong></td>
+    <td width="150"><strong>Action</strong></td>
+  </tr>
+  {section name=i loop=$list}
+  <tr>
+    <td>{$list[i].id}</td>
+    <td>{$list[i].title|stripslashes|strip_tags}</td>
+    <td>{$list[i].content}</td>
+    <td>{$list[i].posted_date|date_format}</td>
+    <td>
+    	<select name='status' onchange='javascript:changeStatus({$list[i].id},this.value);' id="sel-{$list[i].id}">
+    		<option value="0" {if $list[i].n_status|intval eq 0}selected="selected"{/if}>Unpublish</option>
+    		<option value="1" {if $list[i].n_status|intval eq 1}selected="selected"{/if}>Publish</option>
+    		<option value="2" {if $list[i].n_status|intval eq 2}selected="selected"{/if}>Locked</option>
+    	</select>
+    </td>
+    <td>
+    	<a href="?s=forum&act=delete-reply&id={$list[i].id}&topic={$list[i].topic_id}">Delete</a>
+    </td>
+  </tr>
+  {/section}
+</table>
+<p>{$paging}</p>
+{literal}
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+
+});
+function changeStatus(id,status){
+		$.get(
+			'index.php?s=forum&act=change-reply&id='+id+'&status='+status,
+			{},
+			function(data){
+				if(data.success > 0){
+					$("#sel-"+id).fadeOut('fast',function(){
+						$("#sel-"+id).fadeIn('slow');
+					});
+				}else{
+					alert('Gagal mengganti status, silakan coba lagi!');
+				}
+			},
+			"json"
+		);
+		return false;
+	}
+</script>
+{/literal}

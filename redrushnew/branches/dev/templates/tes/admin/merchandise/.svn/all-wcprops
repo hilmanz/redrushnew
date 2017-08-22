@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/redrush/!svn/ver/755/branches/dev/templates/RedRushWeb/admin/merchandise
+END
+purch_list.html
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/redrush/!svn/ver/663/branches/dev/templates/RedRushWeb/admin/merchandise/purch_list.html
+END
+merch_edit.html
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/redrush/!svn/ver/755/branches/dev/templates/RedRushWeb/admin/merchandise/merch_edit.html
+END
+merch_add.html
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/redrush/!svn/ver/755/branches/dev/templates/RedRushWeb/admin/merchandise/merch_add.html
+END
+merch_list.html
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/redrush/!svn/ver/701/branches/dev/templates/RedRushWeb/admin/merchandise/merch_list.html
+END

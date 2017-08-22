@@ -1,0 +1,14 @@
+<h2>Manage Gallery</h2>
+<br/>
+<table width="100%" class="list">
+<tr class="head">
+<td>No</td><td>judul</td><td>action</td>
+</tr>
+{section name=i loop=$show_gallery}
+<tr>
+<td>{$show_gallery[i].id}</td><td><a href="?s=gallery&view=photo_view&id={$show_gallery[i].id}">{$show_gallery[i].album_name}</a></td><td><a href="?s=gallery&updatealbum=1&owner_id={$show_gallery[i].owner_id}&id={$show_gallery[i].id}">Update</a> | <a href="?s=gallery&deletealbum=1&owner_id={$show_gallery[i].owner_id}&id={$show_gallery[i].id}">Delete</a></td>
+</tr> 
+{/section}
+</table>
+
+<p align="center">{$paging}</p>

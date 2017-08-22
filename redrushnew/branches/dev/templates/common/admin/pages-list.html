@@ -1,0 +1,23 @@
+<h1>PAGE LIST</h1>
+<form method="post" action="?s=pages&act=delete">
+<table class="list" width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr class="head">
+    <td width="10"></td>
+	<td><strong>Name</strong></td>
+    <td><strong>Request</strong></td>
+	<td><strong>Status</strong></td>
+  </tr>
+  {section name=i loop=$list}
+  <tr>
+	<td><input type="checkbox" value="{$list[i].page_id|intval}" name="page_id[]"></td>
+    <td><a href="index.php?s=pages&act=edit&id={$list[i].page_id|intval}">{$list[i].page_name|strip_tags|stripslashes}</a></td>
+    <td>{$list[i].page_request|strip_tags|stripslashes}</td>
+	<td>{$list[i].page_status|strip_tags|stripslashes}</td>
+  </tr>
+  {/section}
+</table>
+<p>
+<input type="button" onclick="javascript:document.location.href='?s=pages&act=add';" value="Create New Page" />
+<input type="submit" value="Delete Selected Page" />
+</p>
+</form>

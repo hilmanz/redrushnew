@@ -1,0 +1,120 @@
+<div id="main-container">
+	<div class="wrapper">
+    	<div id="containers">
+            <div class="welcome">
+            	<h1>Ciao, {$user_name} !<br /></h1>
+<p>Welcome to RedRush, where you can experience the ultimate thrills of your life!
+Get a chance for a week full of unforgettable experiences in Italy, and exclusive prizes throughout the program. Step into the race, start your engine, win races, and make your mark!
+</p>
+            </div>
+            <div class="logo">
+            	<a href="index.php">&nbsp;</a>
+            </div><!-- .logo -->
+            <div id="panel-home">
+                <div class="panel-small">
+                    <div class="entry">
+                        <div class="title">
+                            <h1><a href="index.php?page=news">NEWS AND UPDATES</a></h1>
+                        </div><!-- .title -->
+                        <div class="scrollbar">
+                        	{if $news}
+                            {section name=i loop=$news}
+                            <div class="list-news">
+							<h1 class="title-news"> <a href="index.php?page=news&act=view&nid={$news[i].id}">{$news[i].title|stripslashes|strip_tags}</a></h1>
+                            <p class="brief-news">
+                            {$news[i].brief|stripslashes|strip_tags}
+                            </p>
+                            <a href="index.php?page=news&act=view&nid={$news[i].id}">Details here &raquo;</a>
+                            </div>
+                            {/section}
+                            {else}
+                            No news and update available.
+                            {/if}
+                            
+                        </div><!-- .scrollbar -->
+                    </div><!-- .entry -->
+                </div><!-- .panel-small -->
+                <div class="panel-small">
+                    <div class="entry">
+                        <div class="title">
+                            <h1><a href="index.php?page=news&act=recent">RECENT ACTIVITY</a></h1>
+                        </div><!-- .title -->
+                        <div class="scrollbar" id="scrollpanel">
+                            <ul class="newsfeed">
+								{section name=i loop=$notification}
+								<li>
+								 <span class="feeds">{$notification[i]->message}<span class="tip" style="display:none;"><img src="{if $notification[i]->small_img!=''}contents/avatar/small/{$notification[i]->small_img}{/if}" /></span></span>
+                                 <span class="date-feeds">{$notification[i]->date_time}</span>
+								</li>
+                                {/section}         	  
+                           </ul>
+                        </div><!-- .scrollbar -->
+                    </div><!-- .entry -->
+                </div><!-- .panel-small -->
+            </div><!-- #panel-home -->
+            <div id="sidebar">
+            	<div class="entry">
+                	<div class="box random-user">
+                        <div class="titles">
+                            <h1>Random Users</h1>
+                        </div><!-- .title -->  
+                        <div class="red-box">
+                        	{section name=i loop=$racer}
+							{if ($racer[i].level >= $level-1) && ( $racer[i].level <= $level+1) }
+							<div class="row-race">
+                            	<div class="thumb">
+                                	<a href="index.php?page=garage&rtoken={$racer[i].racing_token|strip_tags}"><img src="{if $racer[i].small_img eq ''} img/thumb.jpg {else} contents/avatar/small/{$racer[i].small_img} {/if}" /></a>
+                                </div><!-- .thumb -->
+                            	<div class="caption">
+                                	<span class="username">{$racer[i].name|stripslashes|htmlentities}</span>
+                                	<span class="level">Level {$racer[i].level|intval}</span>
+                                	<span class="reputation">{section name=j loop=$racer[i].level}<img src="img/star.png" alt="" />{/section}</span>
+                                </div><!-- .caption -->
+                                <div class="action-race">
+                                	{*}<a class="view" href="index.php?page=garage&rtoken={$racer[i].racing_token|strip_tags}">View</a>{/*}
+                                	<a class="challenge icon_race2" href="index.php?page=race&act=challenge&rtoken={$racer[i].racing_token|strip_tags}">Challenge</a>
+                                </div><!-- .action -->
+                            </div><!-- .row -->
+							{/if}
+                        	  {/section}
+							
+                        </div><!-- .red-box -->
+                    </div><!-- .random-user -->  
+                	<div class="box top-user">
+                        <div class="titles">
+                            <h1>Top Users</h1>
+                        </div><!-- .title -->  
+                        <div class="red-box">
+                        	{section name=i loop=$top_user max= 2}
+							<div class="row-race">
+                            	<div class="thumb">
+                                	<a href="index.php?page=garage&rtoken={$top_user[i]->racing_token|strip_tags}"><img src="{if $top_user[i]->small_img eq ''} img/thumb.jpg {else} contents/avatar/small/{$top_user[i]->small_img } {/if}" /></a>
+                                </div><!-- .thumb -->
+                            	<div class="caption">
+                                	<span class="username">{$top_user[i]->name}</span>
+                                	<span class="level">Level {$top_user[i]->level}</span>
+                                	<span class="reputation">{section name=k loop=$top_user[i]->level}<img src="img/star.png" alt="" />{/section}</span>
+                                </div><!-- .caption -->
+                                <div class="action-race">
+                                	{*}<a class="view" href="index.php?page=garage&rtoken={$top_user[i]->racing_token|strip_tags}">View</a>{/*}
+                                	 {if $top_user[i]->racing_token!='' }
+									 <a class="challenge icon_race2" href="index.php?page=race&act=challenge&rtoken={$top_user[i]->racing_token|strip_tags}">Challenge</a>
+									 {/if}
+                                </div><!-- .action -->
+							
+                            </div><!-- .row -->
+                        	{/section}
+								<div ><span><a href="?page=topuser" style="font-size: 12px;
+    line-height: 1.4;color: #FBDB00; font-family: 'KlavikaLightCapsLight',Helvetica,sans-serif;outline: medium none;
+    text-decoration: none;">Details here >></a></span></div>
+						</div><!-- .red-box -->
+                    </div><!-- .top-user -->    
+                </div><!-- .entry -->
+            </div><!-- #sidebar -->
+			{include file="RedRushWeb/popup-info.html"}
+			{if $event}  {include file="$event"}{/if}
+			{if $popup_info}  {include file="$popup_info"}{/if}
+			
+        </div><!-- #containers -->
+    </div><!-- .wrapper -->
+</div><!-- #main-container -->

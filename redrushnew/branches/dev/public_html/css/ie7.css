@@ -1,0 +1,84 @@
+/*
+Theme Name: MARLBORO REDRUSH
+Version: 1.0
+Author: ACIT JAZZ - 2012
+*/
+#wrap{
+	padding:50px 0 0 0;
+}
+.panel {
+	margin:-180px 0 0 -300px;
+}
+.panel2 {
+	margin:-180px 0 0 -300px;
+}
+.panel3 {
+	margin:-180px 0 0 -300px;
+}
+.panel4 {
+	margin:-180px 0 0 -300px;
+}
+.panel5 {
+	margin:-180px 0 0 -300px;
+}
+#panel-home{
+	margin:-180px 0 0 -300px;
+}
+.submenu,.welcome,.unverified-message {
+	position:absolute;
+	width:200px;
+	height:300px;
+	left:50%;
+	top:50%;
+	margin:-143px 0 0 -500px;
+	font-family: 'BebasNeueRegular';
+	z-index:20;
+}
+.unverified-message{
+	margin:-50px 0 0 -500px
+}
+#sidebar,.getpoint #sidebar{
+	margin:-160px 0 0 250px;
+}
+.icon_race2{
+    top: -55px;
+    left: 80px;
+}
+.action-challenge .icon_race2{
+    left: -60px;
+    right: 120px;
+}
+.garage-bg #containers{
+	padding:50px 0 0 0;
+}
+.getpoint .boxgame3,.getpoint .boxgame4{
+	margin:-15px 5px 5px 5px;
+}
+#circuit-progress .bar .small-car{
+	margin:0 0 -10px -20px;
+}
+#navigation input[type="text"]{
+	top:2px;
+}
+.panel-countdown{
+	margin:50px auto 0
+}
+.city_top{
+	background:url(../img/bg_city_top.png) 100% 30px no-repeat;
+}
+.getpoint #profile2{
+	margin:0 0 0 45px;
+}
+#iepar{
+	display:block;
+}
+
+#text-getPoint{
+	margin:0 0 0 45px;
+}
+.panel4 .merchandiseList{
+	margin:-40px 0 0 0;
+}
+#merchandise-list .description{
+	left:0;
+}

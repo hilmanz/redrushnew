@@ -1,0 +1,22 @@
+	<div id="popup-locked-part" class="popup carbons" style="display:none;">
+		<a class="popup-close" href="#">[x] Close</a>
+        <div class="inner-popup">
+        	<img src="img/lock-part.png" align="middle" />
+            <h1><span style="font-size:30px;">Level up by upgrading your parts with your points.</span><br />
+Can you hear that sound of revving engine? The challenge is right around the corner.<br />
+Collect more points. Upgrade your car. Win Races.<br /> </h1>
+        </div>
+	</div>
+	<div class="backgroundPopup" style="display:block;"></div>
+    {literal}
+    <script type="text/javascript">
+      $(document).ready(function() {
+			    $(".backgroundPopup").fadeIn("slow");
+                $("#popup-locked-part").fadeIn("slow");
+            $("a.popup-close").click(function() {
+                $(".backgroundPopup").fadeOut("slow");
+                $("#popup-locked-part").fadeOut("slow");
+            });
+        });
+    </script>
+    {/literal}

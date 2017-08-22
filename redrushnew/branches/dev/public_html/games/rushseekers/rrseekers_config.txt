@@ -1,0 +1,4 @@
+
+ remote_url=https://staging.marlboro.co.id/remote/gateway.php
+game_id=4;
+api_key=0a51752a41491c29c1ccc4c4e9f92aa0e2af45b4;

@@ -1,0 +1,13 @@
+<h2>Manage Picture</h2>
+<br/>
+<table width="100%" class="list">
+<tr class="head">
+<td>No</td><td>Nama Picture</td><td>action</td>
+</tr>
+{section name=i loop=$show_pic_gallery_admin}
+<tr>
+<td>{$show_pic_gallery_admin[i].id}</td><td><a href="?s=gallery&pic_detail_admin=1&id={$show_pic_gallery_admin[i].id}">{$show_pic_gallery_admin[i].caption}</a></td><td><a href="?s=gallery&pic_edit_admin=1&id={$show_pic_gallery_admin[i].id}">Edit</a>&nbsp;|&nbsp;<a href="?s=gallery&deleteadmin=1&id={$show_pic_gallery_admin[i].id}">Delete</a></td>
+</tr> 
+{/section}
+</table>
+<p align="center">{$paging}</p>

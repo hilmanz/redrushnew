@@ -1,0 +1,25 @@
+
+<div class="span-20">
+<form method=get>
+<input type="hidden" name="reply" value="1">
+<div class="row">
+From : <a href="?profile=1&profile_id={$rs.from_id}">{$rs.sender_name|strip_tags}</a>
+<input type="hidden" name="sender" value="{$rs.from_id}">
+<input type="hidden" name="namesender" value="{$rs.sender_name|strip_tags}">
+</div>
+<div class="row">Date : {$rs.tgl}</div>
+<div class="row">
+<h4>
+{$rs.subject|strip_tags}
+<input type="hidden" name="subject" value="{$rs.subject|strip_tags}">
+</h4>
+<div class="row">
+{$rs.message|strip_tags}
+<input type="hidden" name="isi" value="{$rs.message|strip_tags}">
+</div>
+</div>
+</div>
+<input type="hidden" name="id" value="{$rs.id}">
+<input type="submit" value="Reply">
+<a href="?inbox=1">Kembali ke Inbox</a>
+</form>

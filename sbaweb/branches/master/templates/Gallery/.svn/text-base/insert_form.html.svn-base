@@ -1,0 +1,21 @@
+<div>
+<form  method="post" action="" enctype="multipart/form-data">
+<table>
+<input type="hidden" name="s" value="insertAlbum">
+<input type="hidden" name="insertalbumform" value="1">
+	<tr>
+		<td>Album Name</td>
+		<td><input type="text"  name="txtalbumname"></td>
+	</tr>
+<!-- 	<tr>
+		<td>Published</td>
+		<td colspan="2"><input type="radio" name="rdopublished" value="1" checked="checked">Publish
+		<input type="radio" name="rdopublished" value="0">Not Publish</td>
+	</tr> -->
+	<tr>
+		<td><input type="submit" value="submit"></td>
+		<td><input type="reset" value="reset"></td>
+	</tr>
+</table>
+</form>
+</div>

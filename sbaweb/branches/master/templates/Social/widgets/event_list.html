@@ -1,0 +1,85 @@
+{literal}
+<script type="text/javascript">
+$(document).ready(function(){
+	$('.suka').click(function(){
+		var pro = $(this).attr('pro');
+		var ids = $(this).attr('id');
+		var id = ids.split('-');
+		id = id[1];
+		
+		if( pro == 'like' ){		
+			$.post('?events=1&act=like&sid='+id, function(data) {
+				if( data == 0 ){
+					//$('#'+ids).removeClass("like");
+					//$('#'+ids).addClass("unlike");
+					//$('#'+ids).attr( "value", " Unlike " );
+					//$('#'+ids).attr( "pro", "unlike" );
+					alert( "Processing like failed, please try again" );
+				}else if( data == 2 ){
+					alert( "You're already like this event" );
+				}else{
+					$('#'+ids).html("like ("+data+")");
+				}
+			});
+		}else{
+			$.post('?events=1&act=unlike&sid='+id, function(data) {
+				if( data == 1 ){
+					//$('#'+ids).removeClass("unlike");
+					//$('#'+ids).addClass("like");
+					$('#'+ids).attr( "value", " Like " );
+					$('#'+ids).attr( "pro", "like" );
+				}else{
+					alert( "Processing unlike failed, please try again" );
+				}
+			});
+		}
+	});
+	
+	$('#createNewEvent').click(function(){
+		window.location.href = '?events=1&act=add';
+	});
+});
+</script>
+{/literal}
+
+{section name=i loop=$list}
+<div style="clear:both;margin-bottom:20px;width:410px;">
+	<a href="index.php?events=1&id={$list[i].id}"><h3>{$list[i].nama_event|stripslashes|strip_tags}</h3></a>
+    <div>
+        <div style="float:left;width:110px;">
+			{if $list[i].image_ext == ''}
+			<img src="contents/events/nothumb.jpg" width="110" height="120" />
+			{else}
+			<img src="contents/events/{$list[i].id}{$list[i].image_ext}" width="110" height="120" />
+			{/if}
+		</div>
+		<div style="float:right;width:280px;text-align:justify;">
+			<div>
+            	{$list[i].summary|stripslashes|strip_tags}
+                <p style="font-size:11px;">
+                	Time: {$list[i].tanggal_event|date_format} - {$list[i].tanggal_event|date_format:"%H:%M:%S"}
+                    <br />
+                    Posted By: {$list[i].name|stripslashes|strip_tags}
+                </p>
+            </div>
+			<div style="margin-top:10px">
+				<a href="index.php?events=1&id={$list[i].id}">comment ({$list[i].comments})</a>&nbsp;&nbsp;<a href="javascript:void(0);" id="like-{$list[i].id}" class="suka" pro="like">{if $list[i].suka}like ({$list[i].suka}){else}like{/if}</a>
+				<!--
+				{if $list[i].suka == 0}
+				<input type="button" value=" Like " id="like-{$list[i].id}" class="like" pro="like" style="display:inline;" />
+				{else}
+				<input type="button" value=" Unlike " id="like-{$list[i].id}" class="like" pro="unlike" style="display:inline;" />
+				{/if}
+				-->
+			</div>
+		</div>
+		<div style="clear:both;"></div>
+    </div>
+	<div style="clear:both;"></div>
+</div>
+{/section}
+<p>{$paging}</p>
+<br />
+{if $user_ba == 1}
+<span class="insert"><a href="index.php?events=1&act=add">Create Event</a></span>
+{/if}

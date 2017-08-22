@@ -1,0 +1,11 @@
+{section name=i loop=$list}
+<div class="span-20">
+{$list[i].posted_date} - {$list[i].message}
+</div>
+<div class="span-4 last">{section name=j loop=$list[i].options}<a href="{secureurl url=$list[i].options[j].uri inline=true}">{$list[i].options[j].label}</a>&nbsp;&nbsp;{/section}</div>
+<hr style="border"/>
+{/section}
+
+<div>
+<a href="?notification=1&clear=1">Clear Notifications</a>
+</div>

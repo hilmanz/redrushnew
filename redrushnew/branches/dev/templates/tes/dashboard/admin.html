@@ -1,0 +1,94 @@
+<script>
+{literal}
+	$(document).ready(function() {
+		var menuactive = mainmenu;
+		
+		if(menuactive == "main"){
+			$('a.menu1').addClass("menu1act");$('img.menu1Curr').addClass("block");
+			$('a.menu2').removeClass("menu2act");$('img.menu2Curr').removeClass("block");
+			$('a.menu3').removeClass("menu3act");$('img.menu3Curr').removeClass("block");
+		}else if(menuactive == "activities"){
+			$('a.menu2').addClass("menu2act");$('img.menu2Curr').addClass("block");
+			$('a.menu1').removeClass("menu1act");$('img.menu1Curr').removeClass("block");
+			$('a.menu3').removeClass("menu3act");$('img.menu3Curr').removeClass("block");
+		}else if(menuactive == "user"){
+			$('a.menu3').addClass("menu3act");$('img.menu3Curr').addClass("block");
+			$('a.menu1').removeClass("menu1act");$('img.menu1Curr').removeClass("block");
+			$('a.menu2').removeClass("menu2act");$('img.menu2Curr').removeClass("block");
+		}else if(menuactive == "weekly"){
+			$('#weeklyreport').attr("style","text-decoration: none; font-size: 16px; position: relative; top: -19px; color: FireBrick");
+			$('a.menu3').removeClass("menu3act");$('img.menu3Curr').removeClass("block");
+			$('a.menu1').removeClass("menu1act");$('img.menu1Curr').removeClass("block");
+			$('a.menu2').removeClass("menu2act");$('img.menu2Curr').removeClass("block");
+		}
+	//$(".datePicker").datepicker();
+	$(".datePicker").datepicker({ dateFormat: "yy-mm-dd" } );
+
+	});
+	
+
+</script>
+<style>
+#weeklyreport{
+text-decoration: none; font-size: 16px; position: relative; top: -19px; color: HoneyDew;
+}
+#weeklyreport:hover{
+text-decoration: none; font-size: 16px; position: relative; top: -19px; color: FireBrick;
+}
+#chartReport{
+text-decoration: none; font-size: 16px; position: relative; top: -19px; color: HoneyDew;
+}
+#chartReport:hover{
+text-decoration: none; font-size: 16px; position: relative; top: -19px; color: FireBrick;
+}
+</style>
+
+{/literal}
+<div id="header">
+	<div id="head-warp">
+		<div id="head-top">
+			<div id="head-left">
+				<a href="#"><img src="images/rr_logo.png" width="195" style="border:none;" /></a>
+			</div>
+			<div id="head-right">
+				<span class="title block">CAMPAIGN DASHBOARD{$active}</span>
+				<span class="user-name block">{$user.username}</span>
+				<span class="update block trebuc">Last Update: 
+				<script type="text/javascript">
+					var currentTime = new Date();
+					var month = currentTime.getMonth() + 1;
+					var day = currentTime.getDate() - 1;
+					var year = currentTime.getFullYear();
+					document.write(day+"/"+month+"/"+year);
+				</script>
+				</span>
+					<form action="" method="GET">
+					<span>Duration
+					{if $page!=''}<input type="hidden" name="s" value="{$page}">{/if}
+					<input type="hidden" name="rangeDate" value="1">
+					<input type="text" id="from" name="from" class="datePicker" value="{$from}" style="color:black"> 		
+					<input type="text" id="to" name="to" class="datePicker" value="{$to}" style="color:black">
+					
+					<input id="semDuration" type="submit" value=""></span>
+					</form>
+			</div>
+		</div>
+		<div id="main-control">
+			<div class="menu ctrl-left">
+				<a href="index.php" class="menu1 relative menu1act"><img src="images/arrow.png" width="14px" class="absolute menu1Curr block"/></a>
+				<a href="index.php?s=activities" class="menu2 relative"><img src="images/arrow.png" width="14px" class="absolute menu2Curr"/></a>
+				<a href="index.php?s=overview" class="menu3 relative"><img src="images/arrow.png" width="14px" class="absolute menu3Curr"/></a>
+				<a href="index.php?s=weeklyreport" id="weeklyreport" >WEEKLY REPORT</a>
+				<a href="index.php?s=chart" id="chartReport" >WEEKLY REPORT</a>
+			</div>
+			<div class="ctrl-right">
+				<a href="logout.php" class="logout block"></a>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="body">
+	<div id="body-warp">
+		{$content}
+	</div>
+</div>

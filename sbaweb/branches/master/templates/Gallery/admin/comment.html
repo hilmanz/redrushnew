@@ -1,0 +1,28 @@
+<h2>Gallery Comment</h2>
+<br/>
+<table width="100%" class="list">
+	<tr class="head">
+		<td>Nama</td>
+		<td>Album</td>
+		<td>Komentar</td>
+		<td>Tanggal</td>
+		<td>Status</td>
+		<td></td>
+	</tr>
+	{section name=i loop=$list}
+	<tr>
+		<td>{$list[i].name|stripslashes|strip_tags}</td>
+		<td>{$list[i].album|stripslashes|strip_tags}</td>
+		<td>{$list[i].comment_text|stripslashes|strip_tags}</td>
+		<td>{$list[i].comment_date|date_format}</td>
+		<td>
+			{if $list[i].n_status eq 1}Publish{else}Block{/if}
+		</td>
+		<td>
+			<a href="index.php?s=gallery&id={$list[i].comment_id}&status={$list[i].n_status}&change=1">Ganti Status</a>&nbsp;|
+			<a href="index.php?s=gallery&id={$list[i].comment_id}&delete-comment=1">Hapus</a>
+		</td>
+	</tr> 
+	{/section}
+</table>
+<p align="center">{$paging}</p>

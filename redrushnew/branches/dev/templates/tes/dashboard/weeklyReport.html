@@ -1,0 +1,56 @@
+<script type="text/javascript">
+	var mainmenu = "weekly";
+</script>
+<div class="chart-row h-border">
+	<h3>SUMMARY REPORT  ( {$startProjectReport} - {$endDateReport} )</h3>
+	<div class="bgChart">
+		<div id="TopUser" style="width:945px;">
+		<table style="width:100%;border-collapse:collapse" border="1" cellpadding="5" >
+		<tr><th>User Type</th><th>REGISTRANT</th><th>LOGIN</th><th>LEVEL 1</th><th>LEVEL 2</th><th>LEVEL 3</th><th>LEVEL 4</th><th>LEVEL 5</th></tr>
+		{foreach from=$summaryReport key=headerKey item=nextArray}
+			<tr>
+			<td align="center">{$headerKey}</td>
+			{foreach from=$nextArray key=kValue item=value}
+			<td align="center">{$nextArray[$kValue]}</td>
+			{/foreach}
+			</tr>
+		{/foreach}
+		</table>
+		</div>
+	</div>
+</div>
+
+
+<div class="chart-row h-border">
+	<h3>WEEKLY REPORT ( {$startDateReport} - {$endDateReport} ) </h3>
+	<div class="bgChart">
+		<div id="TopUser" style="width:945px;">
+		<table style="width:100%;border-collapse:collapse" border="1" cellpadding="5" >
+		<tr><th>User Type</th><th>REGISTRANT</th><th>LOGIN</th><th>LEVEL 1</th><th>LEVEL 2</th><th>LEVEL 3</th><th>LEVEL 4</th><th>LEVEL 5</th></tr>
+		{foreach from=$weeklyreport key=headerKey item=nextArray}
+			<tr>
+			<td align="center">{$headerKey}</td>
+			{foreach from=$nextArray key=kValue item=value}
+			<td align="center">{$nextArray[$kValue]}</td>
+			{/foreach}
+			</tr>
+		{/foreach}
+		</table>
+		</div>
+	</div>
+</div>
+
+<div class="chart-row h-border">
+	<h3>TOP USERS</h3>
+	<div class="bgChart">
+		<div id="TopUser" style="width:945px;">
+		<table style="width:100%;border-collapse:collapse" border="1" cellpadding="5" >
+		<tr><th>RANK</th><th>NAME</th><th>NICKNAME</th><th>LEVEL</th><th>SCORE</th></tr>
+		{section name=i loop=$TopUser }
+		<tr><td align="center">{$smarty.section.i.index+1}</td><td >{$TopUser[i].name} {$TopUser[i].last_name}</td><td>{$TopUser[i].nickname}</td><td>{$TopUser[i].level}</td><td>{$TopUser[i].score}</td></tr>		
+		{/section}
+		</table>
+		</div>
+	</div>
+</div>
+

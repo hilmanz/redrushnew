@@ -1,0 +1,36 @@
+<h3>Player List</h3>
+<p><form>Search: <input name="q" type="text" {if $q}value="{$q}"{/if}><input name="s" type="hidden" value="player"><input name="go" type="submit" value="Go"></form></p>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="addlist zebra">
+  <tr>
+    <td width="5%" align="center"><strong>ID</strong></td>
+    <td align="center"><strong>Player</strong></td>
+    <td align="center"><strong>Name</strong></td>
+    <td align="center"><strong>Status</strong></td>
+    <td align="center"><strong>Action</strong></td>
+  </tr>
+  {section name=n loop=$list}
+  <tr>
+  	
+    <td>{$list[n].register_id}</td>
+    <td>
+    {$list[n].nickname}<br />
+    {if $list[n].img}
+   	 <img src="../public_html/contents/avatar/small/{$list[n].img}" width="48px" height="48px" />
+    {else}
+    <img src="../public_html/img/thumb.jpg" />
+    {/if}
+    </td>
+    <td>{$list[n].name}</td>
+    <td>
+    {if $list[n].n_status==1}
+     Active
+    {else}
+     Not Active
+    {/if}
+    </td>
+    <td align="center">
+    <a href="index.php?s=player&act=edit&id={$list[n].id}"><strong>Edit Avatar</strong></a>
+  </tr>
+  {/section}
+</table>
+<div class="paging">{$paging}</div>

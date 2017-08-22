@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/redrush/!svn/ver/467/branches/dev/templates/RedRushWeb/admin/message
+END
+message-search-email.html
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/redrush/!svn/ver/467/branches/dev/templates/RedRushWeb/admin/message/message-search-email.html
+END
+message-send-all.html
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/redrush/!svn/ver/467/branches/dev/templates/RedRushWeb/admin/message/message-send-all.html
+END
+message-send.html
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/redrush/!svn/ver/467/branches/dev/templates/RedRushWeb/admin/message/message-send.html
+END

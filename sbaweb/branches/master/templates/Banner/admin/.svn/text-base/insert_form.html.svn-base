@@ -1,0 +1,42 @@
+<h2>Insert Banner</h2>
+<br/>
+
+<div>
+<form  method="post" action="" enctype="multipart/form-data">
+<table>
+<input type="hidden" name="s" value="banner">
+<input type="hidden" name="insertform" value="1">
+	<tr>
+		<td>Judul</td>
+		<td><input type="text"  name="txtjudul"></td>
+	</tr>
+	<tr>
+		<td>Status Picture</td>
+		<td colspan="2"><input type="radio" name="rdostatus" value="0">Hidden
+		<input type="radio" name="rdostatus" value="1" checked="checked">Show</td>
+	</tr>
+	<tr>
+		<td>Position Banner</td>
+		<td colspan="2"><input type="radio" name="rdoposition" value="0">Header
+		<input type="radio" name="rdoposition" value="1" checked="checked">Right Side</td>
+	</tr>
+	<tr>
+		<td>Type Banner</td>
+		<td colspan="2"><input type="radio" name="rtype" value="image" checked="checked">image
+		<input type="radio" name="rtype" value="flash">flash</td>
+	</tr>
+		<tr>
+		<td>URL Banner</td>
+		<td><input type="text" name="txturl" value="http://"></td>
+	</tr>
+	<tr>
+		<td>Image Src</td>
+		<td><input type="file" name="txtimg"></td>
+	</tr>
+	<tr>
+		<td colspan="2"><input type="submit" value="Submit">
+		<input type="reset" value="Reset"></td>
+	</tr>
+</table>
+</form>
+</div>

@@ -1,0 +1,35 @@
+<div class="title">
+            	<h1>Gallery Update</h1>
+                <a href="?gallery=1" class="view-all">Lihat Semua</a>
+                </div>
+            	<div class="gallery-scroll">
+                	 <!-- aksi untuk halaman sebelumnya -->
+                      <a class="prevPage browse left"></a>
+                      <!-- elemen untuk scrollable -->
+                      <div class="scrollable" id="infinite">	
+                         <!-- elemen untuk items -->
+                         <div class="items">
+                        <!-- foto ke 1-4 -->
+                        {section name=i loop=$list}
+                            <a href="?gallery=1&view=gallery&album={$list[i].album_id}">
+                            	<div class="thumb-home"><img src="contents/gallery/{$list[i].owner_id|md5}/{$list[i].img_thumb}"></div>
+                            	<span>{$list[i].caption|strip_tags}</span>
+                            </a>
+                         {/section}
+                      </div>	
+                    </div>
+                    <!-- aksi untuk halaman selanjutnya -->
+                    <a class="nextPage browse right"></a>
+                </div>
+                {literal}
+                <!-- Jquery Scroll Gallery ni -->
+  <script type="text/javascript" src="js/jquery.tools.min.js"></script>
+ 
+<script type="text/javascript"> 
+
+	$(document).ready(function(){
+	  $("#infinite").scrollable().circular();	
+	});
+
+</script>	
+{/literal}

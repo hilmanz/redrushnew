@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/sba/!svn/ver/305/branches/master/templates/challenge
+END
+stage.html
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/sba/!svn/ver/260/branches/master/templates/challenge/stage.html
+END
+index.html
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/sba/!svn/ver/305/branches/master/templates/challenge/index.html
+END
+list.html
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/sba/!svn/ver/302/branches/master/templates/challenge/list.html
+END
+master.html
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/sba/!svn/ver/260/branches/master/templates/challenge/master.html
+END

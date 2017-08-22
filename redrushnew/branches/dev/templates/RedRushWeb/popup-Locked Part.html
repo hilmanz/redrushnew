@@ -1,0 +1,19 @@
+	<div id="popup-ultimate-car" class="popup gradients" style="display:block;">
+		<a class="popup-close" href="#">[x] Close</a>
+        <div class="inner-popup">
+        	<img src="img/ultimate-car.png" align="middle" />
+            <h1>You got a challenge from The Ultimate Car! Winning this challenge is the only way to level up. Do you have what it takes to accept this challenge?</h1>
+			<p><a href="#" class="gradients">Bring it on!</a><a href="#" class="gradients">Maybe next time</a></p>
+        </div>
+	</div>
+	<div class="backgroundPopup" style="display:block;"></div>
+    {literal}
+    <script type="text/javascript">
+      $(document).ready(function() {
+            $("a.popup-close").click(function() {
+                $("#backgroundPopup").fadeOut("slow");
+                $("#popup-ultimate-car").fadeOut("slow");
+            });
+        });
+    </script>
+    {/literal}

@@ -1,0 +1,89 @@
+
+<div id="popupInfo" style="left: 0">
+    <div id="popupInfo-content" >
+    
+    	<div class="popupborder " style="overflow:hidden; height:320px;">
+        		<div style="display:block;">
+                    <a class="popup-close" href="index.php?page=garage" style="right:18px; top:142px;">[x] Close</a>
+                        <h1 style="font-size:40px; color:#fff; margin:0 0 0 0"><a style="color:#fff;" href="index.php?page=garage">Check your Rush Points now!</a> </h1>
+<h2 style="font-size:30px; margin:15px 0 25px 0;"><span>We'll reach our finish line on June 30, 2012. <br />
+Now is time to redeem your points (points redemption still open till July 7, 2012). <br />
+Go ahead and get those exclusive merchandises home!</span></h2>
+</span></h2>
+
+<h2 style="font-size:24px; width:500px; margin:0 auto;" class="yellow"> 
+Thank you for participating in Marlboro RedRush. <br />
+Get ready for another exciting program from Marlboro! Ciao!</h2>
+                </div>
+        </div>
+    </div>
+</div>    
+{literal}   
+<style>
+#popupInfo-content .jScrollPaneTrack{
+left: 890px;
+}
+</style>
+{/literal}
+<div id="main-container">
+	<div class="wrapper">
+    	<div id="containers">
+          {include file="RedRushWeb/newsfeedSubmenu.html"}
+            <div class="logo">
+            	<a href="index.php">&nbsp;</a>
+            </div><!-- .logo -->
+            <div class="panel">
+            	<div class="entry">
+                    <div class="title">
+                        <h1>NEWS AND UPDATES</h1>
+                    </div><!-- .title -->
+                    <div class="scrollbar">
+                    		{if $news}
+                            {section name=i loop=$news}
+                            <div class="list-news">
+							<h1 class="title-news"> <a href="index.php?page=news&act=view&nid={$news[i].id}">{$news[i].title|stripslashes|strip_tags}</a> </h1>
+                            <p class="brief-news">
+                            {$news[i].brief|stripslashes|strip_tags}
+                            </p>
+                            <a href="index.php?page=news&act=view&nid={$news[i].id}">Details here &raquo;</a>
+                            </div>
+                            {/section}
+                            {else}
+                            No news and update available.
+                            {/if}
+                    </div><!-- .scrollbar -->
+                    {$paging}
+                </div><!-- .entry -->
+            </div><!-- .panel -->
+            <div id="sidebar">
+            	<div class="entry">
+                	<div class="box">
+                        <div class="title-box">
+                            <h1>Featured News</h1>
+                        </div><!-- .title -->  
+                        <div class="box-red" id="feartured-news">
+						    <div class="content">
+                                    {if $featured}
+                                    {section name=i loop=$featured}
+                                    <div class="list">
+                                    <p>
+                                    <h1 class="title-news"><a href="index.php?page=news&act=view&nid={$featured[i].id}">{$featured[i].title|stripslashes|strip_tags}</a></h1>
+                                    <span class="brief-news">
+                                    {$featured[i].brief|stripslashes|strip_tags}
+                                    </span>
+                                    <br />
+                                    <a href="index.php?page=news&act=view&nid={$featured[i].id}">Details here &raquo;</a>
+                                    </p>
+                                    </div><!-- .list -->
+                                    {/section}
+                                    {else}
+                                    No featured news available.
+                                    {/if}
+                            </div><!-- .content -->   
+                        </div><!-- .box-red -->   
+                    </div><!-- .box -->   
+                </div><!-- .entry -->
+            </div><!-- #sidebar -->
+        </div><!-- #containers -->
+    </div><!-- .wrapper -->
+</div><!-- #main-container -->

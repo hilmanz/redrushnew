@@ -1,0 +1,12 @@
+{literal}
+<script type="text/javascript" >
+        $(document).ready(function(){
+       
+             $("#popupInfo").fadeIn();
+        
+            $("#popupInfo").click(function(){
+                $("#popupInfo").fadeOut();
+			});
+        });
+    </script>
+	{/literal}

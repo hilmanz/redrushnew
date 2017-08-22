@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/redrush/!svn/ver/7/branches/dev/public_html/remote/core/shared/util
+END
+JSON.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/redrush/!svn/ver/7/branches/dev/public_html/remote/core/shared/util/JSON.php
+END
+Headers.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/redrush/!svn/ver/7/branches/dev/public_html/remote/core/shared/util/Headers.php
+END
+MessageHeader.php
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/redrush/!svn/ver/7/branches/dev/public_html/remote/core/shared/util/MessageHeader.php
+END
+NetDebug.php
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/redrush/!svn/ver/7/branches/dev/public_html/remote/core/shared/util/NetDebug.php
+END
+Authenticate.php
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/redrush/!svn/ver/7/branches/dev/public_html/remote/core/shared/util/Authenticate.php
+END
+CompatPhp4.php
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/redrush/!svn/ver/7/branches/dev/public_html/remote/core/shared/util/CompatPhp4.php
+END
+CompatPhp5.php
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/redrush/!svn/ver/7/branches/dev/public_html/remote/core/shared/util/CompatPhp5.php
+END
+MessageBody.php
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/redrush/!svn/ver/7/branches/dev/public_html/remote/core/shared/util/MessageBody.php
+END
+CharsetHandler.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/redrush/!svn/ver/7/branches/dev/public_html/remote/core/shared/util/CharsetHandler.php
+END
+MethodTable.php
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/redrush/!svn/ver/7/branches/dev/public_html/remote/core/shared/util/MethodTable.php
+END
+functions.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/redrush/!svn/ver/7/branches/dev/public_html/remote/core/shared/util/functions.php
+END

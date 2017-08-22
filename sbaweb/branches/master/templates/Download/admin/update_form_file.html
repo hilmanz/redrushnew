@@ -1,0 +1,38 @@
+<h2>Update File</h2>
+<br/>
+
+<div>
+<form  method="post" action="" enctype="multipart/form-data">
+<table>
+<input type="hidden" name=updatePic value="1">
+<input type="hidden" name="id" value="{$content.id}">
+
+	<tr>
+		<td>Nama File</td>
+		<td><input type="text" value="{$content.name}" name="txtname"></td>
+	</tr>
+	<tr>
+		<td>Image Thumbnail</td>
+		<td><img src="../contents/download/{$content.thumb}" style="width: 200px; height: 200px;"></td>
+	</tr>
+	<tr>
+		<td>File Image Thumbnail</td>
+		<td><input type="file" value="{$content.thumb}" name="txtimg"></td>
+		<td><input type="hidden" value="{$content.thumb}" name="hiddentxtimg"></td>
+	</tr>
+	<tr>
+		<td>File</td>
+		<td><input type="file" value="{$content.file}" name="txtfile"></td>
+		<td><input type="hidden" value="{$content.file}" name="hiddentxtfile"></td>
+	</tr>
+	
+	<tr>
+		<td colspan="2"><input type="submit" value="Submit">
+		<input type="reset" value="Reset"></td>
+	</tr>
+</table>
+</form>
+</div>
+
+
+	

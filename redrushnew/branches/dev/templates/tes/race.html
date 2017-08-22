@@ -1,0 +1,113 @@
+
+<div id="main-container">
+	<div class="wrapper">
+    	<div id="containers">
+            <div class="welcome">
+            	<h1>Lets GO...!!! <br />
+				Choose Your Opponent!</h1>
+            </div>
+            <div class="logo">
+            	<a href="index.php">&nbsp;</a>
+            </div><!-- .logo -->
+            <div class="panel">
+            	<div class="entry">
+                    <div class="title">
+                        <h1>Random Users</h1>
+                    </div><!-- .title -->
+                    <div class="scrollbar">
+                    	<div class="box racer">
+							{if $ultimateCar != ''}
+                          	  <div class="row" style="border-bottom:1px solid #000;">
+                                <div class="thumb">
+                                    <a href="index.php?page=garage&rtoken={$ultimateCar->racing_token|strip_tags}"><img src="{if $ultimateCar->small_img eq ''} img/thumb.jpg {else} contents/avatar/small/{$ultimateCar->small_img} {/if}" /></a>
+                                </div><!-- .thumb -->
+                                <div class="caption">
+                                    <span class="username">{$ultimateCar->name|stripslashes|htmlentities}</span>
+                                    <span class="level">Level {$ultimateCar->level|intval}</span>
+                                    <!--<span class="car-type">Ferrari</span>-->
+                                    <span class="reputation">{section name=j loop=$ultimateCar->level}<img src="img/star.png" alt="" />{/section}</span>
+                                </div><!-- .caption -->
+                                <div class="action-challenge">
+								<a class="challenge icon_race2" href="index.php?page=race&act=challenge_ultimate&rtoken={$ultimateCar->racing_token|strip_tags}">Challenge</a>
+									
+								</div><!-- .action -->
+                            </div><!-- .row -->
+							{/if}
+                    		{section name=i loop=$racer}
+								{if $racer[i].verified !='0'}
+							{if ($racer[i].level >= $level-1) && ( $racer[i].level <= $level+1) }	
+                            <div class="row" style="border-bottom:1px solid #000;">
+                                <div class="thumb">
+                                    <a href="index.php?page=garage&rtoken={$racer[i].racing_token|strip_tags}"><img src="{if $racer[i].small_img eq ''} img/thumb.jpg {else} contents/avatar/small/{$racer[i].small_img} {/if}" /></a>
+                                </div><!-- .thumb -->
+                                <div class="caption">
+                                    <span class="username">{$racer[i].name|stripslashes|htmlentities}</span>
+                                    <span class="level">Level {$racer[i].level|intval}</span>
+                                    <!--<span class="car-type">Ferrari</span>-->
+                                    <span class="reputation">{section name=j loop=$racer[i].level}<img src="img/star.png" alt="" />{/section}</span>
+                                </div><!-- .caption -->
+                                <div class="action-challenge">
+                                    {*}<a class="view" href="index.php?page=garage&rtoken={$racer[i].racing_token|strip_tags}">View</a>{/*}
+								
+                                       {if $racer[i].level >= $level-1 } <a class="challenge icon_race2" href="index.php?page=race&act=challenge&rtoken={$racer[i].racing_token|strip_tags}">Challenge</a>{/if}
+									
+								</div><!-- .action -->
+                            </div><!-- .row -->
+								{/if}{/if}
+                            {/section}
+                          
+                        </div><!-- .box -->
+                    </div><!-- .scrollbar -->
+                </div><!-- .entry -->
+            </div><!-- .panel -->
+            <div id="sidebar">
+            	<div class="entry">
+                	<div class="box my-statistic">
+                        <div class="titles">
+                            <h1>My Statistic</h1>
+                        </div><!-- .title -->  
+                        <div class="red-box">
+                        	<div class="row">
+                            	<p>
+                                <span class="total-race">{$races} Races</span>
+                                <span class="total-win">{$wins}  Wins</span>
+                                </p>
+                                <p>
+                                <span class="total-point">{$points} Points</span>
+                                <span class="total-rank">Rank {$rank}</span>
+                                </p>
+                            </div><!-- .row -->
+                        </div><!-- .red-box -->
+                    </div><!-- .my-statistic -->  
+                	{*}
+                    <div class="box top-user">
+                        <div class="titles">
+                            <h1>Top Users</h1>
+                        </div><!-- .title -->  
+                        <div class="red-box">
+							{section name=i loop=$top_user}
+                        	<div class="row-race">
+                            	<div class="thumb">
+                                	<a href="index.php?page=garage&rtoken={$top_user[i]->racing_token|strip_tags}"><img src="{if $top_user[i]->small_img eq ''} img/thumb.jpg {else} contents/avatar/small/{$top_user[i]->small_img } {/if}" /></a>
+                                </div><!-- .thumb -->
+                            	<div class="caption">
+                                	<span class="username">{$top_user[i]->name}</span>
+                                	<span class="level">Level {$top_user[i]->level}</span>
+                                	<span class="reputation">{section name=k loop=$top_user[i]->level}<img src="img/star.png" alt="" />{/section}</span>
+                                </div><!-- .caption -->
+                                <div class="action-race">
+                                	 {if $top_user[i]->racing_token!='' }
+									 <a class="challenge icon_race2" href="index.php?page=race&act=challenge&rtoken={$top_user[i]->racing_token|strip_tags}">Challenge</a>
+									 {/if}
+                                </div><!-- .action -->
+                            </div><!-- .row -->
+                        {/section}
+                        </div><!-- .red-box -->
+                    </div><!-- .top-user -->    
+                    {/*}
+                </div><!-- .entry -->
+            </div><!-- #sidebar -->
+					{if $event}  {include file="$event"}{/if}
+        </div><!-- #containers -->
+    </div><!-- .wrapper -->
+</div><!-- #main-container -->

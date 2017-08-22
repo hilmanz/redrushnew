@@ -1,0 +1,32 @@
+<div>
+<form  method="post" action="" enctype="multipart/form-data">
+<table>
+<input type="hidden" name=updateAlbumAdmin value="1">
+<input type="hidden" name="id" value="{$show_album.id}">
+
+	<tr>
+		<td>Album Name</td>
+		<td><input type="text" value="{$show_album.album_name}" name="txtjudul"></td>
+	</tr>
+	</tr>
+	
+	{if $show_album.published=="0"}
+	<tr>
+		<td>Status Published</td>
+		<td colspan="2"><input type="radio" name="rdopublished" value=1>Published	
+			<input type="radio" name="rdopublished" value=0 checked>Not Published</td>
+	</tr>
+	{else}
+	<tr>
+		<td>Status Published</td>
+		<td colspan="2"><input type="radio" name="rdopublished" value=1 checked>Published	
+			<input type="radio" name="rdopublished" value=0>Not Published</td>
+	</tr>
+	{/if}
+	<tr>
+		<td><input type="submit" value="Submit"></td>
+		<td><input type="reset" value="Reset"></td>
+	</tr>
+</table>
+</form>
+</div>

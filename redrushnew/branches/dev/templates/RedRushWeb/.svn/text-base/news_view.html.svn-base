@@ -1,0 +1,54 @@
+<div id="main-container">
+	<div class="wrapper">
+    	<div id="containers">
+            {include file="RedRushWeb/newsfeedSubmenu.html"}
+            <div class="logo">
+            	<a href="index.php">&nbsp;</a>
+            </div><!-- .logo -->
+            <div class="panel">
+            	<div class="entry">
+                    <div class="title">
+                        <h1>NEWS AND UPDATE</h1>
+                    </div><!-- .title -->
+                    <div class="scrollbar">
+                    		{if $view}
+                            <h1 class="title-news">{$title}</h1>
+                            <p>Posted: {$date}<br />
+                            {$detail}</p>
+                            {else}
+                            No news and update available.
+                            {/if}
+                    </div><!-- .scrollbar -->
+                </div><!-- .entry -->
+            </div><!-- .panel -->
+            <div id="sidebar">
+            	<div class="entry">
+                	<div class="box">
+                        <div class="title-box">
+                            <h1>Featured News</h1>
+                        </div><!-- .title -->  
+                        <div class="box-red" id="feartured-news">
+                            <div class="content">
+                                    {if $featured}
+                                    {section name=i loop=$featured}
+                                    <div class="list">
+                                    <p>
+                                    <h1 class="title-news"><a href="index.php?page=news&act=view&nid={$featured[i].id}">{$featured[i].title|stripslashes|strip_tags}</a></h1>
+                                    <span class="brief-news">
+                                    {$featured[i].brief|stripslashes|strip_tags}
+                                    </span>
+                                    <br />
+                                    <a href="index.php?page=news&act=view&nid={$featured[i].id}">Details here &raquo;</a>
+                                    </div><!-- .list -->
+                                    {/section}
+                                    {else}
+                                    No featured news available.
+                                    {/if}
+                            </div><!-- .content -->   
+                        </div><!-- .box-red -->   
+                    </div><!-- .box -->   
+                </div><!-- .entry -->
+            </div><!-- #sidebar -->
+        </div><!-- #containers -->
+    </div><!-- .wrapper -->
+</div><!-- #main-container -->

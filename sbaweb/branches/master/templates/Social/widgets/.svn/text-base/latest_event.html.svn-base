@@ -1,0 +1,29 @@
+<div>
+
+	<div class="title">
+            	<h1>UPCOMING EVENTS</h1>
+                <a href="?events=1" class="view-all">Lihat Semua</a>
+    </div>
+	<div class="bg1">
+		{section name=i loop=$list}
+		<div>
+			<div style="color:#f00;"><b>{$list[i].tanggal_event}</b></div>
+			<div style="color:#f00;"><b>{$list[i].nama_event}</b></div>
+			<div>{$list[i].summary|stripslashes|strip_tags}</div>
+			<div><a href="index.php?events=1&id={$list[i].id}">Detail</a></div>
+		</div>
+		{/section}
+		<!--
+		<div style="margin-bottom:10px;">
+			<div style="color:#f00;"><b>15 Maret 2011</b></div>
+			<div>Kumpul-kumpul bareng temen kampus di Hall A</div>
+			<div><a href="index.php?events=1&id=23">Detail</a></div>
+		</div>
+		<div style="margin-bottom:10px;">
+			<div style="color:#f00;"><b>15 Maret 2011</b></div>
+			<div>Kumpul-kumpul bareng temen kampus di Hall A</div>
+			<div><a href="index.php?events=1&id=23">Detail</a></div>
+		</div>
+		-->
+	</div>
+</div>

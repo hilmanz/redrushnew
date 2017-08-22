@@ -1,0 +1,299 @@
+<?php /* Smarty version 2.6.13, created on 2012-06-26 17:54:31
+         compiled from RedRushWeb/dashboard/login.html */ ?>
+
+<script type="text/javascript" src="js/jquery.mousewheel-3.0.4.pack.js"></script>
+<script type="text/javascript" src="js/jquery.fancybox-1.3.4.pack.js"></script>
+<link rel="stylesheet" type="text/css" href="css/jquery.fancybox-1.3.4.css" media="screen" />
+        
+<script>
+<?php echo '
+	$(document).ready(function() {
+        
+            $("a[rel=group]").fancybox({
+                \'transitionIn\'		: \'none\',
+                \'transitionOut\'		: \'none\',
+                \'titlePosition\' 	: \'over\',
+                \'titleFormat\'		: function(title, currentArray, currentIndex, currentOpts) {
+                    return \'<span id="fancybox-title-over">Image \' + (currentIndex + 1) + \' / \' + currentArray.length + (title.length ? \' &nbsp; \' + title : \'\') + \'</span>\';
+                }
+            });
+			
+		var menuactive = mainmenu;
+		
+		if(menuactive == "main"){
+			$(\'a.menu1\').addClass("menu1act");$(\'img.menu1Curr\').addClass("block");
+			$(\'a.menu2\').removeClass("menu2act");$(\'img.menu2Curr\').removeClass("block");
+			$(\'a.menu3\').removeClass("menu3act");$(\'img.menu3Curr\').removeClass("block");
+		}else if(menuactive == "activities"){
+			$(\'a.menu2\').addClass("menu2act");$(\'img.menu2Curr\').addClass("block");
+			$(\'a.menu1\').removeClass("menu1act");$(\'img.menu1Curr\').removeClass("block");
+			$(\'a.menu3\').removeClass("menu3act");$(\'img.menu3Curr\').removeClass("block");
+		}else if(menuactive == "user"){
+			$(\'a.menu3\').addClass("menu3act");$(\'img.menu3Curr\').addClass("block");
+			$(\'a.menu1\').removeClass("menu1act");$(\'img.menu1Curr\').removeClass("block");
+			$(\'a.menu2\').removeClass("menu2act");$(\'img.menu2Curr\').removeClass("block");
+		}else if(menuactive == "weekly"){
+			$(\'#weeklyreport\').attr("style","text-decoration: none; font-size: 16px; position: relative; top: -19px; color: FireBrick");
+			$(\'a.menu3\').removeClass("menu3act");$(\'img.menu3Curr\').removeClass("block");
+			$(\'a.menu1\').removeClass("menu1act");$(\'img.menu1Curr\').removeClass("block");
+			$(\'a.menu2\').removeClass("menu2act");$(\'img.menu2Curr\').removeClass("block");
+		}
+	//$(".datePicker").datepicker();
+	$(".datePicker").datepicker({ dateFormat: "yy-mm-dd" } );
+
+	});
+</script>
+<style>
+#weeklyreport{
+text-decoration: none; font-size: 16px; position: relative; top: -19px; color: HoneyDew;
+}
+#weeklyreport:hover{
+text-decoration: none; font-size: 16px; position: relative; top: -19px; color: FireBrick;
+}
+</style>
+
+'; ?>
+
+        <?php echo '
+        
+        '; ?>
+
+<div id="header">
+	<div id="head-warp">
+		<div id="head-top">
+			<div id="head-left">
+				<a href="#"><img src="images/rr_logo.png" width="195" style="border:none;" /></a>
+			</div>
+			<div id="head-right">
+				<span class="title block">CAMPAIGN DASHBOARD<?php echo $this->_tpl_vars['active']; ?>
+</span>
+				<span class="user-name block"><?php echo $this->_tpl_vars['user']['username']; ?>
+</span>
+				<span class="update block trebuc">Last Update: 
+				<script type="text/javascript">
+					var currentTime = new Date();
+					var month = currentTime.getMonth() + 1;
+					var day = currentTime.getDate() - 1;
+					var year = currentTime.getFullYear();
+					document.write(day+"/"+month+"/"+year);
+				</script>
+				</span>
+					<form action="" method="GET">
+					<span>Duration
+					<?php if ($this->_tpl_vars['page'] != ''): ?><input type="hidden" name="s" value="<?php echo $this->_tpl_vars['page']; ?>
+"><?php endif; ?>
+					<input type="hidden" name="rangeDate" value="1">
+					<input type="text" id="from" name="from" class="datePicker" value="<?php echo $this->_tpl_vars['from']; ?>
+" style="color:black"> 		
+					<input type="text" id="to" name="to" class="datePicker" value="<?php echo $this->_tpl_vars['to']; ?>
+" style="color:black">
+					
+					<input id="semDuration" type="submit" value=""></span>
+					</form>
+			</div>
+		</div>
+		<div id="main-control">
+			<div class="menu ctrl-left">
+				<a href="index.php" class="menu1 relative menu1act"><img src="images/arrow.png" width="14px" class="absolute menu1Curr block"/></a>
+				<a href="index.php?s=activities" class="menu2 relative"><img src="images/arrow.png" width="14px" class="absolute menu2Curr"/></a>
+				<a href="index.php?s=overview" class="menu3 relative"><img src="images/arrow.png" width="14px" class="absolute menu3Curr"/></a>
+				<a href="index.php?s=weeklyreport" id="weeklyreport" >WEEKLY REPORT</a>
+			</div>
+			<div class="ctrl-right">
+				<a href="logout.php" class="logout block"></a>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="body">
+	<div id="body-warp">
+    	<div id="glossary">
+            <div class="title"><h1>GLOSSARY</h1></div>
+            <div class="row">
+                <div class="boxleft">
+                    <a rel="group" href="images/glossary/1.jpg">
+                      <img src="images/glossary/thumb/1.png" />
+                    </a>
+                </div><!-- end .boxleft -->
+                <div class="boxRight">
+                    <div class="entry nopad">
+                        <span class="red">Visit:</span> 
+                        <p>Total number of visits to the website based on the data imported from 
+                        Google Analytics</p>
+                        <span class="red">Time On Site: </span> 
+                        <p>Visit length of  all visitors based on the data imported from Google Analytics</p>
+                        <span class="red">User: </span> 
+                        <p>Total number of unique users logged in to the website </p> 
+                        <span class="red">Participant: </span> 
+                        <p>Total number of level 1 users that engaged in any one of the RedRush online 
+                        activities (race, buy parts, customize car or mini games)</p>
+                    </div><!-- end .entry -->
+                </div><!-- end .boxRight -->
+            </div><!-- end .row -->
+            <div class="row">
+                <div class="boxleft">
+                    <a rel="group" href="images/glossary/2.jpg">
+                      <img src="images/glossary/thumb/2.png" />
+                    </a>
+                    <a rel="group" href="images/glossary/3.jpg">
+                      <img src="images/glossary/thumb/3.png" />
+                    </a>
+                </div><!-- end .boxleft -->
+                <div class="boxRight">
+                    <div class="entry nopad">
+                        <span class="red">Login:</span> 
+                        <p>Total number of unique users logged in to the website </p>
+                        <span class="red">ACTIVE PARTICIPANT : </span> 
+                        <p>Total number of level 1 users that engaged in any one of the RedRush online activities (race, buy parts, customize car or mini games)</p>
+                        <span class="red">ACTIVE PARTICIPANT/LOGIN: </span> 
+                        <p>The sum of the number of Participants divided by the number of Users</p> 
+                        <span class="red">Loyalty: </span> 
+                        <p>returning user to the site </p>
+                        <span class="red">Average Page Views:</span> 
+                        <p>The total time spent on a page divided by the number of unique visits to that page. The value is shown in minutes</p>
+                    </div><!-- end .entry -->
+                </div><!-- end .boxRight -->
+            </div><!-- end .row -->
+            <div class="row">
+                <div class="boxleft">
+                    <a rel="group" href="images/glossary/4.jpg">
+                      <img src="images/glossary/thumb/4.png" />
+                    </a>
+                </div><!-- end .boxleft -->
+                <div class="boxRight">
+                    <div class="entry">
+                        <span class="red">Page View Distribution:</span> 
+                        <p>The distribution of the number of page views viewed by users on each page of the website</p>
+                    </div><!-- end .entry -->
+                </div><!-- end .boxRight -->
+            </div><!-- end .row -->
+            <div class="row">
+                <div class="boxleft">
+                    <a rel="group" href="images/glossary/5.jpg">
+                      <img src="images/glossary/thumb/5.png" />
+                    </a>
+                </div><!-- end .boxleft -->
+                <div class="boxRight">
+                    <div class="entry">
+                        <span class="red">ACTIVITY Distribution:</span> 
+                        <p>The distribution of the number of activities engaged by users on each activity page of the website</p>
+                    </div><!-- end .entry -->
+                </div><!-- end .boxRight -->
+            </div><!-- end .row -->
+            <div class="row">
+                <div class="boxleft">
+                    <a rel="group" href="images/glossary/6.jpg">
+                      <img src="images/glossary/thumb/6.png" />
+                    </a>
+                </div><!-- end .boxleft -->
+                <div class="boxRight">
+                    <div class="entry">
+                        <span class="red">Geographical Distribution:</span> 
+                        <p>The distribution of the number of users from individual cities based on the MOP registration data.</p>
+                    </div><!-- end .entry -->
+                </div><!-- end .boxRight -->
+            </div><!-- end .row -->
+            <div class="row">
+                <div class="boxleft">
+                    <a rel="group" href="images/glossary/7.jpg">
+                      <img src="images/glossary/thumb/7.png" />
+                    </a>
+                </div><!-- end .boxleft -->
+                <div class="boxRight">
+                    <div class="entry">
+                        <span class="red">Average Time on Activity Ditribution:</span> 
+                        <p>The distribution of the average time spent  on each RedRush activities</p>
+                    </div><!-- end .entry -->
+                </div><!-- end .boxRight -->
+            </div><!-- end .row -->
+            <div class="row">
+                <div class="boxleft">
+                    <a rel="group" href="images/glossary/8.jpg">
+                      <img src="images/glossary/thumb/8.png" />
+                    </a>
+                </div><!-- end .boxleft -->
+                <div class="boxRight">
+                    <div class="entry">
+                        <span class="red">Average RacesPlayed:</span> 
+                        <p>The average  number of races played by users each day</p>
+                        <span class="red">Average Car Modifications: </span> 
+                        <p>The average  number of  car modifications have been made by users each day</p>
+                        <span class="red">Average Time on Each Level: </span> 
+                        <p>The average time spent  by users on each level of racing </p> 
+                    </div><!-- end .entry -->
+                </div><!-- end .boxRight -->
+            </div><!-- end .row -->
+            <div class="row">
+                <div class="boxleft">
+                    <a rel="group" href="images/glossary/9.jpg">
+                      <img src="images/glossary/thumb/9.png" />
+                    </a>
+                </div><!-- end .boxleft -->
+                <div class="boxRight">
+                    <div class="entry">
+                        <span class="red">Total mini game played: </span> 
+                        <p>Total number of mini games played by users</p>
+                        <span class="red">Percentage Plays by Game:  </span> 
+                        <p>Comparative percentages of the number of mini games played by users</p>
+                        <span class="red">Average time on game:  : </span> 
+                        <p>Comparative chart of the average time spent by users on each game</p> 
+                    </div><!-- end .entry -->
+                </div><!-- end .boxRight -->
+            </div><!-- end .row -->
+            <div class="row">
+                <div class="boxleft">
+                    <a rel="group" href="images/glossary/10.jpg">
+                      <img src="images/glossary/thumb/10.png" />
+                    </a>
+                </div><!-- end .boxleft -->
+                <div class="boxRight">
+                    <div class="entry">
+                        <span class="red">Merchendise Redeemed:</span> 
+                        <p>Comparative fluctuations of the total number of  each merchandise redeemed by users</p>
+                    </div><!-- end .entry -->
+                </div><!-- end .boxRight -->
+            </div><!-- end .row -->
+            <div class="row">
+                <div class="col">
+                    <div class="boxleft">
+                        <a rel="group" href="images/glossary/11.jpg">
+                          <img src="images/glossary/thumb/11.png" />
+                        </a>
+                    </div><!-- end .boxleft -->
+                    <div class="boxRight">
+                        <div class="entry">
+                            <span class="red"> Device Used: </span> 
+                            <p>Comparative percentages of the devices used to access the website</p>
+                        </div><!-- end .entry -->
+                    </div><!-- end .boxRight -->
+                </div><!-- end .col -->
+                <div class="col">
+                    <div class="boxleft">
+                        <a rel="group" href="images/glossary/12.jpg">
+                          <img src="images/glossary/thumb/12.png" />
+                        </a>
+                    </div><!-- end .boxleft -->
+                    <div class="boxRight">
+                        <div class="entry">
+                            <span class="red">Gender/Age:</span> 
+                            <p>Total number of users based on age and gender classification</p>
+                        </div><!-- end .entry -->
+                    </div><!-- end .boxRight -->
+                </div><!-- end .col -->
+                <div class="col">
+                    <div class="boxleft">
+                        <a rel="group" href="images/glossary/13.jpg">
+                          <img src="images/glossary/thumb/13.png" />
+                        </a>
+                    </div><!-- end .boxleft -->
+                    <div class="boxRight">
+                        <div class="entry">
+                            <span class="red">Brand Preference:</span> 
+                            <p>Comparative percentages of  users preferred brands</p>
+                        </div><!-- end .entry -->
+                    </div><!-- end .boxRight -->
+                </div><!-- end .col -->
+            </div><!-- end .row -->
+    	</div><!-- end #glossary -->
+	</div>
+</div>

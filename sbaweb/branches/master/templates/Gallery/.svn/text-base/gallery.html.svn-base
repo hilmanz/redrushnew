@@ -1,0 +1,224 @@
+<script type="text/javascript" src="js/popup.js"></script>
+<link type="text/css" href="css/smoothness/jquery-ui-1.8.11.custom.css" rel="Stylesheet" />	
+<script type="text/javascript" src="js/jquery-ui-1.8.11.custom.min.js"></script>
+
+<div class="content gallery">
+	{section name=i  loop=$show_gallery}
+		<div class="galery-list">		
+			<a href="contents/gallery/{$show_gallery[i].owner_id|md5}/{$show_gallery[i].img}" rel="prettyPhoto[pp_gal]" title="<b>{$show_gallery[i].caption}</b><br>{$show_gallery[i].tag_name}"><img src="contents/gallery/{$show_gallery[i].owner_id|md5}/{$show_gallery[i].img_thumb}" alt="{$content_title}"></a>
+			<span class="desc">{$show_gallery[i].caption|stripslashes|strip_tags|stripslashes}</span>		
+			<div>
+				<!--?gallery=1&taggingphoto=1&album_id={$show_gallery[i].album_id}&pic_id={$show_gallery[i].idpic} -->
+				<span class="tag_friend">
+					<a href="#" onclick="javascript:showTag( {$show_gallery[i].album_id}, {$show_gallery[i].idpic} );" title="tag friend" alt="tag friend"></a>
+				</span>
+				{if $is_owned_by_me}
+					<span class="set_as_default">
+						<a href="?gallery=1&pa=1&album_id={$show_gallery[i].album_id}&pic_id={$show_gallery[i].idpic}" title="set as album cover" alt="set as album cover"></a>
+					</span>
+					<span class="update_img">
+						<a href="?gallery=1&getupdatepic=1&album_id={$show_gallery[i].album_id}&pic_id={$show_gallery[i].idpic}" title="update image" alt="update image"></a>
+					</span>
+					<span class="delete_img">
+						<a href="?gallery=1&deletepicgallery=1&pic_id={$show_gallery[i].idpic}&album_id={$show_gallery[i].album_id}" title="delete image" alt="delete image"></a>
+					</span>
+				{/if}
+			</div>
+		</div>
+	{/section}
+	<div id="paging" class="blockContent" >{$paging}</div>
+	
+	<div>
+		{if $is_owned_by_me}
+			<span class="insert">
+				<a href="?gallery=1&insertpicgallery=1&album_id={$album_id}">Insert Image</a>
+			</span>
+			<span class="update">
+				<a href="?gallery=1&getupdateAlbum=1&album_id={$album_id}">update Album</a>
+			</span>
+			<span class="delete">
+				<a href="?gallery=1&getdeleteAlbum=1&album_id={$album_id}">delete Album</a>
+			</span>
+		{/if}
+	</div>
+	
+	<div id='div-comment'>
+		{if $comm_num > 0}
+		<ul>
+			<li><span>{$comm_num|intval} Comment's</span></li>
+			{assign var=num value=1}
+			{assign var=numo value=0}
+			{section name=i loop=$comm}
+				{if $num > 20}
+					{if $numo eq 0}
+						<li id="more-{$num}"><span><a href="javascript:moreComment({$num});">More</a></span></li>
+						{assign var=numo value=1}
+					{/if}
+					{if $numo > 20}
+						{assign var=numo value=1}
+						<li id="more-{$num}" style="display:none;"><a href="javascript:moreComment({$num});">More</a></span></li>
+					{/if}
+					<li id='comm-{$num}' style="display:none;">
+						<div class='img'>
+							<a href='index.php?profile=1&profile_id={$comm[i].user_id}'><img src='{$comm[i].small_img}' width='40' height='40'/></a>
+						</div>
+						<div class='text'>
+							<a href='index.php?profile=1&profile_id={$comm[i].user_id}'>{$comm[i].name|stripslashes|strip_tags}</a>
+							{$comm[i].comment_text|stripslashes|strip_tags}
+							<p>{$comm[i].comment_date|date_format}</p>
+						</div>
+						<div class='clear'></div>
+					</li>	
+					{assign var=numo value=$numo+1}
+				{else}
+					<li id='comm-{$num}'>
+						<div class='img'>
+							<a href='index.php?profile=1&profile_id={$comm[i].user_id}'><img src='{$comm[i].small_img}' width='40' height='40'/></a>
+						</div>
+						<div class='text'>
+							<a href='index.php?profile=1&profile_id={$comm[i].user_id}'>{$comm[i].name|stripslashes|strip_tags}</a>
+							{$comm[i].comment_text|stripslashes|strip_tags}
+							<p>{$comm[i].comment_date|date_format}</p>
+						</div>
+						<div class='clear'></div>
+					</li>
+				{/if}
+				{assign var=num value=$num+1}
+			{/section}
+			
+			<li>
+				<form method='get'>
+				<input type='hidden' name='comment-gallery' value='gallery' />
+				<input type='hidden' name='user_id' value='{$owner_id}' />
+				<input type="hidden" name="album_id" value="{$album_id}">
+				<div class='img'><img src='{$user_image}' width='40' height='40'/></div>
+				<div class='text'><textarea id='fill-comment' name='comment' onfocus='javascript:this.value="";'>comment here...</textarea></div>
+				<div class='clear'></div>
+				<input type='submit' value='comment' />
+				<div class='clear'></div>
+				</form>
+			</li>
+	
+		</ul>
+		{else}
+		<ul>
+			<li>
+				<form method='get'>
+					<input type='hidden' name='comment-gallery' value='gallery' />
+					<input type='hidden' name='user_id' value='{$owner_id}' />
+					<input type="hidden" name="album_id" value="{$album_id}">
+					<div class='img'><img src='{$user_image}' width='40' height='40'/></div>
+					<div class='text'><textarea id='fill-comment' name='comment' onfocus='javascript:this.value="";'>comment here...</textarea></div>
+					<div class='clear'></div>
+					<input type='submit' value='comment' />
+					<div class='clear'></div>
+				</form>
+			</li>
+		</ul>
+		{/if}
+	</div>
+</div>
+
+{literal}
+		<script type="text/javascript" charset="utf-8">
+		$(document).ready(function(){
+			$(".gallery:first a[rel^='prettyPhoto']").prettyPhoto({animationSpeed:'slow',theme:'dark_rounded',slideshow:2000, autoplay_slideshow: false});
+			$(".gallery:gt(0) a[rel^='prettyPhoto']").prettyPhoto({animationSpeed:'fast',slideshow:10000});
+			
+			$("#custom_content a[rel^='prettyPhoto']:first").prettyPhoto({
+				custom_markup: '<div id="map_canvas" style="width:260px; height:265px"></div>',
+				changepicturecallback: function(){ initialize(); }
+			});
+
+			$("#custom_content a[rel^='prettyPhoto']:last").prettyPhoto({
+				custom_markup: '<div id="bsap_1237859" class="bsarocks bsap_d49a0984d0f377271ccbf01a33f2b6d6" style="height:260px"></div><div id="bsap_1251710" class="bsarocks bsap_d49a0984d0f377271ccbf01a33f2b6d6"></div>',
+				changepicturecallback: function(){ _bsap.exec(); }
+			});
+		});
+		
+		
+		function showTag( album, id ){
+			//alert( id );
+			$('#tag-list').html("fetching data...");
+			centerPopup();
+			//if(popupStatus==0){
+				$("#backgroundPopup").css({
+					"opacity": "0.7"
+				});
+				$("#backgroundPopup").fadeIn("slow");
+				$(".popup-box").fadeIn("slow");
+				$("#id_pic").val(id);
+				//popupStatus = 1;
+			//}
+			
+			var url = "index.php?gallery=1&get_tagging=1&album_id="+album+"&pic_id="+id;
+			
+			$.post(url, function(data) {
+				$('#tag-list').html(data);
+			});
+			
+			//$('#backgroundPopup').fadeIn('fast');
+			//$('.popup-box').fadeIn('slow');
+			return false;
+		}
+		
+		function centerPopup(){
+			//request data for centering
+			var windowWidth = document.documentElement.clientWidth;
+			var windowHeight = document.documentElement.clientHeight;
+			var popupHeight = $(".popup-box").height();
+			var popupWidth = $(".popup-box").width();
+			//centering
+			$(".popup-box").css({
+				"position": "absolute",
+				"top": 100,
+				"left": windowWidth/2-popupWidth/2
+			});
+			//only need force for IE6
+			
+			$("#backgroundPopup").css({
+				"height": windowHeight
+			});
+			
+		}
+		
+		function closeTag(){
+			$("#backgroundPopup").fadeOut("fast");
+			$(".popup-box").fadeOut("fast");
+		}
+		
+		function moreComment(start){
+			var end = start + 19;
+			var more = end + 1;
+			$('#more-'+start).hide();
+			for(var i=start;i<=end;i++){
+				if($('#comm-'+i).length > 0){
+					$('#comm-'+i).show();
+				}
+			}
+			if($('#more-'+more).length > 0){
+				$('#more-'+more).show();
+			}
+		}
+		
+		</script>
+{/literal}
+
+
+<div class="popup-box" id="tagpop">
+		<form method="post">
+		<input type="hidden" name="tag_friend" value="1">
+		<input type="hidden" name="id_pic" id="id_pic">
+		<input type="hidden" name="owner_id" value="{$owner_id}">
+		<input type="hidden" name="album" value="{$album_id}">
+		
+		<div  style="overflow:auto;height:330px" id="tag-list"></div>
+		
+		<p>
+			<input type="submit" value="Simpan">
+			<input type="button" value="Close" onclick="javascript:closeTag();">
+			<!--<a href="#" class="button" onclick="">Save</a>&nbsp;<a href="#" class="button" onclick="">Close</a>-->
+		</p>
+		</form>
+</div>
+<div id="backgroundPopup"></div>

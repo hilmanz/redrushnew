@@ -1,0 +1,35 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td colspan="2"><strong>BERITA TERBARU</strong></td>
+  </tr>
+  <tr>
+    <td width="15%"><img src="#" width="125" height="78"></td>
+    <td width="85%" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td><strong>2 Februari 2011</strong></td>
+      </tr>
+      <tr>
+        <td> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam feugiat dui justo. Maecenas metus elit, egestas eget ullamcorper at, dictum eget urna.  </td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td><strong>2 Februari 2011</strong></td>
+      </tr>
+      <tr>
+        <td> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam feugiat dui justo. Maecenas metus elit, egestas eget ullamcorper at, dictum eget urna.  </td>
+      </tr>
+    </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><strong>2 Februari 2011</strong></td>
+        </tr>
+        <tr>
+          <td> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam feugiat dui justo. Maecenas metus elit, egestas eget ullamcorper at, dictum eget urna.  </td>
+        </tr>
+    </table></td>
+  </tr>
+</table>
+

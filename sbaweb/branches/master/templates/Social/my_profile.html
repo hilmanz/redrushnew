@@ -1,0 +1,82 @@
+	<div id="title-bar">
+            	<h1>{if $isMySelf}My Profile{else}{$user.name|strip_tags|stripslashes}{/if}</h1>
+            </div><!-- end div Title Bar -->
+        	<div id="col-left">
+            	<div class="profile-pic">
+                	<img src="{if $user.img}{$user.img}{else}images/no_photo_small.gif{/if}" width="160" height="160" />
+                </div>
+                <div class="info-profile">
+                    <span class="username">{$user.name|strip_tags|stripslashes}</span>					
+					
+					{$last_post}
+					
+					{if $isMySelf == 1}
+					<span class="notification"><a href="index.php?profile_pic=1">Change Picture</a></span>
+					{/if}
+                    <span class="percent">{$ba.progress}% Archivement</span>
+                	<span class="ba-level">BA Level : {$ba.level}</span>
+                    <span class="registrants">Total Registrants : {$ba.registrants|number_format}</span>
+                    <span class="total-event">Total Events : {$ba.events|number_format}</span>
+					{if $isMySelf == 1}
+                    <span class="notification"><a href="index.php?notification=1">Notifications</a></span>
+                    <span class="notification"><a href="index.php?inbox=1">INBOX</a></span>
+                   
+					{else}
+						{if $user.is_friend == 0}
+						<span class="add-friend"><a href="index.php?add=1&u={$user.id|intval}">Add as a Friend</a></span>
+						{/if}
+						<span class="notification"><a href="index.php?message=1">Send a Message</a></span>
+					{/if}
+					 <span class="notification"><a href="index.php?performance=1&u={$user.id|intval}">Performance</a></span>
+                </div>
+            	{$my_network}
+            </div><!-- end div col left -->
+            <div id="col-center">
+				{if $onnotif != 1}
+				<form class="share" method="post" enctype="application/x-www-form-urlencoded">
+                	<textarea name="post" id="post" class="text-share"></textarea>
+                    <input class="submit-share" type="button" value="SHARE" onclick="post_me({$user_id},'{$signed_request}');clear_post();return false;"/>
+                </form>
+            	<div class="title">
+					{if $isMySelf == 1}
+                    <h1>My Wall</h1>
+					{else}
+					<h1>{$user.name} Wall</h1>
+					{/if}
+                </div>
+				{else}
+				<div class="title">
+                    <h1>Notifications</h1>
+                </div>
+				{/if}
+                <div class="content" id="timeline">
+                	{$my_wall}
+                </div>
+                    {if $onnotif != 1}<a href="javascript:void(0);" class="view-all" id="view-all">Semua Update</a>{/if}
+            </div><!-- end div col center -->
+        	<div id="col-right">
+            	{$acara_terkini}
+            	{$photo_gallery}
+            	{$my_performance}
+            	{$banner}
+            </div><!-- end div col right -->
+            
+            
+            <!-- the scripts -->
+            <script type="text/javascript">
+			var uid = {$user_id};
+			var sig = '{$signed_request}';
+			//getFeeds({$user_id});
+			{literal}
+			/*$(document).everyTime(5000,function(){
+				getFeeds(uid);
+				
+			});*/
+			function likeit(p){
+				post_like(uid,p,sig);
+			}
+			function reply(p,t){
+				post_comment(uid,p,t,sig);
+			}
+			{/literal}
+			</script>

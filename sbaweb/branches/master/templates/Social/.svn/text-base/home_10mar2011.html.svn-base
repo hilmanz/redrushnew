@@ -1,0 +1,39 @@
+<div style="clear:both"></div>
+<div>
+<table width="900" border="0" cellspacing="0" cellpadding="5">
+  <tr>
+    <td width="234" style="vertical-align:top;">
+		<table width="234" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="234">{$top_performers}</td>
+			</tr>
+			<tr>
+				<td width="234" style="background:none;">{$top_city}</td>
+			</tr>
+			<tr>
+				<td>{$top_event}</td>
+			</tr>
+		</table>
+	</td>
+    <td width="419" valign="top" style="vertical-align:top"><table width="437" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="437" valign="top" >{$berita_terbaru}</td>
+      </tr>
+      <tr>
+        <td style="background:none;">{$network_updates}</td>
+      </tr>
+    </table></td>
+    <td width="247" style="vertical-align:top;"><table width="437" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="437">{$acara_terkini}</td>
+      </tr>
+      <tr>
+        <td style="background:none">{$banner}</td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td colspan="3"  style="background:none">{$gallery_updates}</td>
+  </tr>
+  </table>
+  </div>

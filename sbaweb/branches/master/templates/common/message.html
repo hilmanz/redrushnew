@@ -1,0 +1,27 @@
+<!-- challenge -->
+<script type="text/javascript">
+//alert('{$msg}');
+var msg = '{$msg}';
+{literal}
+if(msg == 'Your code is invalid' || msg == 'Your code is invalid.' || msg == 'Submit code failed!'){
+	//alert('error');
+	bb1show = 1;
+	bb2show = 1;
+}else{
+	//alert('engga');
+{/literal}
+	bb1show = {if $bonus.bonus1 eq 0}0{else}1{/if};
+	bb2show = {if $bonus.bonus2 eq 0}0{else}1{/if};
+{literal}
+}
+{/literal}
+</script>
+
+<div class="popupShowMsg" align="center" style="padding:100px 0 0 0; min-height:355px;">
+    <div class="popupDetails box_round box_shadow" align="center" class="suksesMessage">
+      <p>
+          {$msg|stripslashes}
+      </p>
+      <p><a class="continue" href="{$url}">[ Continue ]</a></p>
+    </div>
+</div>

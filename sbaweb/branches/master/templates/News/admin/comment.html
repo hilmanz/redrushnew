@@ -1,0 +1,25 @@
+<p><strong>Comment</strong></p>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="addlist zebra">
+	<tr class="head">
+		<td>Created date</td>
+		<td>Username</td>
+		<td>Comment</td>
+		<td>Approval</td>
+	</tr>
+	{section name=i loop=$list}
+	<tr>
+		<td>{$list[i].posted_date}</td>
+		<td>{$list[i].name}</td>
+		<td>{$list[i].comments}</td>
+		<td>
+		{if $list[i].n_status == 0 }
+			<a href="index.php?s=news&act=setcom&id={$list[i].id}&set=1&nid={$nid}" class="editPage"><font color="red">No</font></a>
+		{else}
+			<a href="index.php?s=news&act=setcom&id={$list[i].id}&set=0&nid={$nid}" class="editPage"><font color="green">Yes</font></a>
+		{/if}
+		<a onclick="return confirm('Apakah anda yakin akan menghapus komentar ini ?');" href="index.php?s=news&act=delcom&id={$list[i].id}&nid={$nid}" class="deletePage">Delete</a>
+		</td>
+	</tr>
+	{/section}
+</table>
+<p>{$paging}</p>

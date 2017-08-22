@@ -1,0 +1,21 @@
+{section name=i  loop=$show_albumgallery}
+<div align="center" style="text-align:left;class="blockContent">
+	<div class="galery-list">
+		<a href="?view=gallery&owner_id={$show_hidden_albumgallery[i].owner_id}&album={$show_hidden_albumgallery[i].id}"><img src="contents/gallery/{$show_hidden_albumgallery[i].owner_id|md5}/{$show_hidden_albumgallery[i].thumb}" style="width:100px; height:100px; padding-top:25px;"></a>
+    	<span class="desc">{$show_hidden_albumgallery[i].album_name|stripslashes|strip_tags|stripslashes}</span>
+    	<span class="posted"> Posted By <br>{$posted_by[i].name|lower|ucwords}</span>
+	</div>
+</div>
+{/section}
+
+<div id="paging" class="blockContent" >
+	{$paging}
+</div>
+<br>
+<span class="insert">
+	<a href="?gallery=1&insertAlbum=1">Insert Album</a>
+</span>
+
+<span class="insert">
+	<a href="?gallery=1&myalbum=1">My Album</a>
+</span>

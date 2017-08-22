@@ -1,0 +1,56 @@
+<p><strong>EDIT MODULE</strong></p>
+<p>
+	<a href="?s=modules">Back</a>
+</p>
+{if $err}
+<p>
+	Error Edit Module
+	<ul>
+	{section name=i loop=$err}
+		<li>{$err[i]}</li>
+	{/section}
+	</ul>
+</p>
+{/if}
+<form method="POST" action="?s=modules&act=edit&module={$module}">
+<table class="list" width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td>Request</td><td><input type="text" name="request" value="{$data.page_request}" /></td>
+	</tr>
+	<tr>
+		<td>Status</td>
+		<td>
+			<select name="status">
+				<option value="deactive" {if $data.page_status eq 'deactive'}selected="selected"{/if}>Deactive</option>
+				<option value="active" {if $data.page_status eq 'active'}selected="selected"{/if}>Active</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>Login</td>
+		<td>
+			<select name="login">
+				<option value="yes" {if $data.page_login eq 'yes'}selected="selected"{/if}>Yes</option>
+				<option value="no" {if $data.page_login eq 'no'}selected="selected"{/if}>No</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>Widgets</td>
+		<td>
+			{section name=i loop=$widgets}
+			<span>
+				<input type="checkbox" name="widgets[]" value="{$widgets[i].name}" {if $widgets[i].active eq 1}checked="checked"{/if} />&nbsp;{$widgets[i].name}
+			</span>
+			&nbsp;
+			{/section}
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<input type="hidden" value="1" name="edit" />
+			<input type="submit" value=" Save " />
+		</td>
+	</tr>
+</table>
+</form>

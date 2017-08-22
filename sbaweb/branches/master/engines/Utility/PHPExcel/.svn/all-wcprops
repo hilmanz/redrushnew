@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/sba/!svn/ver/242/branches/master/engines/Utility/PHPExcel
+END
+RichText.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/sba/!svn/ver/242/branches/master/engines/Utility/PHPExcel/RichText.php
+END
+HashTable.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/sba/!svn/ver/242/branches/master/engines/Utility/PHPExcel/HashTable.php
+END
+DocumentProperties.php
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/sba/!svn/ver/242/branches/master/engines/Utility/PHPExcel/DocumentProperties.php
+END
+ReferenceHelper.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/sba/!svn/ver/242/branches/master/engines/Utility/PHPExcel/ReferenceHelper.php
+END
+Calculation.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/sba/!svn/ver/242/branches/master/engines/Utility/PHPExcel/Calculation.php
+END
+IOFactory.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/sba/!svn/ver/242/branches/master/engines/Utility/PHPExcel/IOFactory.php
+END
+Autoloader.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/sba/!svn/ver/242/branches/master/engines/Utility/PHPExcel/Autoloader.php
+END
+Settings.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/sba/!svn/ver/242/branches/master/engines/Utility/PHPExcel/Settings.php
+END
+Style.php
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/sba/!svn/ver/242/branches/master/engines/Utility/PHPExcel/Style.php
+END
+NamedRange.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/sba/!svn/ver/242/branches/master/engines/Utility/PHPExcel/NamedRange.php
+END
+Comment.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/sba/!svn/ver/242/branches/master/engines/Utility/PHPExcel/Comment.php
+END
+DocumentSecurity.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/sba/!svn/ver/242/branches/master/engines/Utility/PHPExcel/DocumentSecurity.php
+END
+Worksheet.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/sba/!svn/ver/242/branches/master/engines/Utility/PHPExcel/Worksheet.php
+END
+CachedObjectStorageFactory.php
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/sba/!svn/ver/242/branches/master/engines/Utility/PHPExcel/CachedObjectStorageFactory.php
+END
+IComparable.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/sba/!svn/ver/242/branches/master/engines/Utility/PHPExcel/IComparable.php
+END
+Cell.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/sba/!svn/ver/242/branches/master/engines/Utility/PHPExcel/Cell.php
+END
+WorksheetIterator.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/sba/!svn/ver/242/branches/master/engines/Utility/PHPExcel/WorksheetIterator.php
+END

@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/sba/!svn/ver/242/branches/master/engines/Utility/PHPExcel/Shared/JAMA
+END
+LUDecomposition.php
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/sba/!svn/ver/242/branches/master/engines/Utility/PHPExcel/Shared/JAMA/LUDecomposition.php
+END
+CholeskyDecomposition.php
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/sba/!svn/ver/242/branches/master/engines/Utility/PHPExcel/Shared/JAMA/CholeskyDecomposition.php
+END
+SingularValueDecomposition.php
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/sba/!svn/ver/242/branches/master/engines/Utility/PHPExcel/Shared/JAMA/SingularValueDecomposition.php
+END
+QRDecomposition.php
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/sba/!svn/ver/242/branches/master/engines/Utility/PHPExcel/Shared/JAMA/QRDecomposition.php
+END
+EigenvalueDecomposition.php
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/sba/!svn/ver/242/branches/master/engines/Utility/PHPExcel/Shared/JAMA/EigenvalueDecomposition.php
+END
+Matrix.php
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/sba/!svn/ver/242/branches/master/engines/Utility/PHPExcel/Shared/JAMA/Matrix.php
+END

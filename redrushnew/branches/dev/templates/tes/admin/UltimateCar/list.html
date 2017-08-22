@@ -1,0 +1,27 @@
+<h3>Ultimate Car List</h3>
+<p><form>Search: <input name="q" type="text" {if $q}value="{$q}"{/if}><input name="s" type="hidden" value="ultimate-car"><input name="go" type="submit" value="Go"></form></p>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="addlist zebra">
+  <tr>
+    <td width="5%" align="center"><strong>ID</strong></td>
+    <td align="center"><strong>Name</strong></td>
+    <td align="center"><strong>Level</strong></td>
+    <td align="center"><strong>Persentase Lose</strong></td>
+    <td align="center"><strong>Status</strong></td>
+    <td align="center"><strong>Action</strong></td>
+  </tr>
+  {section name=n loop=$list}
+  <tr>
+  	
+    <td>{$list[n].ultimate_id}</td>
+    <td>{$list[n].name} {if $list[n].small_img!=null}<br><img src="../public_html/contents/avatar/small/{$list[n].small_img}" width="64px">{/if}</td>
+    <td align="center">{$list[n].level}</td>
+    <td align="center">{$list[n].persentase_lose}%</td>
+    <td align="center">{if $list[n].n_status eq 1}Publish{else}Unpublish{/if}</td>
+    <td align="center">
+    <a href="index.php?s=ultimate-car&act=edit&id={$list[n].ultimate_id}"><strong>Edit</strong></a> | 
+    <a href="index.php?s=ultimate-car&act=change-status&id={$list[n].ultimate_id}&status={if $list[n].n_status eq 0}1{else}0{/if}"><strong>Change Status</strong></a><strong> | 
+    <a href="index.php?s=ultimate-car&act=delete&id={$list[n].ultimate_id}" onclick="return confirm('Are you sure you want to delete?')">Delete</a></strong></td>
+  </tr>
+  {/section}
+</table>
+<div class="paging">{$paging}</div>

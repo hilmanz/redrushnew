@@ -1,0 +1,105 @@
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+	<td>
+    	<h1>ADD NEW MERCHANDISE</h1>
+    </td>
+</tr>
+</table>
+{if $err}<span style="color:#F00;">{$err}</span>{/if}
+<form enctype="multipart/form-data" name="insertmerch" id="insert" method="post">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="addlist zebra">
+  <tr>
+    <td width="11%" valign="top"><strong>Item Name</strong></td>
+    <td width="89%"><label for="name"></label>
+      <input type="text" name="name" id="name" {if $form}value="{$form.name}"{/if}> <span id="errname" style="color:#F00;"></span></td>
+  </tr>
+  {*}<tr>
+    <td valign="top"><strong>Amount</strong></td>
+    <td><input type="text" name="amount" id="amount" {if $form}value="{$form.amount}"{/if}> <span id="erramount" style="color:#F00;"></span>
+	</td>
+  </tr>
+  
+  <tr>
+    <td valign="top"><strong>Prizes</strong></td>
+    <td><label for="prizes"></label>
+      <input type="text" name="prizes" id="prizes" {if $form}value="{$form.prizes}"{/if}>pts. <span id="errprizes" style="color:#F00;"></span></td>
+  </tr>
+  {/*}
+  <tr>
+    <td valign="top"><strong>Description</strong></td>
+    <td><label for="desc"></label>
+      <textarea name="desc" id="desc" cols="45" rows="5"></textarea> <span id="errdesc" style="color:#F00;"></span></td>
+  </tr>
+  <tr>
+    <td valign="top"><strong>Level</strong></td>
+    <td><label for="level"></label>
+	<select name="level" id="level">
+	{section name=foo loop=6}
+	<option value='{$smarty.section.foo.iteration}' >{$smarty.section.foo.iteration}</option>
+    {/section}
+	</select>
+	 <label for="variant"><strong>&nbsp;&nbsp;&nbsp;Has Variant </strong></label><input type="checkbox" name="variant" id="variant" {if $form.variant==1}checked{/if}>
+   </td>
+  </tr>
+   <tr>
+    <td valign="top"><strong>Group Merchandise</strong></td>
+    <td><label for="group_merchandise_pick">Pick Group</label>
+	<select name="group_merchandise_pick" id="group_merchandise_pick">
+			<option value=''>None</option>
+	{section name=gm loop=$getGroupMerchandise}
+		<option value='{$getGroupMerchandise[gm].group_merchandise}'>{$getGroupMerchandise[gm].group_merchandise}</option>
+   {/section}
+
+	</select>
+	or Create Group 
+	<input type="text" name="group_merchandise_create" id="group_merchandise_create" value=""></td>
+   </td>
+   
+  </tr>
+  <tr>
+    <td valign="top"><strong>Primary Images</strong></td>
+    <td><label for="images"></label>
+      <input type="file" name="images" id="images"> <span id="errimg" style="color:#F00;"></span></td>
+  </tr>
+  <tr>
+    <td valign="top"><strong>Thumbnail Images</strong></td>
+    <td><label for="images"></label>
+      <input type="file" name="timages" id="timages"> <span id="errtimg" style="color:#F00;"></span></td>
+  </tr>
+  <tr>
+    <td valign="top"><strong>Status</strong></td>
+    <td><label for="status"></label>
+      <select name="status" id="status">
+        <option value="1" selected>Item Display</option>
+        <option value="0">Group Item Display</option>
+		 <option value="2">Unpublish</option>
+      </select></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td><input name="save" type="hidden" value="1"><input type="submit" name="Save" id="Save" value="Save"></td>
+  </tr>
+</table>
+</form>
+<script type="text/javascript">
+	{literal}
+	$(document).ready(function(){
+		$('#insert').submit(function(){
+			var name = $('#name').val();
+			var amount = $('#amount').val();
+			var prizes = $('#prizes').val();
+			var desc = $('#desc').val();
+			var img = $('#images').val();
+			var timg = $('#timages').val();
+			if(name==''){$('#errname').html('Please enter item name!');$('#name').focus(); return false;}else{$('#errname').html('');}
+			if(amount==''){$('#erramount').html('Please enter item amount!');$('#amount').focus(); return false;}else{$('#erramount').html('');}
+			if(prizes==''){$('#errprizes').html('Please enter item prizes!');$('#prizes').focus(); return false;}else{$('#errprizes').html('');}
+			if(desc==''){$('#errdesc').html('Please enter item description!');$('#desc').focus(); return false;}else{$('#errdesc').html('');}
+			if(img==''){$('#errimg').html('Please enter item images!');$('#images').focus(); return false;}else{$('#errimg').html('');}
+			if(timg==''){$('#errtimg').html('Please enter item thumbnail images!');$('#timages').focus(); return false;}else{$('#errtimg').html('');}
+		});
+	});
+	
+{/literal}
+</script>

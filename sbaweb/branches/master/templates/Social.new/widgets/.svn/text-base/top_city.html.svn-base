@@ -1,0 +1,12 @@
+<div class="title">
+            	<h1>Top City</h1>
+                <a href="#" class="view-all">Lihat Semua</a>
+                </div>
+                <div class="content">
+                	<div class="list">
+                    	<a href="#"><img src="images/thumb/thumb-75x75-5.jpg" /></a>
+                        <div class="text">
+                        	<a href="#" class="title">Jakarta</a>
+                        </div>
+                    </div>
+                </div>

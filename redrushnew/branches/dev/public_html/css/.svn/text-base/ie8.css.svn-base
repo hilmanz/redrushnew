@@ -1,0 +1,11 @@
+/*
+Theme Name: MARLBORO REDRUSH
+Version: 1.0
+Author: ACIT JAZZ - 2012
+*/
+#intro{
+	position:absolute;
+}
+#iepar{
+	display:block;
+}

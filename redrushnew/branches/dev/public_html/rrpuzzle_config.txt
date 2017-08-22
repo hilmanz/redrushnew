@@ -1,0 +1,4 @@
+
+remote_url=https://www.marlboro.co.id/remote/gateway.php
+game_id=1;
+api_key=1234567890;

@@ -1,0 +1,4 @@
+<span id="user_box">
+<img src="images/personal.png"> Loged in user: <strong>{$user_name}</strong><br>
+<strong><a href="logout.php">Click Here to Logout</a></strong>
+</span>

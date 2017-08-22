@@ -1,0 +1,58 @@
+<div class="span-24 last">
+		<!--  left -->
+		<div class="span-6 border">
+			<div>
+				<h3>Hi, {$user.name|strip_tags|stripslashes}</h3>
+			</div>
+			<div>
+			<p>
+			<img src="{if $user.img}{$user.img}{else}images/no_photo_small.gif{/if}"/>
+			</p>
+			{if $isMySelf}
+			<p><a href="#">View My Profile</a></p>
+			<p><a href="index.php?profile_pic=1">Profile Picture</a></p>
+			<p><a href="index.php?members=1">Browse Members</a></p>
+			<p><a href="index.php?invite=1">Invite Your Friends</a></p>
+			{else}
+				<p><a href="#">View Profile</a></p>
+				{if $user.is_friend <> '1'}
+				<p><a href="?add=1&u={$user.id}">Add as a Friend</a></p>
+				{/if}
+			{/if}
+			</div>
+			{if $isMySelf}
+			<hr class="border"/>
+			<div>
+				<h3>MESSAGES</h3>
+				
+			</div>
+			<hr class="border"/>
+			<div>
+			<div><a href="index.php?feed=1">My Feed</a></div>
+			<div><a href="index.php?messages=1">Direct Messages</a></div>
+			<div><a href="index.php?notification=1">Notifications</a></div>
+			</div>
+			{/if}
+			<hr class="border"/>
+			<div>
+			<h3>Bookmarks</h3>
+			<hr class="border"/>
+			{section name=i loop=$bookmark}
+			<p><a href="{$bookmark[i].bookmark_url}">{$bookmark[i].bookmark_name}</a></p>
+			{/section}
+			<p><a href="page.php">Create Page</a>
+			</div>
+		</div>
+		<!-- middle -->
+		<div class="span-12 border">
+			{$CONTENT}
+		</div>
+		<!-- right -->
+		<div class="span-6 last">
+			<h3>News Feeds</h3>
+			<hr class="border"/>
+			<div id="newsfeeds" class="span-4"></div>
+			<script>
+			getNews({$user.id});
+			</script>
+		</div>

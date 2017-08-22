@@ -1,0 +1,13 @@
+{section name=i loop=$post}
+<div class="span-2">{if $post[i].small_img}<img src="{$post[i].small_img}"/>{else}<img src="images/no_photo_small.gif"/>{/if}</div>
+<div>
+	<div class="span-8 last">
+	<p>
+	<span style="padding:1px;font-weight:bold;">
+	<a href="users.php?id={$post[i].id}">{$post[i].name|stripslashes|strip_tags}</a> : </span>
+	<span style="padding:1px;">{$post[i].post|stripslashes|strip_tags}</span>
+	</p>
+	<p>{$post[i].post_time|stripslashes|strip_tags}</p>
+</div>
+<hr class="border"/>
+{/section}

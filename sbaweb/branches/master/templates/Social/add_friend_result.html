@@ -1,0 +1,14 @@
+<div>
+{if $is_friend}
+{$friend_name} is already your friend.
+{else}
+{if $approve}
+{$friend_name} now is your friend.
+{else}
+{$friend_name} has denied your request.
+{/if}
+{/if}
+</div>
+<div>
+<a href="index.php?top_performers=1">Lanjut</a>
+</div>

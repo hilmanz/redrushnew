@@ -1,0 +1,49 @@
+<h2>JAKARTA</h2>
+<h3>EVENT 1</h3>
+<table>
+	<tr>
+		<td>
+			<a href="index.php?gallery=1&album=2"><img src="images/thumb/thumb-110x75-1.jpg" /></a><br />
+			ALBUM 1
+		</td>
+		<td>&nbsp;</td>
+		<td>
+			<a href="index.php?gallery=1&album=2"><img src="images/thumb/thumb-110x75-1.jpg" /></a><br />
+			ALBUM 2
+		</td>
+		<td>&nbsp;</td>
+		<td>
+			<a href="index.php?gallery=1&album=2"><img src="images/thumb/thumb-110x75-1.jpg" /></a><br />
+			ALBUM 3
+		</td>
+		<td>&nbsp;</td>
+		<td>
+			<a href="index.php?gallery=1&album=2"><img src="images/thumb/thumb-110x75-1.jpg" /></a><br />
+			ALBUM 4
+		</td>
+	</tr>
+</table>
+<h3>EVENT 2</h3>
+<table>
+	<tr>
+		<td>
+			<a href="index.php?gallery=1&album=2"><img src="images/thumb/thumb-110x75-1.jpg" /></a><br />
+			ALBUM 1
+		</td>
+		<td>&nbsp;</td>
+		<td>
+			<a href="index.php?gallery=1&album=2"><img src="images/thumb/thumb-110x75-1.jpg" /></a><br />
+			ALBUM 2
+		</td>
+		<td>&nbsp;</td>
+		<td>
+			<a href="index.php?gallery=1&album=2"><img src="images/thumb/thumb-110x75-1.jpg" /></a><br />
+			ALBUM 3
+		</td>
+		<td>&nbsp;</td>
+		<td>
+			<a href="index.php?gallery=1&album=2"><img src="images/thumb/thumb-110x75-1.jpg" /></a><br />
+			ALBUM 4
+		</td>
+	</tr>
+</table>

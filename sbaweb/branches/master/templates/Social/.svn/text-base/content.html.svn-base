@@ -1,0 +1,16 @@
+
+  <div id="title-bar">
+            	<h1>{$head_title}</h1>
+            	</div><!-- end div Title Bar -->
+        	<div id="col-left">
+            	{$ba_charts}
+            </div>
+            <div id="col-center">
+            	{$content}
+            </div><!-- end div col center -->
+        	<div id="col-right">
+            	{$acara_terkini}
+            	{$photo_gallery}
+            	{$banner}
+            </div><!-- end div col right -->
+      

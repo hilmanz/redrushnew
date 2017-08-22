@@ -1,0 +1,14 @@
+<h2>Manage File Download</h2>
+<br/>
+<table width="100%" class="list">
+<tr class="head">
+<td>No</td><td>Nama File</td><td>action</td>
+</tr>
+{section name=i loop=$getfile}
+<tr>
+<td>{$getfile[i].id}</td><td><a href="?s=download&view=detail&id_file={$getfile[i].id}">{$getfile[i].name}</a></td><td><a href="?s=download&getformfile=1&id={$getfile[i].id}">Edit</a> | <a href="?s=download&deletefile=1&id={$getfile[i].id}">Delete</a></td>
+</tr> 
+{/section}
+</table>
+<p align="center">{$paging}</p>
+[ <a href="?s=download&new_file=1&category_id={$getidcategory.id}">Insert New File</a> ]

@@ -1,0 +1,465 @@
+<script type="text/javascript">
+	var mainmenu = "user";
+	var gd = {$GD};
+	var gender = {$GENDER};
+	var devicesUsed = {$DU};
+	var brandPref = {$BP};
+{literal}
+var chart;
+$(document).ready(function() {
+	var _color = ['#F2F5A9','#55b615','#f26522','#ffd904','#029bc5','#d79194','#f26522','#b7b7b7','#ba7ef7','#55b615','#f26522','#ffd904','#029bc5','#d79194','#f26522','#b7b7b7'];
+	
+	/*
+	var _categories = [];
+	var _series = [];
+	if (gd != null){
+		for (var i=0;i<gd.length;i++){
+			_categories.push("");
+			var item = {
+					data : [parseInt(gd[i].num)],
+					name : gd[i].location,
+					color: _color[i]
+			}
+			_series.push(item);
+		}
+	}
+	chart = new Highcharts.Chart({
+		chart: {
+			renderTo: 'LOCATION',
+			type: 'column',
+			backgroundColor: false,
+			marginTop: 25,
+			marginBottom: 15
+		},
+		title: false,
+		subtitle: false,
+		xAxis: {
+			categories: _categories
+		},
+		yAxis: {
+			min: 0,
+			title: false
+		},
+		credits: false,
+		
+		tooltip: false,
+		legend: {
+			layout: 'horizontal',
+			align: 'right',
+			verticalAlign: 'top',
+			x: 0,
+			y: -17,
+			floating: true,
+			borderWidth: 0,
+			shadow: true,
+			labelFormatter: function() {
+	            return '<span style="color: '+this.color+';">'+ this.name + '</span>';
+			}
+			
+		},
+		plotOptions: {
+			column: {
+				pointPadding: 0.2,
+				borderWidth: 0,
+				dataLabels: {
+					enabled: true,
+					color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+				}
+			},
+			series:{
+				groupPadding: 0
+			}
+		},
+		series: _series
+	});
+	*/
+	//DEVICE USED
+	var _series = [];
+	var _data = [];
+	var _name = [];
+	//var _color = ['#be22cb','#90ed1c','#3968b5','#b7b7b7','#FF00FF','#01DF74','#FE642E','#088A85','#FF4000'];
+	if (devicesUsed == null){
+		var item = {
+				name 	: "No Data",
+				y		: 0,
+				color 	: "#cccccc"
+		}
+		_series.push(item);
+	}else if (devicesUsed != null){
+		for(var i=0;i<devicesUsed.length;i++){
+			_data.push(devicesUsed[i].num);
+			
+			if (i == 0 && devicesUsed[i].num != 0){
+				var item = {
+						name 	: devicesUsed[i].device_name,
+						y		: parseInt(_data[i]),
+						sliced: true,
+						selected: true,
+						color 	: _color[i]
+						}
+			}else{
+				var item = {
+						name 	: devicesUsed[i].device_name,
+						y		: parseInt(_data[i]),
+						color 	: _color[i]
+						}
+			}
+			_series.push(item);
+		}
+	}
+	chart = new Highcharts.Chart({
+			chart: {
+				renderTo: 'DU',
+				plotBackgroundColor: null,
+				plotBorderWidth: null,
+				backgroundColor: false,
+				plotShadow: false
+			},
+			title: false,
+			tooltip: {
+				formatter: function() {
+					return '<b>'+ this.point.name +'</b>: '+ this.y + ' times';
+				}
+			},
+			credits: false,
+			plotOptions: {
+				pie: {
+					allowPointSelect: true,
+					cursor: 'pointer',
+					dataLabels: {
+						enabled: true,
+						color: '#ffffff',
+						connectorColor: '#ffffff',
+						formatter: function() {
+							return this.point.name +'<br><b>'+ Math.round(this.percentage) +' %</b>';
+						}
+					}
+				},
+				series: {
+					shadow: true
+				}
+			},
+			series: [{
+				type: 'pie',
+				name: 'Devices Used',
+				data: _series
+			}]
+		});
+
+	
+	//Geographical Distribution
+	var _series = [];
+	var _data = [];
+	var _name = [];
+	//var _color = ['#39b54a','#ed1c24','#b7b7b7','#2280cb','#029bc5','#d79194','#f26522', '#ba7ef7'];
+	if (gd == null){
+		var item = {
+				name 	: "No Data",
+				y		: 0,
+				color 	: "#cccccc"
+		}
+		_series.push(item);
+	}else if (gd != null){	
+		for(var x in gd) {
+			var item={
+				name 	: gd[x].location,
+				data	: [parseInt(gd[x].num)],
+				color 	: _color[x]						
+			}
+												
+			_series.push(item);
+		}		
+	}
+	chart = new Highcharts.Chart({
+				chart: {
+					renderTo: 'GD',
+					type: 'column',
+				backgroundColor: false,
+				zoomType: 'y'
+			},
+			title: false,
+				subtitle: false,
+				xAxis: {
+					categories: [""],
+					labels: {
+						enabled: false
+					}
+				},
+				yAxis: {
+					title:false,
+					plotLines: [{
+						value: 0,
+						width: 1,
+						color: '#808080'
+					}]
+				},
+					tooltip: {
+						formatter: function() {
+								return '<b>'+ this.series.name +'</b>'+': '+ this.y;
+						}
+					},
+				plotOptions: {
+					column: {
+						pointPadding: 0.2,
+						borderWidth: 0,
+						dataLabels: {
+							enabled: true,
+							formatter: function() {
+								return this.y;
+							},
+							color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+						}
+					},
+					series:{
+						groupPadding: 0
+					}
+				},
+				legend: {
+					labelFormatter: function() {
+			            return '<span style="color: '+this.color+';">'+ this.name + '</span>';
+					}
+					
+				},
+				credits: false,
+			series: _series
+			});
+	
+	//GENDER
+	var _series = [];
+	var _male = [];
+	var _female = [];
+	var _categories = [];
+
+	if (gender.male != null || gender.female != null){
+	//alert(gender.male.length);
+	var males ;
+		for (males in gender.male) {
+//		alert(gender.male[males].age_range);
+			if(males > 0){
+			_categories.push(gender.male[males].age_range);
+			_male.push(parseInt(gender.male[males].people_count));
+			_female.push(parseInt(gender.female[males].people_count));
+			}
+		
+		}
+	
+		
+	}
+	//alert(_categories);
+	
+	chart = new Highcharts.Chart({
+		chart: {
+			renderTo: 'GENDER',
+			backgroundColor: false,
+			marginTop: 25,
+			marginBottom: 15,
+			type: 'column'
+		},
+		title: false,
+		credits: false,
+		xAxis: {
+			categories: _categories
+		},
+		yAxis: {
+			min: 0,
+			title: false
+		},
+		legend: {
+			align: 'right',
+			x: -3,
+			verticalAlign: 'top',
+			y: -17,
+			floating: true,
+			backgroundColor: false,
+			borderColor: false,
+			borderWidth: 0,
+			shadow: false,
+			labelFormatter: function() {
+	            return '<span style="color: '+this.color+';">'+ this.name + '</span>';
+			}
+		},
+		tooltip: {
+			formatter: function() {
+				return ''+
+					this.series.name +': '+ this.y +'<br/>'+
+					'Total: '+ this.point.stackTotal;
+			}
+		},
+		plotOptions: {
+			column: {
+				pointPadding: 0.2,
+				stacking: 'normal',
+				borderWidth: 0
+			},
+			series:{
+				groupPadding: 0
+			}
+		},
+		series: [{
+			name: 'Man',
+			color: '#03b6e6',
+			data: _male
+		}, {
+			name: 'Woman',
+			color: '#f5989d',
+			data: _female
+		}]
+	});
+	
+	//BRANDS
+	var _series = [];
+	var _data = [];
+	var _name = [];
+	//var _color = ['#be22cb','#90ed1c','#3968b5','#b7b7b7','#FF00FF','#01DF74','#FE642E','#088A85','#FF4000'];
+	
+//alert(brandPref.Brand1_ID);
+
+	chart = new Highcharts.Chart({
+			chart: {
+				renderTo: 'BRAND',
+				plotBackgroundColor: null,
+				plotBorderWidth: null,
+				backgroundColor: false,
+				plotShadow: false
+			},
+			title: false,
+			tooltip: {
+				formatter: function() {
+					return '<b>'+ this.point.name +'</b>: '+ this.y + ' times';
+				}
+			},
+			credits: false,
+			plotOptions: {
+				pie: {
+					allowPointSelect: true,
+					cursor: 'pointer',
+					dataLabels: {
+						enabled: true,
+						color: '#ffffff',
+						connectorColor: '#ffffff',
+						formatter: function() {
+							return this.point.name +'<br><b>'+ Math.round(this.percentage) +' %</b>';
+						}
+					}
+				},
+				series: {
+					shadow: true
+				}
+			},
+			series: [{
+
+                type: 'pie',
+
+                name: 'Devices Used',
+
+                data: [
+					
+					['Amild',   parseInt(brandPref.Brand1_ID)],
+					['Marlboro',       parseInt(brandPref.Brand2_ID)],
+					['Sampoerna',    parseInt(brandPref.Brand3_ID)]
+
+                ]
+
+            }]
+
+			/*series: [{
+				type: 'pie',
+				name: 'Devices Used',
+				data:  [{
+                type: 'pie',
+                name: 'Brand Preferences',
+                data: [
+                   
+                 
+                ]}]
+			}] */
+		});
+});
+</script>
+{/literal}
+<div class="med-row h-border" style="height: 155px;">
+	<div class="med-column fl-left" style="margin-left:125px;">
+		<div class="med-box2 relative">
+			<div class="med-title">AVG TIME ON SITE</div>
+			<div class="med-font2">
+				{if $avg}
+					<script type="text/javascript">
+						var atos = {$avg};
+						var timeAtos = timeSecond(parseInt(atos));
+						document.write(timeAtos);
+					</script>
+				{else}0{/if}
+			</div>
+			{*}
+			<div class="{if $avgArrow < 0}arrow-down{else}arrow-up{/if} absolute" style="top:137px;left:75px;"></div>
+			<div class="{if $avgArrow < 0}red{else}green{/if} absolute font25" style="top:135px;left:120px;">{if $avgPercentage}{$avgPercentage}{else}0{/if}%</div>
+			{/*}
+		</div>
+	</div>
+	<div class="med-column fl-left">
+		<div class="med-box2 relative">
+			<div class="med-title">LOYALTY</div>
+			<div class="med-font2">{if $loyalty}{$loyalty|number_format:2}{else}0{/if}%</div>
+				{*}
+			<div class="{if $loyArrow < 0}arrow-down{else}arrow-up{/if} absolute" style="top:140px;left:75px;"></div>
+			<div class="{if $loyArrow < 0}red{else}green{/if} absolute font25" style="top:135px;left:120px;">{if $loyPercentage}{$loyPercentage}{else}0{/if}%</div>
+				{/*}
+		</div>
+	</div>
+	<div class="med-column fl-left">
+		<div class="med-box2 relative">
+			<div class="med-title">BOUNCE RATE</div>
+			<div class="med-font2">{if $bounce}{$bounce|number_format:2}{else}0{/if}%</div>
+			{*}
+			<div class="{if $bArrow < 0}arrow-down{else}arrow-up{/if} absolute" style="top:137px;left:75px;"></div>
+			<div class="{if $bArrow < 0}red{else}green{/if} absolute font25" style="top:135px;left:120px;">{if $bPercentage}{$bPercentage}{else}0{/if}%</div>
+			{/*}
+		</div>
+	</div>
+	{*}
+	<div class="med-column fl-left">
+		<div class="med-box2 noMarginRight relative">
+			<div class="med-title">ACTIVITY DISTRIBUTION</div>
+			<div class="med-font2">{if $actDis}{$actDis|number_format:2}{else}0{/if}</div>
+			<div class="{if $adArrow < 0}arrow-down{else}arrow-up{/if} absolute" style="top:140px;left:75px;"></div>
+			<div class="{if $adArrow < 0}red{else}green{/if} absolute font25" style="top:135px;left:120px;">{if $adPercentage}{$adPercentage}%{else}0{/if}</div>
+		</div>
+	</div>
+	{/*}
+</div>
+<div class="chart-row h-border" style="height:425px">
+	<div class="big-column fl-left">
+		<h3>DEVICES USED</h3>
+		<div class="big-box">
+			<div id="DU" style="height: 335px;width: 435px;"></div>
+		</div>
+	</div>
+	<div class="big-column fl-right" style="margin-right:-9px">
+		<h3>GEOGRAPHICAL DISTRIBUTION</h3>
+		<div class="big-box">
+			<div id="GD" style="height: 335px;width: 435px;"></div>
+		</div>
+	</div>
+</div>	
+		
+<div class="chart-row h-border" style="height:425px">
+	<div class="big-column fl-left">
+		<h3>GENDER/AGE</h3>
+		<div class="big-box">
+			<div id="GENDER" style="height: 335px;width: 435px;"></div>
+		</div>
+	</div>
+	<div class="big-column fl-right" style="margin-right:-9px">
+		<h3>BRAND PREFERENCE</h3>
+		<div class="big-box">
+			<div id="BRAND" style="height: 335px;width: 435px;"></div>
+		</div>
+	</div>
+</div>	
+{*}<div class="chart-row h-border">
+	<h3>LOCATION</h3>
+	<div class="big-chart relative">
+		<div id="LOCATION" class="absolute" style="width:945px;height:340px; bottom: 28px; left:25px;"></div>
+	</div>
+</div>
+{/*}

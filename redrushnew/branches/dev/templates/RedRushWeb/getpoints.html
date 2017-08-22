@@ -1,0 +1,89 @@
+{literal}
+<script type="text/javascript">
+$('.logo a').click(function() {
+  $('.panel5').blur();
+});
+</script>
+{/literal}
+<div id="main-container" class="home getpoint">
+	<div class="wrapper">
+    	<div id="containers">
+            <div class="logo">
+            	<a href="#">&nbsp;</a>
+            </div><!-- .logo -->
+            <div class="panel5">
+                		<div class="title">
+                        	<h1>Get Points</h1>
+                        </div>
+            	<div class="entry">
+                        <div class="list">
+                        	<div class="box-game">
+                            	<h1>Solve The Rush</h1>
+                            	<div class="thumb-game"><a href="?page=getpoints&act=minigame1"><img src="img/gamethumb/puzzle.jpg" /></a></div>
+                            </div><!-- .box-game -->
+                        </div><!-- .list -->
+                        <div class="list">
+                        	<div class="box-game">
+                            	<h1>Whats Cooking? Cucina Italia</h1>
+                            	<div class="thumb-game"><a href="?page=getpoints&act=minigame2"><img src="img/gamethumb/cooking.jpg" /></a></div>
+                            </div><!-- .box-game -->
+                        </div><!-- .list -->
+                        <div class="list boxgame3">
+                        	<div class="box-game">
+                            	<h1>Rush Hour Delivery</h1>
+                            	{*}<div class="thumb-game"><img src="img/gamethumb/rush-hour.jpg" /></div>{/*}
+                            	<div class="thumb-game"><a href="?page=getpoints&act=minigame3"><img src="img/gamethumb/rush-hour.jpg" /></a></div>
+                            </div><!-- .box-game -->
+                        </div><!-- .list -->
+                        <div class="list boxgame4">
+                        	<div class="box-game">
+							<h1>Rush Seekers</h1>
+                            	<div class="thumb-game"><a href="?page=getpoints&act=minigame4"><img src="img/gamethumb/treasure.jpg" /></a></div>
+                            </div><!-- .box-game -->
+                        </div><!-- .list -->
+                </div><!-- .entry -->
+            </div><!-- .panel -->
+            <div id="sidebar">
+            	<div class="entry">
+                	<table width="200%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td>
+                            <div id="profile2">
+                                <div class="thumb"><a href="index.php?page=garage"><img src="{if $small_img eq ''} img/thumb.jpg {else} contents/avatar/small/{$small_img} {/if}" /></a></div>
+                                <div class="box-user">
+                                    <span class="username">{$name}</span>
+                                    <span class="reputation">{section name=i loop=$level}<img src="img/star.png" alt="" />{/section}</span>
+                                    <span class="total-race">{$races} Race</span>
+                                    <span class="total-win">{$wins} Wins</span>
+                                    <span class="rank">Rank {$rank}</span>
+                                    <span class="total-point">{$points} PTS</span>
+                                </div>
+                           </div><!-- #profile --> 
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                        <div id="text-getPoint">
+                        	{literal}
+                        	<style>
+								#text-getPoint h3 a{
+									color:#FF0;
+									text-decoration:underline;
+								}
+								#text-getPoint h3 a:hover{
+									color:#fff;
+									text-decoration:underline;
+								}
+							</style>
+                            {/literal}
+                        	<h3 style="color:#fff; text-align:center; font-size:20px; margin:0; padding:65px 0 0 0;">WIN <a href="index.php?page=race">RACES</a><br />MEET REDRUSH CREW @<br /><a  href="index.php?page=events">EVENTS</a> OR<br />VARIOUS HANGOUT SPOT</h3>
+                        </div>
+                        </td>
+                      </tr>
+                    </table>
+                </div><!-- .entry -->
+            </div><!-- #sidebar -->
+            <div class="peoples-new"></div>
+        </div><!-- #containers -->
+    </div><!-- .wrapper -->
+</div><!-- #main-container -->

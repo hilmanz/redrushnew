@@ -1,0 +1,17 @@
+<h2>Manage Banner</h2>
+<br/>
+<table width="100%" class="list">
+<tr class="head">
+<td>No</td><td>judul</td><td>Status<td>action</td>
+</tr>
+{section name=i loop=$list_banner}
+<tr>
+<td>{$list_banner[i].id}</td><td>{$list_banner[i].name}</td><td>{if $list_banner[i].n_status==1}Show{elseif $list_banner[i].n_status==0}Hide{/if}</td><td><a href="?s=banner&getform=1&id={$list_banner[i].id}">Edit</a> | <a href="?s=banner&delete=1&id={$list_banner[i].id}">Delete</a></td>
+</tr> 
+{/section}
+</table>
+<div align="center">
+	<p align="center">{$paging}</p>
+</div>
+
+[ <a href="?s=banner&insertPic=1">Insert Picture</a> ]

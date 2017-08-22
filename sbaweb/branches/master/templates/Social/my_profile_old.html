@@ -1,0 +1,31 @@
+<div class="span-24 last">
+		<!--  left -->
+		<div class="span-6 border">
+			
+			<div>
+			<p>
+			<img src="{if $user.img}{$user.img}{else}images/no_photo_small.gif{/if}"/>
+			</p>
+			<p>{$user.name|strip_tags|stripslashes}</p>
+			<p>45 % Achievements</p>
+			</div>
+			
+			<hr class="border"/>
+			<div>
+			{$my_network}
+			</div>
+		</div>
+		<!-- middle -->
+		<div class="span-12 border">
+			{$CONTENT}
+		</div>
+		<!-- right -->
+		<div class="span-6 last">
+			{$acara_terkini}
+		</div>
+		<div class="span-6 last">
+			{$photo_gallery}
+		</div>
+		<div class="span-6 last">
+			{$banner}
+		</div>

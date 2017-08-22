@@ -1,0 +1,91 @@
+
+<form method="post" enctype="multipart/form-data">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="list">
+	<tr>
+	<td colspan="2"><h3>Form Upload Chart Image</h3></td>
+	</tr>
+  <tr>
+	<td width="12%" class="head"><strong>Week</strong></td>
+	<td>
+	<select  name="week" id="week">
+			<option value="1" > Week 1 ( April 02 - April 08 )</option>
+			<option value="2" >Week 2 ( April 09 - April 15 )</option>
+			<option value="3" >Week 3 ( April 16 - April 22 )</option>
+			<option value="4" >Week 4 ( April 23 - April 29 )</option>
+			<option value="5" >Week 5 ( April 30 - May 06 )</option>
+			<option value="6" >Week 6 ( May 07 - May 13 )</option>
+			<option value="7" >Week 7 ( May 14 - May 20 )</option>
+			<option value="8" >Week 8 ( May 21 - May 27 )</option>
+			<option value="9" >Week 9 ( May 28 - June 03 )</option>
+			<option value="10" >Week 10 ( June 04 - June 10 )</option>
+			<option value="11" >Week 11 ( June 11 - June 17 )</option>
+			<option value="12" >Week 12 ( June 18 - June 24 )</option>
+			<option value="13" >Week 13 ( June 25 - July 01 )</option>
+	</select>
+ 
+    </td>
+  </tr>
+  <tr>
+	<td width="12%" class="head"><strong>Category</strong></td>
+	<td>
+		<select  name="category" id="category">
+				<option value="registration" > Registration Chart</option>	
+				<option value="registrationProgress" > Total Registration Progress Chart</option>
+				<option value="RegistrationProgressSBA" > Total Registration Progress BY SBA Chart</option>	
+				<option value="RegistrationProgressDST" > Total Registration Progress BY DST Chart</option>
+				<option value="ProgramWeekProgress" > Program Weekly Progress Chart</option>
+				<option value="DSTPerformance" > DST Performance Chart</option>
+				<option value="RedrushTruckPerformance" > Redrush Truck Performance Chart</option>	
+				<option value="RedrushFlashMOPPerformance" > Redrush FlashMOB Performance Chart</option>
+				<option value="RedrushNightPerformance" > Redrush Night Performance Chart</option>
+				<option value="AgeDistribution" > AGE Distribution Chart</option>
+		</select>
+     </td>
+  </tr>
+  <tr>
+  	<td width="12%" class="head"><strong>Chart Image</strong></td>
+    <td>
+    <input type="file" name="img" id="img" />
+    </td>
+ </tr>
+ <tr>
+ 	<td colspan="2">
+    <input type="submit" name="submit" value="Submit" />
+    <input type="hidden" name="save" value="1"/>
+    </td>
+ </tr>
+<br>
+<span>{$err}</span>
+</form >
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="list">
+  <tr>
+	<td colspan="2"><h3>List Report</h3>
+	<select  name="weeklist" id="weeklist" onChange="location.href='index.php?s=reporting&act=upload-chart&weeklist='+this.value">
+			<option value="1" {if $weeklist==1}selected{/if} > Week 1 ( April 02 - April 08 )</option>
+			<option value="2" {if $weeklist==2}selected{/if}>Week 2 ( April 09 - April 15 )</option>
+			<option value="3" {if $weeklist==3}selected{/if}>Week 3 ( April 16 - April 22 )</option>
+			<option value="4" {if $weeklist==4}selected{/if}>Week 4 ( April 23 - April 29 )</option>
+			<option value="5" {if $weeklist==5}selected{/if}>Week 5 ( April 30 - May 06 )</option>
+			<option value="6" {if $weeklist==6}selected{/if}>Week 6 ( May 07 - May 13 )</option>
+			<option value="7" {if $weeklist==7}selected{/if}>Week 7 ( May 14 - May 20 )</option>
+			<option value="8" {if $weeklist==8}selected{/if}>Week 8 ( May 21 - May 27 )</option>
+			<option value="9" {if $weeklist==9}selected{/if} >Week 9 ( May 28 - June 03 )</option>
+			<option value="10" {if $weeklist==10}selected{/if}>Week 10 ( June 04 - June 10 )</option>
+			<option value="11" {if $weeklist==11}selected{/if}>Week 11 ( June 11 - June 17 )</option>
+			<option value="12" {if $weeklist==12}selected{/if} >Week 12 ( June 18 - June 24 )</option>
+			<option value="13" {if $weeklist==13}selected{/if}>Week 13 ( June 25 - July 01 )</option>
+	</select>
+	</td>
+  </tr>
+  <tr class="head">
+	<td width="15%" >Week</td><td width="75%">Type</td><td>Action</td>
+  </tr>
+	{section name=i loop=$list}
+	  <tr>
+		<td><img src="images/week.gif"> <b>Week {$list[i].week}</b></td>
+		<td> <b> {$list[i].type}</b></td>
+		<td><a href="https://www.marlboro.co.id/report/chart/{$list[i].img}" target="_blank">{$list[i].img}</a></td>
+	  </tr>
+	{/section}
+</table>

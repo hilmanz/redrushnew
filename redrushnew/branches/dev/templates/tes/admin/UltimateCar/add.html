@@ -1,0 +1,89 @@
+<h3>Add New Ultimate Car</h3>
+{if $err}<span style="color:#F00;">{$err}</span>{/if}
+<form enctype="multipart/form-data" name="insertmerch" id="insert" method="post">
+<table width="100%" border="0" cellspacing="4" cellpadding="4">
+  <tr>
+    <td valign="top"><strong>Ultimate Car ID</strong></td>
+    <td><label for="id"></label>
+      <input name="id" type="text" id="id" size="12" maxlength="12" {if $form}value="{$form.id}"{/if}/> <span id="errid" style="color:#F00;"></span> <span id="idstatus"></span></td>
+  </tr>
+  <tr>
+    <td width="11%" valign="top"><strong>Ultimate Car Name</strong></td>
+    <td width="89%"><label for="name"></label>
+      <input name="name" type="text" id="name" size="50" {if $form}value="{$form.name}"{/if}> <span id="errname" style="color:#F00;"></span></td>
+  </tr>
+  <tr>
+    <td valign="top"><strong>Level</strong></td>
+    <td><label for="level"></label>
+      <input name="level" type="text" id="level" size="2" maxlength="2" {if $form}value="{$form.level}"{/if}> <span id="errlevel" style="color:#F00;"></span></td>
+  </tr>
+  <tr>
+    <td valign="top"><strong>Persentase Lose</strong></td>
+    <td><label for="persentase"></label>
+      <input name="persentase" type="text" id="persentase" size="4" maxlength="4" {if $form}value="{$form.persentase}"{/if}/>% <span id="errpersen" style="color:#F00;"></span></td>
+  </tr>
+  <tr>
+    <td valign="top"><strong>Images</strong></td>
+    <td><label for="images"></label>
+      <input type="file" name="images" id="images"> <span id="errimg" style="color:#F00;"></span></td>
+  </tr>
+  <tr>
+    <td valign="top"><strong>Status</strong></td>
+    <td><label for="status"></label>
+      <select name="status" id="status">
+        <option value="1" selected>Publish</option>
+        <option value="0">Unpublish</option>
+      </select></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td><input name="save" type="hidden" value="1"><input type="submit" name="Save" id="Save" value="Save"></td>
+  </tr>
+</table>
+</form>
+<script type="text/javascript">
+	{literal}
+	$(document).ready(function(){
+		var pola = "^";
+			pola+= "[0-9]*";
+			pola+= "$";
+			rx = new RegExp(pola);
+		
+		$('#insert').submit(function(){
+			var id = $('#id').val();
+			var name = $('#name').val();
+			var level = $('#level').val();
+			var persen = $('#persentase').val();
+			var img = $('#images').val();
+			if(id==''){$('#errid').html('Please enter ID!');$('#id').focus(); return false;}else{$('#errid').html('');}
+			if(!id.match(rx)){$('#errid').html('ID must be numeric!');$('#id').focus();return false;}else{$('#errid').html('');}
+			if(name==''){$('#errname').html('Please enter name!');$('#name').focus(); return false;}else{$('#errname').html('');}
+			if(level==''){$('#errlevel').html('Please enter level!');$('#level').focus(); return false;}else{$('#errlevel').html('');}
+			if(!level.match(rx)){$('#errlevel').html('Level must be numeric!');$('#level').focus(); return false;}else{$('#errlevel').html('');}
+			if(persen==''){$('#errpersen').html('Please enter persen!');$('#persentase').focus(); return false;}else{$('#errpersen').html('');}
+			if(!persen.match(rx)){$('#errpersen').html('Persentase must be numeric!');$('#persentase').focus(); return false;}else{$('#errpersen').html('');}
+			if(img==''){$('#errimg').html('Please enter images!');$('#images').focus(); return false;}else{$('#errimg').html('');}
+		});
+		
+		$('#id').blur(function(){
+			var id = $('#id').val();
+			if(id==''){$('#errid').html('Please enter ID!');$('#id').focus(); return false;}else{$('#errid').html('');}
+			if(!id.match(rx)){$('#errid').html('ID must be numeric!');$('#id').focus();return false;}else{$('#errid').html('');}
+				 $.ajax({
+					   type: "POST",
+					   url: "index.php?s=ultimate-car&act=cekid&id="+id,
+					   success: function(data){
+						   if(data==0){
+							$('#idstatus').html('<font color="green">Available</font>');
+						   }else{
+							 $('#id').focus();$('#idstatus').html('<font color="red">Already Used</font>');
+							 return false;  
+						   }
+					   }
+				});	
+		});
+		
+	});
+	
+{/literal}
+</script>

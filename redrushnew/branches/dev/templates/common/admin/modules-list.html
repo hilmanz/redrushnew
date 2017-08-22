@@ -1,0 +1,13 @@
+<p><strong>MODULES LIST</strong> </p>
+<table class="list" width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr class="head">
+    <td width="70%"><strong>Name</strong></td>
+    <td width="30%"><strong>Status</strong></td>
+  </tr>
+  {section name=i loop=$list}
+  <tr>
+    <td><a href="index.php?s=modules&act=edit&module={$list[i].name}">{$list[i].name|stripslashes}</a></td>
+    <td>{$list[i].status|stripslashes}</td>
+  </tr>
+  {/section}
+</table>

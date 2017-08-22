@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/sba/!svn/ver/53/branches/master/templates/Network/admin
+END
+commentlist.html
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/sba/!svn/ver/53/branches/master/templates/Network/admin/commentlist.html
+END
+commentEventslist.html
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/sba/!svn/ver/53/branches/master/templates/Network/admin/commentEventslist.html
+END
+list.html
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/sba/!svn/ver/53/branches/master/templates/Network/admin/list.html
+END

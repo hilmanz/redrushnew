@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/redrush/!svn/ver/904/branches/dev/templates/RedRushWeb/admin/reporting
+END
+email_compare.html
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/redrush/!svn/ver/833/branches/dev/templates/RedRushWeb/admin/reporting/email_compare.html
+END
+upload_chart.html
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/redrush/!svn/ver/904/branches/dev/templates/RedRushWeb/admin/reporting/upload_chart.html
+END
+qr_to_email.html
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/redrush/!svn/ver/826/branches/dev/templates/RedRushWeb/admin/reporting/qr_to_email.html
+END

@@ -1,0 +1,19 @@
+
+<h3>Brand Ambassadors</h3>
+{if $msg}<div class="notice">{$msg}</div>
+{/if}
+{section name=i loop=$list}
+<span style="float:left;width:160px;height:160px;">
+<table width="160" height="160">
+<tr><td>
+{if $list[i].img}<img src="{$list[i].img}"/>{else}<img src="images/no_photo_small.gif"/>
+{/if}
+</td></tr>
+<tr><td>Nama</td></tr>
+<tr><td>Ratings</td></tr>
+</table>
+</span>
+{/section}
+<div>
+{$pages}
+</div>

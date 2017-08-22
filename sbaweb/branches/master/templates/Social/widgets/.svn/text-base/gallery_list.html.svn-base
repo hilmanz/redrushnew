@@ -1,0 +1,13 @@
+<div class="title">
+            	<h1>Photo Gallery</h1>
+                <a href="?gallery=1" class="view-all">Lihat Semua</a>
+                </div>
+                <div class="content">
+                	<div class="gallery-small-2" style="text-align: center;">
+                	{section name=i loop=$list}
+                	
+                		<a href="?view=gallery&album={$list[i].album_id}"><img src="contents/gallery/{$list[i].owner_id|md5}/small_{$list[i].img}" /></a>
+                		
+                	{/section}
+                    </div>
+                </div>

@@ -1,0 +1,71 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body{
+	background:#000;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#333;
+	margin:0;
+	padding:0;
+}
+a{
+	color:#cc0000;
+}
+#wrapper-login{
+	background:url(../images/new/bg_login.jpg) center no-repeat;
+	min-height:500px;
+	overflow:hidden;
+}
+.login-form{
+	width:910px;
+	margin:0 auto;
+	padding:450px 0 0 0;
+}
+.login-form .login-here{
+	background:url(../images/login-here.png) no-repeat 0 5px;
+	width:199px;
+	height:27px;
+	display:block;
+	float:left;
+	margin:0 30px 0 0;
+}
+.login-form input[type=text],.login-form input[type=password]{
+	background:url(../images/bg_input.png) no-repeat;
+	width:228px;
+	height:27px;
+	margin:0 20px 0 0;
+	border:none;
+	float:left;
+	padding:0 5px;
+}
+.login-form .btn-login{
+	background:url(../images/btn_login.png) no-repeat;
+	width:137px;
+	height:39px;
+	float:left;
+	margin:-6px 0 0 -10px;
+	border:none;
+	cursor:pointer;
+}
+.login-form .btn-login:hover{
+	background:url(../images/btn_login_hover.png) no-repeat;
+}
+#footer-login{
+	width:910px;
+	clear:both;
+	margin:0 auto;
+	text-align:center;
+	padding:20px 0 0 0;
+	color:#666;
+}
+.link{
+	color:#cc0000;
+}
+.link a{
+	text-decoration:none;
+	padding:0 10px;
+}
+.link a:hover{
+	color:#903;
+}

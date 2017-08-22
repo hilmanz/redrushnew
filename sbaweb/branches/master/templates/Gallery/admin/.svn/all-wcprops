@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/sba/!svn/ver/211/branches/master/templates/Gallery/admin
+END
+edit_photo.html
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/sba/!svn/ver/211/branches/master/templates/Gallery/admin/edit_photo.html
+END
+comment.html
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/sba/!svn/ver/196/branches/master/templates/Gallery/admin/comment.html
+END
+update_album.html
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/sba/!svn/ver/99/branches/master/templates/Gallery/admin/update_album.html
+END
+manage_pic.html
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/sba/!svn/ver/211/branches/master/templates/Gallery/admin/manage_pic.html
+END
+update_form.html
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/sba/!svn/ver/3/branches/master/templates/Gallery/admin/update_form.html
+END
+insert_form.html
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/sba/!svn/ver/3/branches/master/templates/Gallery/admin/insert_form.html
+END
+manage_gallery.html
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/sba/!svn/ver/98/branches/master/templates/Gallery/admin/manage_gallery.html
+END
+view_pic_detail.html
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/sba/!svn/ver/19/branches/master/templates/Gallery/admin/view_pic_detail.html
+END

@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/sba/!svn/ver/242/branches/master/engines/Utility/PHPExcel/Shared/trend
+END
+logarithmicBestFitClass.php
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/sba/!svn/ver/242/branches/master/engines/Utility/PHPExcel/Shared/trend/logarithmicBestFitClass.php
+END
+polynomialBestFitClass.php
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/sba/!svn/ver/242/branches/master/engines/Utility/PHPExcel/Shared/trend/polynomialBestFitClass.php
+END
+exponentialBestFitClass.php
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/sba/!svn/ver/242/branches/master/engines/Utility/PHPExcel/Shared/trend/exponentialBestFitClass.php
+END
+linearBestFitClass.php
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/sba/!svn/ver/242/branches/master/engines/Utility/PHPExcel/Shared/trend/linearBestFitClass.php
+END
+trendClass.php
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/sba/!svn/ver/242/branches/master/engines/Utility/PHPExcel/Shared/trend/trendClass.php
+END
+powerBestFitClass.php
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/sba/!svn/ver/242/branches/master/engines/Utility/PHPExcel/Shared/trend/powerBestFitClass.php
+END
+bestFitClass.php
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/sba/!svn/ver/242/branches/master/engines/Utility/PHPExcel/Shared/trend/bestFitClass.php
+END

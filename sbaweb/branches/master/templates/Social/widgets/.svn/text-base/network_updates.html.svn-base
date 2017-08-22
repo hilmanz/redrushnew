@@ -1,0 +1,1 @@
+<div class="title">    <h1>Network Updates</h1>    <a href="?updates=1" class="view-all">Semua Update</a></div>	<div class="content"><div id="newsfeeds" class="span-4"></div></div><script>getNews({$user_id});</script>

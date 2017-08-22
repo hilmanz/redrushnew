@@ -1,0 +1,39 @@
+<meta http-equiv="refresh" content="900;url=logout.php">	
+	<div id="header" align="center" >
+        <div id="main-menu" class="verified">
+        	
+				<a href="?page=home&act=main" class="logo-head">&nbsp;</a>
+        	<ul>
+            	<li class="m1"><a href="?page=about" {if $page=='about'}class="current"{/if}>About Redrush</a></li>
+            	<li class="m2"><a href="?page=news" {if $page=='newsfeed'}class="current"{/if}>Newsfeed</a></li>
+            	<li class="m3"><a href="?page=garage&act=loading" {if $page=='garage'}class="current"{/if}>My Garage</a></li>
+            	<li class="m4a"><a href="?page=race" {if $page=='race'}class="current"{/if}>Race </a></li>
+            	<li class="m4"><a href="?page=getpoints" {if $page=='getpoints'}class="current"{/if}>Get Points</a></li>
+            	<li class="m5"><a href="?page=merchandise" {if $page=='merchandise'}class="current"{/if}>Redeem Merchandise</a></li>
+            	<li class="m6"><a href="?page=topuser" {if $page=='topuser'}class="current"{/if}>Top Users</a></li>
+            </ul>
+        </div> 
+    	<!--#main-menu -->
+        <div id="navigation">
+        	<div class="wrapper">
+            	<div id="user-info">
+                	<h1>Welcome {$user_name}, <span style="color:yellow"> {$verified} </span></h1>
+                </div>
+                <ul id="menu" class="menu main-nav" >
+                    <li>
+                    	<form action="?page=user&act=find_player" method="post"> 
+                        <input type="text"  name="search" id='txtsearchplayer' />
+                        <input type="submit" class="find" value="Find User" autocomplete="off" onClick="javascript:if(document.getElementById('txtsearchplayer').value!='')return true; return false"/>
+                    	</form>
+                    </li>
+                    <li><a href="?page=user&act=promo_ref&id={$register_id}&type=refer_friend">Refer a Friend</a></li>
+                    <li><a href="https://login.marlboro.co.id/Templates/updateprofilestart.aspx">Update Profile</a></li>
+                    <li><a href="?page=user&act=notification" style="width:85px; text-align:center;">Inbox <span class="count-message"></span></a></li>
+                    <li><a href="logout.php">Logout</a></li>
+          		</ul>
+              <script type="text/javascript">var menu=new menu.dd("menu");menu.init("menu","menuhover");</script> 
+           </div>
+        </div><!-- #navigation -->
+	</div> <!-- #header -->
+    
+            {include file="RedRushWeb/popup-update-profile.html"}

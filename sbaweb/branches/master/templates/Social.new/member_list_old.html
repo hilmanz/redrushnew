@@ -1,0 +1,17 @@
+
+<h3>Members</h3>
+{if $msg}<div class="notice">{$msg}</div>{/if}
+<div>
+<table width="100%">
+{section name=i loop=$list}
+<tr>
+	<td align="left" width="100">{if $list[i].small_img}<img src="{$list[i].small_img}"/>{else}<img src="images/no_photo_small.gif"/>{/if}</td>
+	<td align="left"><a href="?show=1&u={$list[i].id}">{$list[i].name|stripslashes|strip_tags}</a></td>
+	<td align="right">{if $list[i].user_id>0}<a href="?remove=1&u={$list[i].id}">Remove Friend</a>{else}<a href="?add=1&u={$list[i].id}">Add Friend</a>{/if}</td>
+</tr>
+{/section}
+</table>
+</div>
+<div>
+{$pages}
+</div>

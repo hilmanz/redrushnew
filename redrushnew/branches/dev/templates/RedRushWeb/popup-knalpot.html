@@ -1,0 +1,23 @@
+
+
+	<div id="popup-knalpot" class="partbar">
+		<a class="popup-close" href="#popup-knalpot">[x] Close</a>
+        <div class="content-popup">
+          <ul class="jcarousel-skin-tango list-sparepart-carousel">
+              {section name=i loop=$parts}
+               <li>
+                   <div class="sparepart-list">
+                    <div class="thumb-sparepart"><img src="img/sparepart/knalpot1.png" alt="" /></div>
+                    <div class="sparepart-detail">
+                        <span class="sparepart-name">LEVEL {$parts[i]->level}</span><br>
+                        <span class="sparepart-name" style="font-size:20px;">{$parts[i]->name}</span><br>
+                        <span class="sparepart-point">{if $parts[i]->ownPart eq 0} {$parts[i]->price} PTS. {else} PURCHASED {/if}</span>
+                        <a href="javascript:void(0)" part_id="{$parts[i]->id}" class="purchasePart {if $parts[i]->ownPart eq 0} buy-item {/if}" ></a>
+                    </div>
+                   </div>
+               </li>
+              {/section}
+          </ul>
+          </div>
+	</div>
+	<div class="backgroundPopup"></div>

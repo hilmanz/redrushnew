@@ -1,0 +1,69 @@
+<link type="text/css" href="css/smoothness/jquery-ui-1.8.11.custom.css" rel="Stylesheet" />	
+<script type="text/javascript" src="js/jquery-ui-1.8.11.custom.min.js"></script>
+<form id="fconfirm" class="konfirmasi-ba" method="post" action="index.php">
+                	<div class="row">
+                    	<label>To</label>
+                       
+                    </div>
+                    <div class="row" id="txt_recipient">
+                    <a href="#" onclick='$("#peoplepicker").dialog("open");return false;'>Choose Recipient(s)</a>
+                    </div>
+                    
+                    <div class="row">
+                    	<label>Subject</label>
+                       
+                    </div>
+                    <div class="row">
+                    	 <input name="subject" id="subject" type="text" value="" />
+                    </div>
+                    <div class="row">
+                    	<label>Message</label>
+                    </div>
+                    <div class="row">
+                    
+                       <textarea name="message" id="message" cols="40" rows="5"></textarea>
+                    </div>
+                    <div class="row">
+                   	 	<input type="hidden" value="" id="recipients" name="recipients" />
+						<input type="hidden" value="1" name="send_message" />
+						<input type="submit" value="Send" />
+                    </div>
+</form>
+<div id="peoplepicker" title="Choose Recipient(s)">
+<div  style="overflow:auto;height:330px">
+{section name=i loop=$ba}
+<input id="recipients[]" type="checkbox" value="{$ba[i].val}"/>{$ba[i].nama|stripslashes|strip_tags}<br/>
+{/section}
+</div>
+<a href="#" class="button" onclick="select_recipients();return false;">Select</a>
+</div>
+{literal}
+<script type="text/javascript">
+$("#peoplepicker").dialog({
+	height:'400',
+	autoOpen:false,
+	modal:true
+});
+
+function select_recipients(){
+	
+	var strName = "";
+	var strID = "";
+	var n=0;
+	$('input:checked').each(function() {
+		if(n>0){
+			strName+=",";
+			strID+=",";
+		}
+       var ss = $(this).val().split(',');
+       strName += ss[1];
+       strID += ss[0];
+       n++;
+      });
+    $("#txt_recipient").html(strName);
+    $("#recipients").val(strID);
+	$("#peoplepicker").dialog('close');
+    
+}
+</script>
+{/literal}

@@ -1,0 +1,33 @@
+<h3>Edit Player's Avatar</h3>
+{if $err}<span style="color:#F00;">{$err}</span>{/if}
+<form enctype="multipart/form-data" name="insertmerch" id="insert" method="post">
+<table width="100%" border="0" cellspacing="4" cellpadding="4">
+  <tr>
+    <td width="11%" valign="top"><strong>{$form.nickname}'s Avatar</strong></td>
+    <td width="89%">
+     	{if $form.img}
+   	 	<img src="../public_html/contents/avatar/small/{$form.img}" width="48px" height="48px" />
+    	{else}
+    	<img src="../public_html/img/thumb.jpg" />
+    	{/if}
+      <br />
+      <label for="images"></label>
+      <input type="file" name="images" id="images"> <span id="errimg" style="color:#F00;"></span></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td><input name="save" type="hidden" value="1"><input type="submit" name="Save" id="Save" value="Save"></td>
+  </tr>
+</table>
+</form>
+<script type="text/javascript">
+	{literal}
+	$(document).ready(function(){
+		$('#insert').submit(function(){
+			var img = $('#images').val();
+			if(img==''){$('#errimg').html('Please input avatar images!');$('#images').focus(); return false;}else{$('#errimg').html('');}
+		});
+	});
+	
+{/literal}
+</script>

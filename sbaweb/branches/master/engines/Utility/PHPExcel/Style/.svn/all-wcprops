@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/sba/!svn/ver/242/branches/master/engines/Utility/PHPExcel/Style
+END
+Border.php
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/sba/!svn/ver/242/branches/master/engines/Utility/PHPExcel/Style/Border.php
+END
+Alignment.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/sba/!svn/ver/242/branches/master/engines/Utility/PHPExcel/Style/Alignment.php
+END
+Color.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/sba/!svn/ver/242/branches/master/engines/Utility/PHPExcel/Style/Color.php
+END
+Borders.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/sba/!svn/ver/242/branches/master/engines/Utility/PHPExcel/Style/Borders.php
+END
+NumberFormat.php
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/sba/!svn/ver/242/branches/master/engines/Utility/PHPExcel/Style/NumberFormat.php
+END
+Conditional.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/sba/!svn/ver/242/branches/master/engines/Utility/PHPExcel/Style/Conditional.php
+END
+Fill.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/sba/!svn/ver/242/branches/master/engines/Utility/PHPExcel/Style/Fill.php
+END
+Font.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/sba/!svn/ver/242/branches/master/engines/Utility/PHPExcel/Style/Font.php
+END
+Protection.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/sba/!svn/ver/242/branches/master/engines/Utility/PHPExcel/Style/Protection.php
+END

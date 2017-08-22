@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/sba/!svn/ver/194/branches/master/templates/News/admin
+END
+comment.html
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/sba/!svn/ver/128/branches/master/templates/News/admin/comment.html
+END
+edit.html
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/sba/!svn/ver/194/branches/master/templates/News/admin/edit.html
+END
+new.html
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/sba/!svn/ver/173/branches/master/templates/News/admin/new.html
+END
+list.html
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/sba/!svn/ver/128/branches/master/templates/News/admin/list.html
+END

@@ -1,0 +1,344 @@
+{literal}
+<style>
+#challenge-finish-report{
+	margin: -200px 0 0 -225px;
+    width: 470px;
+	}
+#challenge-finish-report .entry{
+padding: 10px 30px 0;
+}
+#challenge-finish-report .title {
+    margin: 0 0 15px;
+    overflow: hidden;
+    padding: 0;
+}
+.vOff{
+visibility: hidden;
+}
+.vOn{
+visibility: visible;
+}
+</style>
+
+{/literal}
+<div id="main-container" class="bg-challenge">
+	<div class="wrapper">
+    {literal}
+        <noscript><h1 style="font-size:36px; color:#FFF; position:fixed; top:55%; left:37%;">Please Enable Your Javascript!</h1></noscript>
+    {/literal}
+    	<div id="countdown">
+        	<div class="panel-countdown">
+            	<div class="red-lamp lamp1"></div>
+            	<div class="red-lamp lamp2"></div>
+            	<div class="red-lamp lamp3"></div>
+            	<div class="red-lamp lamp4"></div>
+            	<div class="green-lamp lamp5"></div>
+            </div>
+        </div>
+    	<div id="containers">
+        	<div id="challenge-box">
+            	<div class="player-box">
+                    <div class="thumb">
+                        <a  href="index.php?page=garage"><img src="{if $player1.small_img eq ''} img/thumb.jpg {else} contents/avatar/small/{$player1.small_img} {/if}" /></a>
+                    </div><!-- .thumb -->
+                    <div class="caption">
+                        <span class="username">{$player1.name}</span>
+                    </div><!-- .caption -->
+                </div>
+                <div class="vs"></div>
+            	<div class="player-box">
+                    <div class="thumb">
+                        <a  href="index.php?page=garage&rtoken={$race_again_token}"><img src="{if $player2.small_img eq ''} img/thumb.jpg {else} contents/avatar/small/{$player2.small_img} {/if}" /></a>
+                    </div><!-- .thumb -->
+                    <div class="caption">
+                        <span class="username">{$player2.name}</span>
+                    </div><!-- .caption -->
+                </div>
+            </div>
+            <div class="box sircuit-name" id="circuit">  
+                <div class="entry">
+                    <div class="row">
+                        <h2>{$report.circuit_name}<span>&nbsp;Circuit</span></h2>
+                        <h3>{$report.circuit_desc}</h3>
+                    </div><!-- .row -->
+                </div><!-- .red-box -->
+            </div><!-- .sircuit-name -->  
+            <div class="logo">
+            	<a href="index.php">&nbsp;</a>
+            </div><!-- .logo -->
+            <div class="panel3" id="challenge-report">
+            	<div class="entry">
+                    <div class="title">
+                        <h1>Race Report</h1>
+                        <input name="race_sessid" type="hidden" value="{$report.race_sessid}" />
+                    </div><!-- .title -->
+                    <div class="scrollbar" style="overflow:auto">
+                    	<div class="box report" id="race-report" style="height:1000px;">
+                        {assign var=nom value=$total}
+						
+                        {section name=i loop=$report.txt step=-1}
+						{if $nom eq 1} <div class="row reportClass" style="display:block;color:yellow" prog1="{$report.user1_prog[i]}" prog2="{$report.user2_prog[i]}" id="rowreport{$nom}" ><p>{$report.txt[i]}</p></div>
+                        {else} <div class="row reportClass" style="display:none;" id="rowreport{$nom}" prog1="{$report.user1_prog[i]}" prog2="{$report.user2_prog[i]}"><p>{$report.txt[i]}</p></div>
+						{/if}
+                        {assign var=nom value=$nom-1}
+                        {/section}
+                        	
+                        </div><!-- .box -->
+                    </div><!-- .scrollbar -->
+				  <div class="wins" >
+                   <div style="width: 100%; text-align: left; padding-left: 55px; padding-top: 20px;" class="message">
+                   <a href="index.php?page=race" class="check-race-report2" style="display:none" >EXIT</a>
+				  </div>
+				   </div>
+                </div><!-- .entry -->
+            </div><!-- .panel -->
+			
+			<div class="panel3" id="challenge-finish-report" style="display:none">
+            	<div class="entry">
+                    <div class="title">
+                        <h1>Race Report</h1>
+                    </div><!-- .title -->
+                    {if $is_winner==1}
+                    <div class="wins">
+                        <div class="cup">
+                            <img src="img/trophy.png" />
+                        </div>
+                        <div class="message">
+                          <h1>You Win  !</h1>
+							<h2>Your Point<br /> + {$points} Pts <br />{$levelup}</h2>
+							<a href="index.php?page=race" class="check-race-report2"  >EXIT</a>
+							<a href="javascript:void(0)" class="check-report">See Race Report</a>
+                        </div>
+                    </div><!-- .wins -->
+					{elseif $is_winner==2}
+                    <div class="loser">
+                        <div class="cup">
+                            <img src="img/draw.png" />
+                        </div>
+                        <div class="message">
+                            <h1>DRAW  !</h1>
+						<a href="index.php?page=race" class="check-race-report2"  >EXIT</a>
+                        </div>
+                    </div>
+                    {else}
+                    <div class="loser">
+                        <div class="cup" style="margin:30px 0 0 0">
+                            <img src="img/lose.png" />
+                        </div>
+                        <div class="message" style="margin:0;">
+                            <h1>You LOSE  !</h1>
+							<h2 style="margin:10px 0; font-size:24px">Complete all parts<br> and <br> win against<br> ultimate car</h2>
+							<a style="font-size:40px" href="index.php?page=race" class="check-race-report2"  >EXIT</a>
+                        </div>
+                    </div>
+                    {/if}
+                </div><!-- .entry -->
+            </div><!-- .panel -->
+			
+            <div id="sidebar">
+            	<div class="entry">
+              		  {*}	
+                	<div class="box distance">
+                        <div class="titles">
+                            <h1>Distance</h1>
+                        </div><!-- .title -->  
+                        <div class="red-box">
+                        	<div class="row">
+                            	<p>{$report.circuit_distance}</p>
+                            </div><!-- .row -->
+                        </div><!-- .red-box -->
+                    </div><!-- .distance -->  
+                    {/*}
+                    <div id="circuit-progress">
+                    	<div class="titles">
+                        	<h1>RACE Indicator</h1>
+                        </div>
+                    	<div class="players">
+                        	<div class="username">{$player1.name}</div>
+                        	<div class="bar">
+                         	   <img class="progress prog1"  src="img/progress-bar.gif" width="10px" height="0%" />
+                               <div class="small-car prog1car small-{$bodyCarColorPlayer1}" style="position:absolute; bottom:0%"></div>
+                            </div>
+                        </div>
+                    	<div class="players">
+                        	<div class="username">{$player2.name}</div>
+                        	<div class="bar">
+                         	   <img class="progress prog2" src="img/progress-bar.gif" width="10px" height="0%" />
+                               <div class="small-car prog2car small-{$bodyCarColorPlayer2}" style="bottom:0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- .entry -->
+            </div><!-- #sidebar -->
+        </div><!-- #containers -->
+    </div><!-- .wrapper -->
+</div><!-- #main-container -->
+
+
+
+{literal}
+<script>
+$(document).ready(function() {
+	$(document).keydown(function(event) {
+		  if ( event.ctrlKey==true || event.keyCode == 123 || event.keyCode == 116 || event.keyCode == 8) {
+			 return false;
+		   }
+		});
+	$('#containers').hide();
+	var no = 0;
+	{/literal}
+	var maxNo = {if $total eq ''}50{else}{$total}{/if};
+	var user1 = {if $user1prog eq ''}50{else}{$user1prog}{/if};
+	var user2 = {if $user2prog eq ''}50{else}{$user2prog}{/if};
+	var fullLap=parseInt(user2);
+	if(user1>user2) fullLap = parseInt(user1);
+	
+	var user1prog = (((parseInt(user1)/fullLap))*90)/10;
+	var user2prog = (((parseInt(user2)/fullLap))*90)/10;
+	var user1name = '{$player1.name}';
+	var user2name = '{$player2.name}';
+	var user1car = {if $bodyCarColorPlayer1 eq 'default'}'red'{else}'{$bodyCarColorPlayer1}'{/if};
+	var user2car = {if $bodyCarColorPlayer2 eq 'default'}'blue'{else}'{$bodyCarColorPlayer2}'{/if};
+	//var totalProg1 = ( {$user1progTotal} + user1prog) / 10 ;
+	//var totalProg2 = ( {$user2progTotal} + user2prog) / 10 ;
+	{literal}
+	
+	var top=0;
+	var prog1 = 0;
+	var prog2 = 0;
+	var add1 = 0;
+
+	var searchFlagRacer;
+	var arrsearchFlagRacer;
+
+		$("#rowreport1").attr('style','color:yellow;text-align:center');
+		$("#rowreport1").animate({fontSize: "30px"});
+		
+	function lamp1(){
+		$('.lamp1').animate({opacity:0},0).delay(800).animate({opacity:1}, 800);
+	}
+	function lamp2(){
+		$('.lamp2').animate({opacity:0},0).delay(1600).animate({opacity:1}, 800);
+	}
+	function lamp3(){
+		$('.lamp3').animate({opacity:0},0).delay(2400).animate({opacity:1}, 800);
+	}
+	function lamp4(){
+		$('.lamp4').animate({opacity:0},0).delay(3200).animate({opacity:1}, 800);
+	}
+	function lamp5(){
+		$('.lamp5').animate({opacity:0},0).delay(4000).animate({opacity:1}, 800);
+
+	}
+	function racenow(){
+		//$('#countdown').delay(4800).animate({opacity:0}, 800);
+		$('#countdown').delay(4800).slideUp(200);
+		//$('#containers').animate({opacity:0},0).delay(4800).animate({opacity:1}, 800, function() {
+			$('#containers').delay(4800).show(200, function() {
+		startRace();
+	 
+	});  
+		
+	}
+	lamp1();
+	lamp2();
+	lamp3();
+	lamp4();
+	lamp5();
+	racenow();	
+		
+	function startRace(){	
+	var overtake = 0;
+	var refreshId = setInterval(function()
+	{
+		no++;
+		
+		if(no<=maxNo){ 
+		$('body').css('cursor', 'none');
+		$("#rowreport"+(no-1)).attr('style','color:#ccc; width:90%;  font-family: KlavikaLightCapsLight; text-transform:uppercase;');
+
+		if(no>1){
+			if ( $.browser.msie ) {
+				$("#rowreport"+no).attr('style','color:yellow; width:90%; font-size:30px;  text-align:center;font-family: KlavikaBold;text-transform:uppercase;');
+				$("#rowreport"+no).fadeIn(1000);
+			}else{
+				$("#rowreport"+no).attr('style','color:yellow; width:90%;  text-align:center;font-family: KlavikaBold;text-transform:uppercase;');
+				$("#rowreport"+no).animate({fontSize: "30px"});	
+			}
+		//prog1+=parseInt($("#rowreport"+(no)).attr('prog1'))+totalProg1;
+		//prog2+=parseInt($("#rowreport"+(no)).attr('prog2'))+totalProg2;
+		searchFlagRacer = $('#rowreport'+(no)+' p span').attr('class');
+		//hasAccident = $('#rowreport'+(no)+' p span').attr('class');
+		if(no>1 && no <= 8) $('.prog2car').html('<img src="img/topview/car_top_'+user2car+'_ot.png" />');
+		
+		if(no>8) $('.prog2car').html('<img src="img/topview/car_top_'+user2car+'.png" />');
+		
+		if(overtake==1){
+		$('.prog1car').html('<img src="img/topview/car_top_'+user1car+'.png" />');
+		overtake=0;
+		}
+		
+		if(searchFlagRacer){
+		arrsearchFlagRacer = searchFlagRacer.split('_');
+		if(arrsearchFlagRacer[0]=='takeover'){
+			if(arrsearchFlagRacer[1]==user1name) {add1 = 3;$('.prog1car').html('<img src="img/topview/car_top_'+user1car+'_ot.png" />');$('.prog1car').removeClass('small-'+user1car);$('.prog1car').fadeOut();}
+			overtake = 1;
+		}
+		
+		if(arrsearchFlagRacer[0]=='accident'){
+			if(arrsearchFlagRacer[1]==user1name) {$('.prog1car').html('<img src="img/topview/car_top_'+user1car+'_crash.png" />');$('.prog1car').removeClass('small-'+user1car);$('.prog1car').fadeOut();}
+			}
+		}
+		
+		
+		prog1+=parseInt(user1prog)+0.5+add1;
+		prog2+=parseInt(user2prog)+0.5;
+		if(add1==3) {add1=0;}	
+
+		$('.prog1car').fadeIn();
+		$('.prog1').height(prog1+'%');
+			if ( $.browser.msie ) {
+			$('.prog1car').attr('style','bottom: '+prog1+'%');
+			$('.prog2').height(prog2+'%');
+			$('.prog2car').attr('style','bottom:' +prog2+'%');
+			}else{
+				$('.prog1car').animate({"bottom": +prog1+'%'}, "slow");
+				$('.prog2').height(prog2+'%');
+				$('.prog2car').animate({"bottom": +prog2+'%'}, "slow");
+			}
+		}
+		
+		}
+		
+		if(no>maxNo){ 
+		$('body').css('cursor', 'pointer');
+		clearInterval(refreshId);
+		$('#challenge-report').fadeOut();
+		$('#challenge-finish-report').fadeIn();
+		
+		
+		}
+		
+		//if(no>=5 && no<=maxNo) $(".scrollbar-pane").attr('style','top:'+((top+=50)*(-1))+'px;left: 0px; position: absolute; overflow: visible; height: auto;');
+	
+		
+	}, 2000);
+	
+	}
+	
+	$('.check-report').click(function(){
+	$('#challenge-finish-report').fadeOut();
+	$('#challenge-report').fadeIn();
+	$('.check-race-report1').attr('style','display:inline-block;');
+	$('.check-race-report2').attr('style',' display: inline-block;float: right;padding-right: 45px;');
+	
+	});
+	
+
+	
+});</script>
+<script type="text/javascript" src="js/jquery.scroll.min.js"></script>
+<script type="text/javascript">
+  $('.scrollbar').scrollbar();
+</script>
+{/literal}

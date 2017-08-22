@@ -1,0 +1,27 @@
+
+<div id="popupInfo" style="left: 0">
+    <div id="popupInfo-content" >
+    
+    	<div class="popupborder " style="overflow:hidden; height:320px;">
+        		<div style="display:block;">
+                    <a class="popup-close" href="index.php?page=garage" style="right:18px; top:142px;">[x] Close</a>
+                        <h1 style="font-size:40px; color:#fff; margin:0 0 0 0"><a style="color:#fff;" href="index.php?page=garage">Check your Rush Points now!</a> </h1>
+<h2 style="font-size:30px; margin:15px 0 25px 0;"><span>We'll reach our finish line on June 30, 2012. <br />
+Now is time to redeem your points (points redemption still open till July 7, 2012). <br />
+Go ahead and get those exclusive merchandises home!</span></h2>
+</span></h2>
+
+<h2 style="font-size:24px; width:500px; margin:0 auto;" class="yellow"> 
+Thank you for participating in Marlboro RedRush. <br />
+Get ready for another exciting program from Marlboro! Ciao!</h2>
+                </div>
+        </div>
+    </div>
+</div>    
+{literal}   
+<style>
+#popupInfo-content .jScrollPaneTrack{
+left: 890px;
+}
+</style>
+{/literal}

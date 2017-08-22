@@ -1,0 +1,16 @@
+<div class="title">
+<h1>Top Performers</h1>
+   <a href="index.php?top_performers=1" class="view-all">Lihat Semua</a>
+   </div>
+   <div class="content">
+   {section name=i loop=$list}
+   	<div class="list">
+       	<a href="index.php?profile=1&profile_id={$list[i].id}"><img width="75" height="75" src="{if $list[i].small_img}{$list[i].small_img}{else}images/no_photo_small.gif{/if}"/></a>
+		<div class="text">
+			<a href="index.php?profile=1&profile_id={$list[i].id}" class="username">{$list[i].name|strip_tags}</a>
+			<span class="percent">{$list[i].progress|number_format}%</span>
+			<span class="daily" style="font-size:10px;">of monthly registrants Target</span>
+		</div>
+   </div>
+   {/section}
+	</div>

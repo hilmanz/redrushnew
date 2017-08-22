@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/sba/!svn/ver/2/branches/master/templates/article
+END
+landing.html
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/sba/!svn/ver/2/branches/master/templates/article/landing.html
+END
+archive.html
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/sba/!svn/ver/2/branches/master/templates/article/archive.html
+END
+content.html
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/sba/!svn/ver/2/branches/master/templates/article/content.html
+END

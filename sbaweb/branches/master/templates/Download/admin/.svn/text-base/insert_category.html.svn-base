@@ -1,0 +1,19 @@
+<h2>Insert Category</h2>
+<br/>
+
+<div>
+<form  method="post" action="" enctype="multipart/form-data">
+<table>
+<input type="hidden" name="s" value="download">
+<input type="hidden" name="insertcategory" value="1">
+	<tr>
+		<td>Nama Category</td>
+		<td><input type="text"  name="txtcategory"></td>
+	</tr>
+	<tr>
+		<td colspan="2"><input type="submit" value="Submit">
+		<input type="reset" value="Reset"></td>
+	</tr>
+</table>
+</form>
+</div>

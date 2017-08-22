@@ -1,0 +1,35 @@
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+	<td>
+    	<h1>MERCHANDISE STOCK LIST</h1>
+		<strong><a href="index.php?s=merchandise&act=addstock&id={$id}">Add Stock</a></strong> | <strong><a href="index.php?s=merchandise">Merchandise List</a></strong>
+    </td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="addlist zebra">
+  <tr>
+    <td width="3%" align=" "><strong>ID</strong></td>
+    <td align=" "><strong>Merchandise</strong></td>
+    <td align=" "><strong>Amount</strong></td>
+    <td align=" "><strong>Prizes</strong></td>
+    <td align=" "><strong>Input Date</strong></td>
+    <td align=" "><strong>Status</strong></td>
+    <td align=" " width="20%"><strong>Action</strong></td>
+  </tr>
+  {section name=n loop=$list}
+  <tr>
+  	
+    <td>{$list[n].id}</td>
+    <td>{$list[n].merch} {if $list[n].merch_img!=null}<br><img src="{$base_url}/img/merchandise/thumb_{$list[n].merch_img}" width="64px">{/if}</td>
+    <td align=" ">{$list[n].amount}</td>
+    <td align=" ">{$list[n].prize}</td>
+    <td align=" ">{$list[n].date}</td>
+    <td align=" ">{if $list[n].n_status eq 1}Publish{else}Unpublish{/if}</td>
+    <td align=" ">
+    <a href="index.php?s=merchandise&act=editstock&id={$list[n].id}&mid={$id}">Edit</a> | 
+    <a href="index.php?s=merchandise&act=deletestock&id={$list[n].id}&mid={$id}" onclick="return confirm('Are you sure you want to delete?')">Delete</a></td>
+  </tr>
+  {/section}
+</table>
+<div class="paging">{$paging}</div>

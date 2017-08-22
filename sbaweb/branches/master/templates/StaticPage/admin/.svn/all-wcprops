@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/sba/!svn/ver/2/branches/master/templates/StaticPage/admin
+END
+group_edit.html
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/sba/!svn/ver/2/branches/master/templates/StaticPage/admin/group_edit.html
+END
+list_by_group.html
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/sba/!svn/ver/2/branches/master/templates/StaticPage/admin/list_by_group.html
+END
+edit.html
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/sba/!svn/ver/2/branches/master/templates/StaticPage/admin/edit.html
+END
+group_new.html
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/sba/!svn/ver/2/branches/master/templates/StaticPage/admin/group_new.html
+END
+group_list.html
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/sba/!svn/ver/2/branches/master/templates/StaticPage/admin/group_list.html
+END
+index.html
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/sba/!svn/ver/2/branches/master/templates/StaticPage/admin/index.html
+END
+manage.html
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/sba/!svn/ver/2/branches/master/templates/StaticPage/admin/manage.html
+END
+new.html
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/sba/!svn/ver/2/branches/master/templates/StaticPage/admin/new.html
+END
+list.html
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/sba/!svn/ver/2/branches/master/templates/StaticPage/admin/list.html
+END

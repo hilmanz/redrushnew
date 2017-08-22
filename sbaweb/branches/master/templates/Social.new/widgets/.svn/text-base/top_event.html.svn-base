@@ -1,0 +1,13 @@
+<div class="title">
+            	<h1>Top Events</h1>
+                <a href="index.php?events=1" class="view-all">Lihat Semua</a>
+                </div>
+                <div class="content">
+                	<div class="list">
+                    	<a href="index.php?events=1&id=23"><img src="images/thumb/thumb-75x75-4.jpg" /></a>
+                        <div class="text">
+                        	<a href="index.php?events=1&id=23" class="title">Marlboro Light 
+							Style YourParty</a>
+                        </div>
+                    </div>
+                </div>
